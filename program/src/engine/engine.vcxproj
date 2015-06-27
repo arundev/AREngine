@@ -83,12 +83,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="arEngine.h" />
-    <ClInclude Include="arRenderer.h" />
+    <ClCompile Include="AREngine.cpp" />
+    <ClCompile Include="ARRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="arEngine.cpp" />
-    <ClCompile Include="arRenderer.cpp" />
+    <ClInclude Include="AREngine.h" />
+    <ClInclude Include="ARRenderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

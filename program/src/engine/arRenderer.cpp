@@ -1,26 +1,26 @@
-#include "arRenderer.h"
+#include "ARRenderer.h"
 
-arRenderer::arRenderer()
+ARRenderer::ARRenderer()
 {
 
 }
 
-arRenderer::~arRenderer()
+ARRenderer::~ARRenderer()
 {
 
 }
 
-bool arRenderer::init(int hInst, int hWnd)
+bool ARRenderer::init(int hInst, int hWnd)
 {
 	return true;
 }
 
-void arRenderer::update()
+void ARRenderer::update()
 {
 
 }
 
-void arRenderer::free()
+void ARRenderer::free()
 {
 
 }

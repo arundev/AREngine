@@ -1,22 +1,22 @@
-#include "arEngine.h"
+#include "AREngine.h"
 
-extern arEngine* gEngine = 0;
-extern arRenderer* gRenderer = 0;
+extern AREngine* gEngine = 0;
+extern ARRenderer* gRenderer = 0;
 
-arEngine::arEngine()
+AREngine::AREngine()
 {
 
 }
 
-arEngine::~arEngine()
+AREngine::~AREngine()
 {
 
 }
 
 
-bool arEngine::init(int hInst, int hWnd)
+bool AREngine::init(int hInst, int hWnd)
 {
-	gRenderer = new arRenderer();
+	gRenderer = new ARRenderer();
 	if (!gRenderer->init(hInst, hWnd))
 	{
 		return false;
@@ -26,14 +26,14 @@ bool arEngine::init(int hInst, int hWnd)
 	return true;
 }
 
-void arEngine::update()
+void AREngine::update()
 {
 	static int count = 0;
 	count++;
 	gRenderer->update();
 }
 
-void arEngine::free()
+void AREngine::free()
 {
 	gRenderer->free();
 	delete gRenderer;

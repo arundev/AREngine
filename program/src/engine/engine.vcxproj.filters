@@ -4,23 +4,23 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="arEngine.h" />
-    <ClInclude Include="arRenderer.h">
-      <Filter>render</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="arEngine.cpp" />
-    <ClCompile Include="arRenderer.cpp">
-      <Filter>render</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="render">
       <UniqueIdentifier>{cab783be-5b7a-4d37-b60e-6737d9c1fd64}</UniqueIdentifier>
     </Filter>
     <Filter Include="util">
       <UniqueIdentifier>{82ef3e10-c80a-43be-b9be-61df0b0dc2e0}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ARRenderer.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="AREngine.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ARRenderer.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="AREngine.h" />
   </ItemGroup>
 </Project>

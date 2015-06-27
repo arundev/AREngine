@@ -1,11 +1,11 @@
 #pragma once
 
 
-class arRenderer
+class ARRenderer
 {
 public:
-	arRenderer();
-	~arRenderer();
+	ARRenderer();
+	~ARRenderer();
 
 	bool init(int hInst, int hWnd);
 	void update();

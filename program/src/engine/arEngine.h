@@ -1,13 +1,13 @@
 #pragma once
 
-#include "arRenderer.h"
+#include "ARRenderer.h"
 
 // engine manager
-class arEngine
+class AREngine
 {
 public:
-	arEngine();
-	~arEngine();
+	AREngine();
+	~AREngine();
 	
 	bool init(int hInst, int hWnd);
 	void update();
@@ -16,5 +16,5 @@ public:
 
 
 // global variables in engine
-extern arEngine* gEngine;
-extern arRenderer* gRenderer;
+extern AREngine* gEngine;
+extern ARRenderer* gRenderer;
