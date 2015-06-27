@@ -1,0 +1,13 @@
+E:\work\WorkPlace\GameEngine\program\source\editor\bin\Release\editor.exe.config
+E:\work\WorkPlace\GameEngine\program\source\editor\bin\Release\editor.exe
+E:\work\WorkPlace\GameEngine\program\source\editor\bin\Release\editor.pdb
+E:\work\WorkPlace\GameEngine\program\source\editor\obj\Release\editor.csprojResolveAssemblyReference.cache
+E:\work\WorkPlace\GameEngine\program\source\editor\obj\Release\MainWindow.baml
+E:\work\WorkPlace\GameEngine\program\source\editor\obj\Release\MainWindow.g.cs
+E:\work\WorkPlace\GameEngine\program\source\editor\obj\Release\App.g.cs
+E:\work\WorkPlace\GameEngine\program\source\editor\obj\Release\editor_MarkupCompile.cache
+E:\work\WorkPlace\GameEngine\program\source\editor\obj\Release\editor.g.resources
+E:\work\WorkPlace\GameEngine\program\source\editor\obj\Release\editor.Properties.Resources.resources
+E:\work\WorkPlace\GameEngine\program\source\editor\obj\Release\editor.csproj.GenerateResource.Cache
+E:\work\WorkPlace\GameEngine\program\source\editor\obj\Release\editor.exe
+E:\work\WorkPlace\GameEngine\program\source\editor\obj\Release\editor.pdb
