@@ -85,14 +85,21 @@
   <ItemGroup>
     <ClCompile Include="AREngine.cpp" />
     <ClCompile Include="ARRenderer.cpp" />
+    <ClCompile Include="ARUtil.cpp" />
     <ClCompile Include="dx11\ARRendererDx11.cpp" />
     <ClCompile Include="es2\ARRendererEs2.cpp" />
+    <ClCompile Include="FileSystem.cpp" />
+    <ClCompile Include="Log.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AREngine.h" />
     <ClInclude Include="ARRenderer.h" />
+    <ClInclude Include="ARUtil.h" />
     <ClInclude Include="dx11\ARRendererDx11.h" />
+    <ClInclude Include="AREnginePCH.h" />
     <ClInclude Include="es2\ARRendererEs2.h" />
+    <ClInclude Include="FileSystem.h" />
+    <ClInclude Include="Log.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

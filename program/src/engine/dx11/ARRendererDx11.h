@@ -1,5 +1,7 @@
 #pragma once
-#include "..\ARRenderer.h"
+#include "../ARRenderer.h"
+
+#include "../AREnginePCH.h"
 
 class ARRenderDx11 : public ARRenderer
 {
@@ -11,5 +13,7 @@ public:
 	void update();
 	void free();
 
-private:
+protected:
+	ID3D11Device* mDevice;
+
 };

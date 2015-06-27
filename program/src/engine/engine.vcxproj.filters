@@ -28,6 +28,15 @@
     <ClCompile Include="es2\ARRendererEs2.cpp">
       <Filter>render\es2</Filter>
     </ClCompile>
+    <ClCompile Include="ARUtil.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSystem.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ARRenderer.h">
@@ -39,6 +48,16 @@
     </ClInclude>
     <ClInclude Include="es2\ARRendererEs2.h">
       <Filter>render\es2</Filter>
+    </ClInclude>
+    <ClInclude Include="ARUtil.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="AREnginePCH.h" />
+    <ClInclude Include="Log.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSystem.h">
+      <Filter>util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
