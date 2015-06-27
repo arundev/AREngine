@@ -10,17 +10,35 @@
     <Filter Include="util">
       <UniqueIdentifier>{82ef3e10-c80a-43be-b9be-61df0b0dc2e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="render\dx11">
+      <UniqueIdentifier>{5f41f7e3-4b25-46fd-9e2d-c7a66722bebc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render\es2">
+      <UniqueIdentifier>{a3a9bee7-4fdf-4e67-b7e1-04a54ef7af17}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ARRenderer.cpp">
       <Filter>render</Filter>
     </ClCompile>
     <ClCompile Include="AREngine.cpp" />
+    <ClCompile Include="dx11\ARRendererDx11.cpp">
+      <Filter>render\dx11</Filter>
+    </ClCompile>
+    <ClCompile Include="es2\ARRendererEs2.cpp">
+      <Filter>render\es2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ARRenderer.h">
       <Filter>render</Filter>
     </ClInclude>
     <ClInclude Include="AREngine.h" />
+    <ClInclude Include="dx11\ARRendererDx11.h">
+      <Filter>render\dx11</Filter>
+    </ClInclude>
+    <ClInclude Include="es2\ARRendererEs2.h">
+      <Filter>render\es2</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
