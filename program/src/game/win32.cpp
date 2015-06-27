@@ -2,7 +2,7 @@
 
 #include <windows.h>
 #include "win32.h"
-#include "arEngine.h"
+#include "AREngine.h"
 
 extern HINSTANCE gMainInst = NULL;
 extern HWND gMainWnd = NULL;

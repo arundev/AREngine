@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <stdio.h>
 
-class arEngine;
+class AREngine;
 
 extern HINSTANCE gMainInst;
 extern HWND gMainWnd;
