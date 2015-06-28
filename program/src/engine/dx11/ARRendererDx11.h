@@ -14,6 +14,7 @@ public:
 	void free();
 
 protected:
-	ID3D11Device* mDevice;
-
+	ID3D11Device* m_pDevice;
+	ID3D11Debug* m_pDebug;
+	D3D_FEATURE_LEVEL m_FeatureLevel;
 };

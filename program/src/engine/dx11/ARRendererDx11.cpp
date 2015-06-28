@@ -24,7 +24,7 @@ bool ARRenderDx11::init(int hInst, int hWnd)
 	// 创建DXGI对象
 	IDXGIFactory1* pFactory;
 	hr = CreateDXGIFactory1(__uuidof(IDXGIFactory), reinterpret_cast<void**>(pFactory));
-	if (hr == E_FAIL)
+	if (FAILED(hr))
 	{
 		return false;
 	}
@@ -47,7 +47,7 @@ bool ARRenderDx11::init(int hInst, int hWnd)
 #ifdef _DEBUG
 	createDeviceFlags |= D3D11_CREATE_DEVICE_DEBUG;
 #endif
-	D3D_FEATURE_LEVEL level[] = {};
+	D3D_FEATURE_LEVEL level[] = { D3D_FEATURE_LEVEL_10_0};
 	D3D_FEATURE_LEVEL CreatedLevel;
 
 	ID3D11DeviceContext* pDeveiceContext;
@@ -58,11 +58,27 @@ bool ARRenderDx11::init(int hInst, int hWnd)
 			D3D_DRIVER_TYPE_UNKNOWN,
 			nullptr,
 			createDeviceFlags,
+			level,
 			1,
-			D3D_SDK_VERSION,
-			&mDevice,
-			)
+			D3D11_SDK_VERSION,
+			&m_pDevice,
+			&CreatedLevel,
+			&pDeveiceContext
+			);
+
+		if (hr == S_OK)
+		{
+			break;
+		}
 	}
+
+	if (FAILED(hr))
+	{
+		Log::Get().Write(L"init renderer: failed to create d3d device");
+		return false;
+	}
+
+	m_FeatureLevel = m_pDevice->GetFeatureLevel();
 
 	return true;
 }

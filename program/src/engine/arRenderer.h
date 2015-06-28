@@ -7,9 +7,9 @@ public:
 	ARRenderer();
 	~ARRenderer();
 
-	bool init(int hInst, int hWnd);
-	void update();
-	void free();
+	virtual bool init(int hInst, int hWnd);
+	virtual void update();
+	virtual void free();
 
 private:
 
