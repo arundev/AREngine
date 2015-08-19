@@ -1,7 +1,7 @@
+#ifndef ENGINE_LOG_H
+#define ENGINE_LOG_H
 
-#pragma once
-
-#include "AREnginePCH.h"
+#include "engine_pch.h"
 
 class Log
 {
@@ -21,3 +21,5 @@ public:
 	bool Write(std::wstring& TextString);
 	bool WriteSeparater();
 };
+
+#endif // ENGINE_LOG_H

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ENGINE_FILE_SYSTEM_H
+#define ENGINE_FILE_SYSTEM_H
 
 #include <string>
 
@@ -7,9 +8,6 @@ class FileSystem
 public:
 	FileSystem();
 	~FileSystem();
-
-	bool OperatingOnVista();
-	bool OperatingOnXP();
 
 	std::wstring GetLogFolder();
 		
@@ -29,10 +27,11 @@ public:
 	bool FileIsNewer( const std::wstring& file1, const std::wstring& file2 );
 
 private:
-
-	static std::wstring sDataFolder;
-	static std::wstring sModelsSubFolder;
-	static std::wstring sScriptsSubFolder;
-	static std::wstring sShaderSubFolder;
-	static std::wstring sTextureSubFolder;
+	static std::wstring data_folder_;
+	static std::wstring models_sub_folder_;
+	static std::wstring scripts_sub_folder_;
+	static std::wstring shader_sub_folder_;
+	static std::wstring texture_sub_folder_;
 };
+
+#endif // FILE_SYSTEM_H

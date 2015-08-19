@@ -1,11 +1,11 @@
-#include "ARRendererEs2.h"
+#include "renderer_es2.h"
 
-ARRenderEs2::ARRenderEs2()
+RendererEs2::RendererEs2()
 {
 
 }
 
-ARRenderEs2::~ARRenderEs2()
+RendererEs2::~RendererEs2()
 {
 
 }
@@ -26,24 +26,24 @@ EGLint GetContextRenderableType(EGLDisplay eglDisplay)
 	return EGL_OPENGL_ES2_BIT;
 }
 
-bool ARRenderEs2::init(int hInst, int hWnd)
+bool RendererEs2::Init(int hInst, HWND hWnd)
 {
-	memset(&m_ESContext, 0, sizeof (ESContext));
-	m_ESContext.userData = malloc(sizeof(UserData));
-	m_ESContext.eglNativeWindow = (HWND)hWnd;
+	memset(&es_context_, 0, sizeof (ESContext));
+	es_context_.userData = malloc(sizeof(UserData));
+	es_context_.eglNativeWindow = (HWND)hWnd;
 
 	EGLConfig config;
 	EGLint majorVersion;
 	EGLint minorVersion;
 	EGLint contextAttributs[] = { EGL_CONTEXT_CLIENT_VERSION, 3, EGL_NONE };
 
-	m_ESContext.eglDisplay = eglGetDisplay(m_ESContext.eglNativeDisplay);
-	if (m_ESContext.eglDisplay == EGL_NO_DISPLAY)
+	es_context_.eglDisplay = eglGetDisplay(GetDC(hWnd));
+	if (es_context_.eglDisplay == EGL_NO_DISPLAY)
 	{
-		return false;
+		//return false;
 	}
 
-	if (!eglInitialize(m_ESContext.eglDisplay, &majorVersion, &minorVersion))
+	if (!eglInitialize(es_context_.eglDisplay, &majorVersion, &minorVersion))
 	{
 		return false;
 	}
@@ -60,11 +60,11 @@ bool ARRenderEs2::init(int hInst, int hWnd)
 		EGL_STENCIL_SIZE,	(flags & ES_WINDOW_STENCIL) ? 8 : EGL_DONT_CARE,
 		EGL_SAMPLE_BUFFERS, (flags & ES_WINDOW_MULTISAMPLE) ? 1 : 0,
 
-		EGL_RENDERABLE_TYPE, GetContextRenderableType(m_ESContext.eglDisplay),
+		EGL_RENDERABLE_TYPE, GetContextRenderableType(es_context_.eglDisplay),
 		EGL_NONE
 	};
 
-	if(!eglChooseConfig(m_ESContext.eglDisplay, attribList, &config, 1, &numConfigs))
+	if(!eglChooseConfig(es_context_.eglDisplay, attribList, &config, 1, &numConfigs))
 	{
 		return false;
 	}
@@ -77,12 +77,12 @@ bool ARRenderEs2::init(int hInst, int hWnd)
 	return true;
 }
 
-void ARRenderEs2::update()
+void RendererEs2::Update()
 {
 
 }
 
-void ARRenderEs2::free()
+void RendererEs2::Free()
 {
 
 }

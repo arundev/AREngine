@@ -1,28 +1,27 @@
-#include "ARRendererDx11.h"
+#include "renderer_dx11.h"
 
-#include "../Log.h"
+#include "../log.h"
 
-// Library imports
 #pragma comment( lib, "d3d11.lib" )
 #pragma comment( lib, "DXGI.lib" )
 
 
-ARRenderDx11::ARRenderDx11()
+RendererDx11::RendererDx11()
 {
 
 }
 
-ARRenderDx11::~ARRenderDx11()
+RendererDx11::~RendererDx11()
 {
 
 }
 
-bool ARRenderDx11::init(int hInst, int hWnd)
+bool RendererDx11::Init(int hInst, int hWnd)
 {
 	HRESULT hr = S_OK;
 
 	// 创建DXGI对象
-	IDXGIFactory1* pFactory;
+	IDXGIFactory1* pFactory = NULL;
 	hr = CreateDXGIFactory1(__uuidof(IDXGIFactory), reinterpret_cast<void**>(pFactory));
 	if (FAILED(hr))
 	{
@@ -61,7 +60,7 @@ bool ARRenderDx11::init(int hInst, int hWnd)
 			level,
 			1,
 			D3D11_SDK_VERSION,
-			&m_pDevice,
+			&device_,
 			&CreatedLevel,
 			&pDeveiceContext
 			);
@@ -74,21 +73,21 @@ bool ARRenderDx11::init(int hInst, int hWnd)
 
 	if (FAILED(hr))
 	{
-		Log::Get().Write(L"init renderer: failed to create d3d device");
+		Log::Get().Write(L"init renderer: failed to create d3d device_");
 		return false;
 	}
 
-	m_FeatureLevel = m_pDevice->GetFeatureLevel();
+	feature_level_ = device_->GetFeatureLevel();
 
 	return true;
 }
 
-void ARRenderDx11::update()
+void RendererDx11::Update()
 {
 
 }
 
-void ARRenderDx11::free()
+void RendererDx11::Free()
 {
 
 }

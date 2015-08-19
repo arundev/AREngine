@@ -1,7 +1,8 @@
-#pragma once
+#ifndef ENGINE_ES2_RENDERER_ES2_H
+#define ENGINE_ES2_RENDERER_ES2_H
 
-#include "..\AREnginePCH.h"
-#include "..\ARRenderer.h"
+#include "..\engine_pch.h"
+#include "..\renderer.h"
 
 
 typedef struct
@@ -32,37 +33,32 @@ struct ESContext
 	void (ESCALLBACK *updateFunc) (ESContext *, float deltaTime);
 };
 
-typedef struct
-{
-	// Handle to a program object
+typedef struct{
 	GLuint programObject;
 
 } UserData;
 
 
-/// esCreateWindow flag - RGB color buffer
 #define ES_WINDOW_RGB           0
-/// esCreateWindow flag - ALPHA color buffer
 #define ES_WINDOW_ALPHA         1
-/// esCreateWindow flag - depth buffer
 #define ES_WINDOW_DEPTH         2
-/// esCreateWindow flag - stencil buffer
 #define ES_WINDOW_STENCIL       4
-/// esCreateWindow flat - multi-sample buffer
 #define ES_WINDOW_MULTISAMPLE   8
 
 
 
-class ARRenderEs2 : public ARRenderer
+class RendererEs2 : public Renderer
 {
 public:
-	ARRenderEs2();
-	~ARRenderEs2();
+	RendererEs2();
+	~RendererEs2();
 
-	virtual bool init(int hInst, int hWnd);
-	virtual void update();
-	virtual void free();
+	virtual bool Init(int hInst, HWND hWnd);
+	virtual void Update();
+	virtual void Free();
 
 protected:
-	ESContext m_ESContext;
+	ESContext es_context_;
 };
+
+#endif // ENGINE_ES2_RENDERER_ES2_H

@@ -1,18 +1,12 @@
-#pragma once
-#include <windows.h>
 #include <stdio.h>
+#include <windows.h>
 
-class AREngine;
+class Engine;
 
-extern HINSTANCE gMainInst;
-extern HWND gMainWnd;
+extern HINSTANCE g_instance;
+extern HWND g_wnd;
 
-// initial win32
-bool createWnd(int width, int height, const char* title);
-
-// msg loop
-void msgLoop();
-
-// windows procc
-LRESULT WINAPI wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+bool CreateWnd(int width, int height, const char* title);
+void MsgLoop();
+LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 

@@ -1,59 +1,22 @@
 
-#include "FileSystem.h"
+#include "file_system.h"
 #include <shlobj.h>
 
+std::wstring FileSystem::data_folder_ = L"../Data/";
+std::wstring FileSystem::models_sub_folder_ = L"Models/";
+std::wstring FileSystem::scripts_sub_folder_ = L"Scripts/";
+std::wstring FileSystem::shader_sub_folder_ = L"Shaders/";
+std::wstring FileSystem::texture_sub_folder_ = L"Textures/";
 
-std::wstring FileSystem::sDataFolder = L"../Data/";
-std::wstring FileSystem::sModelsSubFolder = L"Models/";
-std::wstring FileSystem::sScriptsSubFolder = L"Scripts/";
-std::wstring FileSystem::sShaderSubFolder = L"Shaders/";
-std::wstring FileSystem::sTextureSubFolder = L"Textures/";
-//--------------------------------------------------------------------------------
 FileSystem::FileSystem()
 {
 }
-//--------------------------------------------------------------------------------
+
 FileSystem::~FileSystem()
 {
 }
-//--------------------------------------------------------------------------------
-bool FileSystem::OperatingOnVista()
-{
-	OSVERSIONINFO osver;
-	memset(&osver, 0, sizeof(OSVERSIONINFO));
-	osver.dwOSVersionInfoSize = sizeof( OSVERSIONINFO );
 
-	if (!GetVersionEx( &osver ))
-		return FALSE;
-
-	if (   osver.dwPlatformId == VER_PLATFORM_WIN32_NT
-		&& osver.dwMajorVersion >= 6  )
-		return TRUE;
-
-	return FALSE;
-}
-//--------------------------------------------------------------------------------
-bool FileSystem::OperatingOnXP()
-{
-	OSVERSIONINFO osver;
-	memset(&osver, 0, sizeof(OSVERSIONINFO));
-	osver.dwOSVersionInfoSize = sizeof( OSVERSIONINFO );
-
-	if (!GetVersionEx( &osver ))
-		return FALSE;
-
-	if (   osver.dwPlatformId == VER_PLATFORM_WIN32_NT
-		&& osver.dwMajorVersion >= 5  )
-		return TRUE;
-
-	return FALSE;
-
-//bIsWindowsXPorLater = 
-  // ( (osvi.dwMajorVersion > 5) ||
-   //( (osvi.dwMajorVersion == 5) && (osvi.dwMinorVersion >= 1) );
-}
-//--------------------------------------------------------------------------------
-std::wstring FileSystem::GetLogFolder( )
+std::wstring FileSystem::GetLogFolder()
 {
 	wchar_t buffer[MAX_PATH];
 
@@ -68,57 +31,57 @@ std::wstring FileSystem::GetLogFolder( )
 
 	return( result );
 }
-//--------------------------------------------------------------------------------
+
 std::wstring FileSystem::GetDataFolder()
 {
-	return( sDataFolder );
+	return( data_folder_ );
 }
-//--------------------------------------------------------------------------------
+
 std::wstring FileSystem::GetModelsFolder()
 {
-	return( sDataFolder + sModelsSubFolder );
+	return( data_folder_ + models_sub_folder_ );
 }
-//--------------------------------------------------------------------------------
+
 std::wstring FileSystem::GetScriptsFolder()
 {
-	return( sDataFolder + sScriptsSubFolder );
+	return( data_folder_ + scripts_sub_folder_ );
 }
-//--------------------------------------------------------------------------------
+
 std::wstring FileSystem::GetShaderFolder()
 {
-	return( sDataFolder + sShaderSubFolder );
+	return( data_folder_ + shader_sub_folder_ );
 }
-//--------------------------------------------------------------------------------
+
 std::wstring FileSystem::GetTextureFolder()
 {
-	return( sDataFolder + sTextureSubFolder );
+	return( data_folder_ + texture_sub_folder_ );
 }
-//--------------------------------------------------------------------------------
+
 void FileSystem::SetDataFolder( const std::wstring& folder )
 {
-	sDataFolder = folder;
+	data_folder_ = folder;
 }
-//--------------------------------------------------------------------------------
+
 void FileSystem::SetModelsFolder( const std::wstring& folder )
 {
-	sModelsSubFolder = folder;
+	models_sub_folder_ = folder;
 }
-//--------------------------------------------------------------------------------
+
 void FileSystem::SetScriptsFolder( const std::wstring& folder )
 {
-	sScriptsSubFolder = folder;
+	scripts_sub_folder_ = folder;
 }
-//--------------------------------------------------------------------------------
+
 void FileSystem::SetShaderFolder( const std::wstring& folder )
 {
-	sShaderSubFolder = folder;
+	shader_sub_folder_ = folder;
 }
-//--------------------------------------------------------------------------------
+
 void FileSystem::SetTextureFolder( const std::wstring& folder )
 {
-	sTextureSubFolder = folder;
+	texture_sub_folder_ = folder;
 }
-//--------------------------------------------------------------------------------
+
 bool FileSystem::FileExists( const std::wstring& file )
 {
 	// Check if the file exists, and that it is not a directory
@@ -127,7 +90,7 @@ bool FileSystem::FileExists( const std::wstring& file )
 
 	return (dwAttrib != INVALID_FILE_ATTRIBUTES && !(dwAttrib & FILE_ATTRIBUTE_DIRECTORY));
 }
-//--------------------------------------------------------------------------------
+
 bool FileSystem::FileIsNewer( const std::wstring& file1, const std::wstring& file2 )
 {
 	// This method assumes that the existance of the files has already been verified!
@@ -189,4 +152,3 @@ bool FileSystem::FileIsNewer( const std::wstring& file1, const std::wstring& fil
 
 	return( false );
 }
-//--------------------------------------------------------------------------------

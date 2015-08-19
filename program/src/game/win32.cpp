@@ -1,29 +1,26 @@
-#pragma once
-
 #include <windows.h>
 #include "win32.h"
-#include "AREngine.h"
+#include "engine.h"
 
-extern HINSTANCE gMainInst = NULL;
-extern HWND gMainWnd = NULL;
+extern HINSTANCE g_instance = NULL;
+extern HWND g_wnd = NULL;
 
-bool createWnd(int width, int height, const char* title)
-{
+bool CreateWnd(int width, int height, const char* title){
 	WNDCLASS wndclass = { 0 };
 	DWORD    wStyle = 0;
 	RECT     windowRect;
 	HINSTANCE hInstance = GetModuleHandle(NULL);
 
 	wndclass.style = CS_OWNDC;
-	wndclass.lpfnWndProc = (WNDPROC)wndProc;
+	wndclass.lpfnWndProc = (WNDPROC)WndProc;
 	wndclass.hInstance = hInstance;
 	wndclass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
 	wndclass.lpszClassName = "opengles2.0";
 
-	if (!RegisterClass(&wndclass))
-	{
-		return false;
+	if (!RegisterClass(&wndclass)){
+		return FALSE;
 	}
+
 
 	wStyle = WS_VISIBLE | WS_POPUP | WS_BORDER | WS_SYSMENU | WS_CAPTION;
 
@@ -33,10 +30,8 @@ bool createWnd(int width, int height, const char* title)
 	windowRect.top = 0;
 	windowRect.right = width;
 	windowRect.bottom = height;
-
 	AdjustWindowRect(&windowRect, wStyle, FALSE);
-
-	gMainWnd = CreateWindow(
+	g_wnd = CreateWindow(
 		"opengles2.0",
 		title,
 		wStyle,
@@ -48,20 +43,22 @@ bool createWnd(int width, int height, const char* title)
 		NULL,
 		hInstance,
 		NULL);
-	if (gMainWnd == NULL)
-	{
+
+	// Set the ESContext* to the GWL_USERDATA so that it is available to the 
+	// ESWindowProc
+	//SetWindowLongPtr(g_wnd, GWL_USERDATA, (LONG)(LONG_PTR)esContext);
+
+
+	if (g_wnd == NULL){
 		return false;
 	}
 
-	ShowWindow(gMainWnd, TRUE);
-	
-	gMainInst = hInstance;
+	ShowWindow(g_wnd, TRUE);
 
 	return true;
 }
 
-void msgLoop()
-{
+void MsgLoop(){
 	MSG msg = { 0 };
 	int done = 0;
 	DWORD lastTime = GetTickCount();
@@ -79,9 +76,9 @@ void msgLoop()
 			{
 				done = 1;
 
-				gEngine->free();
-				delete gEngine;
-				gEngine = 0;
+				g_engine->Free();
+				delete g_engine;
+				g_engine = 0;
 			}
 			else
 			{
@@ -91,34 +88,28 @@ void msgLoop()
 		}
 		else
 		{
-			gEngine->update();
+			g_engine->Update();
 		}
 	}
 }
 
-LRESULT WINAPI wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
+LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 	LRESULT  lRet = 1;
 
-	switch (uMsg)
-	{
+	switch (uMsg){
 		case WM_CREATE:
 			break;
 		case WM_PAINT:
-		{
-			ValidateRect(gMainWnd, NULL);
-		}
-		break;
+			ValidateRect(g_wnd, NULL);
+			break;
 		case WM_DESTROY:
 			PostQuitMessage(0);
-		break;
+			break;
 		case WM_CHAR:
-		{
-		}
-		break;
+			break;
 		default:
 			lRet = DefWindowProc(hWnd, uMsg, wParam, lParam);
-		break;
+			break;
 	}
 
 	return lRet;

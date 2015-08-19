@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="render">
       <UniqueIdentifier>{cab783be-5b7a-4d37-b60e-6737d9c1fd64}</UniqueIdentifier>
     </Filter>
@@ -18,46 +15,49 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ARRenderer.cpp">
+    <ClCompile Include="engine.cc" />
+    <ClCompile Include="util.cc">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="file_system.cc">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="log.cc">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer.cc">
       <Filter>render</Filter>
     </ClCompile>
-    <ClCompile Include="AREngine.cpp" />
-    <ClCompile Include="dx11\ARRendererDx11.cpp">
-      <Filter>render\dx11</Filter>
-    </ClCompile>
-    <ClCompile Include="es2\ARRendererEs2.cpp">
+    <ClCompile Include="es2\renderer_es2.cc">
       <Filter>render\es2</Filter>
     </ClCompile>
-    <ClCompile Include="ARUtil.cpp">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="Log.cpp">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="FileSystem.cpp">
-      <Filter>util</Filter>
+    <ClCompile Include="dx11\renderer_dx11.cc">
+      <Filter>render\dx11</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ARRenderer.h">
+    <ClInclude Include="util.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="file_system.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="log.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.h">
       <Filter>render</Filter>
     </ClInclude>
-    <ClInclude Include="AREngine.h" />
-    <ClInclude Include="dx11\ARRendererDx11.h">
-      <Filter>render\dx11</Filter>
-    </ClInclude>
-    <ClInclude Include="es2\ARRendererEs2.h">
+    <ClInclude Include="es2\renderer_es2.h">
       <Filter>render\es2</Filter>
     </ClInclude>
-    <ClInclude Include="ARUtil.h">
-      <Filter>util</Filter>
+    <ClInclude Include="dx11\renderer_dx11.h">
+      <Filter>render\dx11</Filter>
     </ClInclude>
-    <ClInclude Include="AREnginePCH.h" />
-    <ClInclude Include="Log.h">
-      <Filter>util</Filter>
-    </ClInclude>
-    <ClInclude Include="FileSystem.h">
-      <Filter>util</Filter>
-    </ClInclude>
+    <ClInclude Include="engine_pch.h" />
+    <ClInclude Include="engine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="rend_me.txt" />
   </ItemGroup>
 </Project>

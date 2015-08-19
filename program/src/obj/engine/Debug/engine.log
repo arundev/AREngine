@@ -1,0 +1,22 @@
+﻿Build started 8/19/2015 1:54:07 PM.
+     1>Project "F:\workplace\my\AREngine\program\src\engine\engine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IF:\workplace\my\AREngine\program\src\..\lib\opengles\include /ZI /nologo /W3 /WX /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\\" /Fd"F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt file_system.cc log.cc
+         file_system.cc
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         log.cc
+       Lib:
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"F:\workplace\my\AREngine\program\src\\..\bin\win32\engine_d.lib" /NOLOGO F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\engine.obj
+         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\renderer.obj
+         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\util.obj
+         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\renderer_dx11.obj
+         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\renderer_es2.obj
+         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\file_system.obj
+         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\log.obj
+         engine.vcxproj -> F:\workplace\my\AREngine\program\src\\..\bin\win32\engine_d.lib
+     1>Done Building Project "F:\workplace\my\AREngine\program\src\engine\engine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.91
