@@ -4,8 +4,7 @@
 #include "engine_pch.h"
 #include "renderer.h"
 
-class Engine
-{
+class Engine{
 public:
 	Engine();
 	~Engine();

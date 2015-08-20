@@ -3,6 +3,9 @@
 
 #include "..\engine_pch.h"
 #include "..\renderer.h"
+#include <GLES2/gl2.h>
+#include <EGL/egl.h>
+#include <EGL/egl.h>
 
 #define ES_WINDOW_RGB           0
 #define ES_WINDOW_ALPHA         1
@@ -11,8 +14,7 @@
 #define ES_WINDOW_MULTISAMPLE   8
 
 
-class RendererEs2 : public Renderer
-{
+class RendererEs2 : public Renderer{
 public:
 	RendererEs2();
 	~RendererEs2();

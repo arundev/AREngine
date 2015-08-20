@@ -1,14 +1,14 @@
 #ifndef ENGINE_ENGINE_PCH_H
 #define ENGINE_ENGINE_PCH_H
 
-// Standard C Library includes
+// standard c lib
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <memory>
 #include <assert.h>
 
-// Standard C++ Library includes
+// standard c++ lib
 #include <fstream>
 #include <string>
 #include <map>
@@ -19,14 +19,19 @@
 #include <vector>
 #include <exception>
 
-// OpenGL ES includes
-#include <GLES2/gl2.h>
-#include <EGL/egl.h>
-#include <EGL/egl.h>
+// windows
+#if _WIN32
+#include <Windows.h>
+#endif
 
+// android
+
+// ios
+
+// engine
 #include "util.h"
 
-
+// util macro
 #define SAFE_RELEASE( x ) {if(x){(x)->Release();(x)=NULL;}}
 #define SAFE_DELETE( x ) {if(x){delete (x);(x)=NULL;}}
 #define SAFE_DELETE_ARRAY( x ) {if(x){delete[] (x);(x)=NULL;}}
@@ -41,13 +46,6 @@
 #define ESUTIL_API
 #define ESCALLBACK
 #endif
-
-
-#define ES_WINDOW_RGB           0
-#define ES_WINDOW_ALPHA         1
-#define ES_WINDOW_DEPTH         2
-#define ES_WINDOW_STENCIL       4
-#define ES_WINDOW_MULTISAMPLE   8
 
 #ifndef FALSE
 #define FALSE 0

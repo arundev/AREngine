@@ -14,8 +14,7 @@
 #include <d3d11.h>  
 #include <d3dx10math.h> 
 
-class RendererDx11 : public Renderer
-{
+class RendererDx11 : public Renderer{
 public:
 	RendererDx11();
 	~RendererDx11();

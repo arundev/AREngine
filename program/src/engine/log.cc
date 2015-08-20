@@ -26,10 +26,14 @@ bool Log::Open()
 bool Log::Write( const wchar_t *cTextString )
 {
 	AppLog << cTextString << "\n";
-#if _DEBUG
-	::OutputDebugStringW( cTextString );
-	::OutputDebugStringW( L"\n" );
+
+#if _WIN32
+#if _DEBUG 
+	::OutputDebugStringW(cTextString);
+	::OutputDebugStringW(L"\n");
 #endif
+#endif
+
 	return( true );
 }
 

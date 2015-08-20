@@ -1,33 +1,14 @@
 #include "renderer_es2.h"
 
-RendererEs2::RendererEs2()
-{
+RendererEs2::RendererEs2(){
 
 }
 
-RendererEs2::~RendererEs2()
-{
+RendererEs2::~RendererEs2(){
 
-}
-
-EGLint GetContextRenderableType(EGLDisplay eglDisplay)
-{
-#ifdef EGL_KHR_create_context
-	const char *extensions = eglQueryString(eglDisplay, EGL_EXTENSIONS);
-
-	// check whether EGL_KHR_create_context is in the extension string
-	if (extensions != NULL && strstr(extensions, "EGL_KHR_create_context"))
-	{
-		// extension is supported
-		return EGL_OPENGL_ES3_BIT_KHR;
-	}
-#endif
-	// extension is not supported
-	return EGL_OPENGL_ES2_BIT;
 }
 
 bool RendererEs2::DoInit(){
-	
 	if (!CreateContext())
 	{
 		return false;
@@ -166,8 +147,7 @@ void RendererEs2::Update(){
 	eglSwapBuffers(es_context_.eglDisplay, es_context_.eglSurface);
 }
 
-void RendererEs2::Free()
-{
+void RendererEs2::Free(){
 
 }
 
