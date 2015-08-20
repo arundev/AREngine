@@ -19,15 +19,10 @@
 #include <vector>
 #include <exception>
 
-// DirectX includes
-#include <d3d11_1.h>
-#include <d3dCompiler.h>
-#include <wrl.h>
-
 // OpenGL ES includes
-#include <GLES3/gl3.h>
+#include <GLES2/gl2.h>
 #include <EGL/egl.h>
-#include <EGL/eglext.h>
+#include <EGL/egl.h>
 
 #include "util.h"
 

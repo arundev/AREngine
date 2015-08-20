@@ -44,16 +44,13 @@ bool CreateWnd(int width, int height, const char* title){
 		hInstance,
 		NULL);
 
-	// Set the ESContext* to the GWL_USERDATA so that it is available to the 
-	// ESWindowProc
-	//SetWindowLongPtr(g_wnd, GWL_USERDATA, (LONG)(LONG_PTR)esContext);
-
 
 	if (g_wnd == NULL){
 		return false;
 	}
-
 	ShowWindow(g_wnd, TRUE);
+
+	g_instance = hInstance;
 
 	return true;
 }

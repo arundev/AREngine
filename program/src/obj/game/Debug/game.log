@@ -1,4 +1,4 @@
-﻿Build started 8/19/2015 5:14:43 PM.
+﻿Build started 8/20/2015 1:41:59 PM.
      1>Project "F:\workplace\my\AREngine\program\src\game\game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\engine /IF:\workplace\my\AREngine\program\src\..\lib\opengles\include /ZI /nologo /W3 /WX /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\\" /Fd"F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp win32.cpp
@@ -6,11 +6,11 @@
          main.cpp
          Generating Code...
        Link:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\workplace\my\AREngine\program\src\\..\lib\opengles\lib /LIBPATH:F:\workplace\my\AREngine\program\src\\..\bin\win32 libGLESv2.lib libEGL.lib engine_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.lib" /MACHINE:X86 F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\main.obj
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\workplace\my\AREngine\program\src\\..\bin\win32 /LIBPATH:F:\workplace\my\AREngine\program\src\..\lib\opengles\lib libGLESv2.lib libEGL.lib engine_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.lib" /MACHINE:X86 F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\main.obj
          F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\win32.obj
          game.vcxproj -> F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exe
      1>Done Building Project "F:\workplace\my\AREngine\program\src\game\game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.18
+Time Elapsed 00:00:01.52

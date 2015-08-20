@@ -2,16 +2,15 @@
 #define ENGINE_ENGINE_H
 
 #include "engine_pch.h"
-
-class Renderer;
+#include "renderer.h"
 
 class Engine
 {
 public:
 	Engine();
 	~Engine();
-	
-	bool Init(int hInst, HWND hWnd);
+
+	bool Init(const Renderer::Window& param);
 	void Update();
 	void Free();
 };
