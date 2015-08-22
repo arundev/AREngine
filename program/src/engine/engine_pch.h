@@ -42,6 +42,7 @@
 #ifdef WIN32
 #define ESUTIL_API  __cdecl
 #define ESCALLBACK  __cdecl
+#define RENDERER_DX_11
 #else
 #define ESUTIL_API
 #define ESCALLBACK
@@ -53,5 +54,9 @@
 #ifndef TRUE
 #define TRUE 1
 #endif
+ 
+
+extern Engine* g_engine;
+extern Renderer* g_renderer;
 
 #endif // ENGINE_ENGINE_PCH_H

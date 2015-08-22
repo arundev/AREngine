@@ -45,7 +45,6 @@ bool RendererDx11::DoInit(){
 	unsigned int numerator;
 	unsigned int denominator;
 	unsigned int string_length;
-
 	hr = adapter_output->GetDisplayModeList(DXGI_FORMAT_B8G8R8A8_UNORM, DXGI_ENUM_MODES_INTERLACED, &num_mode, NULL);
 	if (FAILED(hr)){
 		return false;
@@ -76,12 +75,9 @@ bool RendererDx11::DoInit(){
 		return false;
 	}
 
-	delete[] display_mode_list;
-	display_mode_list = NULL;
-	adapter_output->Release();
-	adapter_output = NULL;
-	factory->Release();
-	factory = NULL;
+	SAFE_DELETE_ARRAY(display_mode_list);
+	SAFE_RELEASE(adapter_output);
+	SAFE_RELEASE(factory);
 
 	DXGI_SWAP_CHAIN_DESC swap_chain_desc;
 	D3D_FEATURE_LEVEL feature_level;
@@ -109,7 +105,6 @@ bool RendererDx11::DoInit(){
 	swap_chain_desc.Flags = 0;
 
 	feature_level = D3D_FEATURE_LEVEL_11_0;
-	
 	hr = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, 0, &feature_level, 1,
 		D3D11_SDK_VERSION, &swap_chain_desc, &swap_chain_, &device_, NULL, &device_context_);
 	if (FAILED(hr)){

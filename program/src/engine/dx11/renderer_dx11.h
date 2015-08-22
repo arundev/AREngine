@@ -22,6 +22,13 @@ public:
 	virtual void Update();
 	virtual void Free();
 
+	ID3D11Device* device(){ return device_; }
+	ID3D11DeviceContext* device_context(){ return device_context_; }
+	ID3D11RenderTargetView* render_target_view(){ return render_target_view_; }
+	D3DXMATRIX& mat_world(){ return mat_world_; }
+	D3DXMATRIX& mat_projection(){ return mat_projection_; }
+	D3DXMATRIX& mat_ortho(){ return mat_ortho_; }
+
 protected:
 	virtual bool DoInit();
 

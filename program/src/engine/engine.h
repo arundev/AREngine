@@ -15,7 +15,4 @@ public:
 };
 
 
-extern Engine* g_engine;
-extern Renderer* g_renderer;
-
 #endif // ENGINE_ENGINE_H

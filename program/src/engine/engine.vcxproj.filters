@@ -13,6 +13,15 @@
     <Filter Include="render\es2">
       <UniqueIdentifier>{a3a9bee7-4fdf-4e67-b7e1-04a54ef7af17}</UniqueIdentifier>
     </Filter>
+    <Filter Include="input">
+      <UniqueIdentifier>{aaaac013-aba4-4762-b2de-b620e1566975}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{fd1415de-a7d7-41e2-83c7-fbce70e56e10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render\mesh">
+      <UniqueIdentifier>{5986acc2-db73-41fd-b67d-dee3d018911c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine.cc" />
@@ -33,6 +42,24 @@
     </ClCompile>
     <ClCompile Include="dx11\renderer_dx11.cc">
       <Filter>render\dx11</Filter>
+    </ClCompile>
+    <ClCompile Include="math\math.cc">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh\geometry.cc">
+      <Filter>render\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh\material.cc">
+      <Filter>render\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh\mesh.cc">
+      <Filter>render\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="math\vector.cc">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matrix.cc">
+      <Filter>math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +83,24 @@
     </ClInclude>
     <ClInclude Include="engine_pch.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="math\math.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh\geometry.h">
+      <Filter>render\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh\material.h">
+      <Filter>render\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh\mesh.h">
+      <Filter>render\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="math\vector.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matrix.h">
+      <Filter>math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />
