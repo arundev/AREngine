@@ -56,12 +56,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\engine;$(SolutionDir)..\lib\opengles\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\engine;$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\bin\win32;$(SolutionDir)..\lib\opengles\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\bin\win32;$(SolutionDir)..\lib\opengles\lib;$(SolutionDir)..\lib\dxsdk\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>libGLESv2.lib;libEGL.lib;engine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -72,13 +72,13 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\engine;$(SolutionDir)..\lib\opengles\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\engine;$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\lib\opengles\lib;$(SolutionDir)\..\bin\win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\lib\opengles\lib;$(SolutionDir)\..\bin\win32;$(SolutionDir)..\lib\dxsdk\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>libGLESv2.lib;libEGL.lib;engine_r.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

@@ -16,7 +16,18 @@ Mesh::~Mesh(){
 Mesh* Mesh::CreateTriangle(){
 	Mesh* mesh = new Mesh();
 
-
+	Geometry::Vertex* vertices = new Geometry::Vertex[3];
+	vertices[0].position = math::Vector(-1.0f, -1.0f, 0.0f, 1.0f);  // Bottom left.
+	vertices[0].color = math::Vector(0.0f, 1.0f, 0.0f, 1.0f);
+	vertices[1].position = math::Vector(0.0f, 1.0f, 0.0f, 1.0f);  // Top middle.
+	vertices[1].color = math::Vector(0.0f, 1.0f, 0.0f, 1.0f);
+	vertices[2].position = math::Vector(1.0f, -1.0f, 0.0f, 1.0f);  // Bottom right.
+	vertices[2].color = math::Vector(0.0f, 1.0f, 0.0f, 1.0f);
+	int* indices = new int[3];
+	indices[0] = 0;  // Bottom left.
+	indices[1] = 1;  // Top middle.
+	indices[2] = 2;  // Bottom right.
+	mesh->geometry()->Create(vertices, 3, indices, 3);
 
 	return mesh;
 }
@@ -28,7 +39,6 @@ Mesh* Mesh::CreateCube(){
 
 bool Mesh::Init(){
 	Free();
-
 	geometry_ = new Geometry();
 	material_ = new Material();
 

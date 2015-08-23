@@ -45,7 +45,6 @@ private:
 	ID3D11DepthStencilState* depth_stencil_state_;
 	ID3D11DepthStencilView* depth_stencil_view_;
 	ID3D11RasterizerState* raster_state_;
-	ID3D11Debug* debug_;
 	D3D_FEATURE_LEVEL feature_level_;
 	int video_card_memory;
 	char video_card_description[128];

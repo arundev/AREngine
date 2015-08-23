@@ -20,12 +20,8 @@ bool Geometry::Create(Vertex* vertex_data, int vertex_num, int* index_data, int 
 		return false;
 	}
 	RendererDx11* renderer_dx11 = dynamic_cast<RendererDx11*>(g_renderer);
-	if (renderer_dx11 == NULL){
-		return false;
-	}
-
-
 	ID3D11Device* device = renderer_dx11->device();
+
 	vertex_num_ = vertex_num;
 	index_num_ = index_num;
 
@@ -81,4 +77,18 @@ void Geometry::Free(){
 	SAFE_RELEASE(index_buffer_);
 	SAFE_DELETE(vertex_data_);
 	SAFE_DELETE(index_data_);
+}
+
+void Geometry::Apply()
+{
+	RendererDx11* renderer_dx11 = dynamic_cast<RendererDx11*>(g_renderer);
+	ID3D11Device* device = renderer_dx11->device();
+	ID3D11DeviceContext *device_contex = renderer_dx11->device_context();
+
+	unsigned int stride = sizeof(Vertex);
+	unsigned int offset = 0;
+
+	device_contex->IASetVertexBuffers(0, 1, &vertex_buffer_, &stride, &offset);
+	device_contex->IASetIndexBuffer(index_buffer_, DXGI_FORMAT_R32_SINT, 0);
+	device_contex->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 }

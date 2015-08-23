@@ -2,8 +2,8 @@
 #include "win32.h"
 #include "engine.h"
 
-extern HINSTANCE g_instance = NULL;
-extern HWND g_wnd = NULL;
+	HINSTANCE g_instance = NULL;
+HWND g_wnd = NULL;
 
 bool CreateWnd(int width, int height, const char* title){
 	WNDCLASS wndclass = { 0 };

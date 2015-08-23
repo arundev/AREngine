@@ -22,6 +22,9 @@ public:
 	void Render();
 	void Free();
 
+	Geometry* geometry(){ return geometry_; }
+	Material* material(){ return material_; }
+
 protected:
 	bool Init();
 

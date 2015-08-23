@@ -14,5 +14,4 @@ public:
 	void Free();
 };
 
-
 #endif // ENGINE_ENGINE_H

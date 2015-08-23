@@ -13,10 +13,12 @@ public:
 	~Material();
 
 	bool Create(const char* vs, const char* gs, const char* ps);
+	void Free();
+	void Apply();
 
 protected:
 	ID3D11VertexShader* vertex_shader_;
-	ID3D11GeometryShader* geometry_shader;
+	ID3D11GeometryShader* geometry_shader_;
 	ID3D11PixelShader* pixel_shader_;
 };
 

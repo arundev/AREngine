@@ -1,35 +1,49 @@
-﻿Build started 8/22/2015 10:58:56 AM.
-     1>Project "F:\workplace\my\AREngine\program\src\engine\engine.vcxproj" on node 2 (Build target(s)).
+﻿生成启动时间为 8/23/2015 4:58:20 PM。
+     1>项目“E:\work\workplace\open_source\AREngine\program\src\engine\engine.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IF:\workplace\my\AREngine\program\src\..\lib\opengles\include /I..\math /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\\" /Fd"F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt mesh\geometry.cc mesh\mesh.cc
-         mesh.cc
-         geometry.cc
-         Generating Code...
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IE:\work\workplace\open_source\AREngine\program\src\..\lib\opengles\include /IE:\work\workplace\open_source\AREngine\program\src\..\lib\dxsdk\include /I..\math /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\\" /Fd"E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt math\vector.cc
+         vector.cc
        Lib:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"F:\workplace\my\AREngine\program\src\\..\bin\win32\engine_d.lib" /NOLOGO F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\engine.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\math.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\matrix.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\vector.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\geometry.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\material.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\mesh.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\renderer.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\util.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\renderer_dx11.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\renderer_es2.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\file_system.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\log.obj
-     1>vector.obj : warning LNK4006: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) already defined in mesh.obj; second definition ignored
-     1>vector.obj : warning LNK4006: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) already defined in mesh.obj; second definition ignored
-     1>vector.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-     1>math.obj : warning LNK4006: "public: __thiscall math::Math::Math(void)" (??0Math@math@@QAE@XZ) already defined in mesh.obj; second definition ignored
-     1>math.obj : warning LNK4006: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) already defined in mesh.obj; second definition ignored
-     1>math.obj : warning LNK4006: "public: __thiscall math::Math::~Math(void)" (??1Math@math@@QAE@XZ) already defined in mesh.obj; second definition ignored
-     1>math.obj : warning LNK4006: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) already defined in mesh.obj; second definition ignored
-     1>math.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-         engine.vcxproj -> F:\workplace\my\AREngine\program\src\\..\bin\win32\engine_d.lib
-     1>Done Building Project "F:\workplace\my\AREngine\program\src\engine\engine.vcxproj" (Build target(s)).
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\engine_d.lib" /NOLOGO E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\engine.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\math.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\matrix.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\vector.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\geometry.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\material.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\mesh.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\renderer.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\util.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\renderer_dx11.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\renderer_es2.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\file_system.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\log.obj
+     1>material.obj : warning LNK4006: "public: __thiscall math::Math::Math(void)" (??0Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>material.obj : warning LNK4006: "public: __thiscall math::Matrix::Matrix(void)" (??0Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>material.obj : warning LNK4006: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>material.obj : warning LNK4006: "public: __thiscall math::Math::~Math(void)" (??1Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>material.obj : warning LNK4006: "public: __thiscall math::Matrix::~Matrix(void)" (??1Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>material.obj : warning LNK4006: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>geometry.obj : warning LNK4006: "public: __thiscall math::Math::Math(void)" (??0Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>geometry.obj : warning LNK4006: "public: __thiscall math::Matrix::Matrix(void)" (??0Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>geometry.obj : warning LNK4006: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>geometry.obj : warning LNK4006: "public: __thiscall math::Math::~Math(void)" (??1Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>geometry.obj : warning LNK4006: "public: __thiscall math::Matrix::~Matrix(void)" (??1Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>geometry.obj : warning LNK4006: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>vector.obj : warning LNK4006: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>vector.obj : warning LNK4006: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>matrix.obj : warning LNK4006: "public: __thiscall math::Matrix::Matrix(void)" (??0Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>matrix.obj : warning LNK4006: "public: __thiscall math::Matrix::~Matrix(void)" (??1Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>matrix.obj : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
+     1>math.obj : warning LNK4006: "public: __thiscall math::Math::Math(void)" (??0Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>math.obj : warning LNK4006: "public: __thiscall math::Matrix::Matrix(void)" (??0Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>math.obj : warning LNK4006: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>math.obj : warning LNK4006: "public: __thiscall math::Math::~Math(void)" (??1Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>math.obj : warning LNK4006: "public: __thiscall math::Matrix::~Matrix(void)" (??1Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>math.obj : warning LNK4006: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
+     1>math.obj : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
+         engine.vcxproj -> E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\engine_d.lib
+     1>已完成生成项目“E:\work\workplace\open_source\AREngine\program\src\engine\engine.vcxproj”(Build 个目标)的操作。
 
-Build succeeded.
+生成成功。
 
-Time Elapsed 00:00:01.26
+已用时间 00:00:00.15

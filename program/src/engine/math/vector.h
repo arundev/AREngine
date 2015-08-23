@@ -6,10 +6,11 @@ namespace math{
 	{
 	public:
 		Vector();
+		Vector(float fx, float fy, float fz, float fw);
 		~Vector();
 
 	public:
-		float x, y, z;
+		float x_, y_, z_, w_;
 	};
 
 	Vector::Vector()

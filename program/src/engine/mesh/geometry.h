@@ -14,12 +14,13 @@ public:
 	~Geometry();
 
 	struct Vertex{
-		Vector pos;
+		Vector position;
 		Vector color;
 	};
 
 	bool Create(Vertex* vertex_data, int vertex_num, int* index_data, int index_num);
 	void Free();
+	void Apply();
 
 protected:
 	Vertex* vertex_data_;

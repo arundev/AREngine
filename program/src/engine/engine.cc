@@ -2,15 +2,15 @@
 #include "dx11/renderer_dx11.h"
 #include "es2/renderer_es2.h"
 
-extern Engine* g_engine = 0;
-extern Renderer* g_renderer = 0;
+Engine* g_engine = 0;
+Renderer* g_renderer = 0;
 
 Engine::Engine(){
 
 }
 
 Engine::~Engine(){
-
+	Free();
 }
 
 bool Engine::Init(const Renderer::Window& param){

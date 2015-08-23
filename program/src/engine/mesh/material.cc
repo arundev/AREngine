@@ -21,3 +21,8 @@ void Material::Free(){
 	SAFE_RELEASE(geometry_shader_);
 	SAFE_RELEASE(pixel_shader_);
 }
+
+void Material::Apply()
+{
+
+}

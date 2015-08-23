@@ -17,7 +17,7 @@ raster_state_(NULL)
 }
 
 RendererDx11::~RendererDx11(){
-
+	Free();
 }
 
 bool RendererDx11::DoInit(){
@@ -240,5 +240,11 @@ void RendererDx11::EndScene(){
 }
 
 void RendererDx11::Free(){
-
+	SAFE_RELEASE(swap_chain_);
+	SAFE_RELEASE(device_context_);
+	SAFE_RELEASE(render_target_view_);
+	SAFE_RELEASE(depth_stencil_buffer_);
+	SAFE_RELEASE(depth_stencil_state_);
+	SAFE_RELEASE(depth_stencil_view_);
+	SAFE_RELEASE(device_);
 }

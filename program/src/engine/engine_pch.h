@@ -55,7 +55,8 @@
 #define TRUE 1
 #endif
  
-
+class Engine;
+class Renderer;
 extern Engine* g_engine;
 extern Renderer* g_renderer;
 
