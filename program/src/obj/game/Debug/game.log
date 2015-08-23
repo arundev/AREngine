@@ -1,36 +1,11 @@
-﻿生成启动时间为 8/23/2015 4:54:05 PM。
-     1>项目“E:\work\workplace\open_source\AREngine\program\src\game\game.vcxproj”在节点 2 上(Rebuild 个目标)。
-     1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\engine /IE:\work\workplace\open_source\AREngine\program\src\..\lib\opengles\include /IE:\work\workplace\open_source\AREngine\program\src\..\lib\dxsdk\include /ZI /nologo /W3 /WX /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"E:\work\workplace\open_source\AREngine\program\src\\..\obj\game\Debug\\" /Fd"E:\work\workplace\open_source\AREngine\program\src\\..\obj\game\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp win32.cpp
-         win32.cpp
-         main.cpp
-         正在生成代码...
-       Link:
+﻿生成启动时间为 8/23/2015 5:45:57 PM。
+     1>项目“E:\work\workplace\open_source\AREngine\program\src\game\game.vcxproj”在节点 2 上(Build 个目标)。
+     1>Link:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\game_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32 /LIBPATH:E:\work\workplace\open_source\AREngine\program\src\..\lib\opengles\lib /LIBPATH:E:\work\workplace\open_source\AREngine\program\src\..\lib\dxsdk\lib libGLESv2.lib libEGL.lib engine_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\game_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\game_d.lib" /MACHINE:X86 E:\work\workplace\open_source\AREngine\program\src\\..\obj\game\Debug\main.obj
          E:\work\workplace\open_source\AREngine\program\src\\..\obj\game\Debug\win32.obj
-     1>engine_d.lib(mesh.obj) : error LNK2005: "public: __thiscall math::Math::Math(void)" (??0Math@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(mesh.obj) : error LNK2005: "public: __thiscall math::Matrix::Matrix(void)" (??0Matrix@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(mesh.obj) : error LNK2005: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(mesh.obj) : error LNK2005: "public: __thiscall math::Math::~Math(void)" (??1Math@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(mesh.obj) : error LNK2005: "public: __thiscall math::Matrix::~Matrix(void)" (??1Matrix@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(mesh.obj) : error LNK2005: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(vector.obj) : error LNK2005: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(vector.obj) : error LNK2005: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(geometry.obj) : error LNK2005: "public: __thiscall math::Math::Math(void)" (??0Math@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(geometry.obj) : error LNK2005: "public: __thiscall math::Matrix::Matrix(void)" (??0Matrix@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(geometry.obj) : error LNK2005: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(geometry.obj) : error LNK2005: "public: __thiscall math::Math::~Math(void)" (??1Math@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(geometry.obj) : error LNK2005: "public: __thiscall math::Matrix::~Matrix(void)" (??1Matrix@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(geometry.obj) : error LNK2005: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(material.obj) : error LNK2005: "public: __thiscall math::Math::Math(void)" (??0Math@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(material.obj) : error LNK2005: "public: __thiscall math::Matrix::Matrix(void)" (??0Matrix@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(material.obj) : error LNK2005: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(material.obj) : error LNK2005: "public: __thiscall math::Math::~Math(void)" (??1Math@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(material.obj) : error LNK2005: "public: __thiscall math::Matrix::~Matrix(void)" (??1Matrix@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>engine_d.lib(material.obj) : error LNK2005: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已经在 main.obj 中定义
-     1>E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\game_d.exe : fatal error LNK1169: 找到一个或多个多重定义的符号
-     1>已完成生成项目“E:\work\workplace\open_source\AREngine\program\src\game\game.vcxproj”(Rebuild 个目标)的操作 - 失败。
+         game.vcxproj -> E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\game_d.exe
+     1>已完成生成项目“E:\work\workplace\open_source\AREngine\program\src\game\game.vcxproj”(Build 个目标)的操作。
 
-生成失败。
+生成成功。
 
-已用时间 00:00:01.55
+已用时间 00:00:00.22

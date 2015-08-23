@@ -1,4 +1,4 @@
-﻿生成启动时间为 8/23/2015 4:58:20 PM。
+﻿生成启动时间为 8/23/2015 5:45:53 PM。
      1>项目“E:\work\workplace\open_source\AREngine\program\src\engine\engine.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IE:\work\workplace\open_source\AREngine\program\src\..\lib\opengles\include /IE:\work\workplace\open_source\AREngine\program\src\..\lib\dxsdk\include /I..\math /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\\" /Fd"E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt math\vector.cc
@@ -17,30 +17,6 @@
          E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\renderer_es2.obj
          E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\file_system.obj
          E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\log.obj
-     1>material.obj : warning LNK4006: "public: __thiscall math::Math::Math(void)" (??0Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>material.obj : warning LNK4006: "public: __thiscall math::Matrix::Matrix(void)" (??0Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>material.obj : warning LNK4006: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>material.obj : warning LNK4006: "public: __thiscall math::Math::~Math(void)" (??1Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>material.obj : warning LNK4006: "public: __thiscall math::Matrix::~Matrix(void)" (??1Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>material.obj : warning LNK4006: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>geometry.obj : warning LNK4006: "public: __thiscall math::Math::Math(void)" (??0Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>geometry.obj : warning LNK4006: "public: __thiscall math::Matrix::Matrix(void)" (??0Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>geometry.obj : warning LNK4006: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>geometry.obj : warning LNK4006: "public: __thiscall math::Math::~Math(void)" (??1Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>geometry.obj : warning LNK4006: "public: __thiscall math::Matrix::~Matrix(void)" (??1Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>geometry.obj : warning LNK4006: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>vector.obj : warning LNK4006: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>vector.obj : warning LNK4006: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>matrix.obj : warning LNK4006: "public: __thiscall math::Matrix::Matrix(void)" (??0Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>matrix.obj : warning LNK4006: "public: __thiscall math::Matrix::~Matrix(void)" (??1Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>matrix.obj : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
-     1>math.obj : warning LNK4006: "public: __thiscall math::Math::Math(void)" (??0Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>math.obj : warning LNK4006: "public: __thiscall math::Matrix::Matrix(void)" (??0Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>math.obj : warning LNK4006: "public: __thiscall math::Vector::Vector(void)" (??0Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>math.obj : warning LNK4006: "public: __thiscall math::Math::~Math(void)" (??1Math@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>math.obj : warning LNK4006: "public: __thiscall math::Matrix::~Matrix(void)" (??1Matrix@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>math.obj : warning LNK4006: "public: __thiscall math::Vector::~Vector(void)" (??1Vector@math@@QAE@XZ) 已在 mesh.obj 中定义；已忽略第二个定义
-     1>math.obj : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
          engine.vcxproj -> E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\engine_d.lib
      1>已完成生成项目“E:\work\workplace\open_source\AREngine\program\src\engine\engine.vcxproj”(Build 个目标)的操作。
 

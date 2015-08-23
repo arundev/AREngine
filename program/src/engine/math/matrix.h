@@ -1,7 +1,6 @@
 #ifndef ENGINE_MATH_MATRIX_H
 #define ENGINE_MATH_MATRIX_H
 
-namespace math{
 class Matrix{
 public:
 	Matrix();
@@ -11,15 +10,6 @@ public:
 	float m[4][4];
 };
 
-Matrix::Matrix()
-{
-}
-
-Matrix::~Matrix()
-{
-}
-
-}
 
 
 

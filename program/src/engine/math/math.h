@@ -4,7 +4,6 @@
 #include "vector.h"
 #include "matrix.h"
 
-namespace math{
 class Math{
 	public:
 		Math();
@@ -13,13 +12,6 @@ class Math{
 	private:
 
 	};
-
-	Math::Math(){
-	}
-
-	Math::~Math(){
-	}
-}
 
 
 

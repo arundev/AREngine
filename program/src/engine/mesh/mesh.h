@@ -7,8 +7,6 @@
 class Material;
 class Geometry;
 
-using namespace math;
-
 class Mesh
 {
 public:

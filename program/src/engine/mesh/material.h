@@ -4,8 +4,6 @@
 #include "../math/math.h"
 #include "../dx11/renderer_dx11.h"
 
-using namespace math;
-
 class Material
 {
 public:
