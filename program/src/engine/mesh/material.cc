@@ -133,8 +133,8 @@ void Material::Apply()
 	device_context->VSSetConstantBuffers(bufferNumber, 1, &matrix_buffer_);
 
 
-	device_context->IASetInputLayout(m_layout);
-	device_context->VSSetShader(m_vertexShader, NULL, 0);
-	device_context->PSSetShader(m_pixelShader, NULL, 0);
+	device_context->IASetInputLayout(input_layout_);
+	device_context->VSSetShader(vertex_shader_, NULL, 0);
+	device_context->PSSetShader(pixel_shader_, NULL, 0);
 	device_context->DrawIndexed(indexCount, 0, 0);
 }
