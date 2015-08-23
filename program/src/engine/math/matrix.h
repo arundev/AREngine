@@ -6,6 +6,8 @@ public:
 	Matrix();
 	~Matrix();
 
+	void Identify();
+
 public:
 	float m[4][4];
 };

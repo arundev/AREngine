@@ -1,6 +1,8 @@
 #ifndef ENGINE_RENDERER_H
 #define ENGINE_RENDERER_H
 
+#include "math/math.h"
+
 class Renderer{
 public:
 	Renderer();
@@ -29,7 +31,12 @@ public:
 
 	virtual bool Init(const Renderer::Window& param);
 	virtual void Update() = 0;
+	virtual void Render() = 0;
 	virtual void Free() = 0;
+
+	const Matrix& world_mat()const{ return world_mat_; }
+	const Matrix& view_mat()const{ return view_mat_; }
+	const Matrix& projection_mat()const{ return projection_mat_; }
 
 protected:
 	virtual bool DoInit() = 0;
@@ -42,9 +49,11 @@ protected:
 	int screen_width_;
 	int screen_height_;
 	float screen_depth_;
-	float screen_near_;
+	float screen_near_;	
 
-private:
+	Matrix world_mat_;
+	Matrix view_mat_;
+	Matrix projection_mat_;
 
 };
 

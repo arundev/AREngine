@@ -11,6 +11,7 @@ public:
 
 	bool Init(const Renderer::Window& param);
 	void Update();
+	void Render();
 	void Free();
 };
 

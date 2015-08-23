@@ -1,5 +1,5 @@
 #include "renderer_dx11.h"
-
+#include "util_dx11.h"
 #include "../log.h"
 
 
@@ -202,15 +202,22 @@ bool RendererDx11::DoInit(){
 
 	field_of_view = (float)D3DX_PI / 4.0f;
 	screen_aspect = (float)screen_width_ / (float)screen_height_;
-	D3DXMatrixPerspectiveFovLH(&mat_projection_, field_of_view, screen_aspect, screen_near_, screen_depth_);
-	D3DXMatrixIdentity(&mat_world_);
-	D3DXMatrixOrthoLH(&mat_ortho_, (float)screen_width_, (float)screen_height_, screen_near_, screen_depth_);
+
+	D3DXMATRIX projection;
+	D3DXMatrixPerspectiveFovLH(&projection, field_of_view, screen_aspect, screen_near_, screen_depth_);
+
+	MatrixFromDx11(&projection, &projection_mat_);
+	world_mat_.Identify();
 
 	return true;
 }
 
 
 void RendererDx11::Update(){
+	
+}
+
+void RendererDx11::Render(){
 	BeginScene(1, 0, 0, 1);
 	EndScene();
 }

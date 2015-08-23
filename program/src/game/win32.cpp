@@ -73,9 +73,7 @@ void MsgLoop(){
 			{
 				done = 1;
 
-				g_engine->Free();
-				delete g_engine;
-				g_engine = 0;
+				AppFree();
 			}
 			else
 			{
@@ -85,7 +83,8 @@ void MsgLoop(){
 		}
 		else
 		{
-			g_engine->Update();
+			AppUpdate();
+			AppRender();
 		}
 	}
 }

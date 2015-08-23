@@ -50,7 +50,8 @@ void Mesh::Update(float elapse){
 }
 
 void Mesh::Render(){
-
+	material_->Apply();
+	geometry_->Flush();
 }
 
 void Mesh::Free(){

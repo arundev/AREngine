@@ -10,7 +10,15 @@ public:
 	Material();
 	~Material();
 
-	bool Create(const char* vs, const char* gs, const char* ps);
+	struct MatrixBuffer
+	{
+		Matrix world_;
+		Matrix view_;
+		Matrix projection_;
+	};
+
+	bool Create();
+	bool SetShader(const char* vs = NULL, const char* gs = NULL, const char* ps = NULL);
 	void Free();
 	void Apply();
 
@@ -18,6 +26,8 @@ protected:
 	ID3D11VertexShader* vertex_shader_;
 	ID3D11GeometryShader* geometry_shader_;
 	ID3D11PixelShader* pixel_shader_;
+	ID3D11InputLayout* input_layout_;
+	ID3D11Buffer* matrix_buffer_;
 };
 
 

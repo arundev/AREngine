@@ -14,8 +14,8 @@ Engine::~Engine(){
 }
 
 bool Engine::Init(const Renderer::Window& param){
-	//g_renderer = new RendererDx11();
-	g_renderer = new RendererEs2();
+	g_renderer = new RendererDx11();
+	//g_renderer = new RendererEs2();
 	if (!g_renderer->Init(param)){
 		return false;
 	}
@@ -24,13 +24,15 @@ bool Engine::Init(const Renderer::Window& param){
 }
 
 void Engine::Update(){
-	static int count = 0;
-	count++;
 	g_renderer->Update();
 }
 
+void Engine::Render(){
+	g_renderer->Render();
+}
+
+
+
 void Engine::Free(){
-	g_renderer->Free();
-	delete g_renderer;
-	g_renderer = 0;
+	SAFE_FREE(g_renderer);
 }

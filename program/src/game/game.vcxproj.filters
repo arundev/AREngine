@@ -4,6 +4,12 @@
     <Filter Include="win32">
       <UniqueIdentifier>{7ff4b21a-9b5e-4a15-9fd4-466e5916237d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{54a6c9c4-064b-4eaa-a024-0d1170983c1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res\shader">
+      <UniqueIdentifier>{c759b717-629a-4fc4-a957-8dfb36c13049}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -17,5 +23,13 @@
     <ClInclude Include="win32.h">
       <Filter>win32</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\bin\res\color.ps">
+      <Filter>res\shader</Filter>
+    </None>
+    <None Include="..\..\bin\res\color.vs">
+      <Filter>res\shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

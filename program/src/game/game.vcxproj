@@ -89,6 +89,10 @@
   <ItemGroup>
     <ClInclude Include="win32.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\bin\res\color.ps" />
+    <None Include="..\..\bin\res\color.vs" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

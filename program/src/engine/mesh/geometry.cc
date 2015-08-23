@@ -79,7 +79,7 @@ void Geometry::Free(){
 	SAFE_DELETE(index_data_);
 }
 
-void Geometry::Apply()
+void Geometry::Flush()
 {
 	RendererDx11* renderer_dx11 = dynamic_cast<RendererDx11*>(g_renderer);
 	ID3D11Device* device = renderer_dx11->device();

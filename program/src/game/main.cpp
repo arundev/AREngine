@@ -24,13 +24,13 @@ void AppInit(){
 }
 
 void AppUpdate(){
-
+	g_engine->Update();
 }
 
 void AppRender(){
-
+	g_engine->Render();
 }
 
 void AppFree(){
-
+	SAFE_FREE(g_engine);
 }

@@ -8,6 +8,7 @@
 #pragma comment(lib, "d3d11.lib")  
 #pragma comment(lib, "d3dx11.lib")  
 #pragma comment(lib, "d3dx10.lib")  
+#pragma comment(lib, "D3DCompiler.lib")
 
 #include <dxgi.h>  
 #include <d3dcommon.h>  
@@ -20,14 +21,12 @@ public:
 	~RendererDx11();
 
 	virtual void Update();
+	virtual void Render();
 	virtual void Free();
 
 	ID3D11Device* device(){ return device_; }
 	ID3D11DeviceContext* device_context(){ return device_context_; }
 	ID3D11RenderTargetView* render_target_view(){ return render_target_view_; }
-	D3DXMATRIX& mat_world(){ return mat_world_; }
-	D3DXMATRIX& mat_projection(){ return mat_projection_; }
-	D3DXMATRIX& mat_ortho(){ return mat_ortho_; }
 
 protected:
 	virtual bool DoInit();
@@ -48,10 +47,6 @@ private:
 	D3D_FEATURE_LEVEL feature_level_;
 	int video_card_memory;
 	char video_card_description[128];
-
-	D3DXMATRIX mat_world_;
-	D3DXMATRIX mat_projection_;
-	D3DXMATRIX mat_ortho_;
 };
 
 

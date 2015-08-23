@@ -133,6 +133,10 @@ int RendererEs2::InitGLES(){
 }
 
 void RendererEs2::Update(){
+	
+}
+
+void RendererEs2::Render(){
 	UserData *userData = (UserData*)es_context_.userData;
 	GLfloat vVertices[] = { 0.0f, 0.5f, 0.0f,
 		-0.5f, -0.5f, 0.0f,
