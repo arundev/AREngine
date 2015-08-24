@@ -21,7 +21,9 @@ public:
 	~RendererDx11();
 
 	virtual void Update();
+	virtual void PreRender(const Vector& clear_color);
 	virtual void Render();
+	virtual void PostRender();
 	virtual void Free();
 
 	ID3D11Device* device(){ return device_; }

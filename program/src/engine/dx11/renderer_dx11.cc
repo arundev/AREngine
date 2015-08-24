@@ -217,8 +217,16 @@ void RendererDx11::Update(){
 	
 }
 
+void RendererDx11::PreRender(const Vector& clear_color){
+	BeginScene(clear_color.x_, clear_color.y_, clear_color.z_, clear_color.w_);
+}
+
 void RendererDx11::Render(){
-	BeginScene(1, 0, 0, 1);
+	
+	
+}
+
+void RendererDx11::PostRender(){
 	EndScene();
 }
 

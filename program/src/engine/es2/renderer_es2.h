@@ -46,7 +46,9 @@ public:
 
 
 	virtual void Update();
-	virtual void Render();
+	virtual void PreRender(const Vector& clear_color);
+	virtual void Render() = 0;
+	virtual void PostRender();
 	virtual void Free();
 
 protected:

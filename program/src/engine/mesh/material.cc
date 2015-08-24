@@ -18,6 +18,7 @@ Material::~Material(){
 }
 
 bool Material::Create(){
+	SetShader();
 	return true;
 }
 
@@ -31,7 +32,7 @@ bool Material::SetShader(const char* vs /* = NULL */, const char* gs /* = NULL *
 	ID3D10Blob* vertex_buffer = NULL;
 	ID3D10Blob* pixel_buffer = NULL;
 
-	result = D3DX11CompileFromFile(L"color.vs", 0, 0, "ColorVertexShader", "vs_5_0", 0, 0, 0, &vertex_buffer, 0, 0);
+	result = D3DX11CompileFromFile(L"../../bin/res/color.vs", 0, 0, "ColorVertexShader", "vs_4_0", 0, 0, 0, &vertex_buffer, 0, 0);
 	if (FAILED(result))
 	{
 		return false;
@@ -40,13 +41,15 @@ bool Material::SetShader(const char* vs /* = NULL */, const char* gs /* = NULL *
 		NULL, &vertex_shader_);
 	if (FAILED(result))
 	{
+		const char* error = (char*)(error_msg->GetBufferPointer());
 		return false;
 	}
 
-	result = D3DX11CompileFromFile(L"color.ps", 0, 0, "ColorPixelShader", "vs_5_0", 0, 0, 0, &pixel_buffer, 0, 0);
+	result = D3DX11CompileFromFile(L"../../bin/res/color.ps", 0, 0, "ColorPixelShader", "vs_4_0", 0, 0, 0, &pixel_buffer, &error_msg, 0);
 	if (FAILED(result))
 	{
-	return false;
+		const char* error = (char*)(error_msg->GetBufferPointer());
+		return false;
 	}
 	result = device->CreatePixelShader(pixel_buffer->GetBufferPointer(), pixel_buffer->GetBufferSize(),
 		NULL, &pixel_shader_);
@@ -136,5 +139,4 @@ void Material::Apply()
 	device_context->IASetInputLayout(input_layout_);
 	device_context->VSSetShader(vertex_shader_, NULL, 0);
 	device_context->PSSetShader(pixel_shader_, NULL, 0);
-	device_context->DrawIndexed(indexCount, 0, 0);
 }

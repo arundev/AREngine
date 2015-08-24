@@ -31,7 +31,9 @@ public:
 
 	virtual bool Init(const Renderer::Window& param);
 	virtual void Update() = 0;
+	virtual void PreRender(const Vector& clear_color) = 0;
 	virtual void Render() = 0;
+	virtual void PostRender() = 0;
 	virtual void Free() = 0;
 
 	const Matrix& world_mat()const{ return world_mat_; }

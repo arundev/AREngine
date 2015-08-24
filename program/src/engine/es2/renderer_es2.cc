@@ -136,6 +136,11 @@ void RendererEs2::Update(){
 	
 }
 
+void RendererEs2::PreRender(const Vector& clear_color)
+{
+
+}
+
 void RendererEs2::Render(){
 	UserData *userData = (UserData*)es_context_.userData;
 	GLfloat vVertices[] = { 0.0f, 0.5f, 0.0f,
@@ -149,6 +154,11 @@ void RendererEs2::Render(){
 	glEnableVertexAttribArray(0);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 	eglSwapBuffers(es_context_.eglDisplay, es_context_.eglSurface);
+}
+
+void RendererEs2::PostRender()
+{
+
 }
 
 void RendererEs2::Free(){

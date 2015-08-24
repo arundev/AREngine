@@ -1,6 +1,6 @@
 #include "mesh.h"
-#include "geometry.h"
-#include "material.h"
+
+std::list<Mesh*> Mesh::s_mesh_list;
 
 Mesh::Mesh() :
 geometry_(NULL),
@@ -28,7 +28,9 @@ Mesh* Mesh::CreateTriangle(){
 	indices[1] = 1;  // Top middle.
 	indices[2] = 2;  // Bottom right.
 	mesh->geometry()->Create(vertices, 3, indices, 3);
+	mesh->material()->Create();
 
+	s_mesh_list.push_back(mesh);
 	return mesh;
 }
 

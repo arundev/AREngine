@@ -3,15 +3,17 @@
 
 #include "../engine_pch.h"
 #include "../math/math.h"
-
-class Material;
-class Geometry;
+#include "material.h"
+#include "geometry.h"
+#include <list>
 
 class Mesh
 {
 public:
 	Mesh();
 	~Mesh();
+
+	static std::list<Mesh*> s_mesh_list;
 
 	static Mesh* CreateTriangle();
 	static Mesh* CreateCube();
