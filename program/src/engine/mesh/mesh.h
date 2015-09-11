@@ -5,7 +5,7 @@
 #include "../math/math.h"
 #include "material.h"
 #include "geometry.h"
-#include <list>
+#include <vector>
 
 class Mesh
 {
@@ -13,7 +13,7 @@ public:
 	Mesh();
 	~Mesh();
 
-	static std::list<Mesh*> s_mesh_list;
+	static std::vector<Mesh*> s_mesh_list;
 
 	static Mesh* CreateTriangle();
 	static Mesh* CreateCube();

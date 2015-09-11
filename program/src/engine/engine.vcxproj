@@ -90,6 +90,7 @@
     <Text Include="rend_me.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="camera\camera.cpp" />
     <ClCompile Include="dx11\util_dx11.cc" />
     <ClCompile Include="engine.cc" />
     <ClCompile Include="math\math.cc" />
@@ -106,6 +107,7 @@
     <ClCompile Include="log.cc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="camera\camera.h" />
     <ClInclude Include="dx11\util_dx11.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="math\math.h" />

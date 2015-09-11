@@ -5,7 +5,7 @@ class Vector
 {
 public:
 	Vector();
-	Vector(float fx, float fy, float fz, float fw);
+	Vector(float fx, float fy, float fz, float fw=1.0f);
 	~Vector();
 
 public:

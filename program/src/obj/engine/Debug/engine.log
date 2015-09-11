@@ -1,8 +1,60 @@
-﻿Build started 8/24/2015 8:47:19 PM.
+﻿Build started 9/11/2015 6:19:44 PM.
      1>Project "F:\workplace\my\AREngine\program\src\engine\engine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IF:\workplace\my\AREngine\program\src\..\lib\opengles\include /IF:\workplace\my\AREngine\program\src\..\lib\dxsdk\include /I..\math /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\\" /Fd"F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt mesh\material.cc
-         material.cc
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IF:\workplace\my\AREngine\program\src\..\lib\opengles\include /IF:\workplace\my\AREngine\program\src\..\lib\dxsdk\include /I..\math /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\\" /Fd"F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt camera\camera.cpp dx11\util_dx11.cc engine.cc math\math.cc math\vector.cc mesh\geometry.cc mesh\material.cc mesh\mesh.cc renderer.cc dx11\renderer_dx11.cc es2\renderer_es2.cc
+         vector.cc
+         camera.cpp
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50011) : see previous definition of 'DXGI_STATUS_CLIPPED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50020) : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50029) : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50038) : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50047) : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50056) : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50071) : see previous definition of 'DXGI_ERROR_INVALID_CALL'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50080) : see previous definition of 'DXGI_ERROR_NOT_FOUND'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50089) : see previous definition of 'DXGI_ERROR_MORE_DATA'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50098) : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50107) : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50116) : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50126) : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50135) : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50145) : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50154) : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50164) : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50173) : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50182) : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50192) : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50201) : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d10.h(615): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d10.h(616): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
+         Generating Code...
+         Compiling...
+         renderer_dx11.cc
      1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
                  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
      1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
@@ -59,8 +111,190 @@
                  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
      1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d10.h(616): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
                  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
+     1>f:\workplace\my\arengine\program\src\engine\dx11\util_dx11.h(5): warning C4099: 'D3DXMATRIX' : type name first seen using 'struct' now seen using 'class'
+                 f:\workplace\my\arengine\program\lib\dxsdk\include\d3dx10math.h(345) : see declaration of 'D3DXMATRIX'
+     1>f:\workplace\my\arengine\program\src\engine\dx11\renderer_dx11.cc(60): warning C4018: '<' : signed/unsigned mismatch
+         mesh.cc
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50011) : see previous definition of 'DXGI_STATUS_CLIPPED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50020) : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50029) : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50038) : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50047) : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50056) : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50071) : see previous definition of 'DXGI_ERROR_INVALID_CALL'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50080) : see previous definition of 'DXGI_ERROR_NOT_FOUND'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50089) : see previous definition of 'DXGI_ERROR_MORE_DATA'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50098) : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50107) : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50116) : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50126) : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50135) : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50145) : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50154) : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50164) : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50173) : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50182) : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50192) : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50201) : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(925): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50379) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(926): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50388) : see previous definition of 'D3D11_ERROR_FILE_NOT_FOUND'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(927): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50398) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(928): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50407) : see previous definition of 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d10.h(615): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d10.h(616): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
+         geometry.cc
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50011) : see previous definition of 'DXGI_STATUS_CLIPPED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50020) : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50029) : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50038) : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50047) : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50056) : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50071) : see previous definition of 'DXGI_ERROR_INVALID_CALL'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50080) : see previous definition of 'DXGI_ERROR_NOT_FOUND'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50089) : see previous definition of 'DXGI_ERROR_MORE_DATA'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50098) : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50107) : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50116) : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50126) : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50135) : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50145) : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50154) : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50164) : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50173) : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50182) : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50192) : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50201) : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(925): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50379) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(926): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50388) : see previous definition of 'D3D11_ERROR_FILE_NOT_FOUND'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(927): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50398) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(928): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50407) : see previous definition of 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d10.h(615): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d10.h(616): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
+         engine.cc
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50011) : see previous definition of 'DXGI_STATUS_CLIPPED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50020) : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50029) : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50038) : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50047) : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50056) : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50071) : see previous definition of 'DXGI_ERROR_INVALID_CALL'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50080) : see previous definition of 'DXGI_ERROR_NOT_FOUND'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50089) : see previous definition of 'DXGI_ERROR_MORE_DATA'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50098) : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50107) : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50116) : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50126) : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50135) : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50145) : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50154) : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50164) : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50173) : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50182) : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50192) : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50201) : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(925): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50379) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(926): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50388) : see previous definition of 'D3D11_ERROR_FILE_NOT_FOUND'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(927): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50398) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d11.h(928): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50407) : see previous definition of 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d10.h(615): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
+     1>f:\workplace\my\arengine\program\lib\dxsdk\include\d3d10.h(616): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         renderer_es2.cc
+         renderer.cc
+         material.cc
+         math.cc
+         util_dx11.cc
        Lib:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"F:\workplace\my\AREngine\program\src\\..\bin\win32\engine_d.lib" /NOLOGO F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\util_dx11.obj
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"F:\workplace\my\AREngine\program\src\\..\bin\win32\engine_d.lib" /NOLOGO F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\camera.obj
+         F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\util_dx11.obj
          F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\engine.obj
          F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\math.obj
          F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\matrix.obj
@@ -79,4 +313,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.85
+Time Elapsed 00:00:04.05

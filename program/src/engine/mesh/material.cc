@@ -32,25 +32,28 @@ bool Material::SetShader(const char* vs /* = NULL */, const char* gs /* = NULL *
 	ID3D10Blob* vertex_buffer = NULL;
 	ID3D10Blob* pixel_buffer = NULL;
 
-	result = D3DX11CompileFromFile(L"../../bin/res/color.vs", 0, 0, "ColorVertexShader", "vs_4_0", 0, 0, 0, &vertex_buffer, 0, 0);
+	result = D3DX11CompileFromFile(L"../../bin/res/color.vs", 0, 0, "ColorVertexShader", "vs_5_0", 0, 0, 0, &vertex_buffer, &error_msg, 0);
 	if (FAILED(result))
 	{
+		const char* error = (char*)error_msg->GetBufferPointer();
 		return false;
 	}
-	result = device->CreateVertexShader(vertex_buffer->GetBufferPointer(), vertex_buffer->GetBufferSize(),
-		NULL, &vertex_shader_);
+	
+	result = D3DX11CompileFromFile(L"../../bin/res/color.ps", 0, 0, "ColorPixelShader", "ps_5_0", 0, 0, 0, &pixel_buffer, &error_msg, 0);
 	if (FAILED(result))
 	{
 		const char* error = (char*)(error_msg->GetBufferPointer());
 		return false;
 	}
 
-	result = D3DX11CompileFromFile(L"../../bin/res/color.ps", 0, 0, "ColorPixelShader", "vs_4_0", 0, 0, 0, &pixel_buffer, &error_msg, 0);
+	result = device->CreateVertexShader(vertex_buffer->GetBufferPointer(), vertex_buffer->GetBufferSize(),
+		NULL, &vertex_shader_);
 	if (FAILED(result))
 	{
-		const char* error = (char*)(error_msg->GetBufferPointer());
 		return false;
 	}
+
+
 	result = device->CreatePixelShader(pixel_buffer->GetBufferPointer(), pixel_buffer->GetBufferSize(),
 		NULL, &pixel_shader_);
 	if (FAILED(result))

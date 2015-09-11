@@ -4,9 +4,6 @@
     <Filter Include="render">
       <UniqueIdentifier>{cab783be-5b7a-4d37-b60e-6737d9c1fd64}</UniqueIdentifier>
     </Filter>
-    <Filter Include="util">
-      <UniqueIdentifier>{82ef3e10-c80a-43be-b9be-61df0b0dc2e0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="render\dx11">
       <UniqueIdentifier>{5f41f7e3-4b25-46fd-9e2d-c7a66722bebc}</UniqueIdentifier>
     </Filter>
@@ -22,17 +19,23 @@
     <Filter Include="render\mesh">
       <UniqueIdentifier>{5986acc2-db73-41fd-b67d-dee3d018911c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="render\util">
+      <UniqueIdentifier>{82ef3e10-c80a-43be-b9be-61df0b0dc2e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render\camera">
+      <UniqueIdentifier>{7f273fcd-47a9-4f16-a8a6-02f5ee531939}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine.cc" />
     <ClCompile Include="util.cc">
-      <Filter>util</Filter>
+      <Filter>render\util</Filter>
     </ClCompile>
     <ClCompile Include="file_system.cc">
-      <Filter>util</Filter>
+      <Filter>render\util</Filter>
     </ClCompile>
     <ClCompile Include="log.cc">
-      <Filter>util</Filter>
+      <Filter>render\util</Filter>
     </ClCompile>
     <ClCompile Include="renderer.cc">
       <Filter>render</Filter>
@@ -64,16 +67,19 @@
     <ClCompile Include="dx11\util_dx11.cc">
       <Filter>render\dx11</Filter>
     </ClCompile>
+    <ClCompile Include="camera\camera.cpp">
+      <Filter>render\camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
-      <Filter>util</Filter>
+      <Filter>render\util</Filter>
     </ClInclude>
     <ClInclude Include="file_system.h">
-      <Filter>util</Filter>
+      <Filter>render\util</Filter>
     </ClInclude>
     <ClInclude Include="log.h">
-      <Filter>util</Filter>
+      <Filter>render\util</Filter>
     </ClInclude>
     <ClInclude Include="renderer.h">
       <Filter>render</Filter>
@@ -106,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="dx11\util_dx11.h">
       <Filter>render\dx11</Filter>
+    </ClInclude>
+    <ClInclude Include="camera\camera.h">
+      <Filter>render\camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 #include "mesh.h"
 
-std::list<Mesh*> Mesh::s_mesh_list;
+std::vector<Mesh*> Mesh::s_mesh_list;
 
 Mesh::Mesh() :
 geometry_(NULL),

@@ -6,6 +6,8 @@
 Engine* g_engine = 0;
 Renderer* g_renderer = 0;
 
+extern Mesh* g_test_trangle;
+
 Engine::Engine(){
 
 }
@@ -32,8 +34,8 @@ void Engine::Render(){
 	Vector clear_color(0, 0, 0, 1);
 	g_renderer->PreRender(clear_color);
 
-	std::list<Mesh*>::iterator iter = Mesh::s_mesh_list.begin();
-	for (; iter != Mesh::s_mesh_list.end(); iter++);
+	std::vector<Mesh*>::const_iterator iter = Mesh::s_mesh_list.begin();
+	for (; iter != Mesh::s_mesh_list.end(); iter++)
 	{
 		(*iter)->Render();
 	}
@@ -45,8 +47,8 @@ void Engine::Render(){
 
 void Engine::Free(){
 
-	std::list<Mesh*>::iterator iter = Mesh::s_mesh_list.begin();
-	for (; iter != Mesh::s_mesh_list.end(); iter++);
+	std::vector<Mesh*>::iterator iter = Mesh::s_mesh_list.begin();
+	for(; iter != Mesh::s_mesh_list.end(); iter++)
 	{
 		(*iter)->Free();
 	}
