@@ -10,6 +10,7 @@ public:
 	Vector(float fx, float fy, float fz, float fw=1.0f);
 	~Vector();
 
+	Vector operator*(const Matrix& m);
 	Vector& operator*=(const Matrix& m);
 
 public:
