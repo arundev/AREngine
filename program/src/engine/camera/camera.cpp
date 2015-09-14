@@ -1,6 +1,9 @@
 #include "camera.h"
+#include "../dx11/util_dx11.h"
 #include <D3DX10.h>
 #include <directxmath.h>
+
+using namespace DirectX;
 
 Camera::Camera(){
 
@@ -26,9 +29,18 @@ void Camera::Update(){
 	float yaw = rotation_.y_ * 0.0174532925f;
 	float roll = rotation_.z_ * 0.0174532925f;
 
-	D3DXMATRIX rotationMatrix;
-	D3DXMatrixRotationYawPitchRoll(&rotationMatrix, yaw, pitch, roll);
+	D3DXMATRIX rotationMatrix_d3d;
+	D3DXMatrixRotationYawPitchRoll(&rotationMatrix_d3d, yaw, pitch, roll);
 
+	Matrix rotationMatrix;
+	MatrixFromDx11(&rotationMatrix_d3d, &rotationMatrix);
+
+	look_at *= rotationMatrix;
+	up *= rotationMatrix;
+
+	D3DXMATRIX viewMatrix_d3d;
+	D3DXMatrixLookAtLH(&viewMatrix_d3d, position_, look_at, up);
+	
 }
 
 const Matrix& Camera::GetViewMat(){
