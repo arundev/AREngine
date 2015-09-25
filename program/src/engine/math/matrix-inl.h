@@ -12,14 +12,14 @@ namespace NMath
 		m[1][0](0), m[1][1](1), m[1][2](0), m[1][3](0),
 		m[2][0](0), m[2][1](0), m[2][2](1), m[3][3](0),
 		m[3][0](0), m[3][1](0), m[3][2](0), m[3][3](1),
-		{
+	{
 
 	}
 
 	template<typename T>
 	Matrix44<T>::Matrix44(const Vector3<T>& scale, const Vector3<T>& rotate, const Vector3<T>& translate)
 	{
-		Matrix44<T> mat;
+		
 
 		return mat;
 	}
@@ -40,39 +40,103 @@ namespace NMath
 	template<typename T>
 	Matrix44<T>& Matrix44<T>::Inverse()
 	{
-		const T det = Determinant();
-		if (det == static_cast<T>(0.0))
-		{
-			const T nan = std::numeric_limits<T>::quiet_NaN();
-			*this = Matrix44<T>();
-			m[0][0](1) = m[0][1](0) = m[0][2](0) = m[0][3](0) =
-				m[1][0](0) = m[1][1](1) = m[1][2](0) = m[1][3](0) =
-				m[2][0](0) = m[2][1](0) = m[2][2](1) = m[3][3](0) =
-				m[3][0](0) = m[3][1](0) = m[3][2](0) = m[3][3](1) = nan;
+		Matrix44<4>    mTrans;
+		float fTemp[12],  // cofaktors
+			  fDet;
 
-			return *this;
-		}
+		// calculate transposed matrix
+		mTrans.TransposeOf(m);
 
-		const T invdet = static_cast<T>(1.0) / det;
+		// Paare für die ersten 8 Kofaktoren
+		fTemp[0] = mTrans.m[2][2] * mTrans.m[3][3];
+		fTemp[1] = mTrans.m[2][3] * mTrans.m[3][2];
+		fTemp[2] = mTrans.m[2][1] * mTrans.m[3][3];
+		fTemp[3] = mTrans.m[2][3] * mTrans.m[3][1];
+		fTemp[4] = mTrans.m[2][1] * mTrans.m[3][2];
+		fTemp[5] = mTrans.m[2][2] * mTrans.m[3][1];
+		fTemp[6] = mTrans.m[2][0] * mTrans.m[3][3];
+		fTemp[7] = mTrans.m[2][3] * mTrans.m[3][0];
+		fTemp[8] = mTrans.m[2][0] * mTrans.m[3][2];
+		fTemp[9] = mTrans.m[2][2] * mTrans.m[3][0];
+		fTemp[10] = mTrans.m[2][0] * mTrans.m[3][1];
+		fTemp[11] = mTrans.m[2][1] * mTrans.m[3][0];
 
-		Matrix44<T> res;
-		res.m[0][0] = invdet  * (m[1][1] * (m[2][2] * m[3][3] - m[2][3] * m[3][2]) + m[1][2] * (m[2][3] * m[3][1] - m[2][1] * m[3][3]) + m[1][3] * (m[2][1] * m[3][2] - m[2][2] * m[3][1]));
-		res.m[0][1] = -invdet * (m[0][1] * (m[2][2] * m[3][3] - m[2][3] * m[3][2]) + m[0][2] * (m[2][3] * m[3][1] - m[2][1] * m[3][3]) + m[0][3] * (m[2][1] * m[3][2] - m[2][2] * m[3][1]));
-		res.m[0][2] = invdet  * (m[0][1] * (m[1][2] * m[3][3] - m[1][3] * m[3][2]) + m[0][2] * (m[1][3] * m[3][1] - m[1][1] * m[3][3]) + m[0][3] * (m[1][1] * m[3][2] - m[1][2] * m[3][1]));
-		res.m[0][3] = -invdet * (m[0][1] * (m[1][2] * m[2][3] - m[1][3] * m[2][2]) + m[0][2] * (m[1][3] * m[2][1] - m[1][1] * m[2][3]) + m[0][3] * (m[1][1] * m[2][2] - m[1][2] * m[2][1]));
-		res.m[1][0] = -invdet * (m[1][0] * (m[2][2] * m[3][3] - m[2][3] * m[3][2]) + m[1][2] * (m[2][3] * m[3][0] - m[2][0] * m[3][3]) + m[1][3] * (m[2][0] * m[3][2] - m[2][2] * m[3][0]));
-		res.m[1][1] = invdet  * (m[0][0] * (m[2][2] * m[3][3] - m[2][3] * m[3][2]) + m[0][2] * (m[2][3] * m[3][0] - m[2][0] * m[3][3]) + m[0][3] * (m[2][0] * m[3][2] - m[2][2] * m[3][0]));
-		res.m[1][2] = -invdet * (m[0][0] * (m[1][2] * m[3][3] - m[1][3] * m[3][2]) + m[0][2] * (m[1][3] * m[3][0] - m[1][0] * m[3][3]) + m[0][3] * (m[1][0] * m[3][2] - m[1][2] * m[3][0]));
-		res.m[1][3] = invdet  * (m[0][0] * (m[1][2] * m[2][3] - m[1][3] * m[2][2]) + m[0][2] * (m[1][3] * m[2][0] - m[1][0] * m[2][3]) + m[0][3] * (m[1][0] * m[2][2] - m[1][2] * m[2][0]));
-		res.m[2][0] = invdet  * (m[1][0] * (m[2][1] * m[3][3] - m[2][3] * m[3][1]) + m[1][1] * (m[2][3] * m[3][0] - m[2][0] * m[3][3]) + m[1][3] * (m[2][0] * m[3][1] - m[2][1] * m[3][0]));
-		res.m[2][1] = -invdet * (m[0][0] * (m[2][1] * m[3][3] - m[2][3] * m[3][1]) + m[0][1] * (m[2][3] * m[3][0] - m[2][0] * m[3][3]) + m[0][3] * (m[2][0] * m[3][1] - m[2][1] * m[3][0]));
-		res.m[2][2] = invdet  * (m[0][0] * (m[1][1] * m[3][3] - m[1][3] * m[3][1]) + m[0][1] * (m[1][3] * m[3][0] - m[1][0] * m[3][3]) + m[0][3] * (m[1][0] * m[3][1] - m[1][1] * m[3][0]));
-		res.m[2][3] = -invdet * (m[0][0] * (m[1][1] * m[2][3] - m[1][3] * m[2][1]) + m[0][1] * (m[1][3] * m[2][0] - m[1][0] * m[2][3]) + m[0][3] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]));
-		res.m[3][0] = -invdet * (m[1][0] * (m[2][1] * m[3][2] - m[2][2] * m[3][1]) + m[1][1] * (m[2][2] * m[3][0] - m[2][0] * m[3][2]) + m[1][2] * (m[2][0] * m[3][1] - m[2][1] * m[3][0]));
-		res.m[3][1] = invdet  * (m[0][0] * (m[2][1] * m[3][2] - m[2][2] * m[3][1]) + m[0][1] * (m[2][2] * m[3][0] - m[2][0] * m[3][2]) + m[0][2] * (m[2][0] * m[3][1] - m[2][1] * m[3][0]));
-		res.m[3][2] = -invdet * (m[0][0] * (m[1][1] * m[3][2] - m[1][2] * m[3][1]) + m[0][1] * (m[1][2] * m[3][0] - m[1][0] * m[3][2]) + m[0][2] * (m[1][0] * m[3][1] - m[1][1] * m[3][0]));
-		res.m[3][3] = invdet  * (m[0][0] * (m[1][1] * m[2][2] - m[1][2] * m[2][1]) + m[0][1] * (m[1][2] * m[2][0] - m[1][0] * m[2][2]) + m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]));
-		*this = res;
+		// Berechne die ersten 8 Kofaktoren
+		this->m[0][0] = fTemp[0] * mTrans.m[1][1] + fTemp[3] * mTrans.m[1][2] + fTemp[4] * mTrans.m[1][3];
+		this->m[0][0] -= fTemp[1] * mTrans.m[1][1] + fTemp[2] * mTrans.m[1][2] + fTemp[5] * mTrans.m[1][3];
+		this->m[0][1] = fTemp[1] * mTrans.m[1][0] + fTemp[6] * mTrans.m[1][2] + fTemp[9] * mTrans.m[1][3];
+		this->m[0][1] -= fTemp[0] * mTrans.m[1][0] + fTemp[7] * mTrans.m[1][2] + fTemp[8] * mTrans.m[1][3];
+		this->m[0][2] = fTemp[2] * mTrans.m[1][0] + fTemp[7] * mTrans.m[1][1] + fTemp[10] * mTrans.m[1][3];
+		this->m[0][2] -= fTemp[3] * mTrans.m[1][0] + fTemp[6] * mTrans.m[1][1] + fTemp[11] * mTrans.m[1][3];
+		this->m[0][3] = fTemp[5] * mTrans.m[1][0] + fTemp[8] * mTrans.m[1][1] + fTemp[11] * mTrans.m[1][2];
+		this->m[0][3] -= fTemp[4] * mTrans.m[1][0] + fTemp[9] * mTrans.m[1][1] + fTemp[10] * mTrans.m[1][2];
+		this->m[1][0] = fTemp[1] * mTrans.m[0][1] + fTemp[2] * mTrans.m[0][2] + fTemp[5] * mTrans.m[0][3];
+		this->m[1][0] -= fTemp[0] * mTrans.m[0][1] + fTemp[3] * mTrans.m[0][2] + fTemp[4] * mTrans.m[0][3];
+		this->m[1][1] = fTemp[0] * mTrans.m[0][0] + fTemp[7] * mTrans.m[0][2] + fTemp[8] * mTrans.m[0][3];
+		this->m[1][1] -= fTemp[1] * mTrans.m[0][0] + fTemp[6] * mTrans.m[0][2] + fTemp[9] * mTrans.m[0][3];
+		this->m[1][2] = fTemp[3] * mTrans.m[0][0] + fTemp[6] * mTrans.m[0][1] + fTemp[11] * mTrans.m[0][3];
+		this->m[1][2] -= fTemp[2] * mTrans.m[0][0] + fTemp[7] * mTrans.m[0][1] + fTemp[10] * mTrans.m[0][3];
+		this->m[1][3] = fTemp[4] * mTrans.m[0][0] + fTemp[9] * mTrans.m[0][1] + fTemp[10] * mTrans.m[0][2];
+		this->m[1][3] -= fTemp[5] * mTrans.m[0][0] + fTemp[8] * mTrans.m[0][1] + fTemp[11] * mTrans.m[0][2];
+
+		// Paare für die zweiten 8 Kofaktoren
+		fTemp[0] = mTrans.m[0][2] * mTrans.m[1][3];
+		fTemp[1] = mTrans.m[0][3] * mTrans.m[1][2];
+		fTemp[2] = mTrans.m[0][1] * mTrans.m[1][3];
+		fTemp[3] = mTrans.m[0][3] * mTrans.m[1][1];
+		fTemp[4] = mTrans.m[0][1] * mTrans.m[1][2];
+		fTemp[5] = mTrans.m[0][2] * mTrans.m[1][1];
+		fTemp[6] = mTrans.m[0][0] * mTrans.m[1][3];
+		fTemp[7] = mTrans.m[0][3] * mTrans.m[1][0];
+		fTemp[8] = mTrans.m[0][0] * mTrans.m[1][2];
+		fTemp[9] = mTrans.m[0][2] * mTrans.m[1][0];
+		fTemp[10] = mTrans.m[0][0] * mTrans.m[1][1];
+		fTemp[11] = mTrans.m[0][1] * mTrans.m[1][0];
+
+		// Berechne die zweiten 8 Kofaktoren
+		this->m[2][0] = fTemp[0] * mTrans.m[3][1] + fTemp[3] * mTrans.m[3][2] + fTemp[4] * mTrans.m[3][3];
+		this->m[2][0] -= fTemp[1] * mTrans.m[3][1] + fTemp[2] * mTrans.m[3][2] + fTemp[5] * mTrans.m[3][3];
+		this->m[2][1] = fTemp[1] * mTrans.m[3][0] + fTemp[6] * mTrans.m[3][2] + fTemp[9] * mTrans.m[3][3];
+		this->m[2][1] -= fTemp[0] * mTrans.m[3][0] + fTemp[7] * mTrans.m[3][2] + fTemp[8] * mTrans.m[3][3];
+		this->m[2][2] = fTemp[2] * mTrans.m[3][0] + fTemp[7] * mTrans.m[3][1] + fTemp[10] * mTrans.m[3][3];
+		this->m[2][2] -= fTemp[3] * mTrans.m[3][0] + fTemp[6] * mTrans.m[3][1] + fTemp[11] * mTrans.m[3][3];
+		this->m[2][3] = fTemp[5] * mTrans.m[3][0] + fTemp[8] * mTrans.m[3][1] + fTemp[11] * mTrans.m[3][2];
+		this->m[2][3] -= fTemp[4] * mTrans.m[3][0] + fTemp[9] * mTrans.m[3][1] + fTemp[10] * mTrans.m[3][2];
+		this->m[3][0] = fTemp[2] * mTrans.m[2][2] + fTemp[5] * mTrans.m[2][3] + fTemp[1] * mTrans.m[2][1];
+		this->m[3][0] -= fTemp[4] * mTrans.m[2][3] + fTemp[0] * mTrans.m[2][1] + fTemp[3] * mTrans.m[2][2];
+		this->m[3][1] = fTemp[8] * mTrans.m[2][3] + fTemp[0] * mTrans.m[2][0] + fTemp[7] * mTrans.m[2][2];
+		this->m[3][1] -= fTemp[6] * mTrans.m[2][2] + fTemp[9] * mTrans.m[2][3] + fTemp[1] * mTrans.m[2][0];
+		this->m[3][2] = fTemp[6] * mTrans.m[2][1] + fTemp[11] * mTrans.m[2][3] + fTemp[3] * mTrans.m[2][0];
+		this->m[3][2] -= fTemp[10] * mTrans.m[2][3] + fTemp[2] * mTrans.m[2][0] + fTemp[7] * mTrans.m[2][1];
+		this->m[3][3] = fTemp[10] * mTrans.m[2][2] + fTemp[4] * mTrans.m[2][0] + fTemp[9] * mTrans.m[2][1];
+		this->m[3][3] -= fTemp[8] * mTrans.m[2][1] + fTemp[11] * mTrans.m[2][2] + fTemp[5] * mTrans.m[2][0];
+
+		fDet = mTrans.m[0][0]*this->m[0][0] +
+			mTrans.m[0][1]*this->m[0][1] +
+			mTrans.m[0][2]*this->m[0][2] +
+			mTrans.m[0][3]*this->m[0][3];
+
+		fDet = 1 / fDet;
+
+		this->m[0][0] *= fDet;
+		this->m[0][1] *= fDet;
+		this->m[0][2] *= fDet;
+		this->m[0][3] *= fDet;
+
+		this->m[1][0] *= fDet;
+		this->m[1][1] *= fDet;
+		this->m[1][2] *= fDet;
+		this->m[1][3] *= fDet;
+
+		this->m[2][0] *= fDet;
+		this->m[2][1] *= fDet;
+		this->m[2][2] *= fDet;
+		this->m[2][3] *= fDet;
+
+		this->m[3][0] *= fDet;
+		this->m[3][1] *= fDet;
+		this->m[3][2] *= fDet;
+		this->m[3][3] *= fDet;
 
 		return *this;
 	}
@@ -151,25 +215,31 @@ namespace NMath
 	}
 
 	template<typename T>
-	static Matrix44<T>& Matrix44<T>::RotationX(T angle, Matrix44& out)
+	static Matrix44<T>& Matrix44<T>::SetRotationX(T angle, Matrix44& out)
 	{
 		/*
 		|  1  0       0       0 |
-		M = |  0  cos(A) -sin(A)  0 |
+	M = |  0  cos(A) -sin(A)  0 |
 		|  0  sin(A)  cos(A)  0 |
 		|  0  0       0       1 |	*/
 		out = Matrix44<T>();
-		out.m[1][1] = out.m[2][2] = std::cos(angle);
-		out.m[1][2] = -(out.m[2][1] = std::sin(angle));
+
+		float fCos = cosf(angle);
+		float fSin = sinf(angle);
+		out.m[1][1] = fCos;
+		out.m[2][1] = fSin;
+		out.m[1][2] = -fSin;
+		out.m[2][2] = fCos;
+
 		return out;
 	}
 
 	template<typename T>
-	static Matrix44<T>& Matrix44<T>::RotationY(T angle, Matrix44& out)
+	static Matrix44<T>& Matrix44<T>::SetRotationY(T angle, Matrix44& out)
 	{
 		/*
 		|  cos(A)  0   sin(A)  0 |
-		M = |  0       1   0       0 |
+	M = |  0       1   0       0 |
 		| -sin(A)  0   cos(A)  0 |
 		|  0       0   0       1 |
 		*/
@@ -180,11 +250,11 @@ namespace NMath
 	}
 
 	template<typename T>
-	static Matrix44<T>& Matrix44<T>::RotationZ(T angle, Matrix44& out)
+	static Matrix44<T>& Matrix44<T>::SetRotationZ(T angle, Matrix44& out)
 	{
 		/*
 		|  cos(A)  -sin(A)   0   0 |
-		M = |  sin(A)   cos(A)   0   0 |
+	M = |  sin(A)   cos(A)   0   0 |
 		|  0        0        1   0 |
 		|  0        0        0   1 |	*/
 		out = Matrix44<T>();
@@ -194,13 +264,31 @@ namespace NMath
 	}
 
 	template<typename T>
-	static Matrix44<T>& Matrix44<T>::Rotation(const Vector3<T>& axis, T angle, Matrix44<T>& out)
+	static Matrix44<T>& Matrix44<T>::SetRotation(const Vector3<T>& axis, T angle, Matrix44<T>& out)
 	{
+		out = Matrix44<T>();
+
+		float fCos = cosf(static_cast<float>(angle));
+		float fSin = sinf(static_cast<float>(angle));
+		float fSum = 1.0f - fCos;
+
+		out.m[0][0] = (axis.x * axis.x) * fSum + fCos;
+		out.m[0][1] = (axis.x * axis.y) * fSum - (axis.z * fSin);
+		out.m[0][2] = (axis.x * axis.z) * fSum + (axis.y * fSin);
+
+		out.m[1][0] = (axis.y * axis.x) * fSum + (axis.z * fSin);
+		out.m[1][1] = (axis.y * axis.y) * fSum + fCos;
+		out.m[1][2] = (axis.y * axis.z) * fSum - (axis.x * fSin);
+
+		out.m[2][0] = (axis.z * axis.x) * fSum - (axis.y * fSin);
+		out.m[2][1] = (axis.z * axis.y) * fSum + (axis.x * fSin);
+		out.m[2][2] = (axis.z * axis.z) * fSum + fCos;
+
 		return out;
 	}
 
 	template<typename T>
-	static Matrix44<T>& Matrix44<T>::Translation(const Vector3<T>& v, Matrix44<T>& out)
+	static Matrix44<T>& Matrix44<T>::SetTranslation(const Vector3<T>& v, Matrix44<T>& out)
 	{
 		out = Matrix44<T>();
 		out.m[3][0] = v[0];
@@ -211,7 +299,7 @@ namespace NMath
 	}
 
 	template<typename T>
-	static Matrix44<T>& Matrix44<T>::Scale(const Vector3<T>& v, Matrix44<T>& out)
+	static Matrix44<T>& Matrix44<T>::SetScale(const Vector3<T>& v, Matrix44<T>& out)
 	{
 		out = Matrix44<T>();
 		out.m[0][0] = v[0];

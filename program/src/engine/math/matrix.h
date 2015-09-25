@@ -37,12 +37,12 @@ namespace NMath
 		Matrix44& operator *(const Matrix44& mat)const;
 		Matrix44& operator *=(const Matrix44& mat);
 
-		static Matrix44& RotationX(T angle, Matrix44& out);
-		static Matrix44& RotationY(T angle, Matrix44& out);
-		static Matrix44& RotationZ(T angle, Matrix44& out);
-		static Matrix44& Rotation(const Vector3<T>& axis, T angle, Matrix44& out);
-		static Matrix44& Translation(const Vector3<T>& v, Matrix44& out);
-		static Matrix44& Scale(const Vector3<T>& v, Matrix44& out);
+		static Matrix44& SetRotationX(T angle, Matrix44& out);
+		static Matrix44& SetRotationY(T angle, Matrix44& out);
+		static Matrix44& SetRotationZ(T angle, Matrix44& out);
+		static Matrix44& SetRotation(const Vector3<T>& axis, T angle, Matrix44& out);
+		static Matrix44& SetTranslation(const Vector3<T>& v, Matrix44& out);
+		static Matrix44& SetScale(const Vector3<T>& v, Matrix44& out);
 		static Matrix44& GetRotationMatrix(const Vector3<T>& from, const Vector3<T>& to, Matrix44& out);
 
 	public:
