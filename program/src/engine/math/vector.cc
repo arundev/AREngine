@@ -40,4 +40,3 @@ Vector& Vector::operator*=(const Matrix& m){
 
 	return v;
 }
-

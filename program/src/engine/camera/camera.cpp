@@ -40,7 +40,7 @@ void Camera::Update(){
 
 	D3DXMATRIX viewMatrix_d3d;
 	D3DVECTOR v;
-	D3DXMatrixLookAtLH(&viewMatrix_d3d, position_, look_at, up);
+	//D3DXMatrixLookAtLH(&viewMatrix_d3d, position_, look_at, up);
 }
 
 const Matrix& Camera::GetViewMat(){

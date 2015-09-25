@@ -116,6 +116,12 @@
     <ClInclude Include="camera\camera.h">
       <Filter>render\camera</Filter>
     </ClInclude>
+    <ClInclude Include="math\vector-inl.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matrix-inl.h">
+      <Filter>math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

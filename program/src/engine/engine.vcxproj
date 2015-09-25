@@ -111,7 +111,9 @@
     <ClInclude Include="dx11\util_dx11.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="math\math.h" />
+    <ClInclude Include="math\matrix-inl.h" />
     <ClInclude Include="math\matrix.h" />
+    <ClInclude Include="math\vector-inl.h" />
     <ClInclude Include="math\vector.h" />
     <ClInclude Include="mesh\geometry.h" />
     <ClInclude Include="mesh\material.h" />
