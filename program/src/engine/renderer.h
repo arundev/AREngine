@@ -1,7 +1,9 @@
 #ifndef ENGINE_RENDERER_H
 #define ENGINE_RENDERER_H
 
-#include "math/math.h"
+#include "RTMath.h"
+
+using namespace RTMath;
 
 class Renderer{
 public:
@@ -36,9 +38,9 @@ public:
 	virtual void PostRender() = 0;
 	virtual void Free() = 0;
 
-	const Matrix& world_mat()const{ return world_mat_; }
-	const Matrix& view_mat()const{ return view_mat_; }
-	const Matrix& projection_mat()const{ return projection_mat_; }
+	const RTMath::Matrix& world_mat()const{ return world_mat_; }
+	const RTMath::Matrix& view_mat()const{ return view_mat_; }
+	const RTMath::Matrix& projection_mat()const{ return projection_mat_; }
 
 protected:
 	virtual bool DoInit() = 0;
@@ -53,9 +55,9 @@ protected:
 	float screen_depth_;
 	float screen_near_;	
 
-	Matrix world_mat_;
-	Matrix view_mat_;
-	Matrix projection_mat_;
+	RTMath::Matrix world_mat_;
+	RTMath::Matrix view_mat_;
+	RTMath::Matrix projection_mat_;
 
 };
 

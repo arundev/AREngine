@@ -2,9 +2,11 @@
 #include "dx11/renderer_dx11.h"
 #include "es2/renderer_es2.h"
 #include "mesh/mesh.h"
+#include "camera/camera.h"
 
 Engine* g_engine = 0;
 Renderer* g_renderer = 0;
+FreeCamera* g_camera = 0;
 
 extern Mesh* g_test_trangle;
 
@@ -23,15 +25,19 @@ bool Engine::Init(const Renderer::Window& param){
 		return false;
 	}
 
+	g_camera = new FreeCamera();
+	g_camera->SetPos(Vector(0.0f, 0.0f, -5.0f));
+
 	return true;
 }
 
 void Engine::Update(){
+	g_camera->Update();
 	g_renderer->Update();
 }
 
 void Engine::Render(){
-	Vector clear_color(0, 0, 0, 1);
+	Vector clear_color(0, 0, 0);
 	g_renderer->PreRender(clear_color);
 
 	std::vector<Mesh*>::const_iterator iter = Mesh::s_mesh_list.begin();

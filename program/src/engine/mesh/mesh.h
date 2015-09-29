@@ -2,7 +2,7 @@
 #define ENGINE_MESH_MESH_H
 
 #include "../engine_pch.h"
-#include "../math/math.h"
+#include "RTMath.h"
 #include "material.h"
 #include "geometry.h"
 #include <vector>

@@ -1,45 +1,53 @@
+#include "RTMath.h"
 #include "util_dx11.h"
-#include "../math/math.h"
 #include <d3dcommon.h>  
 #include <d3d11.h>  
 #include <d3dx10math.h> 
 
-void MatrixToDx11(const Matrix* src, D3DXMATRIX* dst)
+using namespace RTMath;
+
+void MatrixToDx11(const RTMath::Matrix* src, D3DXMATRIX* dst)
 {
-	dst->m[0][0] = src->m[0][0];
-	dst->m[0][1] = src->m[0][1];
-	dst->m[0][2] = src->m[0][2];
-	dst->m[0][3] = src->m[0][3];
-	dst->m[1][0] = src->m[1][0];
-	dst->m[1][1] = src->m[1][1];
-	dst->m[1][2] = src->m[1][2];
-	dst->m[1][3] = src->m[1][3];
-	dst->m[2][0] = src->m[2][0];
-	dst->m[2][1] = src->m[2][1];
-	dst->m[2][2] = src->m[2][2];
-	dst->m[2][3] = src->m[2][3];
-	dst->m[3][0] = src->m[3][0];
-	dst->m[3][1] = src->m[3][1];
-	dst->m[3][2] = src->m[3][2];
-	dst->m[3][3] = src->m[3][3];
+	dst->_11 = src->_11;
+	dst->_12 = src->_12;
+	dst->_13 = src->_13;
+	dst->_14 = src->_14;
+
+	dst->_21 = src->_21;
+	dst->_22 = src->_22;
+	dst->_23 = src->_23;
+	dst->_24 = src->_24;
+
+	dst->_31 = src->_31;
+	dst->_32 = src->_32;
+	dst->_33 = src->_33;
+	dst->_34 = src->_34;
+
+	dst->_41 = src->_41;
+	dst->_42 = src->_42;
+	dst->_43 = src->_43;
+	dst->_44 = src->_44;
 }
 
-void MatrixFromDx11(const D3DXMATRIX* src, Matrix* dst)
+void MatrixFromDx11(const D3DXMATRIX* src, RTMath::Matrix* dst)
 {
-	dst->m[0][0] = src->m[0][0];
-	dst->m[0][1] = src->m[0][1];
-	dst->m[0][2] = src->m[0][2];
-	dst->m[0][3] = src->m[0][3];
-	dst->m[1][0] = src->m[1][0];
-	dst->m[1][1] = src->m[1][1];
-	dst->m[1][2] = src->m[1][2];
-	dst->m[1][3] = src->m[1][3];
-	dst->m[2][0] = src->m[2][0];
-	dst->m[2][1] = src->m[2][1];
-	dst->m[2][2] = src->m[2][2];
-	dst->m[2][3] = src->m[2][3];
-	dst->m[3][0] = src->m[3][0];
-	dst->m[3][1] = src->m[3][1];
-	dst->m[3][2] = src->m[3][2];
-	dst->m[3][3] = src->m[3][3];
+	dst->_11 = src->_11;
+	dst->_12 = src->_12;
+	dst->_13 = src->_13;
+	dst->_14 = src->_14;
+
+	dst->_21 = src->_21;
+	dst->_22 = src->_22;
+	dst->_23 = src->_23;
+	dst->_24 = src->_24;
+
+	dst->_31 = src->_31;
+	dst->_32 = src->_32;
+	dst->_33 = src->_33;
+	dst->_34 = src->_34;
+
+	dst->_41 = src->_41;
+	dst->_42 = src->_42;
+	dst->_43 = src->_43;
+	dst->_44 = src->_44;
 }

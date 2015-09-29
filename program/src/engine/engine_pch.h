@@ -59,7 +59,10 @@
  
 class Engine;
 class Renderer;
+class FreeCamera;
+
 extern Engine* g_engine;
 extern Renderer* g_renderer;
+extern FreeCamera* g_camera;
 
 #endif // ENGINE_ENGINE_PCH_H

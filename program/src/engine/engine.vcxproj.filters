@@ -46,9 +46,6 @@
     <ClCompile Include="dx11\renderer_dx11.cc">
       <Filter>render\dx11</Filter>
     </ClCompile>
-    <ClCompile Include="math\math.cc">
-      <Filter>math</Filter>
-    </ClCompile>
     <ClCompile Include="mesh\geometry.cc">
       <Filter>render\mesh</Filter>
     </ClCompile>
@@ -57,12 +54,6 @@
     </ClCompile>
     <ClCompile Include="mesh\mesh.cc">
       <Filter>render\mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="math\vector.cc">
-      <Filter>math</Filter>
-    </ClCompile>
-    <ClCompile Include="math\matrix.cc">
-      <Filter>math</Filter>
     </ClCompile>
     <ClCompile Include="dx11\util_dx11.cc">
       <Filter>render\dx11</Filter>
@@ -92,9 +83,6 @@
     </ClInclude>
     <ClInclude Include="engine_pch.h" />
     <ClInclude Include="engine.h" />
-    <ClInclude Include="math\math.h">
-      <Filter>math</Filter>
-    </ClInclude>
     <ClInclude Include="mesh\geometry.h">
       <Filter>render\mesh</Filter>
     </ClInclude>
@@ -104,23 +92,11 @@
     <ClInclude Include="mesh\mesh.h">
       <Filter>render\mesh</Filter>
     </ClInclude>
-    <ClInclude Include="math\vector.h">
-      <Filter>math</Filter>
-    </ClInclude>
-    <ClInclude Include="math\matrix.h">
-      <Filter>math</Filter>
-    </ClInclude>
     <ClInclude Include="dx11\util_dx11.h">
       <Filter>render\dx11</Filter>
     </ClInclude>
     <ClInclude Include="camera\camera.h">
       <Filter>render\camera</Filter>
-    </ClInclude>
-    <ClInclude Include="math\vector-inl.h">
-      <Filter>math</Filter>
-    </ClInclude>
-    <ClInclude Include="math\matrix-inl.h">
-      <Filter>math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

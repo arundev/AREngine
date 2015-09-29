@@ -5,44 +5,153 @@
 
 using namespace DirectX;
 
-Camera::Camera(){
+/*----------------------------------------------------------------*/
+BaseCamera::BaseCamera()
+{
+	m_ViewMat.Identity();
+
+	m_fRotX = 0.0f;
+	m_fRotY = 0.0f;
+	m_fRotZ = 0.0f;
+
+
+	m_vPos.Set(0.0f, 0.0f, 0.0f);
+
+	m_vDir.Set(0.0f, 0.0f, 1.0f);
+	m_vUp.Set(0.0f, 1.0f, 0.0f);
+	m_vRight.Set(1.0f, 0.0f, 0.0f);
+
+
 
 }
-
-Camera::~Camera(){
+/*----------------------------------------------------------------*/
+BaseCamera::~BaseCamera()
+{
 
 }
+/*----------------------------------------------------------------*/
+void BaseCamera::GetViewMatrix(RTMath::Matrix *ViewMat)
+{
+	if (!ViewMat)
+		return;
 
-void Camera::SetPosition(float x, float y, float z){
-	position_ = Vector(x, y, z);
+	memcpy(ViewMat, &m_ViewMat, sizeof(RTMath::Matrix));
+
+}
+/*----------------------------------------------------------------*/
+void BaseCamera::SetPos(Vector &vPos)
+{
+	memcpy(&m_vPos, &vPos, sizeof(Vector));
+}
+/*----------------------------------------------------------------*/
+void BaseCamera::GetPos(Vector *vPos)
+{
+	if (!vPos)
+		return;
+	memcpy(vPos, &m_vPos, sizeof(Vector));
+}
+/*----------------------------------------------------------------*/
+void BaseCamera::GetDirection(Vector *vDir, Vector *vUp, Vector *vRight)
+{
+	if (vDir)
+		memcpy(vDir, &m_vDir, sizeof(Vector));
+
+	if (vUp)
+		memcpy(vUp, &m_vUp, sizeof(Vector));
+
+	if (vRight)
+		memcpy(vRight, &m_vRight, sizeof(Vector));
 }
 
-void Camera::SetRotation(float x, float y, float z){
-	rotation_ = Vector(x, y, z);
+
+/*----------------------------------------------------------------
+class FreeCamera
+----------------------------------------------------------------*/
+FreeCamera::FreeCamera()
+{
+	m_vMoveDirection.Set(0.0f, 0.0f, 1.0f);
+
 }
-
-void Camera::Update(){
-	Vector up(0.0f, 1.0f, 0.0f);
-	Vector look_at(0.0f, 0.0f, 1.0f);
-
-	float pitch = rotation_.x_ * 0.0174532925f;
-	float yaw = rotation_.y_ * 0.0174532925f;
-	float roll = rotation_.z_ * 0.0174532925f;
-
-	D3DXMATRIX rotationMatrix_d3d;
-	D3DXMatrixRotationYawPitchRoll(&rotationMatrix_d3d, yaw, pitch, roll);
-
-	Matrix rotationMatrix;
-	MatrixFromDx11(&rotationMatrix_d3d, &rotationMatrix);
-
-	look_at *= rotationMatrix;
-	up *= rotationMatrix;
-
-	D3DXMATRIX viewMatrix_d3d;
-	D3DVECTOR v;
-	//D3DXMatrixLookAtLH(&viewMatrix_d3d, position_, look_at, up);
+/*----------------------------------------------------------------*/
+FreeCamera::~FreeCamera()
+{
 }
+/*----------------------------------------------------------------*/
+void FreeCamera::SetMoveDirection(Vector &vMoveDirection)
+{
+	memcpy(&m_vMoveDirection, &vMoveDirection, sizeof(Vector));
 
-const Matrix& Camera::GetViewMat(){
-	return viewMat_;
+}
+/*----------------------------------------------------------------*/
+void FreeCamera::GetMoveDirection(Vector *vMoveDirection)
+{
+	if (vMoveDirection)
+		memcpy(vMoveDirection, &m_vMoveDirection, sizeof(Vector));
+
+}
+/*----------------------------------------------------------------*/
+void FreeCamera::GetRotAngle(float *fRotX, float *fRotY, float *fRotZ)
+{
+	if (fRotX)
+		*fRotX = m_fRotX;
+	if (fRotY)
+		*fRotY = m_fRotY;
+	if (fRotZ)
+		*fRotZ = m_fRotZ;
+}
+/*----------------------------------------------------------------*/
+void FreeCamera::SetRotAngle(float fRotX, float fRotY, float fRotZ)
+{
+	m_fRotX = fRotX;
+	m_fRotY = fRotY;
+	m_fRotZ = fRotZ;
+}
+/*----------------------------------------------------------------*/
+void FreeCamera::SetRotAngleDelta(float fRotXDelta, float fRotYDelta, float fRotZDelta)
+{
+
+	m_fRotX += fRotXDelta;
+	m_fRotY += fRotYDelta;
+	m_fRotZ += fRotZDelta;
+
+	if (m_fRotX > RT2PI) m_fRotX -= RT2PI;
+	else if (m_fRotX < -RT2PI) m_fRotX += RT2PI;
+
+	if (m_fRotY > RT2PI) m_fRotY -= RT2PI;
+	else if (m_fRotY < -RT2PI) m_fRotY += RT2PI;
+
+	if (m_fRotZ > RT2PI) m_fRotZ -= RT2PI;
+	else if (m_fRotZ < -RT2PI) m_fRotZ += RT2PI;
+}
+/*----------------------------------------------------------------*/
+void FreeCamera::SetMoveDelta(float vMoveDelta)
+{
+	m_vPos += m_vMoveDirection * vMoveDelta;
+}
+/*----------------------------------------------------------------*/
+
+void FreeCamera::Update()
+{
+
+	Quaternion  qFrame(0, 0, 0, 1);
+	qFrame.MakeFromEuler(m_fRotX, m_fRotY, m_fRotZ);
+	m_ViewMat.Identity();
+	qFrame.GetMatrix(&m_ViewMat);
+
+	m_vRight.x = m_ViewMat._11;
+	m_vRight.y = m_ViewMat._21;
+	m_vRight.z = m_ViewMat._31;
+
+	m_vUp.x = m_ViewMat._12;
+	m_vUp.y = m_ViewMat._22;
+	m_vUp.z = m_ViewMat._32;
+
+	m_vDir.x = m_ViewMat._13;
+	m_vDir.y = m_ViewMat._23;
+	m_vDir.z = m_ViewMat._33;
+
+	m_ViewMat._41 = -(m_vRight * m_vPos);
+	m_ViewMat._42 = -(m_vUp * m_vPos);
+	m_ViewMat._43 = -(m_vDir * m_vPos);
+	m_ViewMat._44 = 1.0f;
 }

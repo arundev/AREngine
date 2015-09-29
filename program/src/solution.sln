@@ -9,8 +9,15 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game", "game\game.vcxproj",
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "engine\engine.vcxproj", "{6C89037C-8E73-4847-B6FB-D6F67578DFCC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF} = {7598C385-1879-4762-AE84-CBC99FFBC1FF}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "editor", "editor\editor.csproj", "{A7E8CF75-6CCF-4785-96DA-6571454819F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{9CB60BC0-8FCA-4CAE-9529-9A1AB19D0005}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "math", "..\lib\math\RTMath.vcxproj", "{7598C385-1879-4762-AE84-CBC99FFBC1FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,8 +59,21 @@ Global
 		{A7E8CF75-6CCF-4785-96DA-6571454819F4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A7E8CF75-6CCF-4785-96DA-6571454819F4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A7E8CF75-6CCF-4785-96DA-6571454819F4}.Release|Win32.ActiveCfg = Release|Any CPU
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF}.Debug|Win32.Build.0 = Debug|Win32
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF}.Release|Any CPU.ActiveCfg = Release|Win32
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF}.Release|Win32.ActiveCfg = Release|Win32
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7598C385-1879-4762-AE84-CBC99FFBC1FF} = {9CB60BC0-8FCA-4CAE-9529-9A1AB19D0005}
 	EndGlobalSection
 EndGlobal

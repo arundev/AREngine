@@ -205,9 +205,8 @@ bool RendererDx11::DoInit(){
 
 	D3DXMATRIX projection;
 	D3DXMatrixPerspectiveFovLH(&projection, field_of_view, screen_aspect, screen_near_, screen_depth_);
-
 	MatrixFromDx11(&projection, &projection_mat_);
-	world_mat_.Identify();
+	world_mat_.Identity();
 
 	return true;
 }
@@ -218,7 +217,7 @@ void RendererDx11::Update(){
 }
 
 void RendererDx11::PreRender(const Vector& clear_color){
-	BeginScene(clear_color.x_, clear_color.y_, clear_color.z_, clear_color.w_);
+	BeginScene(clear_color.x, clear_color.y, clear_color.z, 1);
 }
 
 void RendererDx11::Render(){

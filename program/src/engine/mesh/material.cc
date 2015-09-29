@@ -130,6 +130,9 @@ void Material::Apply()
 		return;
 	}
 
+	RTMath::Matrix viewMat;
+	g_camera->GetViewMatrix(&viewMat);
+
 	dataPtr = (MatrixBuffer*)mappedResource.pData;
 	dataPtr->world_ = renderer_dx11->world_mat();
 	dataPtr->view_ = renderer_dx11->view_mat();
@@ -137,7 +140,6 @@ void Material::Apply()
 	device_context->Unmap(matrix_buffer_, 0);
 	bufferNumber = 0;
 	device_context->VSSetConstantBuffers(bufferNumber, 1, &matrix_buffer_);
-
 
 	device_context->IASetInputLayout(input_layout_);
 	device_context->VSSetShader(vertex_shader_, NULL, 0);

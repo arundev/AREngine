@@ -2,7 +2,7 @@
 #define ENGINE_MESH_GEOMETRY_H
 
 #include "../engine_pch.h"
-#include "../math/math.h"
+#include "RTMath.h"
 #include "../dx11/renderer_dx11.h"
 
 class Geometry
@@ -13,7 +13,7 @@ public:
 
 	struct Vertex{
 		Vector position;
-		Vector color;
+		Color color;
 	};
 
 	bool Create(Vertex* vertex_data, int vertex_num, int* index_data, int index_num);

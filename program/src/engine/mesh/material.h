@@ -1,7 +1,7 @@
 #ifndef ENGINE_MODEL_MATERIAL_H
 #define ENGINE_MODEL_MATERIAL_H
 
-#include "../math/math.h"
+#include "RTMath.h"
 #include "../dx11/renderer_dx11.h"
 
 class Material
@@ -12,9 +12,9 @@ public:
 
 	struct MatrixBuffer
 	{
-		Matrix world_;
-		Matrix view_;
-		Matrix projection_;
+		RTMath::Matrix world_;
+		RTMath::Matrix view_;
+		RTMath::Matrix projection_;
 	};
 
 	bool Create();
