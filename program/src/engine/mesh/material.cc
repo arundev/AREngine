@@ -2,6 +2,7 @@
 #include <d3d11.h>
 #include <D3DX11async.h>
 #include <tchar.h>
+#include "../camera/camera.h"
 
 Material::Material() :
 vertex_shader_(NULL),
@@ -135,7 +136,7 @@ void Material::Apply()
 
 	dataPtr = (MatrixBuffer*)mappedResource.pData;
 	dataPtr->world_ = renderer_dx11->world_mat();
-	dataPtr->view_ = renderer_dx11->view_mat();
+	dataPtr->view_ = viewMat;//renderer_dx11->view_mat();
 	dataPtr->projection_ = renderer_dx11->projection_mat();
 	device_context->Unmap(matrix_buffer_, 0);
 	bufferNumber = 0;

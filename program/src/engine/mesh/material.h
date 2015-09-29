@@ -1,6 +1,7 @@
 #ifndef ENGINE_MODEL_MATERIAL_H
 #define ENGINE_MODEL_MATERIAL_H
 
+#include "../engine_pch.h"
 #include "RTMath.h"
 #include "../dx11/renderer_dx11.h"
 
