@@ -1,23 +1,39 @@
 #include <windows.h>
 #include "win32.h"
 #include "engine.h"
+#include <tchar.h>
+#include <stdio.h>
+#include <iostream>
+#include "camera/camera.h"
 
-	HINSTANCE g_instance = NULL;
+HINSTANCE g_instance = NULL;
 HWND g_wnd = NULL;
+POINT g_ptLastPoint;
+
+class Engine;
+class Renderer;
+class FreeCamera;
+
+extern Engine* g_engine;
+extern Renderer* g_renderer;
+extern FreeCamera* g_camera;
 
 bool CreateWnd(int width, int height, const char* title){
-	WNDCLASS wndclass = { 0 };
+	WNDCLASSEX wndclass = { 0 };
 	DWORD    wStyle = 0;
 	RECT     windowRect;
 	HINSTANCE hInstance = GetModuleHandle(NULL);
 
-	wndclass.style = CS_OWNDC;
-	wndclass.lpfnWndProc = (WNDPROC)WndProc;
+	wndclass.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
+	wndclass.lpfnWndProc = WndProc;
+	wndclass.cbClsExtra = 0;
+	wndclass.cbWndExtra = 0;
 	wndclass.hInstance = hInstance;
 	wndclass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
 	wndclass.lpszClassName = "opengles2.0";
+	wndclass.cbSize = sizeof(WNDCLASSEX);
 
-	if (!RegisterClass(&wndclass)){
+	if (!RegisterClassEx(&wndclass)){
 		return FALSE;
 	}
 
@@ -48,7 +64,10 @@ bool CreateWnd(int width, int height, const char* title){
 	if (g_wnd == NULL){
 		return false;
 	}
-	ShowWindow(g_wnd, TRUE);
+
+	ShowWindow(g_wnd, SW_SHOW);
+	SetForegroundWindow(g_wnd);
+	SetFocus(g_wnd);
 
 	g_instance = hInstance;
 
@@ -91,6 +110,9 @@ void MsgLoop(){
 
 LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 	LRESULT  lRet = 1;
+	int wmId, wmEvent;
+	PAINTSTRUCT ps;
+	HDC hdc;
 
 	switch (uMsg){
 		case WM_CREATE:
@@ -103,6 +125,118 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 			break;
 		case WM_CHAR:
 			break;
+		case WM_LBUTTONDOWN:
+		{
+			POINT ptMouse;
+			GetCursorPos(&ptMouse);
+			ScreenToClient(g_wnd, &ptMouse);
+			g_ptLastPoint = ptMouse;
+		}
+		break;
+		case WM_RBUTTONDOWN:
+		{
+			GetCursorPos(&g_ptLastPoint);
+			ScreenToClient(g_wnd, &g_ptLastPoint);
+		break;
+		}
+		case WM_MOUSEMOVE:
+		{
+			switch (wParam)
+			{
+			case MK_LBUTTON:
+			{
+
+			}
+			break;
+			case MK_RBUTTON:
+			{
+				POINT pt;
+				pt.x = LOWORD(lParam);
+				pt.y = HIWORD(lParam);
+				g_camera->SetRotAngleDelta((pt.y - g_ptLastPoint.y) / 150.0f, (pt.x - g_ptLastPoint.x) / 150.0f, 0.0f);
+				g_ptLastPoint = pt;
+			}
+			default:
+				break;
+			}
+			break;
+		}
+		case WM_KEYDOWN:
+		{
+			Vector *vcDirc = new Vector();
+			Vector *vcUp = new Vector();
+			Vector *vcRight = new Vector();
+			g_camera->GetDirection(vcDirc, vcUp, vcRight);
+			switch (wParam)
+			{
+			case VK_A:
+			{
+				g_camera->SetMoveDirection(*vcRight);
+				g_camera->SetMoveDelta(-20.0f);
+
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
+			}
+			case VK_D:
+			{
+				Vector vcPosCamera;
+				g_camera->SetMoveDirection(*vcRight);
+				g_camera->SetMoveDelta(20.0f);
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
+			}
+			case VK_W:
+			{
+				g_camera->SetMoveDirection(*vcDirc);
+				g_camera->SetMoveDelta(20.0f);
+
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
+			}
+			case VK_S:
+			{
+				g_camera->SetMoveDirection(*vcDirc);
+				g_camera->SetMoveDelta(-20.0f);
+
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
+			}
+			case VK_Q:
+			{
+				g_camera->SetMoveDirection(*vcUp);
+				g_camera->SetMoveDelta(20.0f);
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
+			}
+			case VK_E:
+			{
+				g_camera->SetMoveDirection(*vcUp);
+				g_camera->SetMoveDelta(-20.0f);
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
+			}
+		
+			default:
+				break;
+			}
+			g_camera->Update();
+			Matrix viewMat;
+			viewMat.Identity();
+			g_camera->GetViewMatrix(&viewMat);
+		}
+		break;
 		default:
 			lRet = DefWindowProc(hWnd, uMsg, wParam, lParam);
 			break;

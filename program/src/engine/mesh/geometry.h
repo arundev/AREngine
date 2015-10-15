@@ -11,18 +11,38 @@ public:
 	Geometry();
 	~Geometry();
 
+	struct Position
+	{
+		Position(float xx, float yy, float zz)
+		{
+			x = xx;
+			y = yy;
+			z = zz;
+		}
+
+		Position()
+		{
+			x = 0;
+			y = 0;
+			z = 0;
+		}
+
+		float x, y, z;
+	};
+
 	struct Vertex{
-		Vector position;
+		Position position;
 		Color color;
 	};
 
-	bool Create(Vertex* vertex_data, int vertex_num, int* index_data, int index_num);
+	bool Create(Vertex* vertex_data, int vertex_num, unsigned int* index_data, int index_num);
 	void Free();
+	void SetDataSteam();
 	void Flush();
 
 protected:
 	Vertex* vertex_data_;
-	int* index_data_;
+	unsigned int* index_data_;
 	ID3D11Buffer* vertex_buffer_;
 	ID3D11Buffer* index_buffer_;
 	int vertex_num_;

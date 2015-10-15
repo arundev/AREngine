@@ -38,6 +38,8 @@ public:
 	virtual void PostRender() = 0;
 	virtual void Free() = 0;
 
+	virtual void SetWireframe(bool b){ ; }
+
 	const RTMath::Matrix& world_mat()const{ return world_mat_; }
 	const RTMath::Matrix& view_mat()const{ return view_mat_; }
 	const RTMath::Matrix& projection_mat()const{ return projection_mat_; }

@@ -18,9 +18,9 @@ bool Renderer::Init(const Window& param)
 	screen_height_ = param.height_;
 
 	full_screen_ = false;
-	vsync_enabled_ = false;
-	screen_depth_ = 0;
-	screen_near_ = 1.0f;
+	vsync_enabled_ = true;
+	screen_depth_ = 1000.0f;
+	screen_near_ = 0.1f;
 
 	return DoInit();
 }

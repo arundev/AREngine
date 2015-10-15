@@ -6,7 +6,7 @@
 
 Engine* g_engine = 0;
 Renderer* g_renderer = 0;
-BaseCamera* g_camera = 0;
+FreeCamera* g_camera = 0;
 
 extern Mesh* g_test_trangle;
 

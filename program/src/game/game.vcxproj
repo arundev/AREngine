@@ -60,9 +60,11 @@
       <TreatWarningAsError>false</TreatWarningAsError>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\..\bin\win32;$(SolutionDir)..\lib\opengles\lib;$(SolutionDir)..\lib\dxsdk\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>libGLESv2.lib;libEGL.lib;engine_d.lib;math_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>
+      </SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

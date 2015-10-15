@@ -3,6 +3,9 @@
 #include "engine.h"
 #include "mesh/mesh.h"
 
+#include <windows.h>
+#include <mmsystem.h>
+
 Mesh* g_test_trangle = NULL;
 
 int main(int argc, char *argv[]){

@@ -24,3 +24,16 @@ E:\work\workplace\open_source\AREngine\program\src\editor\obj\Release\editor.Pro
 E:\work\workplace\open_source\AREngine\program\src\editor\obj\Release\editor.csproj.GenerateResource.Cache
 E:\work\workplace\open_source\AREngine\program\src\editor\obj\Release\editor.exe
 E:\work\workplace\open_source\AREngine\program\src\editor\obj\Release\editor.pdb
+F:\workplace\my\AREngine\program\src\editor\bin\Release\editor.exe.config
+F:\workplace\my\AREngine\program\src\editor\bin\Release\editor.exe
+F:\workplace\my\AREngine\program\src\editor\bin\Release\editor.pdb
+F:\workplace\my\AREngine\program\src\editor\obj\Release\editor.csprojResolveAssemblyReference.cache
+F:\workplace\my\AREngine\program\src\editor\obj\Release\MainWindow.baml
+F:\workplace\my\AREngine\program\src\editor\obj\Release\MainWindow.g.cs
+F:\workplace\my\AREngine\program\src\editor\obj\Release\App.g.cs
+F:\workplace\my\AREngine\program\src\editor\obj\Release\editor_MarkupCompile.cache
+F:\workplace\my\AREngine\program\src\editor\obj\Release\editor.g.resources
+F:\workplace\my\AREngine\program\src\editor\obj\Release\editor.Properties.Resources.resources
+F:\workplace\my\AREngine\program\src\editor\obj\Release\editor.csproj.GenerateResource.Cache
+F:\workplace\my\AREngine\program\src\editor\obj\Release\editor.exe
+F:\workplace\my\AREngine\program\src\editor\obj\Release\editor.pdb

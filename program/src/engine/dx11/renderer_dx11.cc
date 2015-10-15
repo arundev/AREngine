@@ -177,7 +177,7 @@ bool RendererDx11::DoInit(){
 	float field_of_view, screen_aspect;
 	device_context_->OMSetRenderTargets(1, &render_target_view_, depth_stencil_view_);
 	raster_desc.AntialiasedLineEnable = false;
-	raster_desc.CullMode = D3D11_CULL_BACK;
+	raster_desc.CullMode = D3D11_CULL_NONE;
 	raster_desc.DepthBias = 0;
 	raster_desc.DepthBiasClamp = 0.0f;
 	raster_desc.DepthClipEnable = true;

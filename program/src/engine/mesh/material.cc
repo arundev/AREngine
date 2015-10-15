@@ -67,11 +67,12 @@ bool Material::SetShader(const char* vs /* = NULL */, const char* gs /* = NULL *
 
 	poloygon_layout[0].SemanticName = "POSITION";
 	poloygon_layout[0].SemanticIndex = 0;
-	poloygon_layout[0].Format = DXGI_FORMAT_R32G32_FLOAT;
+	poloygon_layout[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
 	poloygon_layout[0].InputSlot = 0;
-	poloygon_layout[0].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
+	poloygon_layout[0].AlignedByteOffset = 0;
 	poloygon_layout[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	poloygon_layout[0].InstanceDataStepRate = 0;
+
 	poloygon_layout[1].SemanticName = "COLOR";
 	poloygon_layout[1].SemanticIndex = 0;
 	poloygon_layout[1].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
@@ -138,6 +139,20 @@ void Material::Apply()
 	dataPtr->world_ = renderer_dx11->world_mat();
 	dataPtr->view_ = viewMat;//renderer_dx11->view_mat();
 	dataPtr->projection_ = renderer_dx11->projection_mat();
+
+	dataPtr->world_._11 = 1000.0f;
+	dataPtr->world_._22 = 1000.0f;
+	dataPtr->world_._33 = 1000.0f;
+
+	dataPtr->projection_._33 = 1.0f;
+	dataPtr->projection_._34 = -0.1f;
+
+	dataPtr->view_._33 = 1.0f;
+	dataPtr->view_._34 = 5.0f;
+	dataPtr->view_._43 = 0.0f;
+	dataPtr->view_._44 = 1.0f;
+
+
 	device_context->Unmap(matrix_buffer_, 0);
 	bufferNumber = 0;
 	device_context->VSSetConstantBuffers(bufferNumber, 1, &matrix_buffer_);
