@@ -135,22 +135,15 @@ void Material::Apply()
 	RTMath::Matrix viewMat;
 	g_camera->GetViewMatrix(&viewMat);
 
+	RTMath::Matrix world, view, proj;
+	world.TransposeOf(renderer_dx11->world_mat());
+	view.TransposeOf(viewMat);
+	proj.TransposeOf(renderer_dx11->projection_mat());
+
 	dataPtr = (MatrixBuffer*)mappedResource.pData;
-	dataPtr->world_ = renderer_dx11->world_mat();
-	dataPtr->view_ = viewMat;//renderer_dx11->view_mat();
-	dataPtr->projection_ = renderer_dx11->projection_mat();
-
-	dataPtr->world_._11 = 1000.0f;
-	dataPtr->world_._22 = 1000.0f;
-	dataPtr->world_._33 = 1000.0f;
-
-	dataPtr->projection_._33 = 1.0f;
-	dataPtr->projection_._34 = -0.1f;
-
-	dataPtr->view_._33 = 1.0f;
-	dataPtr->view_._34 = 5.0f;
-	dataPtr->view_._43 = 0.0f;
-	dataPtr->view_._44 = 1.0f;
+	dataPtr->world_ = world;
+	dataPtr->view_ = view;
+	dataPtr->projection_ = proj;
 
 
 	device_context->Unmap(matrix_buffer_, 0);
