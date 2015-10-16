@@ -31,6 +31,7 @@ using namespace std;
 // ios
 
 // engine
+#include "plateform.h"
 #include "util.h"
 #include "RTMath.h"
 using namespace RTMath;

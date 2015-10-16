@@ -8,8 +8,6 @@ Engine* g_engine = 0;
 Renderer* g_renderer = 0;
 FreeCamera* g_camera = 0;
 
-extern Mesh* g_test_trangle;
-
 Engine::Engine(){
 
 }
@@ -19,8 +17,15 @@ Engine::~Engine(){
 }
 
 bool Engine::Init(const Renderer::Window& param){
-	g_renderer = new RendererDx11();
-	//g_renderer = new RendererEs2();
+	Plateform::Init();
+
+	if (Plateform::graphic_api() == Plateform::D3D_11){
+		g_renderer = new RendererDx11();
+	}
+	else if (Plateform::graphic_api() == Plateform::GLES_2){
+		g_renderer = new RendererEs2();
+	}
+	
 	if (!g_renderer->Init(param)){
 		return false;
 	}

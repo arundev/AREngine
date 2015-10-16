@@ -63,6 +63,10 @@
     </ClCompile>
     <ClCompile Include="picture_util.cc" />
     <ClCompile Include="mesh\texture.cc" />
+    <ClCompile Include="plateform.cc" />
+    <ClCompile Include="dx11\geometry_dx11.cc" />
+    <ClCompile Include="dx11\material_dx11.cc" />
+    <ClCompile Include="dx11\texture_dx11.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -102,6 +106,10 @@
     </ClInclude>
     <ClInclude Include="mesh\texture.h" />
     <ClInclude Include="picture_util.h" />
+    <ClInclude Include="plateform.h" />
+    <ClInclude Include="dx11\geometry_dx11.h" />
+    <ClInclude Include="dx11\material_dx11.h" />
+    <ClInclude Include="dx11\texture_dx11.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

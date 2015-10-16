@@ -2,15 +2,13 @@
 #define ENGINE_MODEL_MATERIAL_H
 
 #include "../engine_pch.h"
-#include "RTMath.h"
-#include "../dx11/renderer_dx11.h"
 #include "texture.h"
 
 class Material
 {
 public:
 	Material();
-	~Material();
+	virtual ~Material();
 
 	struct MatrixBuffer
 	{
@@ -19,22 +17,32 @@ public:
 		RTMath::Matrix projection_;
 	};
 
-	virtual bool Create();
-	virtual bool Create(const char* vs, const char* ps);
-	bool SetShader(const char* vs = NULL, const char* ps = NULL, const char* gs = NULL);
-	bool SetTexture(const char* file_name);
+	static Material* Create();
+
+	bool Init();
+	bool Init(const char* vs, const char* ps);
 	void Free();
 	void Apply();
 
-protected:
-	ID3D11VertexShader* vertex_shader_;
-	ID3D11GeometryShader* geometry_shader_;
-	ID3D11PixelShader* pixel_shader_;
-	ID3D11InputLayout* input_layout_;
-	ID3D11Buffer* matrix_buffer_;
+	virtual bool SetShader(const char* vs = NULL, const char* ps = NULL, const char* gs = NULL);
+	virtual bool SetTexture(const char* file_name);
 
+	const string& vs_file_name()const{ return vs_file_name_; }
+	const string& ps_file_name()const{ return ps_file_name_; }
+	const string& gs_file_name()const{ return gs_file_name_; }
+
+protected:
+	virtual bool DoInit() = 0;
+	virtual void DoFree() = 0;
+	virtual void DoApply() = 0;
+	virtual bool CreateShader() = 0;
+	virtual bool CreateTexture() = 0;
+
+protected:
+	string vs_file_name_;
+	string ps_file_name_;
+	string gs_file_name_;
 	Texture* texture_;
-	ID3D11SamplerState* texture_samper_state_;
 };
 
 

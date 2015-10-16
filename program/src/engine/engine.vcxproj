@@ -91,6 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera\camera.cpp" />
+    <ClCompile Include="dx11\geometry_dx11.cc" />
+    <ClCompile Include="dx11\material_dx11.cc" />
+    <ClCompile Include="dx11\texture_dx11.cc" />
     <ClCompile Include="dx11\util_dx11.cc" />
     <ClCompile Include="engine.cc" />
     <ClCompile Include="mesh\geometry.cc" />
@@ -98,6 +101,7 @@
     <ClCompile Include="mesh\mesh.cc" />
     <ClCompile Include="mesh\texture.cc" />
     <ClCompile Include="picture_util.cc" />
+    <ClCompile Include="plateform.cc" />
     <ClCompile Include="renderer.cc" />
     <ClCompile Include="util.cc" />
     <ClCompile Include="dx11\renderer_dx11.cc" />
@@ -107,6 +111,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
+    <ClInclude Include="dx11\geometry_dx11.h" />
+    <ClInclude Include="dx11\material_dx11.h" />
+    <ClInclude Include="dx11\texture_dx11.h" />
     <ClInclude Include="dx11\util_dx11.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="mesh\geometry.h" />
@@ -114,6 +121,7 @@
     <ClInclude Include="mesh\mesh.h" />
     <ClInclude Include="mesh\texture.h" />
     <ClInclude Include="picture_util.h" />
+    <ClInclude Include="plateform.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="log.h" />
     <ClInclude Include="util.h" />

@@ -33,8 +33,8 @@ Mesh* Mesh::CreateTriangle(){
 	indices[0] = 0;  // Bottom left.
 	indices[1] = 1;  // Top middle.
 	indices[2] = 2;  // Bottom right.
-	mesh->geometry()->Create(vertices, 3, indices, 3);
-	mesh->material()->Create("../../bin/res/color.vs", "../../bin/res/color.ps");
+	mesh->geometry()->Init(vertices, 3, indices, 3);
+	mesh->material()->Init("../../bin/res/color.vs", "../../bin/res/color.ps");
 	mesh->material()->SetTexture("../../bin/res/stone01.tga");
 
 	SAFE_DELETE_ARRAY(vertices);
@@ -51,8 +51,8 @@ Mesh* Mesh::CreateCube(){
 
 bool Mesh::Init(){
 	Free();
-	geometry_ = new Geometry();
-	material_ = new Material();
+	geometry_ = Geometry::Create();
+	material_ = Material::Create();
 
 	return true;
 }
