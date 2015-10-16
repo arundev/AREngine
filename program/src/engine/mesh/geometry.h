@@ -2,7 +2,6 @@
 #define ENGINE_MESH_GEOMETRY_H
 
 #include "../engine_pch.h"
-#include "RTMath.h"
 #include "../dx11/renderer_dx11.h"
 
 class Geometry
@@ -11,28 +10,11 @@ public:
 	Geometry();
 	~Geometry();
 
-	struct Position
-	{
-		Position(float xx, float yy, float zz)
-		{
-			x = xx;
-			y = yy;
-			z = zz;
-		}
-
-		Position()
-		{
-			x = 0;
-			y = 0;
-			z = 0;
-		}
-
-		float x, y, z;
-	};
-
 	struct Vertex{
-		Position position;
+		Vector position;
 		Color color;
+		float tex_coord_x[1];
+		float tex_coord_y[1];
 	};
 
 	bool Create(Vertex* vertex_data, int vertex_num, unsigned int* index_data, int index_num);

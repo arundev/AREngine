@@ -20,6 +20,8 @@ public:
 	RendererDx11();
 	~RendererDx11();
 
+	static RendererDx11* Instance();
+
 	virtual void Update();
 	virtual void PreRender(const Vector& clear_color);
 	virtual void Render();

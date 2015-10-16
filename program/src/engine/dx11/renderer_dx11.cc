@@ -10,13 +10,16 @@ render_target_view_(NULL),
 depth_stencil_buffer_(NULL),
 depth_stencil_state_(NULL),
 depth_stencil_view_(NULL),
-raster_state_(NULL)
-{
+raster_state_(NULL){
 
 }
 
 RendererDx11::~RendererDx11(){
 	Free();
+}
+
+RendererDx11* RendererDx11::Instance(){
+	return dynamic_cast<RendererDx11*>(g_renderer);
 }
 
 bool RendererDx11::DoInit(){

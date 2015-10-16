@@ -87,7 +87,6 @@ void Geometry::SetDataSteam()
 
 	unsigned int stride = sizeof(Vertex);
 	unsigned int offset = 0;
-
 	device_contex->IASetVertexBuffers(0, 1, &vertex_buffer_, &stride, &offset);
 	device_contex->IASetIndexBuffer(index_buffer_, DXGI_FORMAT_R32_UINT, 0);
 	device_contex->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);

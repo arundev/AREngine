@@ -9,8 +9,9 @@ vertex_shader_(NULL),
 geometry_shader_(NULL),
 pixel_shader_(NULL),
 matrix_buffer_(NULL),
-input_layout_(NULL)
-{
+input_layout_(NULL),
+texture_(NULL),
+texture_samper_state_(NULL){
 
 }
 
@@ -23,7 +24,12 @@ bool Material::Create(){
 	return true;
 }
 
-bool Material::SetShader(const char* vs /* = NULL */, const char* gs /* = NULL */, const char* ps /* = NULL */)
+bool Material::Create(const char* vs, const char* ps){
+	SetShader(vs, ps);
+	return true;
+}
+
+bool Material::SetShader(const char* vs /* = NULL */, const char* ps /* = NULL */, const char* gs /* = NULL */)
 {
 	RendererDx11* renderer_dx11 = dynamic_cast<RendererDx11*>(g_renderer);
 	ID3D11Device* device = renderer_dx11->device();
@@ -33,14 +39,17 @@ bool Material::SetShader(const char* vs /* = NULL */, const char* gs /* = NULL *
 	ID3D10Blob* vertex_buffer = NULL;
 	ID3D10Blob* pixel_buffer = NULL;
 
-	result = D3DX11CompileFromFile(L"../../bin/res/color.vs", 0, 0, "ColorVertexShader", "vs_5_0", 0, 0, 0, &vertex_buffer, &error_msg, 0);
+	WCHAR wstr[MAX_PATH] = { 0 };
+	MultiByteToWideChar(CP_ACP, 0, vs, -1, wstr, sizeof(wstr));
+	result = D3DX11CompileFromFile(wstr, 0, 0, "Main", "vs_5_0", 0, 0, 0, &vertex_buffer, &error_msg, 0);
 	if (FAILED(result))
 	{
 		const char* error = (char*)error_msg->GetBufferPointer();
 		return false;
 	}
 	
-	result = D3DX11CompileFromFile(L"../../bin/res/color.ps", 0, 0, "ColorPixelShader", "ps_5_0", 0, 0, 0, &pixel_buffer, &error_msg, 0);
+	MultiByteToWideChar(CP_ACP, 0, ps, -1, wstr, sizeof(wstr));
+	result = D3DX11CompileFromFile(wstr, 0, 0, "Main", "ps_5_0", 0, 0, 0, &pixel_buffer, &error_msg, 0);
 	if (FAILED(result))
 	{
 		const char* error = (char*)(error_msg->GetBufferPointer());
@@ -62,7 +71,7 @@ bool Material::SetShader(const char* vs /* = NULL */, const char* gs /* = NULL *
 		return false;
 	}
 
-	D3D11_INPUT_ELEMENT_DESC poloygon_layout[2];
+	D3D11_INPUT_ELEMENT_DESC poloygon_layout[3];
 	unsigned int num_element;
 
 	poloygon_layout[0].SemanticName = "POSITION";
@@ -80,6 +89,15 @@ bool Material::SetShader(const char* vs /* = NULL */, const char* gs /* = NULL *
 	poloygon_layout[1].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
 	poloygon_layout[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	poloygon_layout[1].InstanceDataStepRate = 0;
+
+	poloygon_layout[2].SemanticName = "TEXCOORD";
+	poloygon_layout[2].SemanticIndex = 0;
+	poloygon_layout[2].Format = DXGI_FORMAT_R32G32_FLOAT;
+	poloygon_layout[2].InputSlot = 0;
+	poloygon_layout[2].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
+	poloygon_layout[2].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+	poloygon_layout[2].InstanceDataStepRate = 0;
+
 
 	num_element = sizeof(poloygon_layout) / sizeof(poloygon_layout[0]);
 	result = device->CreateInputLayout(poloygon_layout, num_element, vertex_buffer->GetBufferPointer(),
@@ -108,7 +126,45 @@ bool Material::SetShader(const char* vs /* = NULL */, const char* gs /* = NULL *
 	return true;
 }
 
+bool Material::SetTexture(const char* file_name){
+	SAFE_RELEASE(texture_samper_state_);
+	SAFE_DELETE(texture_);
+
+	RendererDx11* renderer = RendererDx11::Instance();
+	ID3D11Device* device = renderer->device();
+
+	texture_ = new Texture();
+	if (!texture_->Create(file_name))
+	{
+		return false;
+	}
+
+	D3D11_SAMPLER_DESC desc;
+	desc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+	desc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
+	desc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
+	desc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+	desc.MipLODBias = 0.0f;
+	desc.MaxAnisotropy = 1;
+	desc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
+	desc.BorderColor[0] = 0;
+	desc.BorderColor[1] = 0;
+	desc.BorderColor[2] = 0;
+	desc.BorderColor[3] = 0;
+	desc.MinLOD = 0;
+	desc.MaxLOD = D3D11_FLOAT32_MAX;
+	HRESULT hr = device->CreateSamplerState(&desc, &texture_samper_state_);
+	if (FAILED(hr))
+	{
+		return false;
+	}
+
+	return true;
+}
+
 void Material::Free(){
+	SAFE_RELEASE(texture_samper_state_);
+	SAFE_DELETE(texture_);
 	SAFE_RELEASE(vertex_shader_);
 	SAFE_RELEASE(geometry_shader_);
 	SAFE_RELEASE(pixel_shader_);
@@ -153,4 +209,7 @@ void Material::Apply()
 	device_context->IASetInputLayout(input_layout_);
 	device_context->VSSetShader(vertex_shader_, NULL, 0);
 	device_context->PSSetShader(pixel_shader_, NULL, 0);
+	
+	ID3D11ShaderResourceView* tex_view = texture_->texture_view();
+	device_context->PSSetShaderResources(0, 1, &tex_view);
 }

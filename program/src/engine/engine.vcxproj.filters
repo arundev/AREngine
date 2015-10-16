@@ -61,6 +61,8 @@
     <ClCompile Include="camera\camera.cpp">
       <Filter>render\camera</Filter>
     </ClCompile>
+    <ClCompile Include="picture_util.cc" />
+    <ClCompile Include="mesh\texture.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -98,6 +100,8 @@
     <ClInclude Include="camera\camera.h">
       <Filter>render\camera</Filter>
     </ClInclude>
+    <ClInclude Include="mesh\texture.h" />
+    <ClInclude Include="picture_util.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />
