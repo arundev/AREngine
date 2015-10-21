@@ -31,12 +31,6 @@
     <ClCompile Include="util.cc">
       <Filter>render\util</Filter>
     </ClCompile>
-    <ClCompile Include="file_system.cc">
-      <Filter>render\util</Filter>
-    </ClCompile>
-    <ClCompile Include="log.cc">
-      <Filter>render\util</Filter>
-    </ClCompile>
     <ClCompile Include="renderer.cc">
       <Filter>render</Filter>
     </ClCompile>
@@ -61,21 +55,21 @@
     <ClCompile Include="camera\camera.cpp">
       <Filter>render\camera</Filter>
     </ClCompile>
-    <ClCompile Include="picture_util.cc" />
     <ClCompile Include="mesh\texture.cc" />
-    <ClCompile Include="plateform.cc" />
     <ClCompile Include="dx11\geometry_dx11.cc" />
     <ClCompile Include="dx11\material_dx11.cc" />
     <ClCompile Include="dx11\texture_dx11.cc" />
+    <ClCompile Include="util\image_util.cc" />
+    <ClCompile Include="util\file_system.cc">
+      <Filter>render\util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\log.cc">
+      <Filter>render\util</Filter>
+    </ClCompile>
+    <ClCompile Include="plateform.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
-      <Filter>render\util</Filter>
-    </ClInclude>
-    <ClInclude Include="file_system.h">
-      <Filter>render\util</Filter>
-    </ClInclude>
-    <ClInclude Include="log.h">
       <Filter>render\util</Filter>
     </ClInclude>
     <ClInclude Include="renderer.h">
@@ -105,11 +99,17 @@
       <Filter>render\camera</Filter>
     </ClInclude>
     <ClInclude Include="mesh\texture.h" />
-    <ClInclude Include="picture_util.h" />
-    <ClInclude Include="plateform.h" />
     <ClInclude Include="dx11\geometry_dx11.h" />
     <ClInclude Include="dx11\material_dx11.h" />
     <ClInclude Include="dx11\texture_dx11.h" />
+    <ClInclude Include="util\image_util.h" />
+    <ClInclude Include="util\file_system.h">
+      <Filter>render\util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\log.h">
+      <Filter>render\util</Filter>
+    </ClInclude>
+    <ClInclude Include="plateform.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

@@ -1,5 +1,5 @@
 #include "texture.h"
-#include "../picture_util.h"
+#include "../util/image_util.h"
 
 #ifdef _WIN32
 #include "../dx11/renderer_dx11.h"

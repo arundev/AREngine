@@ -1,6 +1,6 @@
 #include "texture_dx11.h"
 #include "renderer_dx11.h"
-#include "../picture_util.h"
+#include "../util/image_util.h"
 
 TextureDx11::TextureDx11():
 d3d_texture_(NULL),
@@ -21,8 +21,8 @@ bool TextureDx11::DoInit(){
 	D3D11_SHADER_RESOURCE_VIEW_DESC view_desc;
 	HRESULT hr = E_FAIL;
 
-	PictureUtil::Data data;
-	if (!PictureUtil::Load(file_name_.c_str(), data))	{
+	ImageUtil::Data data;
+	if (!ImageUtil::Load(file_name_.c_str(), data))	{
 		return false;
 	}
 	tex_data_ = data.data_;
@@ -40,7 +40,6 @@ bool TextureDx11::DoInit(){
 	tex_desc.BindFlags = D3D11_BIND_SHADER_RESOURCE | D3D11_BIND_RENDER_TARGET;
 	tex_desc.CPUAccessFlags = 0;
 	tex_desc.MiscFlags = D3D11_RESOURCE_MISC_GENERATE_MIPS;
-
 	hr = deveice->CreateTexture2D(&tex_desc, NULL, &d3d_texture_);
 	if (FAILED(hr)){
 		Free();

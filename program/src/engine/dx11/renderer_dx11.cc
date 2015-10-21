@@ -1,6 +1,6 @@
 #include "renderer_dx11.h"
 #include "util_dx11.h"
-#include "../log.h"
+#include "../util/log.h"
 
 RendererDx11::RendererDx11() : 
 swap_chain_(NULL),
@@ -105,7 +105,6 @@ bool RendererDx11::DoInit(){
 	swap_chain_desc.BufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
 	swap_chain_desc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
 	swap_chain_desc.Flags = 0;
-
 	feature_level = D3D_FEATURE_LEVEL_11_0;
 	hr = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, 0, &feature_level, 1,
 		D3D11_SDK_VERSION, &swap_chain_desc, &swap_chain_, &device_, NULL, &device_context_);
@@ -137,7 +136,6 @@ bool RendererDx11::DoInit(){
 	depth_buffer_desc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
 	depth_buffer_desc.CPUAccessFlags = 0;
 	depth_buffer_desc.MiscFlags = 0;
-
 	D3D11_DEPTH_STENCIL_DESC depth_stencil_desc;
 	hr = device_->CreateTexture2D(&depth_buffer_desc, NULL, &depth_stencil_buffer_);
 	if (FAILED(hr)){
@@ -174,6 +172,7 @@ bool RendererDx11::DoInit(){
 		return false;
 	}
 
+	// create and set rasterize state
 	D3D11_RASTERIZER_DESC raster_desc;
 	D3D11_VIEWPORT viewport;
 	float field_of_view, screen_aspect;
@@ -192,8 +191,9 @@ bool RendererDx11::DoInit(){
 	if (FAILED(hr)){
 		return false;
 	}
-
 	device_context_->RSSetState(raster_state_);
+
+	// create view port and projection matrix
 	viewport.Width = (float)screen_width_;
 	viewport.Height = (float)screen_width_;
 	viewport.MinDepth = 0.0f;
@@ -204,7 +204,6 @@ bool RendererDx11::DoInit(){
 
 	field_of_view = (float)D3DX_PI / 4.0f;
 	screen_aspect = (float)screen_width_ / (float)screen_height_;
-
 	D3DXMATRIX projection;
 	D3DXMatrixPerspectiveFovLH(&projection, field_of_view, screen_aspect, screen_near_, screen_depth_);
 	MatrixFromDx11(&projection, &projection_mat_);
@@ -256,6 +255,8 @@ void RendererDx11::EndScene(){
 }
 
 void RendererDx11::Free(){
+	device_context_->ClearState();
+
 	SAFE_RELEASE(swap_chain_);
 	SAFE_RELEASE(device_context_);
 	SAFE_RELEASE(render_target_view_);

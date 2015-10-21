@@ -106,7 +106,6 @@ bool MaterialDx11::CreateShader(){
 		return false;
 	}
 
-
 	result = device->CreatePixelShader(pixel_buffer->GetBufferPointer(), pixel_buffer->GetBufferSize(),
 		NULL, &pixel_shader_);
 	if (FAILED(result))
