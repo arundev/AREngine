@@ -1,12 +1,248 @@
-﻿Build started 10/21/2015 9:33:26 AM.
+﻿Build started 10/26/2015 4:17:32 PM.
      1>Project "F:\workplace\my\AREngine\program\src\game\game.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\workplace\my\AREngine\program\src\\..\bin\win32 /LIBPATH:F:\workplace\my\AREngine\program\src\..\lib\opengles\lib /LIBPATH:F:\workplace\my\AREngine\program\src\..\lib\dxsdk\lib libGLESv2.lib libEGL.lib engine_d.lib math_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.lib" /MACHINE:X86 F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\main.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\win32.obj
-            Creating library F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.lib and object F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exp
-         game.vcxproj -> F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exe
-     1>Done Building Project "F:\workplace\my\AREngine\program\src\game\game.vcxproj" (Build target(s)).
+     1>ClCompile:
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\engine /IF:\workplace\my\AREngine\program\src\..\lib\opengles\include /IF:\workplace\my\AREngine\program\src\..\lib\dxsdk\include /IF:\workplace\my\AREngine\program\src\..\lib\math /I..\extern\assimp\src\include /I..\extern\assimp\src\code\BoostWorkaround /I..\extern\assimp\contrib\zlib /I..\extern\assimp\src\code /ZI /nologo /W3 /WX- /sdl /MP /Od /Oy- /D WIN32 /D _DEBUG /D OPENDDL_NO_USE_CPP11 /D ASSIMP_BUILD_BOOST_WORKAROUND /D ASSIMP_BUILD_NO_C4D_IMPORTER /D "CMAKE_INTDIR=\"Debug\"" /D _MSC_VER /D ASSIMP_DLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\\" /Fd"F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp win32.cpp
+     1>cl : Command line warning D9030: '/Gm' is incompatible with multiprocessing; ignoring /MP switch
+         win32.cpp
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(5929): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(6029): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(8827): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(8927): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(9160): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(9169): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(14854): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(14862): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(14984): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(15390): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(15564): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winbase.h(910): warning C4007: 'WinMain' : must be '__stdcall'
+     1>c:\program files (x86)\windows kits\8.1\include\um\winbase.h(923): warning C4007: 'wWinMain' : must be '__stdcall'
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(611): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(625): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(928): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(944): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1039): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1060): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1138): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1204): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1221): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1295): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winuser.h(4684): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winuser.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winuser.h(4768): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winuser.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\mmsyscom.h(21): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\mmsyscom.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\mmsyscom.h(312): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\mmsyscom.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\mmsystem.h(37): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\mmsystem.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\mmsystem.h(143): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\mmsystem.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\shellapi.h(49): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\shellapi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\shellapi.h(1662): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\shellapi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(2218): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(2501): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3029): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3035): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3651): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3660): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3674): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3685): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3710): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3720): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3726): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3736): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3765): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3771): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\prsht.h(56): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\prsht.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\prsht.h(904): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\prsht.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\oaidl.h(473): error C2628: '_VARIANT_BOOL' followed by 'bool' is illegal (did you forget a ';'?)
+     1>c:\program files (x86)\windows kits\8.1\include\um\oaidl.h(473): error C2208: 'VARIANT_BOOL' : no members defined using this type
+     1>c:\program files (x86)\windows kits\8.1\include\um\propidl.h(318): error C2628: '_VARIANT_BOOL' followed by 'bool' is illegal (did you forget a ';'?)
+     1>c:\program files (x86)\windows kits\8.1\include\um\propidl.h(318): error C2208: 'VARIANT_BOOL' : no members defined using this type
+     1>c:\program files (x86)\windows kits\8.1\include\um\commdlg.h(44): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\commdlg.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\commdlg.h(1231): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\commdlg.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133): error C2953: 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...)>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133) : see declaration of 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...)>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133): error C2953: 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133) : see declaration of 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) const>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133): error C2953: 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) volatile>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133) : see declaration of 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) volatile>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133): error C2953: 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) volatile const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133) : see declaration of 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) volatile const>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...),_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...),_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) const,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) const,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) volatile,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) volatile,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) volatile const,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) volatile const,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...),_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...),_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) const,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) const,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) volatile,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) volatile,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) volatile const,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) volatile const,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...)>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...)>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) const>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) volatile>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) volatile>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) volatile const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) volatile const>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...)>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...)>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) const>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) volatile>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) volatile>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) volatile const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) volatile const>'
+         main.cpp
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(5929): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(6029): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(8827): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(8927): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(9160): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(9169): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(14854): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(14862): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(14984): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(15390): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winnt.h(15564): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winnt.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winbase.h(910): warning C4007: 'WinMain' : must be '__stdcall'
+     1>c:\program files (x86)\windows kits\8.1\include\um\winbase.h(923): warning C4007: 'wWinMain' : must be '__stdcall'
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(611): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(625): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(928): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(944): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1039): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1060): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1138): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1204): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1221): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(1295): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\wingdi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winuser.h(4684): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winuser.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winuser.h(4768): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winuser.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\mmsyscom.h(21): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\mmsyscom.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\mmsyscom.h(312): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\mmsyscom.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\mmsystem.h(37): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\mmsystem.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\mmsystem.h(143): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\mmsystem.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\shellapi.h(49): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\shellapi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\shellapi.h(1662): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\shellapi.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(2218): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(2501): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3029): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3035): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3651): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3660): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3674): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3685): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3710): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3720): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3726): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3736): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3765): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\winioctl.h(3771): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\winioctl.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\prsht.h(56): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\prsht.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\prsht.h(904): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\prsht.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\oaidl.h(473): error C2628: '_VARIANT_BOOL' followed by 'bool' is illegal (did you forget a ';'?)
+     1>c:\program files (x86)\windows kits\8.1\include\um\oaidl.h(473): error C2208: 'VARIANT_BOOL' : no members defined using this type
+     1>c:\program files (x86)\windows kits\8.1\include\um\propidl.h(318): error C2628: '_VARIANT_BOOL' followed by 'bool' is illegal (did you forget a ';'?)
+     1>c:\program files (x86)\windows kits\8.1\include\um\propidl.h(318): error C2208: 'VARIANT_BOOL' : no members defined using this type
+     1>c:\program files (x86)\windows kits\8.1\include\um\commdlg.h(44): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\commdlg.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>c:\program files (x86)\windows kits\8.1\include\um\commdlg.h(1231): warning C4103: 'c:\program files (x86)\windows kits\8.1\include\um\commdlg.h' : alignment changed after including header, may be due to missing #pragma pack(pop)
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133): error C2953: 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...)>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133) : see declaration of 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...)>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133): error C2953: 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133) : see declaration of 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) const>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133): error C2953: 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) volatile>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133) : see declaration of 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) volatile>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133): error C2953: 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) volatile const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(133) : see declaration of 'std::_Is_memfunptr<_Ret(__thiscall _Arg0::* )(_Types...) volatile const>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...),_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...),_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) const,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) const,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) volatile,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) volatile,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) volatile const,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* )(_Mfargs...) volatile const,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...),_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...),_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) const,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) const,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) volatile,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) volatile,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74): error C2953: 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) volatile const,_Obj,_Args...>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(74) : see declaration of 'std::_Result_of<_Ret(__thiscall _Ty::* const )(_Mfargs...) volatile const,_Obj,_Args...>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...)>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...)>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) const>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) volatile>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) volatile>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) volatile const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* )(_Types...) volatile const>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...)>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...)>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) const>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) volatile>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) volatile>'
+     1>e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645): error C2953: 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) volatile const>' : class template has already been defined
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\xrefwrap(645) : see declaration of 'std::_Refwrap_impl<_Rx(__thiscall _Arg0::* const )(_Types...) volatile const>'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(309): warning C4005: 'UINT8_C' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(131) : see previous definition of 'UINT8_C'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(324): warning C4005: 'INT8_C' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(126) : see previous definition of 'INT8_C'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(342): warning C4005: 'UINT16_C' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(132) : see previous definition of 'UINT16_C'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(366): warning C4005: 'INT16_C' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(127) : see previous definition of 'INT16_C'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(380): error C2371: 'uint32_t' : redefinition; different basic types
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(14) : see declaration of 'uint32_t'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(381): warning C4005: 'UINT32_C' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(133) : see previous definition of 'UINT32_C'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(410): error C2371: 'int32_t' : redefinition; different basic types
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(10) : see declaration of 'int32_t'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(411): warning C4005: 'INT32_C' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(128) : see previous definition of 'INT32_C'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(476): warning C4005: 'UINT64_C' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(134) : see previous definition of 'UINT64_C'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(477): warning C4005: 'INT64_C' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(129) : see previous definition of 'INT64_C'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(621): error C2371: 'int_fast16_t' : redefinition; different basic types
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(27) : see declaration of 'int_fast16_t'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(622): error C2371: 'uint_fast16_t' : redefinition; different basic types
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(31) : see declaration of 'uint_fast16_t'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(625): warning C4005: 'UINT_FAST8_MAX' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(91) : see previous definition of 'UINT_FAST8_MAX'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(626): warning C4005: 'INT_FAST8_MAX' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(87) : see previous definition of 'INT_FAST8_MAX'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(627): warning C4005: 'UINT_FAST16_MAX' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(92) : see previous definition of 'UINT_FAST16_MAX'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(628): warning C4005: 'INT_FAST16_MAX' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(88) : see previous definition of 'INT_FAST16_MAX'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(629): warning C4005: 'UINT_FAST32_MAX' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(93) : see previous definition of 'UINT_FAST32_MAX'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(630): warning C4005: 'INT_FAST32_MAX' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(89) : see previous definition of 'INT_FAST32_MAX'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(631): warning C4005: 'INT_FAST8_MIN' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(83) : see previous definition of 'INT_FAST8_MIN'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(632): warning C4005: 'INT_FAST16_MIN' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(84) : see previous definition of 'INT_FAST16_MIN'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(633): warning C4005: 'INT_FAST32_MIN' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(85) : see previous definition of 'INT_FAST32_MIN'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(637): warning C4005: 'UINT_FAST64_MAX' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(94) : see previous definition of 'UINT_FAST64_MAX'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(638): warning C4005: 'INT_FAST64_MAX' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(90) : see previous definition of 'INT_FAST64_MAX'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\compiler\pstdint.h(639): warning C4005: 'INT_FAST64_MIN' : macro redefinition
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdint.h(86) : see previous definition of 'INT_FAST64_MIN'
+     1>f:\workplace\my\arengine\program\src\extern\assimp\src\code\baseimporter.h(365): warning C4251: 'Assimp::BaseImporter::mErrorText' : class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Assimp::BaseImporter'
+         Generating Code...
+     1>Done Building Project "F:\workplace\my\AREngine\program\src\game\game.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.29
+Time Elapsed 00:00:01.28

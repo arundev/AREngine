@@ -9,29 +9,29 @@ public:
 	FileSystem();
 	~FileSystem();
 
-	std::wstring GetLogFolder();
+	std::string GetLogFolder();
 		
-	std::wstring GetDataFolder();
-	std::wstring GetModelsFolder();
-	std::wstring GetScriptsFolder();
-	std::wstring GetShaderFolder();
-	std::wstring GetTextureFolder();
+	std::string GetDataFolder();
+	std::string GetModelsFolder();
+	std::string GetScriptsFolder();
+	std::string GetShaderFolder();
+	std::string GetTextureFolder();
 
-	void SetDataFolder( const std::wstring& folder );
-	void SetModelsFolder( const std::wstring& folder );
-	void SetScriptsFolder( const std::wstring& folder );
-	void SetShaderFolder( const std::wstring& folder );
-	void SetTextureFolder( const std::wstring& folder );
+	void SetDataFolder(const std::string& folder);
+	void SetModelsFolder(const std::string& folder);
+	void SetScriptsFolder(const std::string& folder);
+	void SetShaderFolder(const std::string& folder);
+	void SetTextureFolder(const std::string& folder);
 
-	bool FileExists( const std::wstring& file );
-	bool FileIsNewer( const std::wstring& file1, const std::wstring& file2 );
+	bool FileExists(const std::string& file);
+	bool FileIsNewer(const std::string& file1, const std::string& file2);
 
 private:
-	static std::wstring data_folder_;
-	static std::wstring models_sub_folder_;
-	static std::wstring scripts_sub_folder_;
-	static std::wstring shader_sub_folder_;
-	static std::wstring texture_sub_folder_;
+	static std::string data_folder_;
+	static std::string models_sub_folder_;
+	static std::string scripts_sub_folder_;
+	static std::string shader_sub_folder_;
+	static std::string texture_sub_folder_;
 };
 
 #endif // FILE_SYSTEM_H

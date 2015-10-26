@@ -84,7 +84,7 @@ bool MaterialDx11::CreateShader(){
 
 	WCHAR wstr[MAX_PATH] = { 0 };
 	MultiByteToWideChar(CP_ACP, 0, vs_file_name_.c_str(), -1, wstr, sizeof(wstr));
-	result = D3DX11CompileFromFile(wstr, 0, 0, "Main", "vs_5_0", 0, 0, 0, &vertex_buffer, &error_msg, 0);
+	result = D3DX11CompileFromFile(vs_file_name_.c_str(), 0, 0, "Main", "vs_5_0", 0, 0, 0, &vertex_buffer, &error_msg, 0);
 	if (FAILED(result))
 	{
 		const char* error = (char*)error_msg->GetBufferPointer();
@@ -92,7 +92,7 @@ bool MaterialDx11::CreateShader(){
 	}
 
 	MultiByteToWideChar(CP_ACP, 0, ps_file_name_.c_str(), -1, wstr, sizeof(wstr));
-	result = D3DX11CompileFromFile(wstr, 0, 0, "Main", "ps_5_0", 0, 0, 0, &pixel_buffer, &error_msg, 0);
+	result = D3DX11CompileFromFile(ps_file_name_.c_str(), 0, 0, "Main", "ps_5_0", 0, 0, 0, &pixel_buffer, &error_msg, 0);
 	if (FAILED(result))
 	{
 		const char* error = (char*)(error_msg->GetBufferPointer());
@@ -144,7 +144,7 @@ bool MaterialDx11::CreateShader(){
 	num_element = sizeof(poloygon_layout) / sizeof(poloygon_layout[0]);
 	result = device->CreateInputLayout(poloygon_layout, num_element, vertex_buffer->GetBufferPointer(),
 		vertex_buffer->GetBufferSize(), &input_layout_);
-	if (FAILED(result))
+	if (FAILED(result))	
 	{
 		return false;
 	}

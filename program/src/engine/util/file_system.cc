@@ -2,11 +2,11 @@
 #include "file_system.h"
 #include <shlobj.h>
 
-std::wstring FileSystem::data_folder_ = L"../Data/";
-std::wstring FileSystem::models_sub_folder_ = L"Models/";
-std::wstring FileSystem::scripts_sub_folder_ = L"Scripts/";
-std::wstring FileSystem::shader_sub_folder_ = L"Shaders/";
-std::wstring FileSystem::texture_sub_folder_ = L"Textures/";
+std::string FileSystem::data_folder_ = "../Data/";
+std::string FileSystem::models_sub_folder_ = "Models/";
+std::string FileSystem::scripts_sub_folder_ = "Scripts/";
+std::string FileSystem::shader_sub_folder_ = "Shaders/";
+std::string FileSystem::texture_sub_folder_ = "Textures/";
 
 FileSystem::FileSystem()
 {
@@ -16,9 +16,9 @@ FileSystem::~FileSystem()
 {
 }
 
-std::wstring FileSystem::GetLogFolder()
+std::string FileSystem::GetLogFolder()
 {
-	wchar_t buffer[MAX_PATH];
+	char buffer[MAX_PATH];
 
 	HRESULT hr = SHGetFolderPath( 0,
 	    CSIDL_LOCAL_APPDATA,
@@ -27,62 +27,62 @@ std::wstring FileSystem::GetLogFolder()
 		buffer
 	);
 
-	std::wstring result = buffer;
+	std::string result = buffer;
 
-	return( result );
+	return result;
 }
 
-std::wstring FileSystem::GetDataFolder()
+std::string FileSystem::GetDataFolder()
 {
 	return( data_folder_ );
 }
 
-std::wstring FileSystem::GetModelsFolder()
+std::string FileSystem::GetModelsFolder()
 {
 	return( data_folder_ + models_sub_folder_ );
 }
 
-std::wstring FileSystem::GetScriptsFolder()
+std::string FileSystem::GetScriptsFolder()
 {
 	return( data_folder_ + scripts_sub_folder_ );
 }
 
-std::wstring FileSystem::GetShaderFolder()
+std::string FileSystem::GetShaderFolder()
 {
 	return( data_folder_ + shader_sub_folder_ );
 }
 
-std::wstring FileSystem::GetTextureFolder()
+std::string FileSystem::GetTextureFolder()
 {
 	return( data_folder_ + texture_sub_folder_ );
 }
 
-void FileSystem::SetDataFolder( const std::wstring& folder )
+void FileSystem::SetDataFolder(const std::string& folder)
 {
 	data_folder_ = folder;
 }
 
-void FileSystem::SetModelsFolder( const std::wstring& folder )
+void FileSystem::SetModelsFolder(const std::string& folder)
 {
 	models_sub_folder_ = folder;
 }
 
-void FileSystem::SetScriptsFolder( const std::wstring& folder )
+void FileSystem::SetScriptsFolder(const std::string& folder)
 {
 	scripts_sub_folder_ = folder;
 }
 
-void FileSystem::SetShaderFolder( const std::wstring& folder )
+void FileSystem::SetShaderFolder(const std::string& folder)
 {
 	shader_sub_folder_ = folder;
 }
 
-void FileSystem::SetTextureFolder( const std::wstring& folder )
+void FileSystem::SetTextureFolder(const std::string& folder)
 {
 	texture_sub_folder_ = folder;
 }
 
-bool FileSystem::FileExists( const std::wstring& file )
+bool FileSystem::FileExists(const std::string& file)
 {
 	// Check if the file exists, and that it is not a directory
 
@@ -91,7 +91,7 @@ bool FileSystem::FileExists( const std::wstring& file )
 	return (dwAttrib != INVALID_FILE_ATTRIBUTES && !(dwAttrib & FILE_ATTRIBUTE_DIRECTORY));
 }
 
-bool FileSystem::FileIsNewer( const std::wstring& file1, const std::wstring& file2 )
+bool FileSystem::FileIsNewer(const std::string& file1, const std::string& file2)
 {
 	// This method assumes that the existance of the files has already been verified!
 
@@ -106,7 +106,7 @@ bool FileSystem::FileIsNewer( const std::wstring& file1, const std::wstring& fil
 //                           OPEN_EXISTING,
 //                           nullptr );
 //#else
-    handle1 = CreateFileW( file1.c_str(),
+    handle1 = CreateFile( file1.c_str(),
 						   GENERIC_READ,
                            FILE_SHARE_READ,
                            nullptr,
@@ -123,7 +123,7 @@ bool FileSystem::FileIsNewer( const std::wstring& file1, const std::wstring& fil
 //                           OPEN_EXISTING,
 //                           nullptr );
 //#else
-    handle2 = CreateFileW( file2.c_str(),
+    handle2 = CreateFile( file2.c_str(),
 						   GENERIC_READ,
                            FILE_SHARE_READ,
                            nullptr,

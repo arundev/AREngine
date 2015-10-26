@@ -17,8 +17,8 @@ public:
 	bool Open();
 	bool Close();
 
-	bool Write(const wchar_t *TextString);
-	bool Write(std::wstring& TextString);
+	bool Write(const char *TextString);
+	bool Write(std::string& TextString);
 	bool WriteSeparater();
 };
 

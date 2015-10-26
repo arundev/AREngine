@@ -15,29 +15,29 @@ Log& Log::Get()
 bool Log::Open()
 {
 	FileSystem fs;
-	std::wstring filename = fs.GetLogFolder() + L"\\Log.txt";
+	std::string filename = fs.GetLogFolder() + "\\Log.txt";
 	AppLog.open( filename.c_str() );
 
-	Write( L"Log file opened." );
+	Write( "Log file opened." );
 
 	return( true );
 }
 
-bool Log::Write( const wchar_t *cTextString )
+bool Log::Write( const char *cTextString )
 {
 	AppLog << cTextString << "\n";
 
 #if _WIN32
 #if _DEBUG 
-	::OutputDebugStringW(cTextString);
-	::OutputDebugStringW(L"\n");
+	::OutputDebugString(cTextString);
+	::OutputDebugString("\n");
 #endif
 #endif
 
 	return( true );
 }
 
-bool Log::Write( std::wstring& TextString )
+bool Log::Write( std::string& TextString )
 {
 	Log::Write( TextString.c_str() );
 	AppLog.flush();
@@ -46,14 +46,14 @@ bool Log::Write( std::wstring& TextString )
 
 bool Log::Close( )
 {
-	Write( L"Log file closed." );
+	Write( "Log file closed." );
 	AppLog.close();
 	return( true );
 }
 
 bool Log::WriteSeparater( )
 {
-	Write( L"------------------------------------------------------------" );
+	Write("------------------------------------------------------------" );
 
 	return( true );
 }
