@@ -4,12 +4,15 @@
 #include "mesh/mesh.h"
 #include "camera/camera.h"
 
+#include <assimp/Importer.hpp>
+#include <BaseImporter.h>
+
 Engine* g_engine = 0;
 Renderer* g_renderer = 0;
 FreeCamera* g_camera = 0;
 
 Engine::Engine(){
-
+	Assimp::Importer* pImp = new Assimp::Importer();
 }
 
 Engine::~Engine(){

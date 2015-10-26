@@ -67,6 +67,7 @@
       <Filter>render\util</Filter>
     </ClCompile>
     <ClCompile Include="plateform.cc" />
+    <ClCompile Include="util\assimp_util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -110,6 +111,7 @@
       <Filter>render\util</Filter>
     </ClInclude>
     <ClInclude Include="plateform.h" />
+    <ClInclude Include="util\assimp_util.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />
