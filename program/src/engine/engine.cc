@@ -7,6 +7,7 @@
 #include <assimp/Importer.hpp>
 #include <BaseImporter.h>
 
+Log* g_log = 0;
 Engine* g_engine = 0;
 Renderer* g_renderer = 0;
 FreeCamera* g_camera = 0;
@@ -22,6 +23,11 @@ Engine::~Engine(){
 bool Engine::Init(const Renderer::Window& param){
 	Plateform::Init();
 
+	g_log = new Log();
+	if (!g_log->Init()){
+		return false;
+	}
+	
 	if (Plateform::graphic_api() == Plateform::D3D_11){
 		g_renderer = new RendererDx11();
 	}
@@ -45,7 +51,7 @@ void Engine::Update(){
 }
 
 void Engine::Render(){
-	Vector clear_color(0, 0, 0);
+	Vector clear_color(0.5, 0.5, 0.5);
 	g_renderer->PreRender(clear_color);
 
 	std::vector<Mesh*>::const_iterator iter = Mesh::s_mesh_list.begin();

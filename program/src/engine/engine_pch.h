@@ -31,9 +31,12 @@ using namespace std;
 // ios
 
 // engine
+#include "RTMath.h"
 #include "plateform.h"
 #include "util.h"
-#include "RTMath.h"
+#include "util/file_system.h"
+#include "util/log.h"
+
 using namespace RTMath;
 
 /*-------------------------------------------------------*/
@@ -64,7 +67,9 @@ class Engine;
 class Renderer;
 class FreeCamera;
 class CameraClass;
+class Log;
 
+extern Log* g_log;
 extern Engine* g_engine;
 extern Renderer* g_renderer;
 extern FreeCamera* g_camera;

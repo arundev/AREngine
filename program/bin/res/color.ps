@@ -24,5 +24,6 @@ float4 Main(PixelInputType input) : SV_TARGET
 {
 	float4 texColor;
 	texColor = shaderTexture.Sample(samplerType, input.tex) + input.color;
+	//texColor = input.color;
 	return texColor;
 }

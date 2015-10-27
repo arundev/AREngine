@@ -33,7 +33,8 @@ Mesh* Mesh::CreateTriangle(){
 	indices[0] = 0;  // Bottom left.
 	indices[1] = 1;  // Top middle.
 	indices[2] = 2;  // Bottom right.
-	mesh->geometry()->Init(vertices, 3, indices, 3);
+	//mesh->geometry()->Init(vertices, 3, indices, 3);
+	mesh->geometry()->Init<Geometry::Vertex>(vertices, 3, indices, 3);
 	mesh->material()->Init("../../bin/res/color.vs", "../../bin/res/color.ps");
 	mesh->material()->SetTexture("../../bin/res/stone01.tga");
 

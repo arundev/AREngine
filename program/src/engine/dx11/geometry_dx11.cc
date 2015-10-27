@@ -22,7 +22,7 @@ bool GeometryDx11::DoInit(){
 	HRESULT result = E_FAIL;
 
 	vertex_buffer_desc.Usage = D3D11_USAGE_DEFAULT;
-	vertex_buffer_desc.ByteWidth = sizeof(Vertex)*vertex_num_;
+	vertex_buffer_desc.ByteWidth = vertex_stride*vertex_num_;
 	vertex_buffer_desc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	vertex_buffer_desc.CPUAccessFlags = 0;
 	vertex_buffer_desc.MiscFlags = 0;
@@ -39,7 +39,7 @@ bool GeometryDx11::DoInit(){
 	}
 
 	index_buffer_desc.Usage = D3D11_USAGE_DEFAULT;
-	index_buffer_desc.ByteWidth = sizeof(int)*index_num_;
+	index_buffer_desc.ByteWidth = sizeof(unsigned int)*index_num_;
 	index_buffer_desc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	index_buffer_desc.CPUAccessFlags = 0;
 	index_buffer_desc.MiscFlags = 0;
@@ -66,7 +66,7 @@ void GeometryDx11::DoSetDataStream(){
 	ID3D11Device* device = renderer_dx11->device();
 	ID3D11DeviceContext *device_contex = renderer_dx11->device_context();
 
-	unsigned int stride = sizeof(Vertex);
+	unsigned int stride = vertex_stride;
 	unsigned int offset = 0;
 	device_contex->IASetVertexBuffers(0, 1, &vertex_buffer_, &stride, &offset);
 	device_contex->IASetIndexBuffer(index_buffer_, DXGI_FORMAT_R32_UINT, 0);

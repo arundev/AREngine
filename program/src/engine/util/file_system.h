@@ -23,7 +23,7 @@ public:
 	void SetShaderFolder(const std::string& folder);
 	void SetTextureFolder(const std::string& folder);
 
-	bool FileExists(const std::string& file);
+	static bool FileExists(const std::string& file);
 	bool FileIsNewer(const std::string& file1, const std::string& file2);
 
 private:

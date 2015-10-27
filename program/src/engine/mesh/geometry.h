@@ -9,16 +9,46 @@ public:
 	Geometry();
 	virtual ~Geometry();
 
-	struct Vertex{
+	struct TexCoord
+	{
+		TexCoord(){
+
+		}
+		TexCoord(float x, float y){
+			x_ = x;
+			y_ = y;
+		}
+		float x_, y_;
+	};
+
+	struct Vertex
+	{
 		Vector position;
 		Color color;
 		float tex_coord_x[1];
 		float tex_coord_y[1];
 	};
 
+	struct VertexFull
+	{
+		VertexFull(){
+		}
+
+		Vector position;
+		Vector normal;
+		Color color;
+		Vector tangent;
+		Vector bitangent;
+		TexCoord texture1;
+		TexCoord texture2;
+		unsigned char bone_indices[4];
+		unsigned char bone_weights[4];
+	};
+
 	static Geometry* Create();
 
-	bool Init(Vertex* vertex_data, int vertex_num, unsigned int* index_data, int index_num);
+	template<typename t>
+	bool Init(t* vertex_data, int vertex_num, unsigned int* index_data, int index_num);
 	void Free();
 
 	void SetDataSteam();
@@ -31,11 +61,31 @@ protected:
 	virtual void DoFlush() = 0;
 
 protected:
-	Vertex* vertex_data_;
+	unsigned char* vertex_data_;
 	unsigned int* index_data_;
+	int vertex_stride;
 	int vertex_num_;
 	int index_num_;
 };
+
+template <typename t>
+bool Geometry::Init(t* vertex_data, int vertex_num, unsigned int* index_data, int index_num){
+	if (vertex_data == NULL){
+		return false;
+	}
+
+	vertex_num_ = vertex_num;
+	index_num_ = index_num;
+	vertex_stride = sizeof(t);
+	int vertex_byte_size = sizeof(t)*vertex_num_;
+	int index_byte_size = sizeof(unsigned int)*index_num_;
+	vertex_data_ = (unsigned char*)malloc(vertex_byte_size);
+	index_data_ = (unsigned int*)malloc(index_byte_size);
+	memcpy(vertex_data_, vertex_data, vertex_byte_size);
+	memcpy(index_data_, index_data, index_byte_size);
+
+	return DoInit();
+}
 
 
 #endif // ENGINE_MODEL_GEOMETRY_H

@@ -2,25 +2,24 @@
 #include "log.h"
 #include "file_system.h"
 
-Log::Log()
-{
-}
-
-Log& Log::Get()
-{
-	static Log log;
-	return( log );
-}
-
-bool Log::Open()
-{
+bool Log::Init(){
 	FileSystem fs;
 	std::string filename = fs.GetLogFolder() + "\\Log.txt";
-	AppLog.open( filename.c_str() );
+	AppLog.open(filename.c_str());
 
-	Write( "Log file opened." );
+	Write("Log file opened.");
 
-	return( true );
+	return true;
+}
+
+void Log::Free(){
+	Write("Log file closed.");
+	AppLog.close();
+	return;
+}
+
+void Log::Update(){
+
 }
 
 bool Log::Write( const char *cTextString )
@@ -34,26 +33,17 @@ bool Log::Write( const char *cTextString )
 #endif
 #endif
 
-	return( true );
+	return true;
 }
 
 bool Log::Write( std::string& TextString )
 {
 	Log::Write( TextString.c_str() );
 	AppLog.flush();
-	return( true );
+	return true;
 }
 
-bool Log::Close( )
-{
-	Write( "Log file closed." );
-	AppLog.close();
-	return( true );
-}
-
-bool Log::WriteSeparater( )
-{
-	Write("------------------------------------------------------------" );
-
+bool Log::WriteSeparater( ){
+	Write("------------------------------------------------------------");
 	return( true );
 }

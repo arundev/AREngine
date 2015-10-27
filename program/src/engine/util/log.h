@@ -5,21 +5,22 @@
 
 class Log
 {
-protected:
-	Log();
-
-	std::wofstream	AppLog;
+public:
+	Log(){ ; }
+	~Log(){ ; }
 
 public:
 
-	static Log& Get();
-
-	bool Open();
-	bool Close();
+	bool Init();
+	void Update();
+	void Free();
 
 	bool Write(const char *TextString);
 	bool Write(std::string& TextString);
 	bool WriteSeparater();
+
+protected:
+	std::wofstream	AppLog;
 };
 
 #endif // ENGINE_LOG_H

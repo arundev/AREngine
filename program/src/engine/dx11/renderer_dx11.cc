@@ -218,6 +218,21 @@ void RendererDx11::Update(){
 }
 
 void RendererDx11::PreRender(const Vector& clear_color){
+
+	D3D11_RASTERIZER_DESC raster_desc;
+	raster_desc.AntialiasedLineEnable = false;
+	raster_desc.CullMode = D3D11_CULL_NONE;
+	raster_desc.DepthBias = 0;
+	raster_desc.DepthBiasClamp = 0.0f;
+	raster_desc.DepthClipEnable = true;
+	raster_desc.FillMode = D3D11_FILL_SOLID;
+	raster_desc.FrontCounterClockwise = false;
+	raster_desc.MultisampleEnable = false;
+	raster_desc.ScissorEnable = false;
+	raster_desc.SlopeScaledDepthBias = 0.0f;
+	device_->CreateRasterizerState(&raster_desc, &raster_state_);
+	device_context_->RSSetState(raster_state_);
+
 	BeginScene(clear_color.x, clear_color.y, clear_color.z, 1);
 }
 

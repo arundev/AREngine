@@ -23,25 +23,6 @@ Geometry* Geometry::Create(){
 	return geometry;
 }
 
-
-bool Geometry::Init(Vertex* vertex_data, int vertex_num, unsigned int* index_data, int index_num){
-
-	if (vertex_data == NULL){
-		return false;
-	}
-
-	vertex_num_ = vertex_num;
-	index_num_ = index_num;
-	int vertex_byte_size = sizeof(Vertex)*vertex_num_;
-	int index_byte_size = sizeof(unsigned int)*index_num_;
-	vertex_data_ = (Vertex*)malloc(vertex_byte_size);
-	index_data_ = (unsigned int*)malloc(index_byte_size);
-	memcpy(vertex_data_, vertex_data, vertex_byte_size);
-	memcpy(index_data_, index_data, index_byte_size);
-
-	return DoInit();
-}
-
 void Geometry::Free(){
 	DoFree();
 
