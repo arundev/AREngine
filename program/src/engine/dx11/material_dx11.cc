@@ -28,6 +28,7 @@ void MaterialDx11::DoFree(){
 	SAFE_RELEASE(geometry_shader_);
 	SAFE_RELEASE(pixel_shader_);
 	SAFE_RELEASE(matrix_buffer_);
+	SAFE_RELEASE(input_layout_);
 }
 
 void MaterialDx11::DoApply(){

@@ -1,6 +1,7 @@
 #include "renderer_dx11.h"
 #include "util_dx11.h"
 #include "../util/log.h"
+#include <atlbase.h>
 
 RendererDx11::RendererDx11() : 
 swap_chain_(NULL),
@@ -106,11 +107,29 @@ bool RendererDx11::DoInit(){
 	swap_chain_desc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
 	swap_chain_desc.Flags = 0;
 	feature_level = D3D_FEATURE_LEVEL_11_0;
-	hr = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, 0, &feature_level, 1,
-		D3D11_SDK_VERSION, &swap_chain_desc, &swap_chain_, &device_, NULL, &device_context_);
+
+	int create_flag = 0;
+#if _DEBUG
+	create_flag |= D3D11_CREATE_DEVICE_DEBUG;
+#endif
+
+	hr = D3D11CreateDeviceAndSwapChain(NULL, 
+		D3D_DRIVER_TYPE_HARDWARE, 
+		NULL, 
+		create_flag,
+		&feature_level, 
+		1,
+		D3D11_SDK_VERSION, 
+		&swap_chain_desc, 
+		&swap_chain_, 
+		&device_, 
+		NULL, 
+		&device_context_);
 	if (FAILED(hr)){
 		return false;
 	}
+
+	device_->QueryInterface(__uuidof(ID3D11Debug), reinterpret_cast<void**>(&debug_));
 
 	ID3D11Texture2D* back_buffer_ptr;
 	hr = swap_chain_->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&back_buffer_ptr);
@@ -218,21 +237,6 @@ void RendererDx11::Update(){
 }
 
 void RendererDx11::PreRender(const Vector& clear_color){
-
-	D3D11_RASTERIZER_DESC raster_desc;
-	raster_desc.AntialiasedLineEnable = false;
-	raster_desc.CullMode = D3D11_CULL_NONE;
-	raster_desc.DepthBias = 0;
-	raster_desc.DepthBiasClamp = 0.0f;
-	raster_desc.DepthClipEnable = true;
-	raster_desc.FillMode = D3D11_FILL_SOLID;
-	raster_desc.FrontCounterClockwise = false;
-	raster_desc.MultisampleEnable = false;
-	raster_desc.ScissorEnable = false;
-	raster_desc.SlopeScaledDepthBias = 0.0f;
-	device_->CreateRasterizerState(&raster_desc, &raster_state_);
-	device_context_->RSSetState(raster_state_);
-
 	BeginScene(clear_color.x, clear_color.y, clear_color.z, 1);
 }
 
@@ -272,6 +276,7 @@ void RendererDx11::EndScene(){
 void RendererDx11::Free(){
 	device_context_->ClearState();
 
+	SAFE_RELEASE(raster_state_);
 	SAFE_RELEASE(swap_chain_);
 	SAFE_RELEASE(device_context_);
 	SAFE_RELEASE(render_target_view_);
@@ -279,4 +284,7 @@ void RendererDx11::Free(){
 	SAFE_RELEASE(depth_stencil_state_);
 	SAFE_RELEASE(depth_stencil_view_);
 	SAFE_RELEASE(device_);
+
+	debug_->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL);
+	SAFE_RELEASE(debug_);
 }

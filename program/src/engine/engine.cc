@@ -51,12 +51,11 @@ void Engine::Update(){
 }
 
 void Engine::Render(){
-	Vector clear_color(0.5, 0.5, 0.5);
+	Vector clear_color(0, 0, 0);
 	g_renderer->PreRender(clear_color);
 
 	std::vector<Mesh*>::const_iterator iter = Mesh::s_mesh_list.begin();
-	for (; iter != Mesh::s_mesh_list.end(); iter++)
-	{
+	for (; iter != Mesh::s_mesh_list.end(); iter++){
 		(*iter)->Render();
 	}
 
@@ -68,8 +67,7 @@ void Engine::Render(){
 void Engine::Free(){
 
 	std::vector<Mesh*>::iterator iter = Mesh::s_mesh_list.begin();
-	for(; iter != Mesh::s_mesh_list.end(); iter++)
-	{
+	for(; iter != Mesh::s_mesh_list.end(); iter++){
 		(*iter)->Free();
 	}
 
