@@ -1,5 +1,5 @@
 #include "assimp_util.h"
-#include "file_system.h"
+#include "file_util.h"
 #include "../mesh/mesh.h"
 
 #include <assimp/cimport.h>
@@ -35,9 +35,10 @@ bool AssimpUtil::LoadFile(const char* file_name, std::vector<Mesh*>& meshes){
 		return false;
 	}
 
-	if (!FileSystem::FileExists(file_name)){
+	std::string full_path = g_file_util->GetModelsFolder() + file_name;
+	if (!FileUtil::FileExists(full_path)) {
 
-		std::string log = file_name + std::string(" is not exsit!");
+		std::string log = full_path + std::string(" is not exsit!");
 		g_log->Write(log);
 		return false;
 	}
@@ -46,7 +47,7 @@ bool AssimpUtil::LoadFile(const char* file_name, std::vector<Mesh*>& meshes){
 	aiSetImportPropertyInteger(props, AI_CONFIG_IMPORT_TER_MAKE_UVS, 1);
 	aiSetImportPropertyFloat(props, AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE, 80.0f);
 
-	aiScene* root = (aiScene*)aiImportFileExWithProperties(file_name,
+	aiScene* root = (aiScene*)aiImportFileExWithProperties(full_path.c_str(),
 		ppsteps |
 		aiProcess_GenSmoothNormals |
 		aiProcess_SplitLargeMeshes |
@@ -62,7 +63,7 @@ bool AssimpUtil::LoadFile(const char* file_name, std::vector<Mesh*>& meshes){
 	}
 
 	for (int i = 0; i < root->mNumMeshes; i++){
-		Mesh* mesh = CreateMesh(root->mMeshes[i]);
+		Mesh* mesh = CreateMesh(root->mMeshes[i], root->mMaterials[i]);
 		if (mesh != NULL)
 		{
 			Mesh::s_mesh_list.push_back(mesh);
@@ -74,7 +75,7 @@ bool AssimpUtil::LoadFile(const char* file_name, std::vector<Mesh*>& meshes){
 	return true;
 }
 
-Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh){
+Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 
 	if (src_mesh == NULL){
 		return NULL;
@@ -160,6 +161,21 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh){
 		}
 	}
 
+	// texture
+	string base_map, normal_map, specular_map;
+	if (src_material != NULL){
+		aiString sz_path;
+		if (aiGetMaterialString(src_material, AI_MATKEY_TEXTURE_DIFFUSE(0), &sz_path) == AI_SUCCESS){
+			base_map = sz_path.C_Str();
+		}
+		if (aiGetMaterialString(src_material, AI_MATKEY_TEXTURE_NORMALS(0), &sz_path) == AI_SUCCESS) {
+			normal_map = sz_path.C_Str();
+		}
+		if (aiGetMaterialString(src_material, AI_MATKEY_TEXTURE_SPECULAR(0), &sz_path) == AI_SUCCESS) {
+			specular_map = sz_path.C_Str();
+		}
+	}
+
 	// mesh
 	Mesh* dst_mesh = new Mesh();
 	if (!dst_mesh->geometry()->Init<Geometry::VertexFull>(vertex_list,
@@ -171,13 +187,25 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh){
 		SAFE_DELETE(dst_mesh);
 		return NULL;
 	}
-	if (!dst_mesh->material()->Init("../../bin/res/color.vs", "../../bin/res/color.ps")){
+	if (!dst_mesh->material()->Init("color.vs", "color.ps")){
 		SAFE_DELETE(vertex_list);
 		SAFE_DELETE(index_list);
 		SAFE_DELETE(dst_mesh);
 		return NULL;
 	}
-	if (!dst_mesh->material()->SetTexture("../../bin/res/stone01.tga")){
+	if (base_map != "" && !dst_mesh->material()->SetBaseMap(base_map.c_str())){
+		SAFE_DELETE(vertex_list);
+		SAFE_DELETE(index_list);
+		SAFE_DELETE(dst_mesh);
+		return NULL;
+	}
+	if (normal_map != "" && !dst_mesh->material()->SetNormalMap(normal_map.c_str())) {
+		SAFE_DELETE(vertex_list);
+		SAFE_DELETE(index_list);
+		SAFE_DELETE(dst_mesh);
+		return NULL;
+	}
+	if (specular_map != "" && !dst_mesh->material()->SetSpecularMap(specular_map.c_str())) {
 		SAFE_DELETE(vertex_list);
 		SAFE_DELETE(index_list);
 		SAFE_DELETE(dst_mesh);

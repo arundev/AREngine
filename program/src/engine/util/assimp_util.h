@@ -5,6 +5,7 @@
 
 class Mesh;
 class aiMesh;
+class aiMaterial;
 
 class AssimpUtil
 {
@@ -13,7 +14,7 @@ public:
 	~AssimpUtil(){ ; }
 
 	static bool LoadFile(const char* file_name, std::vector<Mesh*>& meshes);
-	static Mesh* CreateMesh(aiMesh* src_mesh);
+	static Mesh* CreateMesh(aiMesh* src_mesh, aiMaterial* src_material);
 
 private:
 

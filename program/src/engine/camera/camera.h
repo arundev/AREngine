@@ -12,7 +12,9 @@ public:
 	BaseCamera();
 	virtual ~BaseCamera();
 
+	virtual bool Init() { return true; }
 	virtual void Update() = 0;
+	virtual void Free() { ; }
 
 	void GetViewMatrix(Matrix *ViewMat);
 	void GetDirection(Vector *vDir, Vector *vUp, Vector *vRight);

@@ -21,9 +21,14 @@
 #include <exception>
 using namespace std;
 
+
 // windows
 #if _WIN32
-#include <Windows.h>
+#include <windows.h>
+#include <d3d11_1.h>
+#include <dxgi.h>  
+#include <d3dcommon.h>  
+#include <d3dx10math.h> 
 #endif
 
 // android
@@ -34,7 +39,7 @@ using namespace std;
 #include "RTMath.h"
 #include "plateform.h"
 #include "util.h"
-#include "util/file_system.h"
+#include "util/file_util.h"
 #include "util/log.h"
 
 using namespace RTMath;
@@ -68,10 +73,12 @@ class Renderer;
 class FreeCamera;
 class CameraClass;
 class Log;
+class FileUtil;
 
 extern Log* g_log;
 extern Engine* g_engine;
 extern Renderer* g_renderer;
 extern FreeCamera* g_camera;
+extern FileUtil* g_file_util;
 
 #endif // ENGINE_ENGINE_PCH_H

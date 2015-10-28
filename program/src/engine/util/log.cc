@@ -1,9 +1,9 @@
 
 #include "log.h"
-#include "file_system.h"
+#include "file_util.h"
 
 bool Log::Init(){
-	FileSystem fs;
+	FileUtil fs;
 	std::string filename = fs.GetLogFolder() + "\\Log.txt";
 	AppLog.open(filename.c_str());
 

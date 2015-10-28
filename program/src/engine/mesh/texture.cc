@@ -16,7 +16,7 @@ Texture::~Texture(){
 
 }
 
-Texture* Texture::Create(const char* file_name){
+Texture* Texture::Create(const char* file_name, Texture::Type type /* = Texture::TEX_TYPE_UNKNOWN */) {
 	Texture* texture = 0;
 	if (Plateform::graphic_api() == Plateform::D3D_11){
 		texture = new TextureDx11();
@@ -28,6 +28,7 @@ Texture* Texture::Create(const char* file_name){
 		{
 			SAFE_DELETE(texture);
 		}
+		texture->SetType(type);
 	}
 
 	return texture;

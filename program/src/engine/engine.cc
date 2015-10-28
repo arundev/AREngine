@@ -3,6 +3,7 @@
 #include "es2/renderer_es2.h"
 #include "mesh/mesh.h"
 #include "camera/camera.h"
+#include "util/file_util.h"
 
 #include <assimp/Importer.hpp>
 #include <BaseImporter.h>
@@ -11,6 +12,7 @@ Log* g_log = 0;
 Engine* g_engine = 0;
 Renderer* g_renderer = 0;
 FreeCamera* g_camera = 0;
+FileUtil* g_file_util = 0;
 
 Engine::Engine(){
 	Assimp::Importer* pImp = new Assimp::Importer();
@@ -25,6 +27,11 @@ bool Engine::Init(const Renderer::Window& param){
 
 	g_log = new Log();
 	if (!g_log->Init()){
+		return false;
+	}
+
+	g_file_util = new FileUtil();
+	if (!g_file_util->Init()){
 		return false;
 	}
 	
@@ -71,5 +78,6 @@ void Engine::Free(){
 		(*iter)->Free();
 	}
 
+	SAFE_FREE(g_camera);
 	SAFE_FREE(g_renderer);
 }

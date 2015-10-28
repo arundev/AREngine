@@ -83,17 +83,16 @@ bool MaterialDx11::CreateShader(){
 	ID3D10Blob* vertex_buffer = NULL;
 	ID3D10Blob* pixel_buffer = NULL;
 
-	WCHAR wstr[MAX_PATH] = { 0 };
-	MultiByteToWideChar(CP_ACP, 0, vs_file_name_.c_str(), -1, wstr, sizeof(wstr));
-	result = D3DX11CompileFromFile(vs_file_name_.c_str(), 0, 0, "Main", "vs_5_0", 0, 0, 0, &vertex_buffer, &error_msg, 0);
+	std::string full_path = g_file_util->GetShaderFolder() + vs_file_name_;
+	result = D3DX11CompileFromFile(full_path.c_str(), 0, 0, "Main", "vs_5_0", 0, 0, 0, &vertex_buffer, &error_msg, 0);
 	if (FAILED(result))
 	{
 		const char* error = (char*)error_msg->GetBufferPointer();
 		return false;
 	}
 
-	MultiByteToWideChar(CP_ACP, 0, ps_file_name_.c_str(), -1, wstr, sizeof(wstr));
-	result = D3DX11CompileFromFile(ps_file_name_.c_str(), 0, 0, "Main", "ps_5_0", 0, 0, 0, &pixel_buffer, &error_msg, 0);
+	full_path = g_file_util->GetShaderFolder() + ps_file_name_;
+	result = D3DX11CompileFromFile(full_path.c_str(), 0, 0, "Main", "ps_5_0", 0, 0, 0, &pixel_buffer, &error_msg, 0);
 	if (FAILED(result))
 	{
 		const char* error = (char*)(error_msg->GetBufferPointer());

@@ -70,8 +70,8 @@
     <OutDir>$(SolutionDir)\..\bin\win32\</OutDir>
     <IntDir>$(SolutionDir)\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_d</TargetName>
-    <IncludePath>E:\Program Files %28x86%29\Microsoft DirectX SDK %28February 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\Program Files %28x86%29\Microsoft DirectX SDK %28February 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLib|Win32'">
     <OutDir>$(SolutionDir)\..\bin\win32\</OutDir>
@@ -101,7 +101,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_BOOST_WORKAROUND;ASSIMP_BUILD_NO_C4D_IMPORTER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\math;..\camera;..\mesh;..\dx11;..\es2;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\math;..\camera;..\mesh;..\dx11;..\es2;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\DirectXTK\Inc</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -117,7 +117,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\math;..\camera;..\mesh;..\dx11;..\es2;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\math;..\camera;..\mesh;..\dx11;..\es2;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\DirectXTK\Inc</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -135,7 +135,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\math;..\camera;..\mesh;..\dx11;..\es2;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\math;..\camera;..\mesh;..\dx11;..\es2;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\DirectXTK\Inc</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -154,7 +154,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\math;..\camera;..\mesh;..\dx11;..\es2;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\math;..\camera;..\mesh;..\dx11;..\es2;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\DirectXTK\Inc</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -185,7 +185,7 @@
     <ClCompile Include="util.cc" />
     <ClCompile Include="dx11\renderer_dx11.cc" />
     <ClCompile Include="es2\renderer_es2.cc" />
-    <ClCompile Include="util\file_system.cc" />
+    <ClCompile Include="util\file_util.cc" />
     <ClCompile Include="util\log.cc" />
   </ItemGroup>
   <ItemGroup>
@@ -208,7 +208,7 @@
     <ClInclude Include="dx11\renderer_dx11.h" />
     <ClInclude Include="engine_pch.h" />
     <ClInclude Include="es2\renderer_es2.h" />
-    <ClInclude Include="util\file_system.h" />
+    <ClInclude Include="util\file_util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

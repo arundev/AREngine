@@ -11,11 +11,6 @@
 #pragma comment(lib, "D3DCompiler.lib")
 #pragma comment(lib, "dxguid.lib")
 
-#include <dxgi.h>  
-#include <d3dcommon.h>  
-#include <d3d11.h>  
-#include <d3dx10math.h> 
-
 class RendererDx11 : public Renderer{
 public:
 	RendererDx11();
@@ -29,6 +24,11 @@ public:
 	virtual void PostRender();
 	virtual void Free();
 
+	virtual void SetWireframe(bool b);
+
+	virtual void BeginEvent(const char* event);
+	virtual void EndEvent();
+
 	ID3D11Device* device(){ return device_; }
 	ID3D11DeviceContext* device_context(){ return device_context_; }
 	ID3D11RenderTargetView* render_target_view(){ return render_target_view_; }
@@ -41,7 +41,6 @@ private:
 	void EndScene();
 
 private:
-	ID3D11Debug* debug_;
 	IDXGISwapChain* swap_chain_;
 	ID3D11DeviceContext* device_context_;
 	ID3D11Device* device_;
@@ -53,6 +52,9 @@ private:
 	D3D_FEATURE_LEVEL feature_level_;
 	int video_card_memory;
 	char video_card_description[128];
+
+	ID3D11Debug* debug_;
+	ID3DUserDefinedAnnotation* defined_annotation_;
 };
 
 

@@ -1,9 +1,9 @@
 #ifndef ENGINE_DX11_MATERIAL_H
 #define ENGINE_DX11_MATERIAL_H
 
-#include <d3d11.h>
-#include <D3DX11async.h>
+#include "../engine_pch.h"
 #include "../mesh/material.h"
+#include <D3DX11async.h>
 
 class MaterialDx11 : public Material
 {

@@ -2,14 +2,15 @@
 
 bool ImageUtil::Load(const char* file_name, ImageUtil::Data& result){
 
-	switch (GetType(file_name))
+	string full_path = g_file_util->GetTextureFolder() + file_name;
+	switch (GetType(full_path.c_str()))
 	{
 	case ImageUtil::PNG:
-		return LoadPNG(file_name, result);
+		return LoadPNG(full_path.c_str(), result);
 	case ImageUtil::TGA:
-		return LoadTGA(file_name, result);
+		return LoadTGA(full_path.c_str(), result);
 	case ImageUtil::JPG:
-		return LoadJPG(file_name, result);
+		return LoadJPG(full_path.c_str(), result);
 	default:
 		return false;
 		break;

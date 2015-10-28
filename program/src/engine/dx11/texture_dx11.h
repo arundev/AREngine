@@ -1,7 +1,7 @@
 #ifndef ENGINE_DX11_TEXTURE_H
 #define ENGINE_DX11_TEXTURE_H
 
-#include <d3d11.h>
+#include "../engine_pch.h"
 #include "../mesh/texture.h"
 
 class TextureDx11 : public Texture

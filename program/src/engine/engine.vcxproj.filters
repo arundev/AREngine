@@ -60,14 +60,14 @@
     <ClCompile Include="dx11\material_dx11.cc" />
     <ClCompile Include="dx11\texture_dx11.cc" />
     <ClCompile Include="util\image_util.cc" />
-    <ClCompile Include="util\file_system.cc">
-      <Filter>render\util</Filter>
-    </ClCompile>
     <ClCompile Include="util\log.cc">
       <Filter>render\util</Filter>
     </ClCompile>
     <ClCompile Include="plateform.cc" />
     <ClCompile Include="util\assimp_util.cpp" />
+    <ClCompile Include="util\file_util.cc">
+      <Filter>render\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -104,14 +104,14 @@
     <ClInclude Include="dx11\material_dx11.h" />
     <ClInclude Include="dx11\texture_dx11.h" />
     <ClInclude Include="util\image_util.h" />
-    <ClInclude Include="util\file_system.h">
-      <Filter>render\util</Filter>
-    </ClInclude>
     <ClInclude Include="util\log.h">
       <Filter>render\util</Filter>
     </ClInclude>
     <ClInclude Include="plateform.h" />
     <ClInclude Include="util\assimp_util.h" />
+    <ClInclude Include="util\file_util.h">
+      <Filter>render\util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

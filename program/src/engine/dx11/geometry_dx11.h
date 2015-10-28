@@ -1,9 +1,9 @@
 #ifndef ENGINE_DX11_GEOMETRY_H
 #define ENGINE_DX11_GEOMETRY_H
 
-#include <d3d11.h>
-#include <D3DX11async.h>
+#include "../engine_pch.h"
 #include "../mesh/geometry.h"
+#include <D3DX11async.h>
 
 class GeometryDx11 : public Geometry
 {

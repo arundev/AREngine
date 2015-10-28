@@ -4,7 +4,10 @@
 #include "../dx11/material_dx11.h"
 
 Material::Material() :
-texture_(NULL){
+texture_(NULL),
+base_map_(NULL),
+normal_map_(NULL),
+specular_map_(NULL){
 
 }
 
@@ -59,9 +62,26 @@ bool Material::SetTexture(const char* file_name){
 	return CreateTexture();
 }
 
+bool Material::SetBaseMap(const char* file_name) {
+	SAFE_FREE(base_map_);
+	base_map_ = Texture::Create(file_name, Texture::TEX_TYPE_BASE);
+	return base_map_ != NULL;
+}
+
+bool Material::SetNormalMap(const char* file_name) {
+	return true;
+}
+
+bool Material::SetSpecularMap(const char* file_name) {
+	return true;
+}
+
 void Material::Free(){
 	DoFree();
 	SAFE_FREE(texture_);
+	SAFE_FREE(base_map_);
+	SAFE_FREE(normal_map_);
+	SAFE_FREE(specular_map_);
 }
 
 void Material::Apply(){

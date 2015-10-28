@@ -1,6 +1,7 @@
 #ifndef ENGINE_RENDERER_H
 #define ENGINE_RENDERER_H
 
+#include "engine_pch.h"
 #include "RTMath.h"
 
 using namespace RTMath;
@@ -38,7 +39,10 @@ public:
 	virtual void PostRender() = 0;
 	virtual void Free() = 0;
 
-	virtual void SetWireframe(bool b){ ; }
+	virtual void SetWireframe(bool b) { ; }
+
+	virtual void BeginEvent(const char* name) { ; }
+	virtual void EndEvent() { ; }
 
 	const RTMath::Matrix& world_mat()const{ return world_mat_; }
 	const RTMath::Matrix& view_mat()const{ return view_mat_; }

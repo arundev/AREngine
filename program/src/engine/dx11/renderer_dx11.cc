@@ -1,7 +1,6 @@
 #include "renderer_dx11.h"
 #include "util_dx11.h"
 #include "../util/log.h"
-#include <atlbase.h>
 
 RendererDx11::RendererDx11() : 
 swap_chain_(NULL),
@@ -11,7 +10,9 @@ render_target_view_(NULL),
 depth_stencil_buffer_(NULL),
 depth_stencil_state_(NULL),
 depth_stencil_view_(NULL),
-raster_state_(NULL){
+raster_state_(NULL),
+debug_(NULL),
+defined_annotation_(NULL){
 
 }
 
@@ -80,6 +81,7 @@ bool RendererDx11::DoInit(){
 
 	SAFE_DELETE_ARRAY(display_mode_list);
 	SAFE_RELEASE(adapter_output);
+	SAFE_RELEASE(adapter);
 	SAFE_RELEASE(factory);
 
 	DXGI_SWAP_CHAIN_DESC swap_chain_desc;
@@ -112,7 +114,6 @@ bool RendererDx11::DoInit(){
 #if _DEBUG
 	create_flag |= D3D11_CREATE_DEVICE_DEBUG;
 #endif
-
 	hr = D3D11CreateDeviceAndSwapChain(NULL, 
 		D3D_DRIVER_TYPE_HARDWARE, 
 		NULL, 
@@ -128,8 +129,8 @@ bool RendererDx11::DoInit(){
 	if (FAILED(hr)){
 		return false;
 	}
-
 	device_->QueryInterface(__uuidof(ID3D11Debug), reinterpret_cast<void**>(&debug_));
+	device_context_->QueryInterface(IID_PPV_ARGS(&defined_annotation_));
 
 	ID3D11Texture2D* back_buffer_ptr;
 	hr = swap_chain_->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&back_buffer_ptr);
@@ -250,6 +251,9 @@ void RendererDx11::PostRender(){
 }
 
 void RendererDx11::BeginScene(float red, float green, float blue, float alpha){
+	
+	BeginEvent("begin render:............");
+
 	float color[4];
 	color[0] = red;
 	color[1] = green;
@@ -270,11 +274,14 @@ void RendererDx11::EndScene(){
 		swap_chain_->Present(0, 0);
 	}
 
+	EndEvent();
+
 	return;
 }
 
 void RendererDx11::Free(){
 	device_context_->ClearState();
+	device_context_->Flush();
 
 	SAFE_RELEASE(raster_state_);
 	SAFE_RELEASE(swap_chain_);
@@ -284,7 +291,25 @@ void RendererDx11::Free(){
 	SAFE_RELEASE(depth_stencil_state_);
 	SAFE_RELEASE(depth_stencil_view_);
 	SAFE_RELEASE(device_);
-
-	debug_->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL);
+	
+	SAFE_RELEASE(defined_annotation_);
+	if (debug_ != NULL){
+		debug_->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL);
+	}
 	SAFE_RELEASE(debug_);
+}
+
+
+void RendererDx11::SetWireframe(bool b) {
+
+}
+
+void RendererDx11::BeginEvent(const char* event) {
+	WCHAR wstr[MAX_PATH] = { 0 };
+	MultiByteToWideChar(CP_ACP, 0, event, -1, wstr, sizeof(wstr));
+	defined_annotation_->BeginEvent(wstr);
+}
+
+void RendererDx11::EndEvent() {
+	defined_annotation_->EndEvent();
 }
