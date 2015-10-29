@@ -9,8 +9,7 @@ vertex_shader_(NULL),
 geometry_shader_(NULL),
 pixel_shader_(NULL),
 matrix_buffer_(NULL),
-input_layout_(NULL),
-texture_samper_state_(NULL){
+input_layout_(NULL){
 
 }
 
@@ -23,7 +22,6 @@ bool MaterialDx11::DoInit(){
 }
 
 void MaterialDx11::DoFree(){
-	SAFE_RELEASE(texture_samper_state_);
 	SAFE_RELEASE(vertex_shader_);
 	SAFE_RELEASE(geometry_shader_);
 	SAFE_RELEASE(pixel_shader_);
@@ -69,9 +67,16 @@ void MaterialDx11::DoApply(){
 	device_context->VSSetShader(vertex_shader_, NULL, 0);
 	device_context->PSSetShader(pixel_shader_, NULL, 0);
 
-	TextureDx11* d3d_texture = dynamic_cast<TextureDx11*>(texture_);
-	ID3D11ShaderResourceView* tex_view = d3d_texture->texture_view();
-	device_context->PSSetShaderResources(0, 1, &tex_view);
+	// base map
+	if (base_map_)
+	{
+		TextureDx11* d3d_texture = dynamic_cast<TextureDx11*>(base_map_);
+		ID3D11ShaderResourceView* tex_view = const_cast<ID3D11ShaderResourceView*>(d3d_texture->texture_view());
+		ID3D11SamplerState* sampler_state = const_cast<ID3D11SamplerState*>(d3d_texture->sampler_state());
+		device_context->PSSetShaderResources(0, 1, &tex_view);
+		device_context->PSSetSamplers(0, 1, &sampler_state);
+	}
+	
 }
 
 bool MaterialDx11::CreateShader(){
@@ -118,7 +123,6 @@ bool MaterialDx11::CreateShader(){
 
 	poloygon_layout[0].SemanticName = "POSITION";
 	poloygon_layout[0].SemanticIndex = 0;
-	poloygon_layout[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
 	poloygon_layout[0].InputSlot = 0;
 	poloygon_layout[0].AlignedByteOffset = 0;
 	poloygon_layout[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
@@ -168,29 +172,3 @@ bool MaterialDx11::CreateShader(){
 	return true;
 }
 
-bool MaterialDx11::CreateTexture(){
-	RendererDx11* renderer = RendererDx11::Instance();
-	ID3D11Device* device = renderer->device();
-
-	D3D11_SAMPLER_DESC desc;
-	desc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
-	desc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
-	desc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
-	desc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
-	desc.MipLODBias = 0.0f;
-	desc.MaxAnisotropy = 1;
-	desc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
-	desc.BorderColor[0] = 0;
-	desc.BorderColor[1] = 0;
-	desc.BorderColor[2] = 0;
-	desc.BorderColor[3] = 0;
-	desc.MinLOD = 0;
-	desc.MaxLOD = D3D11_FLOAT32_MAX;
-	HRESULT hr = device->CreateSamplerState(&desc, &texture_samper_state_);
-	if (FAILED(hr)){
-		Free();
-		return false;
-	}
-
-	return true;
-}

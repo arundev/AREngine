@@ -25,7 +25,6 @@ public:
 	void Apply();
 
 	virtual bool SetShader(const char* vs = NULL, const char* ps = NULL, const char* gs = NULL);
-	virtual bool SetTexture(const char* file_name);
 	virtual bool SetBaseMap(const char* file_name);
 	virtual bool SetNormalMap(const char* file_name);
 	virtual bool SetSpecularMap(const char* file_name);
@@ -43,13 +42,11 @@ protected:
 	virtual void DoFree() = 0;
 	virtual void DoApply() = 0;
 	virtual bool CreateShader() = 0;
-	virtual bool CreateTexture() = 0;
 
 protected:
 	string vs_file_name_;
 	string ps_file_name_;
 	string gs_file_name_;
-	Texture* texture_;
 	Texture* base_map_;
 	Texture* normal_map_;
 	Texture* specular_map_;

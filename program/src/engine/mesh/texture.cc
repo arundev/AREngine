@@ -22,13 +22,17 @@ Texture* Texture::Create(const char* file_name, Texture::Type type /* = Texture:
 		texture = new TextureDx11();
 	}
 
-	if (texture != 0)
+	if (texture)
 	{
 		if (!texture->Init(file_name))
 		{
 			SAFE_DELETE(texture);
 		}
-		texture->SetType(type);
+
+		if (texture)
+		{
+			texture->SetType(type);
+		}
 	}
 
 	return texture;

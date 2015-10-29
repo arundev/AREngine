@@ -25,10 +25,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\bin\res\color.ps">
+    <None Include="..\..\bin\res\shader\color.ps">
       <Filter>res\shader</Filter>
     </None>
-    <None Include="..\..\bin\res\color.vs">
+    <None Include="..\..\bin\res\shader\color.vs">
       <Filter>res\shader</Filter>
     </None>
   </ItemGroup>

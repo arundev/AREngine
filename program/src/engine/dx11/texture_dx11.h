@@ -10,7 +10,8 @@ public:
 	TextureDx11();
 	virtual ~TextureDx11();
 
-	ID3D11ShaderResourceView* texture_view(){ return d3d_texture_view_; }
+	const ID3D11ShaderResourceView* texture_view()const{ return d3d_texture_view_; }
+	const ID3D11SamplerState* sampler_state()const { return texture_samper_state_; }
 
 protected:
 	virtual bool DoInit();
@@ -19,6 +20,7 @@ protected:
 private:
 	ID3D11Texture2D* d3d_texture_;
 	ID3D11ShaderResourceView* d3d_texture_view_;
+	ID3D11SamplerState* texture_samper_state_;
 };
 
 #endif // !ENGINE_DX11_TEXTURE_H

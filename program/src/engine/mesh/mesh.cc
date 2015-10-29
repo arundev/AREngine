@@ -36,7 +36,7 @@ Mesh* Mesh::CreateTriangle(){
 	//mesh->geometry()->Init(vertices, 3, indices, 3);
 	mesh->geometry()->Init<Geometry::Vertex>(vertices, 3, indices, 3);
 	mesh->material()->Init("color.vs", "color.ps");
-	mesh->material()->SetTexture("../../bin/res/stone01.tga");
+	mesh->material()->SetBaseMap("../../bin/res/stone01.tga");
 
 	SAFE_DELETE_ARRAY(vertices);
 	SAFE_DELETE_ARRAY(indices);

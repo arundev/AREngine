@@ -35,11 +35,11 @@ public:
 		}
 
 		Vector position;
-		Vector normal;
 		Color color;
+		TexCoord texture1;
+		Vector normal;
 		Vector tangent;
 		Vector bitangent;
-		TexCoord texture1;
 		TexCoord texture2;
 		unsigned char bone_indices[4];
 		unsigned char bone_weights[4];

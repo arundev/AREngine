@@ -63,7 +63,8 @@ bool AssimpUtil::LoadFile(const char* file_name, std::vector<Mesh*>& meshes){
 	}
 
 	for (int i = 0; i < root->mNumMeshes; i++){
-		Mesh* mesh = CreateMesh(root->mMeshes[i], root->mMaterials[i]);
+		int mat_index = root->mMeshes[i]->mMaterialIndex;
+		Mesh* mesh = CreateMesh(root->mMeshes[i], root->mMaterials[mat_index]);
 		if (mesh != NULL)
 		{
 			Mesh::s_mesh_list.push_back(mesh);
@@ -93,26 +94,26 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 			src_mesh->mVertices[i].y, 
 			src_mesh->mVertices[i].z);
 		// normal
-		if (src_mesh->mNormals != NULL){
+		if (src_mesh->mNormals){
 			vertex_list[i].normal = RTMath::Vector(src_mesh->mNormals[i].x,
 				src_mesh->mNormals[i].y,
 				src_mesh->mNormals[i].z);
 		}
 		// color
-		if (src_mesh->HasVertexColors(0) != NULL){
+		if (src_mesh->HasVertexColors(0)){
 			vertex_list[i].color = RTMath::Color(src_mesh->mColors[i][0].r,
 				src_mesh->mColors[i][0].g,
 				src_mesh->mColors[i][0].b,
 				src_mesh->mColors[i][0].a);
 		}
 		// tangent
-		if (src_mesh->mTangents != NULL){
+		if (src_mesh->mTangents){
 			vertex_list[i].tangent = RTMath::Vector(src_mesh->mTangents[i].x,
 				src_mesh->mTangents[i].y,
 				src_mesh->mTangents[i].z);
 		}
 		// bitangent
-		if (src_mesh->mBitangents != NULL){
+		if (src_mesh->mBitangents){
 			vertex_list[i].bitangent = RTMath::Vector(src_mesh->mBitangents[i].x,
 				src_mesh->mBitangents[i].y,
 				src_mesh->mBitangents[i].z);
@@ -134,8 +135,7 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 
 	// index data
 	int nidx;
-	switch (src_mesh->mPrimitiveTypes)
-	{
+	switch (src_mesh->mPrimitiveTypes){
 	case aiPrimitiveType_POINT:
 		nidx = 1; break;
 	case aiPrimitiveType_LINE:
@@ -149,8 +149,7 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 	}
 	int index_num = src_mesh->mNumFaces * nidx;
 	unsigned int* index_list = new unsigned int[index_num];
-	if (index_list == NULL)
-	{
+	if (index_list == NULL){
 		SAFE_DELETE(vertex_list);
 		return NULL;
 	}
