@@ -37,6 +37,7 @@ private:
 	std::string scripts_sub_folder_;
 	std::string shader_sub_folder_;
 	std::string texture_sub_folder_;
+	std::string config_sub_folder_;
 };
 
 #endif // FILE_SYSTEM_H

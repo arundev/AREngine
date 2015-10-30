@@ -10,6 +10,9 @@
     <Filter Include="res\shader">
       <UniqueIdentifier>{c759b717-629a-4fc4-a957-8dfb36c13049}</UniqueIdentifier>
     </Filter>
+    <Filter Include="app">
+      <UniqueIdentifier>{3818c37e-3ae0-400b-a317-1ce1ad80f384}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,10 +21,16 @@
     <ClCompile Include="win32.cpp">
       <Filter>win32</Filter>
     </ClCompile>
+    <ClCompile Include="model_table.cc">
+      <Filter>app</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="win32.h">
       <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="model_table.h">
+      <Filter>app</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

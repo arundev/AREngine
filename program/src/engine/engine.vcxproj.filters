@@ -68,6 +68,7 @@
     <ClCompile Include="util\file_util.cc">
       <Filter>render\util</Filter>
     </ClCompile>
+    <ClCompile Include="util\csv_parser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -112,6 +113,9 @@
     <ClInclude Include="util\file_util.h">
       <Filter>render\util</Filter>
     </ClInclude>
+    <ClInclude Include="math\vector3.h" />
+    <ClInclude Include="math\vector2.h" />
+    <ClInclude Include="util\csv_parser.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

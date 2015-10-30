@@ -179,6 +179,7 @@
     <ClCompile Include="mesh\mesh.cc" />
     <ClCompile Include="mesh\texture.cc" />
     <ClCompile Include="util\assimp_util.cpp" />
+    <ClCompile Include="util\csv_parser.cpp" />
     <ClCompile Include="util\image_util.cc" />
     <ClCompile Include="plateform.cc" />
     <ClCompile Include="renderer.cc" />
@@ -195,11 +196,14 @@
     <ClInclude Include="dx11\texture_dx11.h" />
     <ClInclude Include="dx11\util_dx11.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="math\vector2.h" />
+    <ClInclude Include="math\vector3.h" />
     <ClInclude Include="mesh\geometry.h" />
     <ClInclude Include="mesh\material.h" />
     <ClInclude Include="mesh\mesh.h" />
     <ClInclude Include="mesh\texture.h" />
     <ClInclude Include="util\assimp_util.h" />
+    <ClInclude Include="util\csv_parser.hpp" />
     <ClInclude Include="util\image_util.h" />
     <ClInclude Include="plateform.h" />
     <ClInclude Include="renderer.h" />

@@ -41,6 +41,9 @@ using namespace std;
 #include "util.h"
 #include "util/file_util.h"
 #include "util/log.h"
+#include "math/vector2.h"
+#include "math/vector3.h"
+
 
 using namespace RTMath;
 

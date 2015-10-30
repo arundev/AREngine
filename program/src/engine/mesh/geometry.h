@@ -9,38 +9,18 @@ public:
 	Geometry();
 	virtual ~Geometry();
 
-	struct TexCoord
-	{
-		TexCoord(){
-
-		}
-		TexCoord(float x, float y){
-			x_ = x;
-			y_ = y;
-		}
-		float x_, y_;
-	};
-
-	struct Vertex
-	{
-		Vector position;
-		Color color;
-		float tex_coord_x[1];
-		float tex_coord_y[1];
-	};
-
 	struct VertexFull
 	{
 		VertexFull(){
 		}
 
-		Vector position;
-		Color color;
-		TexCoord texture1;
-		Vector normal;
-		Vector tangent;
-		Vector bitangent;
-		TexCoord texture2;
+		engine_math::Vector3F position;
+		RTMath::Color color;
+		engine_math::Vector2F texture1;
+		engine_math::Vector2F texture2;
+		engine_math::Vector3F normal;
+		engine_math::Vector3F tangent;
+		engine_math::Vector3F bitangent;
 		unsigned char bone_indices[4];
 		unsigned char bone_weights[4];
 	};

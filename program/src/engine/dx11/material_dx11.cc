@@ -123,6 +123,7 @@ bool MaterialDx11::CreateShader(){
 
 	poloygon_layout[0].SemanticName = "POSITION";
 	poloygon_layout[0].SemanticIndex = 0;
+	poloygon_layout[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
 	poloygon_layout[0].InputSlot = 0;
 	poloygon_layout[0].AlignedByteOffset = 0;
 	poloygon_layout[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;

@@ -59,7 +59,9 @@ bool AssimpUtil::LoadFile(const char* file_name, std::vector<Mesh*>& meshes){
 		props);
 
 	if (root == NULL){
-		g_log->Write("failed to load file");
+		string log = string("error: failed to load file: ") + file_name;
+		g_log->Write(log);
+		return false;
 	}
 
 	for (int i = 0; i < root->mNumMeshes; i++){
@@ -90,12 +92,12 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 	}
 	for (int i = 0; i < src_mesh->mNumVertices; i++){
 		// position
-		vertex_list[i].position = RTMath::Vector(src_mesh->mVertices[i].x, 
+		vertex_list[i].position = engine_math::Vector3F(src_mesh->mVertices[i].x, 
 			src_mesh->mVertices[i].y, 
 			src_mesh->mVertices[i].z);
 		// normal
 		if (src_mesh->mNormals){
-			vertex_list[i].normal = RTMath::Vector(src_mesh->mNormals[i].x,
+			vertex_list[i].normal = engine_math::Vector3F(src_mesh->mNormals[i].x,
 				src_mesh->mNormals[i].y,
 				src_mesh->mNormals[i].z);
 		}
@@ -108,23 +110,23 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 		}
 		// tangent
 		if (src_mesh->mTangents){
-			vertex_list[i].tangent = RTMath::Vector(src_mesh->mTangents[i].x,
+			vertex_list[i].tangent = engine_math::Vector3F(src_mesh->mTangents[i].x,
 				src_mesh->mTangents[i].y,
 				src_mesh->mTangents[i].z);
 		}
 		// bitangent
 		if (src_mesh->mBitangents){
-			vertex_list[i].bitangent = RTMath::Vector(src_mesh->mBitangents[i].x,
+			vertex_list[i].bitangent = engine_math::Vector3F(src_mesh->mBitangents[i].x,
 				src_mesh->mBitangents[i].y,
 				src_mesh->mBitangents[i].z);
 		}
 		// tex coordinate
 		if (src_mesh->HasTextureCoords(0)){
-			vertex_list[i].texture1 = Geometry::TexCoord(src_mesh->mTextureCoords[0][i].x,
+			vertex_list[i].texture1 = engine_math::Vector2F(src_mesh->mTextureCoords[0][i].x,
 				src_mesh->mTextureCoords[0][i].y);
 		}
 		if (src_mesh->HasTextureCoords(1)){
-			vertex_list[i].texture2 = Geometry::TexCoord(src_mesh->mTextureCoords[1][i].x,
+			vertex_list[i].texture2 = engine_math::Vector2F(src_mesh->mTextureCoords[1][i].x,
 				src_mesh->mTextureCoords[1][i].y);
 		}
 		// bone indices and weights
@@ -192,6 +194,7 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 		SAFE_DELETE(dst_mesh);
 		return NULL;
 	}
+	base_map = "Male101.png";
 	if (base_map != "" && !dst_mesh->material()->SetBaseMap(base_map.c_str())){
 		SAFE_DELETE(vertex_list);
 		SAFE_DELETE(index_list);
