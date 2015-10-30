@@ -37,12 +37,9 @@ bool ModelTable::Init(const char* file_name) {
 		item->base_map = row[1];
 		item->normal_map = row[2];
 		item->specular_map = row[3];
-
-
 		SAFE_DELETE(data_[id]);
-		data_[key] = 
-		
-
+		data_[id] = item;
+	
 		row_count++;
 	}
 
@@ -53,7 +50,7 @@ bool ModelTable::Init(const char* file_name) {
 void ModelTable::Free() {
 	std::map<int, ModelTable::Item*>::iterator table_itr = data_.begin();
 	for (; table_itr != data_.end(); table_itr++) {
-		SAFE_DELETE(*table_itr->second);
+		SAFE_DELETE(table_itr->second);
 	}
 	data_.clear();
 }
