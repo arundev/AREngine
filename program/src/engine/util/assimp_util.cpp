@@ -70,6 +70,7 @@ bool AssimpUtil::LoadFile(const char* file_name, std::vector<Mesh*>& meshes){
 		if (mesh != NULL)
 		{
 			Mesh::s_mesh_list.push_back(mesh);
+			meshes.push_back(mesh);
 		}
 	}
 
@@ -77,6 +78,7 @@ bool AssimpUtil::LoadFile(const char* file_name, std::vector<Mesh*>& meshes){
 
 	return true;
 }
+
 
 Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 
@@ -194,7 +196,7 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 		SAFE_DELETE(dst_mesh);
 		return NULL;
 	}
-	base_map = "Male101.png";
+	//base_map = "Male101.png";
 	if (base_map != "" && !dst_mesh->material()->SetBaseMap(base_map.c_str())){
 		SAFE_DELETE(vertex_list);
 		SAFE_DELETE(index_list);
@@ -216,3 +218,4 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 
 	return dst_mesh;
 }
+

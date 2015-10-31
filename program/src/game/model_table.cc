@@ -8,6 +8,21 @@ ModelTable::~ModelTable() {
 	Free();
 }
 
+engine_math::Vector3F Deserialization(std::string str) { // {x,y,z}
+	engine_math::Vector3F ret;
+
+	std::string sub = str.substr(1, str.length() - 2);
+	std::vector<std::string> vc;
+	engine_util::StringSplit(sub, vc, ";");
+
+	if (vc.size() >= 3) {
+		ret.x = atof(vc[0].c_str());
+		ret.y = atof(vc[1].c_str());
+		ret.z = atof(vc[2].c_str());
+	}
+
+	return ret;
+}
 
 bool ModelTable::Init(const char* file_name) {
 	Free();
@@ -34,9 +49,15 @@ bool ModelTable::Init(const char* file_name) {
 		int id = atoi(row[0].c_str());
 		ModelTable::Item* item = new ModelTable::Item();
 		item->id_ = id;
-		item->base_map = row[1];
-		item->normal_map = row[2];
-		item->specular_map = row[3];
+		item->model = row[1];
+		item->postion = Deserialization(row[5]);
+		item->base_map = row[2];
+		item->normal_map = row[3];
+		item->specular_map = row[4];
+		item->postion = Deserialization(row[5]);
+		item->scale = Deserialization(row[6]);
+		item->rotate = Deserialization(row[7]);
+
 		SAFE_DELETE(data_[id]);
 		data_[id] = item;
 	

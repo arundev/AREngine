@@ -4,10 +4,10 @@
 #include <string>
 #include <map>
 #include <vector>
-#include "engine_pch.h"
+#include "engine_include.h"
 #include "util/csv_parser.hpp"
 
-class ModelTable {
+class ModelTable : public Singleton<ModelTable>{
 public:
 	ModelTable();
 	~ModelTable();
@@ -15,8 +15,14 @@ public:
 	class Item
 	{
 	public:
+		Item() { ; }
+		~Item() { ; }
+
 		int id_;
 		std::string model;
+		engine_math::Vector3F postion;
+		engine_math::Vector3F scale;
+		engine_math::Vector3F rotate;
 		std::string base_map;
 		std::string normal_map;
 		std::string specular_map;
@@ -24,7 +30,7 @@ public:
 
 	bool Init(const char* file_name);
 	void Free();
-	ModelTable::Item* GetItem(int id);
+	ModelTable::Item* GetItem(int id) { return data_[id]; }
 
 private:
 	std::map<int, ModelTable::Item*> data_;

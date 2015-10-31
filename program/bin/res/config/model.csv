@@ -1,3 +1,3 @@
-id,model,base_map,normal_map,specular_map
-1001,Male101.FBX,Male101.png,,
-1002,Male101.FBX,Male102.png,,
+id,model,base_map,normal_map,specular_map,postion,scale,rotate
+1001,Male101.FBX,Male101.png,,,"{0;0;0}","{1;1;1}","{0;0;0}"
+1002,Male101.FBX,Male102.png,,,"{0;0;0}","{1;1;1}","{0;0;0}"

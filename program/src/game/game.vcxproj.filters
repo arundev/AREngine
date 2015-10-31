@@ -24,12 +24,18 @@
     <ClCompile Include="model_table.cc">
       <Filter>app</Filter>
     </ClCompile>
+    <ClCompile Include="model_loader.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="win32.h">
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="model_table.h">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="model_loader.h">
       <Filter>app</Filter>
     </ClInclude>
   </ItemGroup>

@@ -173,10 +173,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="model_loader.cpp" />
     <ClCompile Include="model_table.cc" />
     <ClCompile Include="win32.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="model_loader.h" />
     <ClInclude Include="model_table.h" />
     <ClInclude Include="win32.h" />
   </ItemGroup>

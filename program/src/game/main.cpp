@@ -1,16 +1,10 @@
 #include <stdio.h>
-#include "win32.h"
-#include "model_table.h"
-#include "engine.h"
-#include "mesh/mesh.h"
-#include "util/assimp_util.h"
-#include "util/file_util.h"
-#include "util/csv_parser.hpp"
-
 #include <windows.h>
 #include <mmsystem.h>
-
-
+#include "win32.h"
+#include "engine_include.h"
+#include "model_table.h"
+#include "model_loader.h"
 
 Mesh* g_test_trangle = NULL;
 
@@ -34,15 +28,17 @@ void AppInit(){
 	g_file_util->SetScriptsFolder("script");
 	g_file_util->SetTextureFolder("texture");
 	g_file_util->SetShaderFolder("shader");
-	
+	g_file_util->SetConfigFolder("config");
 
-	ModelTable model_table;
-	model_table.Init("../../bin/res/config/model.csv");
+	//ModelTable model_table;
+	std::string path = g_file_util->GetConfigFolder() + "model.csv";
+	ModelTable::Instance().Init(path.c_str());
 
 	//g_test_trangle = Mesh::CreateTriangle();
 	std::vector<Mesh*> meshes;
 	//AssimpUtil::LoadFile("models-nonbsd/FBX/2013_ASCII/jeep1.fbx", meshes);
-	AssimpUtil::LoadFile("Walker.ms3d", meshes);
+	//AssimpUtil::LoadFile("Walker.ms3d", meshes);
+	ModelLoader::Instance().Loader(1001, meshes);
 }
 
 void AppUpdate(){
@@ -54,5 +50,6 @@ void AppRender(){
 }
 
 void AppFree(){
+	ModelTable::Instance().Free();
 	SAFE_FREE(g_engine);
 }

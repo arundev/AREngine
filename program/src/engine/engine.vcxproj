@@ -196,6 +196,8 @@
     <ClInclude Include="dx11\texture_dx11.h" />
     <ClInclude Include="dx11\util_dx11.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="engine_include.h" />
+    <ClInclude Include="math\math.h" />
     <ClInclude Include="math\vector2.h" />
     <ClInclude Include="math\vector3.h" />
     <ClInclude Include="mesh\geometry.h" />
@@ -213,6 +215,8 @@
     <ClInclude Include="engine_pch.h" />
     <ClInclude Include="es2\renderer_es2.h" />
     <ClInclude Include="util\file_util.h" />
+    <ClInclude Include="util\singleton.h" />
+    <ClInclude Include="util\string_util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

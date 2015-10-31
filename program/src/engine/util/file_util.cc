@@ -51,6 +51,10 @@ std::string FileUtil::GetTextureFolder()
 	return( data_folder_ + texture_sub_folder_ );
 }
 
+std::string FileUtil::GetConfigFolder() {
+	return data_folder_ + config_sub_folder_;
+}
+
 void FileUtil::SetDataFolder(const std::string& folder)
 {
 	string temp = folder;
@@ -105,6 +109,16 @@ void FileUtil::SetTextureFolder(const std::string& folder)
 	}
 
 	texture_sub_folder_ = temp;
+}
+
+void FileUtil::SetConfigFolder(const std::string& folder) {
+	string temp = folder;
+	char end = folder[folder.length() - 1];
+	if (end != '/' && end != '\\') {
+		temp += "/";
+	}
+
+	config_sub_folder_ = temp;
 }
 
 bool FileUtil::FileExists(const std::string& file)

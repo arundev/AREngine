@@ -21,12 +21,14 @@ public:
 	std::string GetScriptsFolder();
 	std::string GetShaderFolder();
 	std::string GetTextureFolder();
+	std::string GetConfigFolder();
 
 	void SetDataFolder(const std::string& folder);
 	void SetModelsFolder(const std::string& folder);
 	void SetScriptsFolder(const std::string& folder);
 	void SetShaderFolder(const std::string& folder);
 	void SetTextureFolder(const std::string& folder);
+	void SetConfigFolder(const std::string& folder);
 
 	static bool FileExists(const std::string& file);
 	bool FileIsNewer(const std::string& file1, const std::string& file2);

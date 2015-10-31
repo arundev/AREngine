@@ -116,6 +116,10 @@
     <ClInclude Include="math\vector3.h" />
     <ClInclude Include="math\vector2.h" />
     <ClInclude Include="util\csv_parser.hpp" />
+    <ClInclude Include="util\singleton.h" />
+    <ClInclude Include="engine_include.h" />
+    <ClInclude Include="math\math.h" />
+    <ClInclude Include="util\string_util.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />
