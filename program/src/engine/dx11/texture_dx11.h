@@ -4,7 +4,8 @@
 #include "../engine_pch.h"
 #include "../mesh/texture.h"
 
-class TextureDx11 : public Texture{
+class TextureDx11 : public Texture
+{
 public:
 	TextureDx11();
 	virtual ~TextureDx11();

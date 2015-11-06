@@ -52,6 +52,9 @@
     <ClCompile Include="dx11\util_dx11.cc">
       <Filter>render\dx11</Filter>
     </ClCompile>
+    <ClCompile Include="camera\camera.cpp">
+      <Filter>render\camera</Filter>
+    </ClCompile>
     <ClCompile Include="mesh\texture.cc" />
     <ClCompile Include="dx11\geometry_dx11.cc" />
     <ClCompile Include="dx11\material_dx11.cc" />
@@ -61,14 +64,11 @@
       <Filter>render\util</Filter>
     </ClCompile>
     <ClCompile Include="plateform.cc" />
+    <ClCompile Include="util\assimp_util.cpp" />
     <ClCompile Include="util\file_util.cc">
       <Filter>render\util</Filter>
     </ClCompile>
-    <ClCompile Include="util\csv_parser.cc" />
-    <ClCompile Include="util\assimp_util.cc" />
-    <ClCompile Include="camera\camera.cc">
-      <Filter>render\camera</Filter>
-    </ClCompile>
+    <ClCompile Include="util\csv_parser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -115,11 +115,11 @@
     </ClInclude>
     <ClInclude Include="math\vector3.h" />
     <ClInclude Include="math\vector2.h" />
+    <ClInclude Include="util\csv_parser.hpp" />
     <ClInclude Include="util\singleton.h" />
     <ClInclude Include="engine_include.h" />
     <ClInclude Include="math\math.h" />
     <ClInclude Include="util\string_util.h" />
-    <ClInclude Include="util\csv_parser.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />
