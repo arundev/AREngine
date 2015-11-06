@@ -168,7 +168,7 @@
     <Text Include="rend_me.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="camera\camera.cpp" />
+    <ClCompile Include="camera\camera.cc" />
     <ClCompile Include="dx11\geometry_dx11.cc" />
     <ClCompile Include="dx11\material_dx11.cc" />
     <ClCompile Include="dx11\texture_dx11.cc" />
@@ -178,8 +178,8 @@
     <ClCompile Include="mesh\material.cc" />
     <ClCompile Include="mesh\mesh.cc" />
     <ClCompile Include="mesh\texture.cc" />
-    <ClCompile Include="util\assimp_util.cpp" />
-    <ClCompile Include="util\csv_parser.cpp" />
+    <ClCompile Include="util\assimp_util.cc" />
+    <ClCompile Include="util\csv_parser.cc" />
     <ClCompile Include="util\image_util.cc" />
     <ClCompile Include="plateform.cc" />
     <ClCompile Include="renderer.cc" />
@@ -205,7 +205,7 @@
     <ClInclude Include="mesh\mesh.h" />
     <ClInclude Include="mesh\texture.h" />
     <ClInclude Include="util\assimp_util.h" />
-    <ClInclude Include="util\csv_parser.hpp" />
+    <ClInclude Include="util\csv_parser.h" />
     <ClInclude Include="util\image_util.h" />
     <ClInclude Include="plateform.h" />
     <ClInclude Include="renderer.h" />

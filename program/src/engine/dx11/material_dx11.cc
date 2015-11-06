@@ -58,7 +58,6 @@ void MaterialDx11::DoApply(){
 	dataPtr->view_ = view;
 	dataPtr->projection_ = proj;
 
-
 	device_context->Unmap(matrix_buffer_, 0);
 	bufferNumber = 0;
 	device_context->VSSetConstantBuffers(bufferNumber, 1, &matrix_buffer_);
