@@ -178,6 +178,8 @@
     <ClCompile Include="mesh\material.cc" />
     <ClCompile Include="mesh\mesh.cc" />
     <ClCompile Include="mesh\texture.cc" />
+    <ClCompile Include="util\assimp\AnimEvaluator.cpp" />
+    <ClCompile Include="util\assimp\SceneAnimator.cpp" />
     <ClCompile Include="util\assimp_util.cpp" />
     <ClCompile Include="util\csv_parser.cpp" />
     <ClCompile Include="util\image_util.cc" />
@@ -204,6 +206,8 @@
     <ClInclude Include="mesh\material.h" />
     <ClInclude Include="mesh\mesh.h" />
     <ClInclude Include="mesh\texture.h" />
+    <ClInclude Include="util\assimp\AnimEvaluator.h" />
+    <ClInclude Include="util\assimp\SceneAnimator.h" />
     <ClInclude Include="util\assimp_util.h" />
     <ClInclude Include="util\csv_parser.hpp" />
     <ClInclude Include="util\image_util.h" />

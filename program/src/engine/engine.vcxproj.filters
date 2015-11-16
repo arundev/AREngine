@@ -69,6 +69,8 @@
       <Filter>render\util</Filter>
     </ClCompile>
     <ClCompile Include="util\csv_parser.cpp" />
+    <ClCompile Include="util\assimp\AnimEvaluator.cpp" />
+    <ClCompile Include="util\assimp\SceneAnimator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -120,6 +122,8 @@
     <ClInclude Include="engine_include.h" />
     <ClInclude Include="math\math.h" />
     <ClInclude Include="util\string_util.h" />
+    <ClInclude Include="util\assimp\AnimEvaluator.h" />
+    <ClInclude Include="util\assimp\SceneAnimator.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

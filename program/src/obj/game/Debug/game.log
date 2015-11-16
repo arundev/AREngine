@@ -1,6 +1,18 @@
-﻿Build started 10/31/2015 4:08:34 PM.
+﻿Build started 11/6/2015 2:19:01 PM.
      1>Project "F:\workplace\my\AREngine\program\src\game\game.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\engine /IF:\workplace\my\AREngine\program\src\..\lib\opengles\include /IF:\workplace\my\AREngine\program\src\..\lib\dxsdk\include /IF:\workplace\my\AREngine\program\src\..\lib\math /I..\extern\zlib /I..\extern\assimp\src\include /I..\extern\assimp\src\code\BoostWorkaround /I..\extern\assimp\src\code /I..\extern\DirectXTK\Inc /ZI /nologo /W3 /WX- /sdl /MP /Od /Oy- /D WIN32 /D _DEBUG /D OPENDDL_NO_USE_CPP11 /D ASSIMP_BUILD_BOOST_WORKAROUND /D ASSIMP_BUILD_NO_C4D_IMPORTER /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\\" /Fd"F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp model_loader.cpp model_table.cc
+     1>cl : Command line warning D9030: '/Gm' is incompatible with multiprocessing; ignoring /MP switch
+         main.cpp
+         Generating Code...
+         Compiling...
+         model_table.cc
+     1>f:\workplace\my\arengine\program\src\game\model_table.cc(19): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>f:\workplace\my\arengine\program\src\game\model_table.cc(20): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>f:\workplace\my\arengine\program\src\game\model_table.cc(21): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         model_loader.cpp
+         Generating Code...
+       Link:
          E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\workplace\my\AREngine\program\src\\..\bin\win32 /LIBPATH:F:\workplace\my\AREngine\program\src\..\lib\opengles\lib /LIBPATH:F:\workplace\my\AREngine\program\src\..\lib\dxsdk\lib libGLESv2.lib libEGL.lib engine_d.lib math_d.lib AssimpLib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib DirectXTK.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.lib" /MACHINE:X86 F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\main.obj
          F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\model_loader.obj
          F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\model_table.obj
@@ -11,4 +23,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.41
+Time Elapsed 00:00:17.64
