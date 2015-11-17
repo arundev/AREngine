@@ -190,6 +190,7 @@
     <ClCompile Include="es2\renderer_es2.cc" />
     <ClCompile Include="util\file_util.cc" />
     <ClCompile Include="util\log.cc" />
+    <ClCompile Include="util\timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera\camera.h" />
@@ -221,6 +222,7 @@
     <ClInclude Include="util\file_util.h" />
     <ClInclude Include="util\singleton.h" />
     <ClInclude Include="util\string_util.h" />
+    <ClInclude Include="util\timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
