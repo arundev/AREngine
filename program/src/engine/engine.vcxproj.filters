@@ -64,14 +64,18 @@
       <Filter>render\util</Filter>
     </ClCompile>
     <ClCompile Include="plateform.cc" />
-    <ClCompile Include="util\assimp_util.cpp" />
     <ClCompile Include="util\file_util.cc">
       <Filter>render\util</Filter>
     </ClCompile>
-    <ClCompile Include="util\csv_parser.cpp" />
     <ClCompile Include="util\assimp\AnimEvaluator.cpp" />
     <ClCompile Include="util\assimp\SceneAnimator.cpp" />
-    <ClCompile Include="util\timer.cpp" />
+    <ClCompile Include="base\object.cpp" />
+    <ClCompile Include="scene\camera.cc" />
+    <ClCompile Include="scene\light.cc" />
+    <ClCompile Include="scene\node.cc" />
+    <ClCompile Include="util\assimp_util.cc" />
+    <ClCompile Include="util\csv_parser.cc" />
+    <ClCompile Include="util\timer.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -118,7 +122,6 @@
     </ClInclude>
     <ClInclude Include="math\vector3.h" />
     <ClInclude Include="math\vector2.h" />
-    <ClInclude Include="util\csv_parser.hpp" />
     <ClInclude Include="util\singleton.h" />
     <ClInclude Include="engine_include.h" />
     <ClInclude Include="math\math.h" />
@@ -126,6 +129,11 @@
     <ClInclude Include="util\assimp\AnimEvaluator.h" />
     <ClInclude Include="util\assimp\SceneAnimator.h" />
     <ClInclude Include="util\timer.h" />
+    <ClInclude Include="scene\node.h" />
+    <ClInclude Include="base\object.h" />
+    <ClInclude Include="scene\camera.h" />
+    <ClInclude Include="scene\light.h" />
+    <ClInclude Include="util\csv_parser.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

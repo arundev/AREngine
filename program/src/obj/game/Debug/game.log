@@ -1,13 +1,14 @@
-﻿Build started 11/18/2015 3:35:11 PM.
+﻿Build started 11/19/2015 6:37:46 PM.
      1>Project "F:\workplace\my\AREngine\program\src\game\game.vcxproj" on node 2 (Build target(s)).
      1>Link:
          E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\workplace\my\AREngine\program\src\\..\bin\win32 /LIBPATH:F:\workplace\my\AREngine\program\src\..\lib\opengles\lib /LIBPATH:F:\workplace\my\AREngine\program\src\..\lib\dxsdk\lib libGLESv2.lib libEGL.lib engine_d.lib math_d.lib AssimpLib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib DirectXTK.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.lib" /MACHINE:X86 F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\main.obj
          F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\model_loader.obj
          F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\model_table.obj
          F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\win32.obj
+            Creating library F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.lib and object F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exp
          game.vcxproj -> F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exe
      1>Done Building Project "F:\workplace\my\AREngine\program\src\game\game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.28
+Time Elapsed 00:00:00.36

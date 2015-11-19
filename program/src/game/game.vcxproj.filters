@@ -24,7 +24,7 @@
     <ClCompile Include="model_table.cc">
       <Filter>app</Filter>
     </ClCompile>
-    <ClCompile Include="model_loader.cpp">
+    <ClCompile Include="model_loader.cc">
       <Filter>app</Filter>
     </ClCompile>
   </ItemGroup>

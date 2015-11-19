@@ -36,9 +36,11 @@ void AppInit(){
 
 	//g_test_trangle = Mesh::CreateTriangle();
 	std::vector<Mesh*> meshes;
-	//AssimpUtil::LoadFile("models-nonbsd/FBX/2013_ASCII/jeep1.fbx", meshes);
+	//AssimpUtil::LoadFile("models-nonbsd/FBX/2013_ASCII/pyramob.fbx", meshes);
+
+	AssimpUtil::LoadFile("models-nonbsd/X/dwarf.x", meshes);
 	//AssimpUtil::LoadFile("Walker.ms3d", meshes);
-	ModelLoader::Instance().Loader(1001, meshes);
+	//ModelLoader::Instance().Loader(1001, meshes);
 }
 
 void AppUpdate(){

@@ -193,21 +193,20 @@ bool RendererDx11::DoInit(){
 	}
 
 	// create and set rasterize state
-	D3D11_RASTERIZER_DESC raster_desc;
 	D3D11_VIEWPORT viewport;
 	float field_of_view, screen_aspect;
 	device_context_->OMSetRenderTargets(1, &render_target_view_, depth_stencil_view_);
-	raster_desc.AntialiasedLineEnable = false;
-	raster_desc.CullMode = D3D11_CULL_NONE;
-	raster_desc.DepthBias = 0;
-	raster_desc.DepthBiasClamp = 0.0f;
-	raster_desc.DepthClipEnable = true;
-	raster_desc.FillMode = D3D11_FILL_SOLID;
-	raster_desc.FrontCounterClockwise = false;
-	raster_desc.MultisampleEnable = false;
-	raster_desc.ScissorEnable = false;
-	raster_desc.SlopeScaledDepthBias = 0.0f;
-	hr = device_->CreateRasterizerState(&raster_desc, &raster_state_);
+	raster_state_desc_.AntialiasedLineEnable = false;
+	raster_state_desc_.CullMode = D3D11_CULL_NONE;
+	raster_state_desc_.DepthBias = 0;
+	raster_state_desc_.DepthBiasClamp = 0.0f;
+	raster_state_desc_.DepthClipEnable = true;
+	raster_state_desc_.FillMode = D3D11_FILL_SOLID;
+	raster_state_desc_.FrontCounterClockwise = false;
+	raster_state_desc_.MultisampleEnable = false;
+	raster_state_desc_.ScissorEnable = false;
+	raster_state_desc_.SlopeScaledDepthBias = 0.0f;
+	hr = device_->CreateRasterizerState(&raster_state_desc_, &raster_state_);
 	if (FAILED(hr)){
 		return false;
 	}
@@ -301,7 +300,20 @@ void RendererDx11::Free(){
 
 
 void RendererDx11::SetWireframe(bool b) {
+	if ((b && raster_state_desc_.FillMode == D3D11_FILL_WIREFRAME) ||
+		(!b && raster_state_desc_.FillMode == D3D11_FILL_SOLID)){
+		return;
+	}
 
+	if (b){
+		raster_state_desc_.FillMode = D3D11_FILL_WIREFRAME;
+	}
+	else {
+		raster_state_desc_.FillMode = D3D11_FILL_SOLID;
+	}
+
+	device_->CreateRasterizerState(&raster_state_desc_, &raster_state_);
+	device_context_->RSSetState(raster_state_);
 }
 
 void RendererDx11::BeginEvent(const char* event) {

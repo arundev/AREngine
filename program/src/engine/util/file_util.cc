@@ -124,10 +124,15 @@ void FileUtil::SetConfigFolder(const std::string& folder) {
 bool FileUtil::FileExists(const std::string& file)
 {
 	// Check if the file exists, and that it is not a directory
-
 	DWORD dwAttrib = GetFileAttributes( file.c_str() );
+	bool exist = (dwAttrib != INVALID_FILE_ATTRIBUTES && !(dwAttrib & FILE_ATTRIBUTE_DIRECTORY));
+	if (!exist)
+	{
+		std::string str = "file not find: " + file;
+		g_log->Write(str);
+	}
 
-	return (dwAttrib != INVALID_FILE_ATTRIBUTES && !(dwAttrib & FILE_ATTRIBUTE_DIRECTORY));
+	return exist;
 }
 
 bool FileUtil::FileIsNewer(const std::string& file1, const std::string& file2)

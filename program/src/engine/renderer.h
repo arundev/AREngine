@@ -45,8 +45,11 @@ public:
 	virtual void EndEvent() { ; }
 
 	const RTMath::Matrix& world_mat()const{ return world_mat_; }
+	void set_world_mat(RTMath::Matrix& mat) { world_mat_ = mat; }
 	const RTMath::Matrix& view_mat()const{ return view_mat_; }
+	void set_view_mat(RTMath::Matrix& mat) { view_mat_ = mat; }
 	const RTMath::Matrix& projection_mat()const{ return projection_mat_; }
+	void set_projection_mat(RTMath::Matrix& mat) { projection_mat_ = mat; }
 
 protected:
 	virtual bool DoInit() = 0;

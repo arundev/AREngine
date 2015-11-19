@@ -11,7 +11,8 @@
 namespace engine_util {
 	class Timer : public Singleton<Timer> {
 	public:
-		double GetCurrentTime() { return (double)clock(); }
+		static double GetCurrentForSecondes();
+		static double GetCurrentForMilliseconds();
 	protected:
 	private:
 	};

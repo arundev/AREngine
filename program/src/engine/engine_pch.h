@@ -38,6 +38,7 @@ using namespace std;
 // engine
 #include "RTMath.h"
 #include "plateform.h"
+#include "base/object.h"
 #include "util.h"
 #include "util/file_util.h"
 #include "util/log.h"

@@ -61,6 +61,8 @@ void Engine::Render(){
 	Vector clear_color(0, 0, 0);
 	g_renderer->PreRender(clear_color);
 
+	g_renderer->SetWireframe(true);
+
 	std::vector<Mesh*>::const_iterator iter = Mesh::s_mesh_list.begin();
 	for (; iter != Mesh::s_mesh_list.end(); iter++){
 		(*iter)->Render();
