@@ -133,11 +133,13 @@
     <ClInclude Include="scene\light.h" />
     <ClInclude Include="util\csv_parser.h" />
     <ClInclude Include="math\vector.h" />
+    <ClInclude Include="math\matrix.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="math\vector.inl" />
+    <None Include="math\matrix.inl" />
   </ItemGroup>
 </Project>

@@ -206,6 +206,7 @@
     <ClInclude Include="engine.h" />
     <ClInclude Include="engine_include.h" />
     <ClInclude Include="math\math.h" />
+    <ClInclude Include="math\matrix.h" />
     <ClInclude Include="math\vector.h" />
     <ClInclude Include="mesh\geometry.h" />
     <ClInclude Include="mesh\material.h" />
@@ -232,6 +233,7 @@
     <ClInclude Include="util\timer.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="math\matrix.inl" />
     <None Include="math\vector.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

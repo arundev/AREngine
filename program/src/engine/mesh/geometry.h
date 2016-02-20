@@ -15,7 +15,7 @@ public:
 		}
 
 		engine_math::Vector3F position;
-		RTMath::Color color;
+		engine_math::Color color;
 		engine_math::Vector2F texture1;
 		engine_math::Vector2F texture2;
 		engine_math::Vector3F normal;
