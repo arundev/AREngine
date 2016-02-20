@@ -120,8 +120,6 @@
     <ClInclude Include="util\file_util.h">
       <Filter>render\util</Filter>
     </ClInclude>
-    <ClInclude Include="math\vector3.h" />
-    <ClInclude Include="math\vector2.h" />
     <ClInclude Include="util\singleton.h" />
     <ClInclude Include="engine_include.h" />
     <ClInclude Include="math\math.h" />
@@ -134,8 +132,12 @@
     <ClInclude Include="scene\camera.h" />
     <ClInclude Include="scene\light.h" />
     <ClInclude Include="util\csv_parser.h" />
+    <ClInclude Include="math\vector.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="math\vector.inl" />
   </ItemGroup>
 </Project>
