@@ -1,14 +1,30 @@
-﻿Build started 2/19/2016 10:27:07 PM.
-     1>Project "F:\workplace\my\AREngine\program\src\game\game.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\workplace\my\AREngine\program\src\\..\bin\win32 /LIBPATH:F:\workplace\my\AREngine\program\src\..\lib\opengles\lib /LIBPATH:F:\workplace\my\AREngine\program\src\..\lib\dxsdk\lib libGLESv2.lib libEGL.lib engine_d.lib math_d.lib AssimpLib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib DirectXTK.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.lib" /MACHINE:X86 F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\main.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\model_loader.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\model_table.obj
-         F:\workplace\my\AREngine\program\src\\..\obj\game\Debug\win32.obj
-            Creating library F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.lib and object F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exp
-         game.vcxproj -> F:\workplace\my\AREngine\program\src\\..\bin\win32\game_d.exe
-     1>Done Building Project "F:\workplace\my\AREngine\program\src\game\game.vcxproj" (Build target(s)).
+﻿生成启动时间为 2/28/2016 9:15:10 PM。
+     1>项目“E:\work\workplace\open_source\AREngine\program\src\game\game.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\engine /IE:\work\workplace\open_source\AREngine\program\src\..\lib\opengles\include /IE:\work\workplace\open_source\AREngine\program\src\..\lib\dxsdk\include /IE:\work\workplace\open_source\AREngine\program\src\..\lib\math /I..\extern\zlib /I..\extern\assimp\src\include /I..\extern\assimp\src\code\BoostWorkaround /I..\extern\assimp\src\code /I..\extern\DirectXTK\Inc /ZI /nologo /W3 /WX- /sdl /MP /Od /Oy- /D WIN32 /D _DEBUG /D OPENDDL_NO_USE_CPP11 /D ASSIMP_BUILD_BOOST_WORKAROUND /D ASSIMP_BUILD_NO_C4D_IMPORTER /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"E:\work\workplace\open_source\AREngine\program\src\\..\obj\game\Debug\\" /Fd"E:\work\workplace\open_source\AREngine\program\src\\..\obj\game\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp model_loader.cc model_table.cc win32.cpp
+     1>cl : 命令行 warning D9030: “/Gm”与多处理不兼容；忽略 /MP 开关
+         model_table.cc
+     1>e:\work\workplace\open_source\arengine\program\src\game\model_table.cc(19): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>e:\work\workplace\open_source\arengine\program\src\game\model_table.cc(20): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+     1>e:\work\workplace\open_source\arengine\program\src\game\model_table.cc(21): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+         正在生成代码...
+         正在编译...
+         win32.cpp
+     1>e:\work\workplace\open_source\arengine\program\src\game\win32.cpp(114): warning C4101: “ps”: 未引用的局部变量
+     1>e:\work\workplace\open_source\arengine\program\src\game\win32.cpp(113): warning C4101: “wmId”: 未引用的局部变量
+     1>e:\work\workplace\open_source\arengine\program\src\game\win32.cpp(113): warning C4101: “wmEvent”: 未引用的局部变量
+     1>e:\work\workplace\open_source\arengine\program\src\game\win32.cpp(115): warning C4101: “hdc”: 未引用的局部变量
+         model_loader.cc
+         main.cpp
+         正在生成代码...
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\game_d.exe" /INCREMENTAL /NOLOGO /LIBPATH:E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32 /LIBPATH:E:\work\workplace\open_source\AREngine\program\src\..\lib\opengles\lib /LIBPATH:E:\work\workplace\open_source\AREngine\program\src\..\lib\dxsdk\lib libGLESv2.lib libEGL.lib engine_d.lib math_d.lib AssimpLib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib DirectXTK.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\game_d.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\game_d.lib" /MACHINE:X86 E:\work\workplace\open_source\AREngine\program\src\\..\obj\game\Debug\main.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\game\Debug\model_loader.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\game\Debug\model_table.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\game\Debug\win32.obj
+     1>LINK : fatal error LNK1104: 无法打开文件“DirectXTK.lib”
+     1>已完成生成项目“E:\work\workplace\open_source\AREngine\program\src\game\game.vcxproj”(Build 个目标)的操作 - 失败。
 
-Build succeeded.
+生成失败。
 
-Time Elapsed 00:00:03.43
+已用时间 00:00:04.08

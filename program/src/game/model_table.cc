@@ -16,9 +16,9 @@ engine_math::Vector3F Deserialization(std::string str) { // {x,y,z}
 	engine_util::StringSplit(sub, vc, ";");
 
 	if (vc.size() >= 3) {
-		ret.x = atof(vc[0].c_str());
-		ret.y = atof(vc[1].c_str());
-		ret.z = atof(vc[2].c_str());
+		ret.x_ = atof(vc[0].c_str());
+		ret.y_ = atof(vc[1].c_str());
+		ret.z_ = atof(vc[2].c_str());
 	}
 
 	return ret;

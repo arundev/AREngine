@@ -3,75 +3,47 @@
 namespace engine_math{
 	template<typename T>
 	Matrix<T>& Matrix<T>::operator + (const Matrix<T>& mat){
-		this->m11_ += mat.m11_;
-		this->m12_ += mat.m12_;
-		this->m13_ += mat.m13_;
-		this->m14_ += mat.m14_;
-
-		this->m21_ += mat.m21_;
-		this->m22_ += mat.m22_;
-		this->m23_ += mat.m23_;
-		this->m24_ += mat.m24_;
-
-		this->m31_ += mat.m31_;
-		this->m32_ += mat.m32_;
-		this->m33_ += mat.m33_;
-		this->m34_ += mat.m34_;
-
-		this->m41_ += mat.m41_;
-		this->m42_ += mat.m42_;
-		this->m43_ += mat.m43_;
-		this->m44_ += mat.m44_;
+		for (int i = 0; i < row_;i++){
+			for (int j = 0; j < col_;j++){
+				this->m[i][j] += mat.m_[i][j];
+			}
+		}
 
 		return *this;
 	}
 
 	template<typename T>
 	Matrix<T>& Matrix<T>::operator - (const Matrix<T>& mat){
-		this->m11_ -= mat.m11_;
-		this->m12_ -= mat.m12_;
-		this->m13_ -= mat.m13_;
-		this->m14_ -= mat.m14_;
-
-		this->m21_ -= mat.m21_;
-		this->m22_ -= mat.m22_;
-		this->m23_ -= mat.m23_;
-		this->m24_ -= mat.m24_;
-
-		this->m31_ -= mat.m31_;
-		this->m32_ -= mat.m32_;
-		this->m33_ -= mat.m33_;
-		this->m34_ -= mat.m34_;
-
-		this->m41_ -= mat.m41_;
-		this->m42_ -= mat.m42_;
-		this->m43_ -= mat.m43_;
-		this->m44_ -= mat.m44_;
+		for (int i = 0; i < row_; i++){
+			for (int j = 0; j < col_; j++){
+				this->m[i][j] -= mat.m_[i][j];
+			}
+		}
 
 		return *this;
 	}
 
 	template<typename T>
 	Matrix<T>& Matrix<T>::operator* (const Matrix<T>& mat){
-		this->m11_ = this->m11_*mat.m11_ + this->m12_ * mat.m21_ + this->m13_*mat.m31_ + this->m14_*mat.m41_;
-		this->m12_ = this->m11_*mat.m12_ + this->m12_ * mat.m22_ + this->m13_*mat.m32_ + this->m14_*mat.m42_;
-		this->m13_ = this->m11_*mat.m13_ + this->m12_ * mat.m23_ + this->m13_*mat.m33_ + this->m14_*mat.m43_;
-		this->m14_ = this->m11_*mat.m14_ + this->m12_ * mat.m24_ + this->m13_*mat.m34_ + this->m14_*mat.m44_;
+		this->m[0][0] = this->m[0][0]*mat.m[0][0] + this->m[0][1] * mat.m[1][0] + this->m[0][2]*mat.m[2][0] + this->m[0][3]*mat.m[3][0];
+		this->m[0][1] = this->m[0][0]*mat.m[0][1] + this->m[0][1] * mat.m[1][1] + this->m[0][2]*mat.m[2][1] + this->m[0][3]*mat.m[3][1];
+		this->m[0][2] = this->m[0][0]*mat.m[0][2] + this->m[0][1] * mat.m[1][2] + this->m[0][2]*mat.m[2][2] + this->m[0][3]*mat.m[3][2];
+		this->m[0][3] = this->m[0][0]*mat.m[0][3] + this->m[0][1] * mat.m[1][3] + this->m[0][2]*mat.m[2][3] + this->m[0][3]*mat.m[3][3];
 
-		this->m21_ = this->m21_*mat.m11_ + this->m22_ * mat.m21_ + this->m23_*mat.m31_ + this->m24_*mat.m41_;
-		this->m22_ = this->m21_*mat.m12_ + this->m22_ * mat.m22_ + this->m33_*mat.m32_ + this->m14_*mat.m42_;
-		this->m23_ = this->m21_*mat.m13_ + this->m22_ * mat.m23_ + this->m33_*mat.m33_ + this->m14_*mat.m43_;
-		this->m24_ = this->m21_*mat.m14_ + this->m22_ * mat.m24_ + this->m33_*mat.m34_ + this->m14_*mat.m44_;
+		this->m[1][0] = this->m[1][0]*mat.m[0][0] + this->m[1][1] * mat.m[1][0] + this->m[1][2]*mat.m[2][0] + this->m[1][3]*mat.m[3][0];
+		this->m[1][1] = this->m[1][0]*mat.m[0][1] + this->m[1][1] * mat.m[1][1] + this->m[2][2]*mat.m[2][1] + this->m[0][3]*mat.m[3][1];
+		this->m[1][2] = this->m[1][0]*mat.m[0][2] + this->m[1][1] * mat.m[1][2] + this->m[2][2]*mat.m[2][2] + this->m[0][3]*mat.m[3][2];
+		this->m[1][3] = this->m[1][0]*mat.m[0][3] + this->m[1][1] * mat.m[1][3] + this->m[2][2]*mat.m[2][3] + this->m[0][3]*mat.m[3][3];
 
-		this->m31_ = this->m31_*mat.m11_ + this->m32_ * mat.m21_ + this->m33_*mat.m31_ + this->m34_*mat.m41_;
-		this->m32_ = this->m31_*mat.m12_ + this->m22_ * mat.m22_ + this->m33_*mat.m32_ + this->m34_*mat.m42_;
-		this->m33_ = this->m31_*mat.m13_ + this->m22_ * mat.m23_ + this->m33_*mat.m33_ + this->m34_*mat.m43_;
-		this->m34_ = this->m31_*mat.m14_ + this->m22_ * mat.m24_ + this->m33_*mat.m34_ + this->m34_*mat.m44_;
+		this->m[2][0] = this->m[2][0]*mat.m[0][0] + this->m[2][1] * mat.m[1][0] + this->m[2][2]*mat.m[2][0] + this->m[2][3]*mat.m[3][0];
+		this->m[2][1] = this->m[2][0]*mat.m[0][1] + this->m[1][1] * mat.m[1][1] + this->m[2][2]*mat.m[2][1] + this->m[2][3]*mat.m[3][1];
+		this->m[2][2] = this->m[2][0]*mat.m[0][2] + this->m[1][1] * mat.m[1][2] + this->m[2][2]*mat.m[2][2] + this->m[2][3]*mat.m[3][2];
+		this->m[2][3] = this->m[2][0]*mat.m[0][3] + this->m[1][1] * mat.m[1][3] + this->m[2][2]*mat.m[2][3] + this->m[2][3]*mat.m[3][3];
 
-		this->m41_ = this->m41_*mat.m11_ + this->m42_ * mat.m21_ + this->m43_*mat.m31_ + this->m44_*mat.m41_;
-		this->m42_ = this->m41_*mat.m12_ + this->m42_ * mat.m22_ + this->m43_*mat.m32_ + this->m44_*mat.m42_;
-		this->m43_ = this->m41_*mat.m13_ + this->m42_ * mat.m23_ + this->m43_*mat.m33_ + this->m44_*mat.m43_;
-		this->m44_ = this->m41_*mat.m14_ + this->m42_ * mat.m24_ + this->m43_*mat.m34_ + this->m44_*mat.m44_;
+		this->m[3][0] = this->m[3][0]*mat.m[0][0] + this->m[3][1] * mat.m[1][0] + this->m[3][2]*mat.m[2][0] + this->m[3][3]*mat.m[3][0];
+		this->m[3][1] = this->m[3][0]*mat.m[0][1] + this->m[3][1] * mat.m[1][1] + this->m[3][2]*mat.m[2][1] + this->m[3][3]*mat.m[3][1];
+		this->m[3][2] = this->m[3][0]*mat.m[0][2] + this->m[3][1] * mat.m[1][2] + this->m[3][2]*mat.m[2][2] + this->m[3][3]*mat.m[3][2];
+		this->m[3][3] = this->m[3][0]*mat.m[0][3] + this->m[3][1] * mat.m[1][3] + this->m[3][2]*mat.m[2][3] + this->m[3][3]*mat.m[3][3];
 
 		return *this;
 	}

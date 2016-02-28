@@ -1,65 +1,51 @@
-﻿Build started 2/20/2016 10:57:29 PM.
-     1>Project "F:\workplace\my\AREngine\program\src\engine\engine.vcxproj" on node 2 (Build target(s)).
+﻿生成启动时间为 2/28/2016 9:15:02 PM。
+     1>项目“E:\work\workplace\open_source\AREngine\program\src\engine\engine.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IF:\workplace\my\AREngine\program\src\..\lib\opengles\include /IF:\workplace\my\AREngine\program\src\..\lib\dxsdk\include /IF:\workplace\my\AREngine\program\src\..\lib\math /I..\camera /I..\mesh /I..\dx11 /I..\es2 /I..\extern\zlib /I..\extern\assimp\src\include /I..\extern\assimp\src\code\BoostWorkaround /I..\extern\assimp\src\code /I..\extern\DirectXTK\Inc /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D OPENDDL_NO_USE_CPP11 /D ASSIMP_BUILD_BOOST_WORKAROUND /D ASSIMP_BUILD_NO_C4D_IMPORTER /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\\" /Fd"F:\workplace\my\AREngine\program\src\\..\obj\engine\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt camera\camera.cpp dx11\geometry_dx11.cc dx11\material_dx11.cc dx11\renderer_dx11.cc dx11\texture_dx11.cc engine.cc es2\renderer_es2.cc mesh\material.cc mesh\mesh.cc mesh\texture.cc renderer.cc scene\camera.cc scene\light.cc scene\node.cc util.cc util\assimp_util.cc util\file_util.cc util\image_util.cc util\log.cc util\timer.cc
-     1>cl : Command line warning D9030: '/Gm' is incompatible with multiprocessing; ignoring /MP switch
-         timer.cc
-         log.cc
-         image_util.cc
-         file_util.cc
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IE:\work\workplace\open_source\AREngine\program\src\..\lib\opengles\include /IE:\work\workplace\open_source\AREngine\program\src\..\lib\dxsdk\include /IE:\work\workplace\open_source\AREngine\program\src\..\lib\math /I..\camera /I..\mesh /I..\dx11 /I..\es2 /I..\extern\zlib /I..\extern\assimp\src\include /I..\extern\assimp\src\code\BoostWorkaround /I..\extern\assimp\src\code /I..\extern\DirectXTK\Inc /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D OPENDDL_NO_USE_CPP11 /D ASSIMP_BUILD_BOOST_WORKAROUND /D ASSIMP_BUILD_NO_C4D_IMPORTER /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\\" /Fd"E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt mesh\mesh.cc util\assimp_util.cc
+     1>cl : 命令行 warning D9030: “/Gm”与多处理不兼容；忽略 /MP 开关
          assimp_util.cc
-     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\mesh.h(468): warning C4099: 'aiMesh' : type name first seen using 'class' now seen using 'struct'
-                 f:\workplace\my\arengine\program\src\engine\util\assimp_util.h(7) : see declaration of 'aiMesh'
-     1>f:\workplace\my\arengine\program\src\extern\assimp\src\include\assimp\material.h(634): warning C4099: 'aiMaterial' : type name first seen using 'class' now seen using 'struct'
-                 f:\workplace\my\arengine\program\src\engine\util\assimp_util.h(8) : see declaration of 'aiMaterial'
-     1>f:\workplace\my\arengine\program\src\engine\util\assimp_util.cc(67): warning C4018: '<' : signed/unsigned mismatch
-     1>f:\workplace\my\arengine\program\src\engine\util\assimp_util.cc(95): warning C4018: '<' : signed/unsigned mismatch
-     1>f:\workplace\my\arengine\program\src\engine\util\assimp_util.cc(111): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'RTMath::Color' (or there is no acceptable conversion)
-                 f:\workplace\my\arengine\program\src\engine\math\vector.h(29): could be 'engine_math::Vector4<float> &engine_math::Vector4<float>::operator =(const engine_math::Vector4<float> &)'
-                 while trying to match the argument list '(engine_math::Color, RTMath::Color)'
-     1>f:\workplace\my\arengine\program\src\engine\util\assimp_util.cc(161): warning C4018: '<' : signed/unsigned mismatch
-         util.cc
-         node.cc
-     1>f:\workplace\my\arengine\program\src\engine\scene\node.cc(26): warning C4018: '>=' : signed/unsigned mismatch
-     1>f:\workplace\my\arengine\program\src\engine\scene\node.cc(50): warning C4018: '>=' : signed/unsigned mismatch
-         light.cc
-         camera.cc
-         renderer.cc
-         texture.cc
+     1>e:\work\workplace\open_source\arengine\program\src\extern\assimp\src\include\assimp\mesh.h(468): warning C4099: “aiMesh”: 类型名称以前使用“class”现在使用的是“struct”
+                 e:\work\workplace\open_source\arengine\program\src\engine\util\assimp_util.h(7) : 参见“aiMesh”的声明
+     1>e:\work\workplace\open_source\arengine\program\src\extern\assimp\src\include\assimp\material.h(634): warning C4099: “aiMaterial”: 类型名称以前使用“class”现在使用的是“struct”
+                 e:\work\workplace\open_source\arengine\program\src\engine\util\assimp_util.h(8) : 参见“aiMaterial”的声明
+     1>e:\work\workplace\open_source\arengine\program\src\engine\util\assimp_util.cc(67): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\work\workplace\open_source\arengine\program\src\engine\util\assimp_util.cc(95): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\work\workplace\open_source\arengine\program\src\engine\util\assimp_util.cc(161): warning C4018: “<”: 有符号/无符号不匹配
          mesh.cc
-     1>f:\workplace\my\arengine\program\src\engine\mesh\mesh.cc(21): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'RTMath::Color' (or there is no acceptable conversion)
-                 f:\workplace\my\arengine\program\src\engine\math\vector.h(29): could be 'engine_math::Vector4<float> &engine_math::Vector4<float>::operator =(const engine_math::Vector4<float> &)'
-                 while trying to match the argument list '(engine_math::Color, RTMath::Color)'
-     1>f:\workplace\my\arengine\program\src\engine\mesh\mesh.cc(24): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'RTMath::Color' (or there is no acceptable conversion)
-                 f:\workplace\my\arengine\program\src\engine\math\vector.h(29): could be 'engine_math::Vector4<float> &engine_math::Vector4<float>::operator =(const engine_math::Vector4<float> &)'
-                 while trying to match the argument list '(engine_math::Color, RTMath::Color)'
-     1>f:\workplace\my\arengine\program\src\engine\mesh\mesh.cc(27): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'RTMath::Color' (or there is no acceptable conversion)
-                 f:\workplace\my\arengine\program\src\engine\math\vector.h(29): could be 'engine_math::Vector4<float> &engine_math::Vector4<float>::operator =(const engine_math::Vector4<float> &)'
-                 while trying to match the argument list '(engine_math::Color, RTMath::Color)'
-         material.cc
-         renderer_es2.cc
-         engine.cc
-         texture_dx11.cc
-         renderer_dx11.cc
-     1>f:\workplace\my\arengine\program\src\engine\dx11\util_dx11.h(5): warning C4099: 'D3DXMATRIX' : type name first seen using 'struct' now seen using 'class'
-                 f:\workplace\my\arengine\program\lib\dxsdk\include\d3dx10math.h(345) : see declaration of 'D3DXMATRIX'
-     1>f:\workplace\my\arengine\program\src\engine\dx11\renderer_dx11.cc(64): warning C4018: '<' : signed/unsigned mismatch
-         material_dx11.cc
-         geometry_dx11.cc
-         camera.cpp
-     1>f:\workplace\my\arengine\program\src\engine\dx11\util_dx11.h(5): warning C4099: 'D3DXMATRIX' : type name first seen using 'struct' now seen using 'class'
-                 f:\workplace\my\arengine\program\lib\dxsdk\include\d3dx10math.h(345) : see declaration of 'D3DXMATRIX'
-     1>f:\workplace\my\arengine\program\src\engine\camera\camera.cpp(117): warning C4244: '-=' : conversion from 'const double' to 'float', possible loss of data
-     1>f:\workplace\my\arengine\program\src\engine\camera\camera.cpp(118): warning C4244: '+=' : conversion from 'const double' to 'float', possible loss of data
-     1>f:\workplace\my\arengine\program\src\engine\camera\camera.cpp(120): warning C4244: '-=' : conversion from 'const double' to 'float', possible loss of data
-     1>f:\workplace\my\arengine\program\src\engine\camera\camera.cpp(121): warning C4244: '+=' : conversion from 'const double' to 'float', possible loss of data
-     1>f:\workplace\my\arengine\program\src\engine\camera\camera.cpp(123): warning C4244: '-=' : conversion from 'const double' to 'float', possible loss of data
-     1>f:\workplace\my\arengine\program\src\engine\camera\camera.cpp(124): warning C4244: '+=' : conversion from 'const double' to 'float', possible loss of data
-         Generating Code...
-     1>f:\workplace\my\arengine\program\src\engine\es2\renderer_es2.cc(84): warning C4715: 'RendererEs2::CreateContext' : not all control paths return a value
-     1>f:\workplace\my\arengine\program\src\engine\es2\renderer_es2.cc(133): warning C4715: 'RendererEs2::InitGLES' : not all control paths return a value
-     1>Done Building Project "F:\workplace\my\AREngine\program\src\engine\engine.vcxproj" (Build target(s)) -- FAILED.
+         正在生成代码...
+       Lib:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\engine_d.lib" /NOLOGO E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\object.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\camera.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\geometry_dx11.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\material_dx11.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\texture_dx11.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\util_dx11.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\engine.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\geometry.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\material.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\mesh.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\texture.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\camera.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\light.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\node.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\AnimEvaluator.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\SceneAnimator.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\assimp_util.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\csv_parser.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\image_util.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\plateform.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\renderer.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\util.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\renderer_dx11.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\renderer_es2.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\file_util.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\log.obj
+         E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\timer.obj
+     1>E:\work\workplace\open_source\AREngine\program\src\\..\obj\engine\Debug\camera.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+     1>util.obj : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
+         engine.vcxproj -> E:\work\workplace\open_source\AREngine\program\src\\..\bin\win32\engine_d.lib
+     1>已完成生成项目“E:\work\workplace\open_source\AREngine\program\src\engine\engine.vcxproj”(Build 个目标)的操作。
 
-Build FAILED.
+生成成功。
 
-Time Elapsed 00:00:14.91
+已用时间 00:00:02.50

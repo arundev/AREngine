@@ -105,7 +105,7 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 		}
 		// color
 		if (src_mesh->HasVertexColors(0)){
-			vertex_list[i].color = RTMath::Color(src_mesh->mColors[i][0].r,
+			vertex_list[i].color = engine_math::Color(src_mesh->mColors[i][0].r,
 				src_mesh->mColors[i][0].g,
 				src_mesh->mColors[i][0].b,
 				src_mesh->mColors[i][0].a);

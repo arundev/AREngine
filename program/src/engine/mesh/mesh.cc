@@ -18,13 +18,13 @@ Mesh* Mesh::CreateTriangle(){
 
 	Geometry::VertexFull* vertices = new Geometry::VertexFull[3];
 	vertices[0].position = engine_math::Vector3F(-1.0f, -1.0f, 0.0f);  // Bottom left.
-	vertices[0].color = Color(0.0f, 1.0f, 0.0f, 1.0f);
+	vertices[0].color = engine_math::Color(0.0f, 1.0f, 0.0f, 1.0f);
 	vertices[0].texture1 = engine_math::Vector2F(0.0f, 1.0f);
 	vertices[1].position = engine_math::Vector3F(0.0f, 1.0f, 0.0f);  // Top middle.
-	vertices[1].color = Color(0.0f, 1.0f, 0.0f, 1.0f);
+	vertices[1].color = engine_math::Color(0.0f, 1.0f, 0.0f, 1.0f);
 	vertices[1].texture1 = engine_math::Vector2F(0.5f, 0.0f);
 	vertices[2].position = engine_math::Vector3F(1.0f, -1.0f, 0.0f);  // Bottom right.
-	vertices[2].color = Color(0.0f, 1.0f, 0.0f, 1.0f);
+	vertices[2].color = engine_math::Color(0.0f, 1.0f, 0.0f, 1.0f);
 	vertices[2].texture1 = engine_math::Vector2F(1.0f, 1.0f);
 
 	unsigned int* indices = new unsigned int[3];
