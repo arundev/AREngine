@@ -76,6 +76,8 @@
     <ClCompile Include="util\assimp_util.cc" />
     <ClCompile Include="util\csv_parser.cc" />
     <ClCompile Include="util\timer.cc" />
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="util\fbx\fbx_importer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -134,6 +136,7 @@
     <ClInclude Include="util\csv_parser.h" />
     <ClInclude Include="math\vector.h" />
     <ClInclude Include="math\matrix.h" />
+    <ClInclude Include="util\fbx\fbx_importer.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

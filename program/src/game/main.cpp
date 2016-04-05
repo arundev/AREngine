@@ -8,11 +8,11 @@
 
 Mesh* g_test_trangle = NULL;
 
-int main(int argc, char *argv[]){
-	CreateWnd(800, 600, "hello arun");
-	AppInit();
-	MsgLoop();
-}
+//int main(int argc, char *argv[]){
+//	CreateWnd(800, 600, "hello arun");
+//	AppInit();
+//	MsgLoop();
+//}
 
 void AppInit(){
 	g_engine = new Engine();

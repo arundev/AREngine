@@ -27,6 +27,9 @@
     <ClCompile Include="model_loader.cc">
       <Filter>app</Filter>
     </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="win32.h">
