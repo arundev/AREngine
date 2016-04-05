@@ -6,10 +6,11 @@ namespace engine_math
 	class Matrix
 	{
 	public:
-		Matrix() : m11_(0), m12_(0), m13_(0), m14_(1),
-			m21_(0), m22_(0), m33_(0), m44_(1),
-			m31_(0), m32_(0), m33_(0), m34_(1),
-			m41_(0), m42_(0), m43_(0), m44_(1){
+		Matrix() : m[0][0](0), m[0][1](0), m[0][2](0), m[0][3](1),
+			m[1][0](0), m[1][1](0), m[1][2](0), m[1][3](1),
+			m[2][0](0), m[2][1](0), m[2][2](0), m[2][3](1),
+			m[3][0](0), m[3][1](0), m[3][2](0), m[3][3](1)
+		{
 
 		}
 		~Matrix(){
@@ -17,25 +18,7 @@ namespace engine_math
 		}
 
 		Matrix(const Matrix<T>& mat){
-			this->m11_ = mat.m11_;
-			this->m12_ = mat.m12_;
-			this->m13_ = mat.m13_;
-			this->m14_ = mat.m14_;
-			
-			this->m21_ = mat.m21_;
-			this->m22_ = mat.m22_;
-			this->m23_ = mat.m23_;
-			this->m24_ = mat.m24_;
-
-			this->m31_ = mat.m31_;
-			this->m32_ = mat.m32_;
-			this->m33_ = mat.m33_;
-			this->m34_ = mat.m34_;
-
-			this->m41_ = mat.m41_;
-			this->m42_ = mat.m42_;
-			this->m43_ = mat.m43_;
-			this->m44_ = mat.m44_;
+			memcpy(this->m, m.m, sizeof(T)*row_*col_);
 		}
 
 		inline Matrix<T>& operator + (const Matrix<T>& mat);
@@ -43,10 +26,13 @@ namespace engine_math
 		inline Matrix<T>& operator * (const Matrix<T>& mat);
 
 	public:
-		T m11_, m12_, m13_, m14_,
-		  m21_, m22_, m23_, m24_,
-		  m31_, m32_, m33_, m34_,
-		  m41_, m42_, m43_, m44_;
+		//T m11_, m12_, m13_, m14_,
+		//  m21_, m22_, m23_, m24_,
+		//  m31_, m32_, m33_, m34_,
+		//  m41_, m42_, m43_, m44_;
+		int row_ = 4;
+		int col_ = 4
+		T m[row_][col_];
 	};
 }
 
