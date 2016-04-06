@@ -4,11 +4,13 @@
 #include "../../engine_pch.h"
 #include "fbxsdk.h"
 
-class FBXImporter
+#pragma comment(lib, "libfbxsdk.lib")
+
+class FbxImporterTool
 {
 public:
-	FBXImporter();
-	~FBXImporter();
+	FbxImporterTool();
+	~FbxImporterTool();
 
 	bool Init();
 	void Free();

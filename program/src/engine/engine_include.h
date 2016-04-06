@@ -7,6 +7,7 @@
 #include "util/log.h"
 #include "util/assimp_util.h"
 #include "util/string_util.h"
+#include "util/fbx/fbx_importer.h"
 
 #include "plateform.h"
 #include "engine.h"

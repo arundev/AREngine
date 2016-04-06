@@ -5,17 +5,17 @@
 	#define IOS_REF (*(fbx_manager_->GetIOSettings()))
 #endif
 
-FBXImporter::FBXImporter():
+FbxImporterTool::FbxImporterTool() :
 fbx_manager_(NULL),
 scene_(NULL){
 	Init();
 }
 
-FBXImporter::~FBXImporter(){
+FbxImporterTool::~FbxImporterTool(){
 	Free();
 }
 
-bool FBXImporter::Init(){
+bool FbxImporterTool::Init(){
 
 	fbx_manager_ = FbxManager::Create();
 	if (fbx_manager_ == NULL){
@@ -41,14 +41,14 @@ bool FBXImporter::Init(){
 	return true;
 }
 
-void FBXImporter::Free(){
+void FbxImporterTool::Free(){
 	if (fbx_manager_ != NULL){
 		fbx_manager_->Destroy();
 	}
 	
 }
 
-bool FBXImporter::LoadScene(const char* pchPath){
+bool FbxImporterTool::LoadScene(const char* pchPath){
 	if (fbx_manager_ == NULL){
 		return false;
 	}
@@ -79,17 +79,19 @@ bool FBXImporter::LoadScene(const char* pchPath){
 
 	status = importer->Import(scene_);
 
+	ParseAll();
+
 	importer->Destroy();
 
 	return status;
 }
 
-bool FBXImporter::ParseAll(){
+bool FbxImporterTool::ParseAll(){
 	FbxNode *root = scene_->GetRootNode();
 	return ParseNode(root);
 }
 
-bool FBXImporter::ParseNode(FbxNode* node){
+bool FbxImporterTool::ParseNode(FbxNode* node){
 	if (node == NULL){
 		return false;
 	}
@@ -117,6 +119,6 @@ bool FBXImporter::ParseNode(FbxNode* node){
 	return true;
 }
 
-bool FBXImporter::ParseMesh(FbxNode* node){
+bool FbxImporterTool::ParseMesh(FbxNode* node){
 	return true;
 }

@@ -6,7 +6,7 @@
 #include "model_table.h"
 #include "model_loader.h"
 
-Mesh* g_test_trangle = NULL;
+//Mesh* g_test_trangle = NULL;
 
 //int main(int argc, char *argv[]){
 //	CreateWnd(800, 600, "hello arun");
