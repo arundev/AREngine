@@ -1,54 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <ClCompile Include="F:\lib\jsoncpp-master\src\lib_json\json_reader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="F:\lib\jsoncpp-master\src\lib_json\json_value.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="F:\lib\jsoncpp-master\src\lib_json\json_writer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="F:\lib\jsoncpp-master\include\json\config.h">
-      <Filter>Public API</Filter>
-    </ClInclude>
-    <ClInclude Include="F:\lib\jsoncpp-master\include\json\forwards.h">
-      <Filter>Public API</Filter>
-    </ClInclude>
-    <ClInclude Include="F:\lib\jsoncpp-master\include\json\features.h">
-      <Filter>Public API</Filter>
-    </ClInclude>
-    <ClInclude Include="F:\lib\jsoncpp-master\include\json\value.h">
-      <Filter>Public API</Filter>
-    </ClInclude>
-    <ClInclude Include="F:\lib\jsoncpp-master\include\json\reader.h">
-      <Filter>Public API</Filter>
-    </ClInclude>
-    <ClInclude Include="F:\lib\jsoncpp-master\include\json\writer.h">
-      <Filter>Public API</Filter>
-    </ClInclude>
-    <ClInclude Include="F:\lib\jsoncpp-master\include\json\assertions.h">
-      <Filter>Public API</Filter>
-    </ClInclude>
-    <ClInclude Include="F:\lib\jsoncpp-master\include\json\version.h">
-      <Filter>Public API</Filter>
-    </ClInclude>
-    <ClInclude Include="F:\lib\jsoncpp-master\src\lib_json\json_tool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="F:\lib\jsoncpp-master\src\lib_json\json_valueiterator.inl">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="F:\lib\jsoncpp-master\src\lib_json\version.h.in">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="F:\lib\jsoncpp-master\src\lib_json\CMakeLists.txt" />
-  </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{C51D8F9C-CBF8-4523-B0B0-BDBDFD31A00D}</UniqueIdentifier>
@@ -59,5 +10,59 @@
     <Filter Include="Public API">
       <UniqueIdentifier>{71230735-21AE-49BB-A118-C1142DE03DBD}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="json_reader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="json_value.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="json_writer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="json_tool.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\allocator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\assertions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\autolink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\features.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\forwards.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\json.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\reader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\value.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\writer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="json_valueiterator.inl">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
