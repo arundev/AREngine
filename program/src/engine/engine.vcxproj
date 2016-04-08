@@ -180,6 +180,7 @@
     <ClCompile Include="mesh\material.cc" />
     <ClCompile Include="mesh\mesh.cc" />
     <ClCompile Include="mesh\texture.cc" />
+    <ClCompile Include="res\mesh_res.cpp" />
     <ClCompile Include="scene\camera.cc" />
     <ClCompile Include="scene\light.cc" />
     <ClCompile Include="scene\node.cc" />
@@ -232,6 +233,7 @@
     <ClInclude Include="engine_pch.h" />
     <ClInclude Include="es2\renderer_es2.h" />
     <ClInclude Include="util\file_util.h" />
+    <ClInclude Include="res\mesh_res.h" />
     <ClInclude Include="util\singleton.h" />
     <ClInclude Include="util\string_util.h" />
     <ClInclude Include="util\timer.h" />

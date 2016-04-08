@@ -78,6 +78,7 @@
     <ClCompile Include="util\timer.cc" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="util\fbx\fbx_importer.cpp" />
+    <ClCompile Include="res\mesh_res.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -137,6 +138,7 @@
     <ClInclude Include="math\vector.h" />
     <ClInclude Include="math\matrix.h" />
     <ClInclude Include="util\fbx\fbx_importer.h" />
+    <ClInclude Include="res\mesh_res.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />
