@@ -2,6 +2,7 @@
 #define ENGINE_MESH_MESH_H
 
 #include "../engine_pch.h"
+#include "../res/mesh_res.h"
 #include "RTMath.h"
 #include "material.h"
 #include "geometry.h"
@@ -17,6 +18,7 @@ public:
 
 	static Mesh* CreateTriangle();
 	static Mesh* CreateCube();
+	static Mesh* CreateMesh(const MeshRes& res);
 
 	void Update(float elapse);
 	void Render();

@@ -20,6 +20,7 @@ public:
 
 	FbxManager* fbx_manager()const{ return fbx_manager_; }
 	FbxScene* scene()const{ return scene_; }
+	MeshRes* mesh_data()const{ return mesh_data_; }
 
 protected:
 	bool ParseAll();

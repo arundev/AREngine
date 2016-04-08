@@ -127,8 +127,6 @@ bool FbxImporterTool::ParseMesh(FbxNode* node){
 		return false;
 	}
 
-	
-
 	int triangle_num = mesh->GetPolygonCount();
 	MeshRes::Vertex* vertex_data = new MeshRes::Vertex[triangle_num * 3];
 	for (int i = 0; i < triangle_num; i++){
@@ -143,6 +141,11 @@ bool FbxImporterTool::ParseMesh(FbxNode* node){
 			ReadTangent(mesh, vertex_index, i * 3 + j, vertex_data[i * 3 + j]);
 		}
 	}
+
+	mesh_data_->SetVertexData(vertex_data, triangle_num * 3);
+	mesh_data_->SetIndexData(mesh->GetPolygonVertices(), mesh->GetPolygonVertexCount());
+
+	SAFE_DELETE_ARRAY(vertex_data);
 
 	return true;
 }

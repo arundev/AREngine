@@ -52,11 +52,18 @@ public:
 		int end_frame;
 	};
 
+	void SetVertexData(MeshRes::Vertex* data, int num);
+	void SetIndexData(int* data, int num);
+
 	bool SaveToJson(const char* path){ ; }
+	
+	std::vector<MeshRes::Vertex> vertices()const{ return vertices_; }
+	std::vector<int> indices()const{ return indices_; }
 
 private:
-	std::vector<MeshRes::Vertex> vertexes_;
+	std::vector<MeshRes::Vertex> vertices_;
 	uint32_t vertex_num_;
+	std::vector<int> indices_;
 };
 
 

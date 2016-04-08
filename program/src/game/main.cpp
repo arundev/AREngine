@@ -6,13 +6,15 @@
 #include "model_table.h"
 #include "model_loader.h"
 
-//Mesh* g_test_trangle = NULL;
+Mesh* g_test_trangle = NULL;
 
-//int main(int argc, char *argv[]){
-//	CreateWnd(800, 600, "hello arun");
-//	AppInit();
-//	MsgLoop();
-//}
+void TestFbxMesh();
+
+int main(int argc, char *argv[]){
+	CreateWnd(800, 600, "hello arun");
+	AppInit();
+	MsgLoop();
+}
 
 void AppInit(){
 	g_engine = new Engine();
@@ -30,17 +32,31 @@ void AppInit(){
 	g_file_util->SetShaderFolder("shader");
 	g_file_util->SetConfigFolder("config");
 
+	// test trangle
+	//g_test_trangle = Mesh::CreateTriangle();
+
+	/*
 	//ModelTable model_table;
 	std::string path = g_file_util->GetConfigFolder() + "model.csv";
 	ModelTable::Instance().Init(path.c_str());
-
-	//g_test_trangle = Mesh::CreateTriangle();
 	std::vector<Mesh*> meshes;
-	//AssimpUtil::LoadFile("models-nonbsd/FBX/2013_ASCII/pyramob.fbx", meshes);
-
 	AssimpUtil::LoadFile("models-nonbsd/X/dwarf.x", meshes);
-	//AssimpUtil::LoadFile("Walker.ms3d", meshes);
-	//ModelLoader::Instance().Loader(1001, meshes);
+	*/
+
+	// test fbx import
+	TestFbxMesh();
+}
+
+void TestFbxMesh(){
+	FbxImporterTool import;
+	if (import.LoadScene("F:\\workplace\\my\\AREngine\\program\\bin\\res\\model\\Male101.FBX"))
+	{
+		Mesh* mesh = Mesh::CreateMesh(*import.mesh_data());
+	}
+	else
+	{
+		g_log->Write("fail to load scene from fbx file");
+	}
 }
 
 void AppUpdate(){

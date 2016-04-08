@@ -48,6 +48,36 @@ Mesh* Mesh::CreateCube(){
 	return mesh;
 }
 
+Mesh* Mesh::CreateMesh(const MeshRes& res){
+	Mesh* mesh = new Mesh();
+
+	std::vector<MeshRes::Vertex>::iterator iter = res.vertices().begin();
+	Geometry::VertexFull* vertices = new Geometry::VertexFull[res.vertices().size()];
+	int count = 0;
+	for (; iter != res.vertices().end(); iter++)
+	{
+		vertices[count].position = iter->position;
+		vertices[count].color = iter->color;
+		vertices[count].texture1 = iter->uv;
+
+		count++;
+	}
+
+	unsigned int* indices = new unsigned int[res.indices().size()];
+	for (int i = 0; i < res.indices().size(); i++)
+	{
+		indices[i] = res.indices()[i];
+	}
+
+	mesh->geometry()->Init<Geometry::VertexFull>(vertices, res.vertices().size(), indices, res.indices().size());
+	mesh->material()->Init("color.vs", "color.ps");
+	mesh->material()->SetBaseMap("../../bin/res/jeep1.jpg");
+
+	s_mesh_list.push_back(mesh);
+
+	return mesh;
+}
+
 bool Mesh::Init(){
 	Free();
 	geometry_ = Geometry::Create();
