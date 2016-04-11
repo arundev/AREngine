@@ -51,10 +51,11 @@ Mesh* Mesh::CreateCube(){
 Mesh* Mesh::CreateMesh(const MeshRes& res){
 	Mesh* mesh = new Mesh();
 
-	std::vector<MeshRes::Vertex>::iterator iter = res.vertices().begin();
+	std::vector<MeshRes::Vertex>& all_vertices = res.vertices();
+	std::vector<MeshRes::Vertex>::iterator iter = all_vertices.begin();
 	Geometry::VertexFull* vertices = new Geometry::VertexFull[res.vertices().size()];
 	int count = 0;
-	for (; iter != res.vertices().end(); iter++)
+	for (; iter != all_vertices.end(); iter++)
 	{
 		vertices[count].position = iter->position;
 		vertices[count].color = iter->color;

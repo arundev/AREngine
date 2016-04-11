@@ -316,6 +316,35 @@ void RendererDx11::SetWireframe(bool b) {
 	device_context_->RSSetState(raster_state_);
 }
 
+void RendererDx11::SetCullMode(Renderer::ECullMode state){
+	D3D11_CULL_MODE new_state = GetD3DCullMode(state);
+
+	if (raster_state_desc_.CullMode == new_state){
+		return;
+	}
+
+	raster_state_desc_.CullMode = new_state;
+	device_->CreateRasterizerState(&raster_state_desc_, &raster_state_);
+	device_context_->RSSetState(raster_state_);
+}
+
+D3D11_CULL_MODE RendererDx11::GetD3DCullMode(Renderer::ECullMode mode){
+	switch (mode) {
+	case Renderer::None:
+		return D3D11_CULL_NONE;
+		break;
+	case Renderer::Front:
+		return D3D11_CULL_FRONT;
+		break;
+	case Renderer::Back:
+		return D3D11_CULL_BACK;
+		break;
+	default:
+		return D3D11_CULL_BACK;
+		break;
+	}
+}
+
 void RendererDx11::BeginEvent(const char* event) {
 	WCHAR wstr[MAX_PATH] = { 0 };
 	MultiByteToWideChar(CP_ACP, 0, event, -1, wstr, sizeof(wstr));

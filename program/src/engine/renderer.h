@@ -15,6 +15,12 @@ public:
 
 	};
 
+	enum ECullMode{
+		None = 0,
+		Front = 1,
+		Back = 2,
+	};
+
 	struct Window{
 		int wnd_;
 		int instance_;
@@ -40,6 +46,7 @@ public:
 	virtual void Free() = 0;
 
 	virtual void SetWireframe(bool b) { ; }
+	virtual void SetCullMode(const Renderer::ECullMode state){ ; }
 
 	virtual void BeginEvent(const char* name) { ; }
 	virtual void EndEvent() { ; }

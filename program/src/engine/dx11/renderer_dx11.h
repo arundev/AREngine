@@ -25,6 +25,7 @@ public:
 	virtual void Free();
 
 	virtual void SetWireframe(bool b);
+	virtual void SetCullMode(Renderer::ECullMode state);
 
 	virtual void BeginEvent(const char* event);
 	virtual void EndEvent();
@@ -39,6 +40,8 @@ protected:
 private:
 	void BeginScene(float red, float green, float blue, float alpha);
 	void EndScene();
+
+	D3D11_CULL_MODE GetD3DCullMode(Renderer::ECullMode mode);
 
 private:
 	IDXGISwapChain* swap_chain_;

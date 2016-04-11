@@ -35,21 +35,25 @@ void AppInit(){
 	// test trangle
 	//g_test_trangle = Mesh::CreateTriangle();
 
-	/*
+	
 	//ModelTable model_table;
 	std::string path = g_file_util->GetConfigFolder() + "model.csv";
 	ModelTable::Instance().Init(path.c_str());
 	std::vector<Mesh*> meshes;
 	AssimpUtil::LoadFile("models-nonbsd/X/dwarf.x", meshes);
-	*/
 
 	// test fbx import
 	TestFbxMesh();
+
+	g_renderer->SetWireframe(true);
+	g_renderer->SetCullMode(Renderer::None);
 }
 
 void TestFbxMesh(){
 	FbxImporterTool import;
-	if (import.LoadScene("F:\\workplace\\my\\AREngine\\program\\bin\\res\\model\\Male101.FBX"))
+	//if (import.LoadScene("E:\\work\\WorkPlace\\open_source\\AREngine\\program\\bin\\res\\model\\Male101.FBX"))
+	std::string full_path = g_file_util->GetModelsFolder() + "/Male101.FBX";
+	if (import.LoadScene(full_path.c_str()))
 	{
 		Mesh* mesh = Mesh::CreateMesh(*import.mesh_data());
 	}
