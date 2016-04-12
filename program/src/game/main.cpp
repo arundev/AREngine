@@ -41,6 +41,7 @@ void AppInit(){
 	ModelTable::Instance().Init(path.c_str());
 	std::vector<Mesh*> meshes;
 	AssimpUtil::LoadFile("models-nonbsd/X/dwarf.x", meshes);
+	AssimpUtil::LoadFile("Male101.FBX", meshes);
 
 	// test fbx import
 	TestFbxMesh();

@@ -72,7 +72,7 @@ Mesh* Mesh::CreateMesh(const MeshRes& res){
 
 	mesh->geometry()->Init<Geometry::VertexFull>(vertices, res.vertices().size(), indices, res.indices().size());
 	mesh->material()->Init("color.vs", "color.ps");
-	mesh->material()->SetBaseMap("../../bin/res/jeep1.jpg");
+	mesh->material()->SetBaseMap("../../bin/res/Male101.png");
 
 	s_mesh_list.push_back(mesh);
 
@@ -95,6 +95,10 @@ void Mesh::Render(){
 	geometry_->SetDataSteam();
 	material_->Apply();
 	geometry_->Flush();
+}
+
+void Mesh::SetRenderState(){
+
 }
 
 void Mesh::Free(){

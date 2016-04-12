@@ -16,6 +16,17 @@ public:
 
 	struct Vertex
 	{
+		Vertex(const Vertex& data){
+			position = data.position;
+			color = data.color;
+			uv = data.uv;
+			normal = data.normal;
+		}
+
+		Vertex(){
+			color.x_ = 1.0f;
+		}
+
 		engine_math::Vector3F position;
 		engine_math::Color color;
 		engine_math::Vector2F uv;
@@ -52,7 +63,7 @@ public:
 		int end_frame;
 	};
 
-	void SetVertexData(MeshRes::Vertex* data, int num);
+	void SetVertexData(const MeshRes::Vertex* data, int num);
 	void SetIndexData(int* data, int num);
 
 	bool SaveToJson(const char* path){ ; }

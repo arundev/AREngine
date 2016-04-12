@@ -1,5 +1,6 @@
 #include "fbx_importer.h"
 
+
 #ifdef IOS_REF
 	#undef  IOS_REF
 	#define IOS_REF (*(fbx_manager_->GetIOSettings()))
@@ -53,7 +54,7 @@ bool FbxImporterTool::LoadScene(const char* pchPath){
 		return false;
 	}
 
-	FbxImporter* importer = FbxImporter::Create(fbx_manager_, "");
+	FbxImporter* importer = FbxImporter::Create(fbx_manager_, "my scene");
 	if (importer == nullptr) {
 		g_log->Write("failed to create fbx importer");
 		return false;
@@ -78,6 +79,25 @@ bool FbxImporterTool::LoadScene(const char* pchPath){
 	}
 
 	status = importer->Import(scene_);
+
+	//FbxAxisSystem dstAxis(FbxAxisSystem::DirectX);
+	FbxAxisSystem curAxis = scene_->GetGlobalSettings().GetAxisSystem();
+	//if (curAxis != dstAxis)
+	//{
+	//	dstAxis.ConvertScene(scene_);
+	//}
+
+	//FbxSystemUnit scale = scene_->GetGlobalSettings().GetSystemUnit();
+	//if (scale.GetScaleFactor() != 1.0f)
+	//{
+	//	FbxSystemUnit::cm.ConvertScene(scene_);
+	//}
+
+	FbxGeometryConverter gem_convert(fbx_manager_);
+	gem_convert.Triangulate(scene_, true);
+
+	//FbxAxisSystem axis = FbxAxisSystem::DirectX;
+	//axis.ConvertScene(scene_);
 
 	ParseAll();
 
@@ -129,9 +149,13 @@ bool FbxImporterTool::ParseMesh(FbxNode* node){
 
 	int triangle_num = mesh->GetPolygonCount();
 	MeshRes::Vertex* vertex_data = new MeshRes::Vertex[triangle_num * 3];
+	int* vertex_indices_data = new int[triangle_num * 3];
+	int index_count = 0;
 	for (int i = 0; i < triangle_num; i++){
-		for (int j = 0; j < 3; j++){
+		int polygon_size = mesh->GetPolygonSize(i);
+		for (int j = 0; j < polygon_size; j++){
 			int vertex_index = mesh->GetPolygonVertex(i, j);
+			vertex_indices_data[index_count++] = vertex_index;
 			ReadVertex(mesh, vertex_index, vertex_data[i * 3 + j]);
 			ReadColor(mesh, i*3+j, vertex_index, vertex_data[i * 3 + j]);
 			for (int k = 0; k < 2; k++){
@@ -143,9 +167,10 @@ bool FbxImporterTool::ParseMesh(FbxNode* node){
 	}
 
 	mesh_data_->SetVertexData(vertex_data, triangle_num * 3);
-	mesh_data_->SetIndexData(mesh->GetPolygonVertices(), mesh->GetPolygonVertexCount());
+	mesh_data_->SetIndexData(vertex_indices_data, index_count);
 
 	SAFE_DELETE_ARRAY(vertex_data);
+	SAFE_DELETE_ARRAY(vertex_indices_data);
 
 	return true;
 }

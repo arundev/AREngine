@@ -33,6 +33,7 @@ protected:
 	Vector m_vRight;	
 };
 
+
 class FreeCamera : public BaseCamera
 {
 public:

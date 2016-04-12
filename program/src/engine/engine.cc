@@ -1,8 +1,8 @@
+#include "camera/camera.h"
 #include "engine.h"
 #include "dx11/renderer_dx11.h"
 #include "es2/renderer_es2.h"
 #include "mesh/mesh.h"
-#include "camera/camera.h"
 #include "util/file_util.h"
 
 #include <assimp/Importer.hpp>

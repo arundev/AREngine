@@ -6,6 +6,7 @@
 #include "RTMath.h"
 #include "material.h"
 #include "geometry.h"
+#include "../renderer.h"
 #include <vector>
 
 class Mesh
@@ -24,8 +25,14 @@ public:
 	void Render();
 	void Free();
 
+	void SetRenderState();
+
 	Geometry* geometry(){ return geometry_; }
 	Material* material(){ return material_; }
+	bool wireframe()const{ return wireframe_; }
+	void wireframe(bool b){ wireframe_ = true; }
+	Renderer::ECullMode cull_mode()const{ return cull_mode_; }
+	void cull_mode(Renderer::ECullMode mode){ cull_mode_ = mode; }
 
 protected:
 	bool Init();
@@ -37,6 +44,9 @@ protected:
 	Vector translate_;
 	Vector scale_;
 	Vector rotate_;
+
+	bool wireframe_;
+	Renderer::ECullMode cull_mode_;
 };
 
 
