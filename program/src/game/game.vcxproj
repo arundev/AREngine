@@ -99,7 +99,7 @@
       <AdditionalIncludeDirectories>..\engine;$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\fbxsdk\include;$(SolutionDir)..\lib\math;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\DirectXTK\Inc</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <PreprocessorDefinitions>WIN32;_DEBUG;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_BOOST_WORKAROUND;ASSIMP_BUILD_NO_C4D_IMPORTER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_BOOST_WORKAROUND;ASSIMP_BUILD_NO_C4D_IMPORTER;FBXSDK_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

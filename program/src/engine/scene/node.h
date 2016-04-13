@@ -29,11 +29,11 @@ namespace engine_scene {
 		Node* GetChild(int index)const;
 
 		RTMath::Vector& translate() { return translate_; }
-		void set_translate(RTMath::Vector& pos) { translate_ = pos; }
+		void translate(RTMath::Vector& pos) { translate_ = pos; }
 		RTMath::Matrix& rotate() { return rotate_; }
-		void set_rotate(RTMath::Matrix& mat) { rotate_ = rotate_; }
+		void rotate(RTMath::Matrix& mat) { rotate_ = rotate_; }
 		RTMath::Vector& scale() { return scale_; }
-		void set_scale(RTMath::Vector& v) { scale_ = v; }
+		void scale(RTMath::Vector& v) { scale_ = v; }
 
 		std::vector<Mesh*>& meshes() { return meshes_; }
 		void AddMesh(Mesh* mesh) { meshes_.push_back(mesh); }

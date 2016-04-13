@@ -100,7 +100,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_BOOST_WORKAROUND;ASSIMP_BUILD_NO_C4D_IMPORTER;FBXSDK_DLLIMPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_BOOST_WORKAROUND;ASSIMP_BUILD_NO_C4D_IMPORTER;FBXSDK_DLLIMPORT;FBXSDK_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\fbxsdk\include;$(SolutionDir)..\lib\math;..\camera;..\mesh;..\dx11;..\es2;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\DirectXTK\Inc;..\lib\fbxsdk</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>

@@ -80,12 +80,12 @@ bool FbxImporterTool::LoadScene(const char* pchPath){
 
 	status = importer->Import(scene_);
 
-	//FbxAxisSystem dstAxis(FbxAxisSystem::DirectX);
+	FbxAxisSystem dstAxis(FbxAxisSystem::DirectX);
 	FbxAxisSystem curAxis = scene_->GetGlobalSettings().GetAxisSystem();
-	//if (curAxis != dstAxis)
-	//{
-	//	dstAxis.ConvertScene(scene_);
-	//}
+	if (curAxis != dstAxis)
+	{
+		dstAxis.ConvertScene(scene_);
+	}
 
 	//FbxSystemUnit scale = scene_->GetGlobalSettings().GetSystemUnit();
 	//if (scale.GetScaleFactor() != 1.0f)
@@ -96,8 +96,19 @@ bool FbxImporterTool::LoadScene(const char* pchPath){
 	FbxGeometryConverter gem_convert(fbx_manager_);
 	gem_convert.Triangulate(scene_, true);
 
-	//FbxAxisSystem axis = FbxAxisSystem::DirectX;
-	//axis.ConvertScene(scene_);
+	//Plateform::GraphicAPI api = Plateform::graphic_api();
+	//if (api == Plateform::GL ||
+	//	api == Plateform::GLES_2)
+	//{
+	//	FbxAxisSystem axis = FbxAxisSystem::OpenGL;
+	//	axis.ConvertScene(scene_);
+	//}
+	//else
+	//{
+	//	FbxAxisSystem axis = FbxAxisSystem::DirectX;
+	//	axis.ConvertScene(scene_);
+	//}
+
 
 	ParseAll();
 

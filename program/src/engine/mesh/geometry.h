@@ -3,6 +3,8 @@
 
 #include "../engine_pch.h"
 
+class Mesh;
+
 class Geometry
 {
 public:
