@@ -46,7 +46,7 @@ void AppInit(){
 	// test fbx import
 	//TestFbxMesh();
 
-	g_renderer->SetWireframe(false);
+	g_renderer->SetWireframe(true);
 	g_renderer->SetCullMode(Renderer::None);
 }
 
