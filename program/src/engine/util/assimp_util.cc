@@ -165,17 +165,31 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 	}
 
 	// texture
-	string base_map, normal_map, specular_map;
+	//string base_map, normal_map, specular_map;
+	string base_map, normal_map, specular_map, ambient_map;
+	int index = 0;
 	if (src_material != NULL){
 		aiString sz_path;
 		if (aiGetMaterialString(src_material, AI_MATKEY_TEXTURE_DIFFUSE(0), &sz_path) == AI_SUCCESS){
+			index++;
 			base_map = sz_path.C_Str();
 		}
+		if (aiGetMaterialString(src_material, AI_MATKEY_TEXTURE_SPECULAR(0), &sz_path) == AI_SUCCESS) {
+			index++;
+			specular_map = sz_path.C_Str();
+		}
+
+		if (aiGetMaterialString(src_material, AI_MATKEY_TEXTURE_AMBIENT(0), &sz_path) == AI_SUCCESS) {
+			index++;
+			ambient_map = sz_path.C_Str();
+		}
+
 		if (aiGetMaterialString(src_material, AI_MATKEY_TEXTURE_NORMALS(0), &sz_path) == AI_SUCCESS) {
+			index++;
 			normal_map = sz_path.C_Str();
 		}
-		if (aiGetMaterialString(src_material, AI_MATKEY_TEXTURE_SPECULAR(0), &sz_path) == AI_SUCCESS) {
-			specular_map = sz_path.C_Str();
+		else if (aiGetMaterialString(src_material, AI_MATKEY_TEXTURE_HEIGHT(0), &sz_path) == AI_SUCCESS){
+			normal_map = sz_path.C_Str();
 		}
 	}
 

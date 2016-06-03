@@ -40,8 +40,10 @@ void AppInit(){
 	std::string path = g_file_util->GetConfigFolder() + "model.csv";
 	ModelTable::Instance().Init(path.c_str());
 	std::vector<Mesh*> meshes;
-	AssimpUtil::LoadFile("models-nonbsd/X/dwarf.x", meshes);
+
+	//AssimpUtil::LoadFile("models-nonbsd/X/dwarf.x", meshes);
 	//AssimpUtil::LoadFile("Male101.FBX", meshes);
+	AssimpUtil::LoadFile("/crytek-sponza/sponza.obj", meshes);
 
 	// test fbx import
 	//TestFbxMesh();
@@ -54,6 +56,7 @@ void TestFbxMesh(){
 	FbxImporterTool import;
 	//if (import.LoadScene("E:\\work\\WorkPlace\\open_source\\AREngine\\program\\bin\\res\\model\\Male101.FBX"))
 	std::string full_path = g_file_util->GetModelsFolder() + "/Male101.FBX";
+	//std::string full_path = g_file_util->GetModelsFolder() + "/nanosuit/nanosuit.obj";
 	if (import.LoadScene(full_path.c_str()))
 	{
 		Mesh* mesh = Mesh::CreateMesh(*import.mesh_data());
