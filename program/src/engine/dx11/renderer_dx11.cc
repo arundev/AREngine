@@ -45,10 +45,10 @@ bool RendererDx11::DoInit(){
 	}
 
 	DXGI_MODE_DESC* display_mode_list;
-	unsigned int num_mode;
-	unsigned int numerator;
-	unsigned int denominator;
-	unsigned int string_length;
+	unsigned int num_mode = 0;
+	unsigned int numerator = 0;
+	unsigned int denominator = 0;
+	unsigned int string_length = 0;
 	hr = adapter_output->GetDisplayModeList(DXGI_FORMAT_B8G8R8A8_UNORM, DXGI_ENUM_MODES_INTERLACED, &num_mode, NULL);
 	if (FAILED(hr)){
 		return false;
