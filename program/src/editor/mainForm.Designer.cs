@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.renderPanel = new System.Windows.Forms.Panel();
+            this.renderPanel = new RenderPanel();
             this.SuspendLayout();
             // 
             // renderPanel
@@ -37,7 +37,7 @@
             this.renderPanel.Name = "renderPanel";
             this.renderPanel.Size = new System.Drawing.Size(393, 269);
             this.renderPanel.TabIndex = 0;
-            this.renderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint);
+
             // 
             // MainForm
             // 
@@ -54,7 +54,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel renderPanel;
+        private RenderPanel renderPanel;
     }
 }
 

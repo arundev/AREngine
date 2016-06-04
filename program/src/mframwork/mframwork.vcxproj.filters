@@ -27,10 +27,10 @@
     <ClInclude Include="m_engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="m_renderer.h">
+    <ClInclude Include="engine_wrap.h">
       <Filter>engine</Filter>
     </ClInclude>
-    <ClInclude Include="engine_wrap.h">
+    <ClInclude Include="renderer_wrap.h">
       <Filter>engine</Filter>
     </ClInclude>
   </ItemGroup>

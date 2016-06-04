@@ -87,7 +87,7 @@
     <ClInclude Include="engine_wrap.h" />
     <ClInclude Include="mframwork.h" />
     <ClInclude Include="m_engine.h" />
-    <ClInclude Include="m_renderer.h" />
+    <ClInclude Include="renderer_wrap.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
   </ItemGroup>

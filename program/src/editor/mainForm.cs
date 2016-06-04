@@ -14,21 +14,12 @@ namespace editor
 {
     public partial class MainForm : Form
     {
-        public static EngineWrap gEngineWrap;
-
         public MainForm()
         {
             InitializeComponent();
 
-            gEngineWrap = new EngineWrap();
-            gEngineWrap.Init(renderPanel.Width, renderPanel.Height, renderPanel.Handle, Process.GetCurrentProcess().Handle);
-        }
-
-        private void OnPaint(object sender, PaintEventArgs e)
-        {
-            base.OnPaint(e);
-
-            gEngineWrap.Update();
+            Global.gEngineWrap = new EngineWrap();
+            Global.gEngineWrap.Init(renderPanel.Width, renderPanel.Height, renderPanel.Handle, Process.GetCurrentProcess().Handle);
         }
     }
 }

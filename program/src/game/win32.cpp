@@ -143,89 +143,89 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 		{
 			switch (wParam)
 			{
-			case MK_LBUTTON:
-			{
+				case MK_LBUTTON:
+				{
 
-			}
-			break;
-			case MK_RBUTTON:
-			{
-			POINT pt;
-			pt.x = LOWORD(lParam);
-			pt.y = HIWORD(lParam);
-			g_camera->SetRotAngleDelta((pt.y - g_ptLastPoint.y) / 150.0f, (pt.x - g_ptLastPoint.x) / 150.0f, 0.0f);
-			g_ptLastPoint = pt;
-			}
-			default:
-			break;
-			}
-			break;
-			}
-			case WM_KEYDOWN:
-			{
-			Vector *vcDirc = new Vector();
-			Vector *vcUp = new Vector();
-			Vector *vcRight = new Vector();
-			g_camera->GetDirection(vcDirc, vcUp, vcRight);
-			switch (wParam)
-			{
-			case VK_A:
-			{
-			g_camera->SetMoveDirection(*vcRight);
-			g_camera->SetMoveDelta(-20.0f);
+				}
+				break;
+				case MK_RBUTTON:
+				{
+				POINT pt;
+				pt.x = LOWORD(lParam);
+				pt.y = HIWORD(lParam);
+				g_camera->SetRotAngleDelta((pt.y - g_ptLastPoint.y) / 150.0f, (pt.x - g_ptLastPoint.x) / 150.0f, 0.0f);
+				g_ptLastPoint = pt;
+				}
+				default:
+				break;
+				}
+				break;
+				}
+				case WM_KEYDOWN:
+				{
+				Vector *vcDirc = new Vector();
+				Vector *vcUp = new Vector();
+				Vector *vcRight = new Vector();
+				g_camera->GetDirection(vcDirc, vcUp, vcRight);
+				switch (wParam)
+				{
+				case VK_A:
+				{
+				g_camera->SetMoveDirection(*vcRight);
+				g_camera->SetMoveDelta(-20.0f);
 
-			g_camera->Update();
-			Matrix matView;
-			g_camera->GetViewMatrix(&matView);
-			break;
-			}
-			case VK_D:
-			{
-			Vector vcPosCamera;
-			g_camera->SetMoveDirection(*vcRight);
-			g_camera->SetMoveDelta(20.0f);
-			g_camera->Update();
-			Matrix matView;
-			g_camera->GetViewMatrix(&matView);
-			break;
-			}
-			case VK_W:
-			{
-			g_camera->SetMoveDirection(*vcDirc);
-			g_camera->SetMoveDelta(20.0f);
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
+				}
+				case VK_D:
+				{
+				Vector vcPosCamera;
+				g_camera->SetMoveDirection(*vcRight);
+				g_camera->SetMoveDelta(20.0f);
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
+				}
+				case VK_W:
+				{
+				g_camera->SetMoveDirection(*vcDirc);
+				g_camera->SetMoveDelta(20.0f);
 
-			g_camera->Update();
-			Matrix matView;
-			g_camera->GetViewMatrix(&matView);
-			break;
-			}
-			case VK_S:
-			{
-			g_camera->SetMoveDirection(*vcDirc);
-			g_camera->SetMoveDelta(-20.0f);
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
+				}
+				case VK_S:
+				{
+				g_camera->SetMoveDirection(*vcDirc);
+				g_camera->SetMoveDelta(-20.0f);
 
-			g_camera->Update();
-			Matrix matView;
-			g_camera->GetViewMatrix(&matView);
-			break;
-			}
-			case VK_Q:
-			{
-			g_camera->SetMoveDirection(*vcUp);
-			g_camera->SetMoveDelta(20.0f);
-			g_camera->Update();
-			Matrix matView;
-			g_camera->GetViewMatrix(&matView);
-			break;
-			}
-			case VK_E:
-			{
-			g_camera->SetMoveDirection(*vcUp);
-			g_camera->SetMoveDelta(-20.0f);
-			g_camera->Update();
-			Matrix matView;
-			g_camera->GetViewMatrix(&matView);
-			break;
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
+				}
+				case VK_Q:
+				{
+				g_camera->SetMoveDirection(*vcUp);
+				g_camera->SetMoveDelta(20.0f);
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
+				}
+				case VK_E:
+				{
+				g_camera->SetMoveDirection(*vcUp);
+				g_camera->SetMoveDelta(-20.0f);
+				g_camera->Update();
+				Matrix matView;
+				g_camera->GetViewMatrix(&matView);
+				break;
 			}
 
 			default:

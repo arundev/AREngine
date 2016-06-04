@@ -3,7 +3,6 @@ F:\workplace\my\AREngine\program\src\editor\bin\Debug\editor.exe
 F:\workplace\my\AREngine\program\src\editor\bin\Debug\editor.pdb
 F:\workplace\my\AREngine\program\src\editor\bin\Debug\mframwork_d.dll
 F:\workplace\my\AREngine\program\src\editor\bin\Debug\mframwork_d.pdb
-F:\workplace\my\AREngine\program\src\editor\obj\Debug\editor.csprojResolveAssemblyReference.cache
 F:\workplace\my\AREngine\program\src\editor\obj\Debug\editor.mainForm.resources
 F:\workplace\my\AREngine\program\src\editor\obj\Debug\editor.Properties.Resources.resources
 F:\workplace\my\AREngine\program\src\editor\obj\Debug\editor.csproj.GenerateResource.Cache
