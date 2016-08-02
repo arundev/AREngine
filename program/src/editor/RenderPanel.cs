@@ -10,7 +10,22 @@ namespace editor
 {
     class RenderPanel : Panel
     {
+        public RenderPanel()
+        {
+            this.MouseDown += new MouseEventHandler(OnMouseDown);
+            this.MouseUp += new MouseEventHandler(OnMouseUp);
+            this.MouseMove += new MouseEventHandler(OnMouseMove);
+            this.KeyDown += new KeyEventHandler(OnKeyDown);
+            this.KeyUp += new KeyEventHandler(OnKeyUp);
+
+        }
+
         MVector2 mouseLocal = new MVector2();
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            return true;
+        }
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -24,15 +39,14 @@ namespace editor
             base.OnSizeChanged(e);            
         }
 
-        protected override void OnKeyPress(KeyPressEventArgs e)
+        protected void OnKeyPress(Object obj, KeyPressEventArgs e)
         {
-            base.OnKeyPress(e);
+            int i = 0;
+            return;
         }
 
-        protected override void OnKeyDown(KeyEventArgs e)
+        protected void OnKeyDown(Object obj, KeyEventArgs e)
         {
-            base.OnKeyDown(e);
-
             switch (e.KeyData)
             {
                 case Keys.W: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.W); break;
@@ -47,10 +61,8 @@ namespace editor
             }
         }
 
-        protected override void OnKeyUp(KeyEventArgs e)
+        protected void OnKeyUp(Object obj, KeyEventArgs e)
         {
-            base.OnKeyUp(e);
-
             switch (e.KeyData)
             {
                 case Keys.W: Global.gEngineWrap.OnKeyUp(mframwork.MKeyCode.W); break;
@@ -65,10 +77,8 @@ namespace editor
             }
         }
 
-        protected override void OnMouseDown(MouseEventArgs e)
+        protected void OnMouseDown(Object obj, MouseEventArgs e)
         {
-            base.OnMouseDown(e);
-
             mouseLocal.x = e.Location.X;
             mouseLocal.y = e.Location.Y;
 
@@ -88,10 +98,8 @@ namespace editor
             }
         }
 
-        protected override void OnMouseMove(MouseEventArgs e)
+        protected void OnMouseMove(Object obj, MouseEventArgs e)
         {
-            base.OnMouseMove(e);
-
             mouseLocal.x = e.Location.X;
             mouseLocal.y = e.Location.Y;
 
@@ -111,10 +119,8 @@ namespace editor
             }
         }
 
-        protected override void OnMouseUp(MouseEventArgs e)
+        protected void OnMouseUp(Object obj, MouseEventArgs e)
         {
-            base.OnMouseUp(e);
-
             mouseLocal.x = e.Location.X;
             mouseLocal.y = e.Location.Y;
 
