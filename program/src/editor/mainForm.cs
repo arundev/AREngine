@@ -9,21 +9,25 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
 using mframwork;
+using Xilath;
+using Xilath.Core;
 
 namespace editor
 {
     public partial class MainForm : Form
     {
+        public static MainForm instance;
         MVector2 mouseLocal = new MVector2();
-
+        
         public MainForm()
         {
+            instance = this;
+
             InitializeComponent();
 
             Global.gEngineWrap = new EngineWrap();
             Global.gEngineWrap.Init(renderPanel.Width, renderPanel.Height, renderPanel.Handle, Process.GetCurrentProcess().Handle);
-
-            this.KeyDown += OnKeyDown;
+            Application.Idle += new EventHandler(MainForm.instance.Render);
         }
 
         protected void OnKeyDown(Object obj, KeyEventArgs e)
@@ -50,6 +54,22 @@ namespace editor
         private void renderPanel_Paint(object sender, PaintEventArgs e)
         {
             Global.gEngineWrap.Update();
+        }
+
+        private bool AppStillIdle
+        {
+            get
+            {
+                NativeMethods.Message msg;
+                return !NativeMethods.PeekMessage(out msg, IntPtr.Zero, 0, 0, 0);
+            }
+        }
+        public void Render(object sender, EventArgs args)
+        {
+            while (AppStillIdle)
+            {
+                Global.gEngineWrap.Update();
+            }
         }
 
         private void renderPanel_MouseDown(object sender, MouseEventArgs e)
@@ -111,6 +131,38 @@ namespace editor
                     Global.gEngineWrap.OnMouseUp(mframwork.MKeyCode.MouseMid, mouseLocal);
                     break;
                 default:
+                    break;
+            }
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyData)
+            {
+                case Keys.W: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.W); break;
+                case Keys.S: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.S); break;
+                case Keys.A: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.A); break;
+                case Keys.D: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.D); break;
+                case Keys.Q: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.Q); break;
+                case Keys.E: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.E); break;
+                default:
+                    Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.Undefine);
+                    break;
+            }
+        }
+
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case 'W': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.W); break;
+                case 'S': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.S); break;
+                case 'A': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.A); break;
+                case 'D': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.D); break;
+                case 'Q': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.Q); break;
+                case 'E': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.E); break;
+                default:
+                    Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.Undefine);
                     break;
             }
         }

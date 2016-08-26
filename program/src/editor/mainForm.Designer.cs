@@ -42,6 +42,8 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renderPanel = new System.Windows.Forms.Panel();
+            this.listView = new System.Windows.Forms.ListView();
+            this.Property = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -95,7 +97,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(862, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(892, 25);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -134,28 +136,56 @@
             // 
             // renderPanel
             // 
+            this.renderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.renderPanel.AutoSize = true;
             this.renderPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.renderPanel.Location = new System.Drawing.Point(50, 41);
+            this.renderPanel.Location = new System.Drawing.Point(108, 41);
             this.renderPanel.Name = "renderPanel";
-            this.renderPanel.Size = new System.Drawing.Size(762, 537);
+            this.renderPanel.Size = new System.Drawing.Size(641, 493);
             this.renderPanel.TabIndex = 3;
             this.renderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.renderPanel_Paint);
             this.renderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.renderPanel_MouseDown);
             this.renderPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.renderPanel_MouseMove);
             this.renderPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.renderPanel_MouseUp);
             // 
+            // listView
+            // 
+            this.listView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listView.Location = new System.Drawing.Point(0, 41);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(102, 493);
+            this.listView.TabIndex = 4;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            // 
+            // Property
+            // 
+            this.Property.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Property.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Property.Location = new System.Drawing.Point(755, 41);
+            this.Property.Name = "Property";
+            this.Property.Size = new System.Drawing.Size(137, 493);
+            this.Property.TabIndex = 5;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(862, 601);
+            this.ClientSize = new System.Drawing.Size(892, 623);
+            this.Controls.Add(this.Property);
+            this.Controls.Add(this.listView);
             this.Controls.Add(this.renderPanel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
@@ -180,6 +210,8 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Panel renderPanel;
+        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.Panel Property;
 
 
     }

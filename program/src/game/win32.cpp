@@ -150,6 +150,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 					pt.y = HIWORD(lParam);
 					g_camera->SetRotAngleDelta((pt.y - g_ptLastPoint.y) / 150.0f, (pt.x - g_ptLastPoint.x) / 150.0f, 0.0f);
 					g_ptLastPoint = pt;
+					g_camera->Update();
 				}
 				default:
 					break;
@@ -165,52 +166,32 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 				case VK_A:{
 					g_camera->SetMoveDirection(*vcRight);
 					g_camera->SetMoveDelta(-20.0f);
-					g_camera->Update();
-					Matrix matView;
-					g_camera->GetViewMatrix(&matView);
 					break;
 				}
 				case VK_D:{
 					Vector vcPosCamera;
 					g_camera->SetMoveDirection(*vcRight);
 					g_camera->SetMoveDelta(20.0f);
-					g_camera->Update();
-					Matrix matView;
-					g_camera->GetViewMatrix(&matView);
 					break;
 				}
 				case VK_W:{
 					g_camera->SetMoveDirection(*vcDirc);
 					g_camera->SetMoveDelta(20.0f);
-
-					g_camera->Update();
-					Matrix matView;
-					g_camera->GetViewMatrix(&matView);
 					break;
 				}
 				case VK_S:{
 					g_camera->SetMoveDirection(*vcDirc);
 					g_camera->SetMoveDelta(-20.0f);
-
-					g_camera->Update();
-					Matrix matView;
-					g_camera->GetViewMatrix(&matView);
 					break;
 				}
 				case VK_Q:{
 					g_camera->SetMoveDirection(*vcUp);
 					g_camera->SetMoveDelta(20.0f);
-					g_camera->Update();
-					Matrix matView;
-					g_camera->GetViewMatrix(&matView);
 					break;
 				}
 				case VK_E:{
 					g_camera->SetMoveDirection(*vcUp);
 					g_camera->SetMoveDelta(-20.0f);
-					g_camera->Update();
-					Matrix matView;
-					g_camera->GetViewMatrix(&matView);
 					break;
 				}
 				default:
@@ -218,9 +199,6 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 			}
 
 			g_camera->Update();
-			Matrix viewMat;
-			viewMat.Identity();
-			g_camera->GetViewMatrix(&viewMat);
 		}
 		break;
 		default:

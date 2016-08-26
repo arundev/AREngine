@@ -49,7 +49,6 @@ void EngineWrap::Free(){
 void EngineWrap::OnKeyDown(MKeyCode key){
 	g_camera->GetDirection(g_camera_direction, g_camera_up, g_camera_right);
 
-
 	switch (key){
 		case MKeyCode::A:{
 			g_camera->SetMoveDirection(*g_camera_right);
@@ -77,10 +76,6 @@ void EngineWrap::OnKeyDown(MKeyCode key){
 	}
 
 	g_camera->Update();
-	Matrix viewMat;
-	viewMat.Identity();
-	g_camera->GetViewMatrix(&viewMat);
-
 }
 
 void EngineWrap::OnKeyUp(MKeyCode key){
@@ -95,16 +90,10 @@ void EngineWrap::OnMouseDown(MKeyCode btn, MVector2^ pos){
 	}
 
 	g_camera->Update();
-	//Matrix viewMat;
-	//viewMat.Identity();
-	//g_camera->GetViewMatrix(&viewMat);
 }
 
 void EngineWrap::OnMouseUp(MKeyCode btn, MVector2^ pos){
 	g_camera->Update();
-	//Matrix viewMat;
-	//viewMat.Identity();
-	//g_camera->GetViewMatrix(&viewMat);
 }
 
 void EngineWrap::OnMouseMove(MKeyCode pressBtn, MVector2^ pos){
@@ -116,7 +105,4 @@ void EngineWrap::OnMouseMove(MKeyCode pressBtn, MVector2^ pos){
 	}
 
 	g_camera->Update();
-	//Matrix viewMat;
-	//viewMat.Identity();
-	//g_camera->GetViewMatrix(&viewMat);
 }
