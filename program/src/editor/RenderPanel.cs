@@ -8,7 +8,7 @@ using mframwork;
 
 namespace editor
 {
-    class RenderPanel : Panel
+    public class RenderPanel : Panel
     {
         public RenderPanel()
         {
@@ -17,7 +17,6 @@ namespace editor
             this.MouseMove += new MouseEventHandler(OnMouseMove);
             this.KeyDown += new KeyEventHandler(OnKeyDown);
             this.KeyUp += new KeyEventHandler(OnKeyUp);
-
         }
 
         MVector2 mouseLocal = new MVector2();

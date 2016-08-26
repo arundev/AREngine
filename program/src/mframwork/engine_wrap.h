@@ -38,6 +38,7 @@ namespace mframwork
 		float x, y;
 	};
 
+
 	public ref class EngineWrap
 	{
 	public:
