@@ -24,6 +24,7 @@ namespace editor
             instance = this;
 
             InitializeComponent();
+            KeyPreview = true;
 
             Global.gEngineWrap = new EngineWrap();
             Global.gEngineWrap.Init(renderPanel.Width, renderPanel.Height, renderPanel.Handle, Process.GetCurrentProcess().Handle);

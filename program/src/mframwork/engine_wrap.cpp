@@ -68,7 +68,17 @@ void EngineWrap::OnKeyDown(MKeyCode key){
 		break;
 		case MKeyCode::S:{
 			g_camera->SetMoveDirection(*g_camera_direction);
+			g_camera->SetMoveDelta(-20.0f);
+		}
+		break;
+		case MKeyCode::Q:{
+			g_camera->SetMoveDirection(*g_camera_up);
 			g_camera->SetMoveDelta(20.0f);
+		}
+		break;
+		case MKeyCode::E:{
+			g_camera->SetMoveDirection(*g_camera_up);
+			g_camera->SetMoveDelta(-20.0f);
 		}
 		break;
 		default:
@@ -99,7 +109,7 @@ void EngineWrap::OnMouseUp(MKeyCode btn, MVector2^ pos){
 void EngineWrap::OnMouseMove(MKeyCode pressBtn, MVector2^ pos){
 	if (pressBtn == MKeyCode::MouseRight)
 	{
-		g_camera->SetRotAngleDelta((pos->y - g_mouse_last_Point->y) / 150.0f, (pos->x - g_mouse_last_Point->y) / 150.0f, 0.0f);
+		g_camera->SetRotAngleDelta((pos->y - g_mouse_last_Point->y) / 150.0f, (pos->x - g_mouse_last_Point->x) / 150.0f, 0.0f);
 		g_mouse_last_Point->x = pos->x;
 		g_mouse_last_Point->y = pos->y;
 	}
