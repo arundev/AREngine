@@ -9,5 +9,7 @@ namespace editor
     class Global
     {
         public static mframwork.EngineWrap gEngineWrap;
+        public static mframwork.RendererWrap gRendererWrap;
+        public static mframwork.SceneWrap gSceneWrap;
     }
 }

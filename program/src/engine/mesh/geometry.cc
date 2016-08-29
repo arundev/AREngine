@@ -5,7 +5,7 @@ Geometry::Geometry() :
 vertex_data_(NULL),
 index_data_(NULL)
 {
-
+	
 }
 
 Geometry::~Geometry(){

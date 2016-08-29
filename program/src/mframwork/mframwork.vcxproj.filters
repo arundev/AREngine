@@ -33,11 +33,14 @@
     <ClInclude Include="renderer_wrap.h">
       <Filter>engine</Filter>
     </ClInclude>
+    <ClInclude Include="scene_wrap.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mframwork.cpp">
-      <Filter>engine</Filter>
-    </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">
       <Filter>engine</Filter>
     </ClCompile>
@@ -46,6 +49,18 @@
     </ClCompile>
     <ClCompile Include="engine_wrap.cpp">
       <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer_wrap.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="scene_wrap.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="mframwork.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

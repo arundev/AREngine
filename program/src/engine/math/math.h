@@ -13,6 +13,9 @@ namespace engine_math
 
 	typedef Vector4F Color;
 	typedef Vector3F Position;
+
+	const int min_int_value = INT_MIN;
+	const int max_int_value = INT_MAX;
 }
 
 #endif // ENGINE_MATH_H

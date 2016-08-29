@@ -28,6 +28,12 @@ namespace editor
 
             Global.gEngineWrap = new EngineWrap();
             Global.gEngineWrap.Init(renderPanel.Width, renderPanel.Height, renderPanel.Handle, Process.GetCurrentProcess().Handle);
+
+            Global.gRendererWrap = new RendererWrap();
+
+            Global.gSceneWrap = new SceneWrap();
+            Global.gSceneWrap.Init();
+
             Application.Idle += new EventHandler(MainForm.instance.Render);
         }
 
@@ -41,20 +47,11 @@ namespace editor
                 case Keys.D: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.D); break;
                 case Keys.Q: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.Q); break;
                 case Keys.E: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.E); break;
+                case Keys.P: mframwork.RendererWrap.SetWireframe(true); break;
                 default:
                     Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.Undefine);
                     break;
             }
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void renderPanel_Paint(object sender, PaintEventArgs e)
-        {
-            Global.gEngineWrap.Update();
         }
 
         private bool AppStillIdle
@@ -146,26 +143,21 @@ namespace editor
                 case Keys.D: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.D); break;
                 case Keys.Q: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.Q); break;
                 case Keys.E: Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.E); break;
+                //case Keys.P: Global.gre
                 default:
                     Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.Undefine);
                     break;
             }
         }
 
-        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        public void InitScene()
         {
-            switch (e.KeyChar)
-            {
-                case 'W': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.W); break;
-                case 'S': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.S); break;
-                case 'A': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.A); break;
-                case 'D': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.D); break;
-                case 'Q': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.Q); break;
-                case 'E': Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.E); break;
-                default:
-                    Global.gEngineWrap.OnKeyDown(mframwork.MKeyCode.Undefine);
-                    break;
-            }
+
+        }
+
+        private void OnOpenMenuItem_Click(object sender, EventArgs e)
+        {
+            Global.gSceneWrap.LoadModel("/nanosuit/nanosuit.obj");
         }
     }
 }

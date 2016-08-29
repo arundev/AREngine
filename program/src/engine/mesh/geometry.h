@@ -45,6 +45,8 @@ protected:
 protected:
 	unsigned char* vertex_data_;
 	unsigned int* index_data_;
+	engine_math::Vector3F max_xyz_, min_xyz_;
+
 	int vertex_stride;
 	int vertex_num_;
 	int index_num_;

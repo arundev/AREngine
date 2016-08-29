@@ -79,6 +79,18 @@
     <ClCompile Include="test.cpp" />
     <ClCompile Include="util\fbx\fbx_importer.cpp" />
     <ClCompile Include="res\mesh_res.cpp" />
+    <ClCompile Include="math\Aabb.cpp" />
+    <ClCompile Include="math\BspTree.cpp" />
+    <ClCompile Include="math\Math.cpp" />
+    <ClCompile Include="math\Matrix.cpp" />
+    <ClCompile Include="math\Obb.cpp" />
+    <ClCompile Include="math\Octree.cpp" />
+    <ClCompile Include="math\Plane.cpp" />
+    <ClCompile Include="math\Polygon.cpp" />
+    <ClCompile Include="math\PolygonList.cpp" />
+    <ClCompile Include="math\Quaternion.cpp" />
+    <ClCompile Include="math\Ray.cpp" />
+    <ClCompile Include="math\Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -139,6 +151,7 @@
     <ClInclude Include="math\matrix.h" />
     <ClInclude Include="util\fbx\fbx_importer.h" />
     <ClInclude Include="res\mesh_res.h" />
+    <ClInclude Include="math\RTMath.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

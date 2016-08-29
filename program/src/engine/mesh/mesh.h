@@ -36,10 +36,12 @@ public:
 
 protected:
 	bool Init();
+	void UpdateAabb();
 
 protected:
 	Geometry* geometry_;
 	Material* material_;
+	RTMath::Aabb aabb_;
 
 	Vector translate_;
 	Vector scale_;

@@ -35,6 +35,7 @@ Mesh* Mesh::CreateTriangle(){
 	mesh->geometry()->Init<Geometry::VertexFull>(vertices, 3, indices, 3);
 	mesh->material()->Init("color.vs", "color.ps");
 	mesh->material()->SetBaseMap("../../bin/res/jeep1.jpg");
+	mesh->UpdateAabb();
 
 	SAFE_DELETE_ARRAY(vertices);
 	SAFE_DELETE_ARRAY(indices);
@@ -73,10 +74,15 @@ Mesh* Mesh::CreateMesh(const MeshRes& res){
 	mesh->geometry()->Init<Geometry::VertexFull>(vertices, res.vertices().size(), indices, res.indices().size());
 	mesh->material()->Init("color.vs", "color.ps");
 	mesh->material()->SetBaseMap("../../bin/res/Male101.png");
+	mesh->UpdateAabb();
 
 	s_mesh_list.push_back(mesh);
 
 	return mesh;
+}
+
+void Mesh::UpdateAabb(){
+
 }
 
 bool Mesh::Init(){

@@ -63,7 +63,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libGLESv2.lib;libEGL.lib;engine_d.lib;math_d.lib;AssimpLib.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libGLESv2.lib;libEGL.lib;engine_d.lib;AssimpLib.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\..\bin\win32;$(SolutionDir)..\lib\opengles\lib;$(SolutionDir)..\lib\dxsdk\lib;$(SolutionDir)..\lib\fbxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -75,7 +75,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libGLESv2.lib;libEGL.lib;engine_d.lib;math_d.lib;AssimpLib.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libGLESv2.lib;libEGL.lib;engine_d.lib;AssimpLib.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -89,16 +89,21 @@
     <ClInclude Include="m_engine.h" />
     <ClInclude Include="renderer_wrap.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="scene_wrap.h" />
     <ClInclude Include="Stdafx.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="engine_wrap.cpp" />
     <ClCompile Include="mframwork.cpp" />
+    <ClCompile Include="renderer_wrap.cpp" />
+    <ClCompile Include="scene_wrap.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
