@@ -11,10 +11,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game", "game\game.vcxproj",
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "engine\engine.vcxproj", "{6C89037C-8E73-4847-B6FB-D6F67578DFCC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{8D1BA805-9DD6-4D00-81B1-DB8ED99CB228} = {8D1BA805-9DD6-4D00-81B1-DB8ED99CB228}
-		{009B6BA7-3C7C-4E05-AF8E-10E55DFF93C2} = {009B6BA7-3C7C-4E05-AF8E-10E55DFF93C2}
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{9CB60BC0-8FCA-4CAE-9529-9A1AB19D0005}"
 EndProject

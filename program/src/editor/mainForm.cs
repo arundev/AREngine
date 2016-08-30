@@ -157,7 +157,7 @@ namespace editor
 
         private void OnOpenMenuItem_Click(object sender, EventArgs e)
         {
-            Global.gSceneWrap.LoadModel("/nanosuit/nanosuit.obj");
+            Global.gSceneWrap.LoadModel("/dabrovic-sponza/sponza.obj");
         }
     }
 }

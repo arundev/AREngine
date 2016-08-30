@@ -12,7 +12,7 @@ struct PixelInputType
 float4 Main(PixelInputType input) : SV_TARGET
 {
 	float4 texColor;
-	//texColor = shaderTexture.Sample(samplerType, input.tex) * input.color;
+	texColor = shaderTexture.Sample(samplerType, input.tex) * float4(0.5, 0.5,0.5, 1.0);
 	texColor = shaderTexture.Sample(samplerType, input.tex);
 	//texColor = input.color;
 	//texColor = float4(1,0,0,1);

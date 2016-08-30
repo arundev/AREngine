@@ -57,11 +57,15 @@ bool Material::SetBaseMap(const char* file_name) {
 }
 
 bool Material::SetNormalMap(const char* file_name) {
-	return true;
+	SAFE_FREE(normal_map_);
+	normal_map_ = Texture::Create(file_name, Texture::TEX_TYPE_NORMAL);
+	return base_map_ != NULL;
 }
 
 bool Material::SetSpecularMap(const char* file_name) {
-	return true;
+	SAFE_FREE(specular_map_);
+	specular_map_ = Texture::Create(file_name, Texture::TEX_TYPE_SPECULAR);
+	return specular_map_ != NULL;
 }
 
 void Material::Free(){

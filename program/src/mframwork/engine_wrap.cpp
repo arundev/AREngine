@@ -2,6 +2,9 @@
 #include "engine_wrap.h"
 
 using namespace mframwork;
+
+#define MOVE_DIST 1
+
 POINT* g_mouse_last_Point;
 Vector *g_camera_direction, *g_camera_up, *g_camera_right;
 
@@ -40,33 +43,33 @@ void EngineWrap::OnKeyDown(MKeyCode key){
 	switch (key){
 		case MKeyCode::A:{
 			g_camera->SetMoveDirection(*g_camera_right);
-			g_camera->SetMoveDelta(-20.0f);
+			g_camera->SetMoveDelta(-1.0f * MOVE_DIST);
 		}
 		break;
 		case MKeyCode::D:{
 			g_camera->SetMoveDirection(*g_camera_right);
-			g_camera->SetMoveDelta(20.0f);
+			g_camera->SetMoveDelta(MOVE_DIST);
 		}
 		break;
 		case MKeyCode::W:{
 			g_camera->SetMoveDirection(*g_camera_direction);
-			g_camera->SetMoveDelta(20.0f);
+			g_camera->SetMoveDelta(MOVE_DIST);
 
 		}
 		break;
 		case MKeyCode::S:{
 			g_camera->SetMoveDirection(*g_camera_direction);
-			g_camera->SetMoveDelta(-20.0f);
+			g_camera->SetMoveDelta(-1.0f * MOVE_DIST);
 		}
 		break;
 		case MKeyCode::Q:{
 			g_camera->SetMoveDirection(*g_camera_up);
-			g_camera->SetMoveDelta(20.0f);
+			g_camera->SetMoveDelta(MOVE_DIST);
 		}
 		break;
 		case MKeyCode::E:{
 			g_camera->SetMoveDirection(*g_camera_up);
-			g_camera->SetMoveDelta(-20.0f);
+			g_camera->SetMoveDelta(MOVE_DIST);
 		}
 		break;
 		default:

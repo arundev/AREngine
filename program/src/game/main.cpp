@@ -44,7 +44,7 @@ void AppInit(){
 	//AssimpUtil::LoadFile("models-nonbsd/X/dwarf.x", meshes);
 	//AssimpUtil::LoadFile("Male101.FBX", meshes);
 	//AssimpUtil::LoadFile("/crytek-sponza/sponza.obj", meshes);
-	AssimpUtil::LoadFile("/nanosuit/nanosuit.obj", meshes);
+	AssimpUtil::LoadFile("/dabrovic-sponza/sponza.obj", meshes);
 
 	// test fbx import
 	//TestFbxMesh();

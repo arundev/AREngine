@@ -6,6 +6,8 @@
 #include <iostream>
 #include "camera/camera.h"
 
+#define CAMERA_MOVE_DIST 1
+
 HINSTANCE g_instance = NULL;
 HWND g_wnd = NULL;
 POINT g_ptLastPoint;
@@ -165,33 +167,33 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 			switch (wParam){
 				case VK_A:{
 					g_camera->SetMoveDirection(*vcRight);
-					g_camera->SetMoveDelta(-20.0f);
+					g_camera->SetMoveDelta(-1.0f * CAMERA_MOVE_DIST);
 					break;
 				}
 				case VK_D:{
 					Vector vcPosCamera;
 					g_camera->SetMoveDirection(*vcRight);
-					g_camera->SetMoveDelta(20.0f);
+					g_camera->SetMoveDelta(CAMERA_MOVE_DIST);
 					break;
 				}
 				case VK_W:{
 					g_camera->SetMoveDirection(*vcDirc);
-					g_camera->SetMoveDelta(20.0f);
+					g_camera->SetMoveDelta(CAMERA_MOVE_DIST);
 					break;
 				}
 				case VK_S:{
 					g_camera->SetMoveDirection(*vcDirc);
-					g_camera->SetMoveDelta(-20.0f);
+					g_camera->SetMoveDelta(-1.0f * CAMERA_MOVE_DIST);
 					break;
 				}
 				case VK_Q:{
 					g_camera->SetMoveDirection(*vcUp);
-					g_camera->SetMoveDelta(20.0f);
+					g_camera->SetMoveDelta(CAMERA_MOVE_DIST);
 					break;
 				}
 				case VK_E:{
 					g_camera->SetMoveDirection(*vcUp);
-					g_camera->SetMoveDelta(-20.0f);
+					g_camera->SetMoveDelta(-1.0f * CAMERA_MOVE_DIST);
 					break;
 				}
 				default:

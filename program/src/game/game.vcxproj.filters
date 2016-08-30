@@ -49,5 +49,11 @@
     <None Include="..\..\bin\res\shader\color.vs">
       <Filter>res\shader</Filter>
     </None>
+    <None Include="..\..\bin\res\shader\diffuse_lighting.ps">
+      <Filter>res\shader</Filter>
+    </None>
+    <None Include="..\..\bin\res\shader\diffuse_lighting.vs">
+      <Filter>res\shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

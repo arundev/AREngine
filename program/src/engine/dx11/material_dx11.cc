@@ -54,9 +54,9 @@ void MaterialDx11::DoApply(){
 	proj.TransposeOf(renderer_dx11->projection_mat());
 
 	dataPtr = (MatrixBuffer*)mappedResource.pData;
-	dataPtr->world_ = world;
-	dataPtr->view_ = view;
-	dataPtr->projection_ = proj;
+	dataPtr->world = world;
+	dataPtr->view = view;
+	dataPtr->projection = proj;
 
 
 	device_context->Unmap(matrix_buffer_, 0);
@@ -76,7 +76,9 @@ void MaterialDx11::DoApply(){
 		device_context->PSSetShaderResources(0, 1, &tex_view);
 		device_context->PSSetSamplers(0, 1, &sampler_state);
 	}
-	
+
+	// lighting
+
 }
 
 bool MaterialDx11::CreateShader(){
@@ -121,7 +123,7 @@ bool MaterialDx11::CreateShader(){
 	D3D11_INPUT_ELEMENT_DESC poloygon_layout[3];
 	unsigned int num_element;
 
-	poloygon_layout[0].SemanticName = "POSITION";
+	poloygon_layout[0].SemanticName = "SV_POSITION";
 	poloygon_layout[0].SemanticIndex = 0;
 	poloygon_layout[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
 	poloygon_layout[0].InputSlot = 0;

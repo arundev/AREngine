@@ -186,6 +186,8 @@
   <ItemGroup>
     <None Include="..\..\bin\res\shader\color.ps" />
     <None Include="..\..\bin\res\shader\color.vs" />
+    <None Include="..\..\bin\res\shader\diffuse_lighting.ps" />
+    <None Include="..\..\bin\res\shader\diffuse_lighting.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
