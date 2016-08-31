@@ -24,7 +24,7 @@ public:
 	virtual void PostRender();
 	virtual void Free();
 
-	virtual void SetWireframe(bool b);
+	virtual void set_wireframe(bool b);
 	virtual void SetCullMode(Renderer::ECullMode state);
 
 	virtual void BeginEvent(const char* event);

@@ -204,7 +204,7 @@ Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh, aiMaterial* src_material){
 		SAFE_DELETE(dst_mesh);
 		return NULL;
 	}
-	if (!dst_mesh->material()->Init("color.vs", "color.ps")){
+	if (!dst_mesh->material()->Init("diffuse_lighting.vs", "diffuse_lighting.ps")){
 		SAFE_DELETE(vertex_list);
 		SAFE_DELETE(index_list);
 		SAFE_DELETE(dst_mesh);

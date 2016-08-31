@@ -72,6 +72,10 @@ void EngineWrap::OnKeyDown(MKeyCode key){
 			g_camera->SetMoveDelta(MOVE_DIST);
 		}
 		break;
+		case MKeyCode::P:{
+			g_renderer->set_wireframe(!g_renderer->wireframe()); 
+		}
+		break;
 		default:
 		break;
 	}

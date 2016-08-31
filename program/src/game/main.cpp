@@ -25,6 +25,9 @@ void AppInit(){
 	param.instance_ = (int)g_instance;
 	g_engine->Init(param);
 
+	g_renderer->set_direction_light_color(RTMath::Color(1, 0, 0));
+	g_renderer->set_direction_light_direction(engine_math::Vector3F(0.5f, 0.05f, 0.0f));
+
 	g_file_util->SetDataFolder("../../bin/res/");
 	g_file_util->SetModelsFolder("model");
 	g_file_util->SetScriptsFolder("script");
@@ -49,7 +52,7 @@ void AppInit(){
 	// test fbx import
 	//TestFbxMesh();
 
-	g_renderer->SetWireframe(false);
+	g_renderer->set_wireframe(false);
 	g_renderer->SetCullMode(Renderer::None);
 }
 

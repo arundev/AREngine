@@ -196,6 +196,9 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 					g_camera->SetMoveDelta(-1.0f * CAMERA_MOVE_DIST);
 					break;
 				}
+				case VK_P:{
+					g_renderer->set_wireframe(!g_renderer->wireframe());
+				}
 				default:
 				break;
 			}

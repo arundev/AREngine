@@ -299,7 +299,9 @@ void RendererDx11::Free(){
 }
 
 
-void RendererDx11::SetWireframe(bool b) {
+void RendererDx11::set_wireframe(bool b) {
+	Renderer::set_wireframe(b);
+
 	if ((b && raster_state_desc_.FillMode == D3D11_FILL_WIREFRAME) ||
 		(!b && raster_state_desc_.FillMode == D3D11_FILL_SOLID)){
 		return;

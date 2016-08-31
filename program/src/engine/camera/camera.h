@@ -4,10 +4,8 @@
 #include "../engine_pch.h"
 #include "RTMath.h"
 
-
-class BaseCamera
-{
-public:
+class BaseCamera{
+ public:
 	BaseCamera();
 	virtual ~BaseCamera();
 
@@ -20,7 +18,7 @@ public:
 	void SetPos(RTMath::Vector &vPos);
 	void GetPos(RTMath::Vector *vPos);
 
-protected:
+ protected:
 	RTMath::Matrix m_ViewMat;
 
 	float m_fRotX; // 在局部坐标系下的Euler角(旋转角)
@@ -33,9 +31,8 @@ protected:
 };
 
 
-class FreeCamera : public BaseCamera
-{
-public:
+class FreeCamera : public BaseCamera{
+ public:
 	FreeCamera();
 	~FreeCamera();
 
@@ -48,7 +45,7 @@ public:
 	void SetRotAngleDelta(float fRotXDelta, float fRotYDelta, float fRotZDelta);
 	void SetMoveDelta(float fMoveDelta);
 
-private:
+ private:
 	RTMath::Vector m_vMoveDirection;
 };
 

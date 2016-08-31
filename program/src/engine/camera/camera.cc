@@ -8,20 +8,13 @@ using namespace DirectX;
 BaseCamera::BaseCamera()
 {
 	m_ViewMat.Identity();
-
 	m_fRotX = 0.0f;
 	m_fRotY = 0.0f;
 	m_fRotZ = 0.0f;
-
-
 	m_vPos.Set(0.0f, 0.0f, 0.0f);
-
 	m_vDir.Set(0.0f, 0.0f, 1.0f);
 	m_vUp.Set(0.0f, 1.0f, 0.0f);
 	m_vRight.Set(1.0f, 0.0f, 0.0f);
-
-
-
 }
 
 BaseCamera::~BaseCamera()

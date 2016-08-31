@@ -23,6 +23,7 @@ private:
 	ID3D11PixelShader* pixel_shader_;
 	ID3D11InputLayout* input_layout_;
 	ID3D11Buffer* matrix_buffer_;
+	ID3D11Buffer* light_buffer_;
 };
 
 

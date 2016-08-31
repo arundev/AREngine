@@ -170,24 +170,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\object.cpp" />
-    <ClCompile Include="camera\camera.cpp" />
+    <ClCompile Include="camera\camera.cc" />
     <ClCompile Include="dx11\geometry_dx11.cc" />
     <ClCompile Include="dx11\material_dx11.cc" />
     <ClCompile Include="dx11\texture_dx11.cc" />
     <ClCompile Include="dx11\util_dx11.cc" />
     <ClCompile Include="engine.cc" />
-    <ClCompile Include="math\Aabb.cpp" />
-    <ClCompile Include="math\BspTree.cpp" />
-    <ClCompile Include="math\Math.cpp" />
-    <ClCompile Include="math\Matrix.cpp" />
-    <ClCompile Include="math\Obb.cpp" />
-    <ClCompile Include="math\Octree.cpp" />
-    <ClCompile Include="math\Plane.cpp" />
-    <ClCompile Include="math\Polygon.cpp" />
-    <ClCompile Include="math\PolygonList.cpp" />
-    <ClCompile Include="math\Quaternion.cpp" />
+    <ClCompile Include="math\Aabb.cc" />
+    <ClCompile Include="math\BspTree.cc" />
+    <ClCompile Include="math\Math.cc" />
+    <ClCompile Include="math\Matrix.cc" />
+    <ClCompile Include="math\Obb.cc" />
+    <ClCompile Include="math\Octree.cc" />
+    <ClCompile Include="math\Plane.cc" />
+    <ClCompile Include="math\Polygon.cc" />
+    <ClCompile Include="math\PolygonList.cc" />
+    <ClCompile Include="math\Quaternion.cc" />
     <ClCompile Include="math\Ray.cpp" />
-    <ClCompile Include="math\Vector.cpp" />
+    <ClCompile Include="math\Vector.cc" />
     <ClCompile Include="mesh\geometry.cc" />
     <ClCompile Include="mesh\material.cc" />
     <ClCompile Include="mesh\mesh.cc" />

@@ -45,11 +45,22 @@ public:
 	virtual void PostRender() = 0;
 	virtual void Free() = 0;
 
-	virtual void SetWireframe(bool b) { ; }
+	bool wireframe()const { return wireframe_; }
+	virtual void set_wireframe(bool b) { wireframe_ = b; }
 	virtual void SetCullMode(const Renderer::ECullMode state){ ; }
 
 	virtual void BeginEvent(const char* name) { ; }
 	virtual void EndEvent() { ; }
+
+
+	const RTMath::Color& ambient_light_color()const { return ambient_light_color_; }
+	void set_ambient_light_color(const RTMath::Color color) { ambient_light_color_ = color; }
+	float ambient_light_intensity() { return ambient_light_intensity_; }
+	void set_ambient_light_intensity(float intensity) { ambient_light_intensity_ = intensity; }
+	const RTMath::Color& direction_light_color()const { return direction_light_color_; }
+	void set_direction_light_color(const RTMath::Color& color) { direction_light_color_ = color; }
+	const engine_math::Vector3F& direction_light_direction()const { return direction_light_direction_; }
+	void set_direction_light_direction(const engine_math::Vector3F& direction) { direction_light_direction_ = direction; }
 
 	const RTMath::Matrix& world_mat()const{ return world_mat_; }
 	void set_world_mat(RTMath::Matrix& mat) { world_mat_ = mat; }
@@ -70,6 +81,12 @@ protected:
 	int screen_height_;
 	float screen_depth_;
 	float screen_near_;	
+	bool wireframe_;
+
+	RTMath::Color ambient_light_color_;
+	float ambient_light_intensity_;
+	engine_math::Vector3F direction_light_direction_;
+	RTMath::Color direction_light_color_;
 
 	RTMath::Matrix world_mat_;
 	RTMath::Matrix view_mat_;

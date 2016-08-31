@@ -72,7 +72,7 @@ Mesh* Mesh::CreateMesh(const MeshRes& res){
 	}
 
 	mesh->geometry()->Init<Geometry::VertexFull>(vertices, res.vertices().size(), indices, res.indices().size());
-	mesh->material()->Init("color.vs", "color.ps");
+	mesh->material()->Init("diffuse_lighting.vs", "diffuse_lighting.ps");
 	mesh->material()->SetBaseMap("../../bin/res/Male101.png");
 	mesh->UpdateAabb();
 

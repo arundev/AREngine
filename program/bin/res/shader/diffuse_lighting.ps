@@ -1,28 +1,33 @@
 
-struct LightingBuffer
+cbuffer LightingBuffer
 {
 	float4 ambienLightColor;
-	float4 ambientLightIntensity;
+	float ambientLightIntensity;
 	float4 directionLightColor;
-	float4 directionLightDir;
-}
+	float3 directionLightDir;
+};
 
 struct PSInput
 {
 	float4 position : SV_POSITION;
-	float4 color : co
-	float3 normal : SV_NORMAL;
+	float3 normal : NORMAL;
 	float2 texCoord : TEXCOORD0;
-}
+};
 
 Texture2D baseMap : register(t0);
 SamplerState samplerData : register(s0);
 
-float4 VSMain(PSInput in) : COLOR
+float4 Main(PSInput input) : SV_TARGET
 {
-	float4 out;
+	float4 output;
 
-	float4 diffuse = baseMap.Smaple(in.texCoord);
+	float4 diffuse = baseMap.Sample(samplerData, input.texCoord);
+	
+	float4 lightDir = -directionLightColor;
+	float lightInten = saturate(dot(input.normal, lightDir.xyz));
+	float4 lightColor = saturate(directionLightColor * lightInten);
 
-	return out;
+	output.rgb = diffuse * lightColor;
+
+	return output;
 }

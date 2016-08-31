@@ -1,33 +1,35 @@
-struct MatrixBuffer
+cbuffer MatrixBuffer
 {
-	float4 worldMatrix;
-	float4 viewMatrix;
-	float4 projectMatrix;
-}
+	matrix worldMatrix;
+	matrix viewMatrix;
+	matrix projectMatrix;
+};
 
 struct VSInput
 {
 	float4 position : SV_POSITION;
-	float4 normal : SV_NORMAL;
-	float2 texCoord : TEXCOORD0;
-}
+	float4 color : COLOR;
+	float2 texCoord1 : TEXCOORD0;
+	float2 texCoord2 : TEXCOORD1;
+	float3 normal : NORMAL;
+};
 
 struct VSOutput
 {
 	float4 position : SV_POSITION;
-	float3 normal : SV_NORMAL;
+	float3 normal : NORMAL;
 	float2 texCoord : TEXCOORD0;
-}
+};
 
-VSOutput VSMain(VSInput in)
+VSOutput Main(VSInput input)
 {
-	VSOutput out;
-	out.position = mul(in.position, worldMatrix);
-	out.position = mul(out.position, viewMatrix);
-	out.position = mul(out.position, projectMatrix);
+	VSOutput output;
+	output.position = mul(input.position, worldMatrix);
+	output.position = mul(output.position, viewMatrix);
+	output.position = mul(output.position, projectMatrix);
 
-	out.normal = nul(in.position, worldMatrix);
-	out.texCoord = in.texCoord;
+	output.normal = mul(input.position, worldMatrix);
+	output.texCoord = input.texCoord1;
 
-	return out;
+	return output;
 }

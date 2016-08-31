@@ -15,6 +15,7 @@ namespace mframwork
 		S,
 		Q,
 		E,
+		P,
 		MouseLeft,
 		MouseRight,
 		MouseMid,

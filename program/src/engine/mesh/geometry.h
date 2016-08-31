@@ -23,8 +23,8 @@ public:
 		engine_math::Vector3F normal;
 		engine_math::Vector3F tangent;
 		engine_math::Vector3F bitangent;
-		unsigned char bone_indices[4];
-		unsigned char bone_weights[4];
+		//unsigned char bone_indices[4];
+		//unsigned char bone_weights[4];
 	};
 
 	static Geometry* Create();
