@@ -67,7 +67,6 @@
     <ClCompile Include="util\assimp\AnimEvaluator.cpp" />
     <ClCompile Include="util\assimp\SceneAnimator.cpp" />
     <ClCompile Include="base\object.cpp" />
-    <ClCompile Include="scene\camera.cc" />
     <ClCompile Include="scene\light.cc" />
     <ClCompile Include="scene\node.cc" />
     <ClCompile Include="util\assimp_util.cc" />
@@ -144,7 +143,6 @@
     <ClInclude Include="util\timer.h" />
     <ClInclude Include="scene\node.h" />
     <ClInclude Include="base\object.h" />
-    <ClInclude Include="scene\camera.h" />
     <ClInclude Include="scene\light.h" />
     <ClInclude Include="util\csv_parser.h" />
     <ClInclude Include="math\vector.h" />

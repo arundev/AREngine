@@ -193,7 +193,6 @@
     <ClCompile Include="mesh\mesh.cc" />
     <ClCompile Include="mesh\texture.cc" />
     <ClCompile Include="res\mesh_res.cpp" />
-    <ClCompile Include="scene\camera.cc" />
     <ClCompile Include="scene\light.cc" />
     <ClCompile Include="scene\node.cc" />
     <ClCompile Include="test.cpp" />
@@ -229,7 +228,6 @@
     <ClInclude Include="mesh\material.h" />
     <ClInclude Include="mesh\mesh.h" />
     <ClInclude Include="mesh\texture.h" />
-    <ClInclude Include="scene\camera.h" />
     <ClInclude Include="scene\light.h" />
     <ClInclude Include="scene\node.h" />
     <ClInclude Include="util\assimp\AnimEvaluator.h" />
