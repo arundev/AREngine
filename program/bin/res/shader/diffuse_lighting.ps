@@ -1,7 +1,7 @@
 
 cbuffer LightingBuffer
 {
-	float4 ambienLightColor;
+	float4 ambientLightColor;
 	float ambientLightIntensity;
 	float4 directionLightColor;
 	float3 directionLightDir;
@@ -20,14 +20,23 @@ SamplerState samplerData : register(s0);
 float4 Main(PSInput input) : SV_TARGET
 {
 	float4 output;
-
-	float4 diffuse = baseMap.Sample(samplerData, input.texCoord);
 	
+	float4 diffuse = baseMap.Sample(samplerData, input.texCoord);
+
+	// lighting:ambient
+	if(ambientLightIntensity > 0.0f)
+	{
+		output = diffuse * (ambientLightColor * ambientLightIntensity);
+	}
+	
+	// lighting:direction
 	float4 lightDir = -directionLightColor;
 	float lightInten = saturate(dot(input.normal, lightDir.xyz));
-	float4 lightColor = saturate(directionLightColor * lightInten);
-
-	output.rgb = diffuse * lightColor;
+	if(lightInten > 0.0f)
+	{
+		float4 directionLighting = saturate(directionLightColor * lightInten);
+		output *= directionLighting;	
+	}
 
 	return output;
 }

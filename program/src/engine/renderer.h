@@ -91,7 +91,6 @@ protected:
 	RTMath::Matrix world_mat_;
 	RTMath::Matrix view_mat_;
 	RTMath::Matrix projection_mat_;
-
 };
 
 #endif // !ENGINE_RENDERER_H

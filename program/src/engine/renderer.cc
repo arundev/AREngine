@@ -22,6 +22,9 @@ bool Renderer::Init(const Window& param)
 	screen_depth_ = 10000.0f;
 	screen_near_ = 0.1f;
 
+	ambient_light_intensity_ = 1.0f;
+	ambient_light_color_ = { 0.8f, 0.8f, 0.8f, 1.0f };
+
 	return DoInit();
 }
 
