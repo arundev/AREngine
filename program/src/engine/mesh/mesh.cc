@@ -91,7 +91,7 @@ Mesh* Mesh::CreatMesh(const std::string& path,
 	mesh->material()->SetNormalMap(normalTexPath.c_str());
 	mesh->material()->SetSpecularMap(specularTexPath.c_str());
 
-	return nullptr;
+	return mesh;
 }
 
 bool Mesh::Init(const std::string& path) {

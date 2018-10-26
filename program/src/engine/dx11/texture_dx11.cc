@@ -78,7 +78,8 @@ bool TextureDx11::DoInit() {
 	ID3D11DeviceContext* deveice_contex = renderer->device_context();
 
 	// create d3d texture resource
-	std::string full_path = g_file_util->GetTextureFolder() + file_name_.c_str();
+	//std::string full_path = g_file_util->GetTextureFolder() + file_name_.c_str();
+	std::string full_path = file_name_.c_str();
 	if (!g_file_util->FileExists(full_path))
 	{
 		return false;
