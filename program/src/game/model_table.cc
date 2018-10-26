@@ -8,17 +8,17 @@ ModelTable::~ModelTable() {
 	Free();
 }
 
-engine_math::Vector3F Deserialization(std::string str) { // {x,y,z}
-	engine_math::Vector3F ret;
+engine_math::Vector Deserialization(std::string str) { // {x,y,z}
+	engine_math::Vector ret;
 
 	std::string sub = str.substr(1, str.length() - 2);
 	std::vector<std::string> vc;
 	engine_util::StringSplit(sub, vc, ";");
 
 	if (vc.size() >= 3) {
-		ret.x_ = atof(vc[0].c_str());
-		ret.y_ = atof(vc[1].c_str());
-		ret.z_ = atof(vc[2].c_str());
+		ret.x = atof(vc[0].c_str());
+		ret.y = atof(vc[1].c_str());
+		ret.z = atof(vc[2].c_str());
 	}
 
 	return ret;

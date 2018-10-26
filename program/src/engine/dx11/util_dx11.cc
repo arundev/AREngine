@@ -1,11 +1,11 @@
-#include "RTMath.h"
+
 #include "util_dx11.h"
 #include <d3dcommon.h>   
 #include <d3dx10math.h> 
+#include "../engine_pch.h"
 
-using namespace RTMath;
 
-void MatrixToDx11(const RTMath::Matrix* src, D3DXMATRIX* dst)
+void MatrixToDx11(const Matrix* src, D3DXMATRIX* dst)
 {
 	dst->_11 = src->_11;
 	dst->_12 = src->_12;
@@ -28,7 +28,7 @@ void MatrixToDx11(const RTMath::Matrix* src, D3DXMATRIX* dst)
 	dst->_44 = src->_44;
 }
 
-void MatrixFromDx11(const D3DXMATRIX* src, RTMath::Matrix* dst)
+void MatrixFromDx11(const D3DXMATRIX* src, Matrix* dst)
 {
 	dst->_11 = src->_11;
 	dst->_12 = src->_12;

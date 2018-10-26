@@ -196,3 +196,47 @@ bool FileUtil::FileIsNewer(const std::string& file1, const std::string& file2)
 
 	return( false );
 }
+
+std::string FileUtil::getDirectory(const std::string& path){
+	if (path.empty()){
+		return "";
+	}
+
+	std::string path2 = path;
+	std::replace(path2.begin(), path2.end(), '\\', '/');
+	auto pos = path2.find_first_of("/");
+	if (pos != std::string::npos){
+		return path2.substr(pos);
+	}
+
+	return "";
+}
+
+std::string FileUtil::getFileName(const std::string& path) {
+	if (path.empty()) {
+		return "";
+	}
+
+	std::string path2 = engine_util::StringReplace(path, "\\", "/");
+	auto pos = path2.find_first_of("/");
+	if (pos != std::string::npos) {
+		return path2.substr(pos+1);
+	}
+
+	return "";
+}
+
+std::string FileUtil::getFileNameWithoutExtension(const std::string& path) {
+	if (path.empty()) {
+		return "";
+	}
+
+	std::string path2 = engine_util::StringReplace(path, "\\", "/");
+	auto pos = path2.find_first_of('/');
+	auto pos2 = path2.find_first_of('.');
+	if (pos != std::string::npos) {
+		return path2.substr(pos + 1, pos2);
+	}
+
+	return "";
+}

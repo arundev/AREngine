@@ -45,10 +45,10 @@ void MaterialDx11::DoApply(){
 		return;
 	}
 
-	RTMath::Matrix viewMat;
+	Matrix viewMat;
 	g_camera->GetViewMatrix(&viewMat);
 
-	RTMath::Matrix world, view, proj;
+	Matrix world, view, proj;
 	world.TransposeOf(renderer_dx11->world_mat());
 	view.TransposeOf(viewMat);
 	proj.TransposeOf(renderer_dx11->projection_mat());

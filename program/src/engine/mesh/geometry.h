@@ -14,13 +14,13 @@ public:
 		VertexFull(){
 		}
 
-		engine_math::Vector3F position;
+		engine_math::Vector position;
 		engine_math::Color color;
-		engine_math::Vector2F texture1;
-		engine_math::Vector2F texture2;
-		engine_math::Vector3F normal;
-		engine_math::Vector3F tangent;
-		engine_math::Vector3F bitangent;
+		engine_math::Vector texture1;
+		engine_math::Vector texture2;
+		engine_math::Vector normal;
+		engine_math::Vector tangent;
+		engine_math::Vector bitangent;
 		unsigned char bone_indices[4];
 		unsigned char bone_weights[4];
 	};

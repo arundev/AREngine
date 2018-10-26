@@ -36,16 +36,15 @@ using namespace std;
 // ios
 
 // engine
-#include "RTMath.h"
 #include "plateform.h"
 #include "base/object.h"
-#include "util.h"
 #include "util/file_util.h"
 #include "util/log.h"
+#include "util/string_util.h"
 #include "math/math.h"
 
 
-using namespace RTMath;
+using namespace engine_math;
 
 /*-------------------------------------------------------*/
 // util macro

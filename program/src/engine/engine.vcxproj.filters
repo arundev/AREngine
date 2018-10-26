@@ -28,9 +28,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine.cc" />
-    <ClCompile Include="util.cc">
-      <Filter>render\util</Filter>
-    </ClCompile>
     <ClCompile Include="renderer.cc">
       <Filter>render</Filter>
     </ClCompile>
@@ -78,11 +75,21 @@
     <ClCompile Include="util\timer.cc" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="util\fbx\fbx_importer.cpp" />
+    <ClCompile Include="scene\scene.cc" />
+    <ClCompile Include="math\aabb.cc" />
+    <ClCompile Include="math\math.cc" />
+    <ClCompile Include="math\matrix.cc" />
+    <ClCompile Include="math\obb.cc" />
+    <ClCompile Include="math\octree.cc" />
+    <ClCompile Include="math\plane.cc" />
+    <ClCompile Include="math\polygon.cc" />
+    <ClCompile Include="math\quaternion.cc" />
+    <ClCompile Include="math\ray.cc" />
+    <ClCompile Include="math\vector.cpp" />
+    <ClCompile Include="math\bsp_tree.cc" />
+    <ClCompile Include="math\polygon_list.cc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="util.h">
-      <Filter>render\util</Filter>
-    </ClInclude>
     <ClInclude Include="renderer.h">
       <Filter>render</Filter>
     </ClInclude>
@@ -124,7 +131,6 @@
     </ClInclude>
     <ClInclude Include="util\singleton.h" />
     <ClInclude Include="engine_include.h" />
-    <ClInclude Include="math\math.h" />
     <ClInclude Include="util\string_util.h" />
     <ClInclude Include="util\assimp\AnimEvaluator.h" />
     <ClInclude Include="util\assimp\SceneAnimator.h" />
@@ -134,9 +140,9 @@
     <ClInclude Include="scene\camera.h" />
     <ClInclude Include="scene\light.h" />
     <ClInclude Include="util\csv_parser.h" />
-    <ClInclude Include="math\vector.h" />
-    <ClInclude Include="math\matrix.h" />
     <ClInclude Include="util\fbx\fbx_importer.h" />
+    <ClInclude Include="scene\scene.h" />
+    <ClInclude Include="math\math.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />
@@ -144,5 +150,8 @@
   <ItemGroup>
     <None Include="math\vector.inl" />
     <None Include="math\matrix.inl" />
+    <None Include="math\ray.inl" />
+    <None Include="math\plane.inl" />
+    <None Include="math\obb.inl" />
   </ItemGroup>
 </Project>

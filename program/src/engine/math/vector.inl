@@ -1,78 +1,86 @@
-#ifndef ENGINE_MATH_VECTOR_INL
+#include "math.h"
 
-namespace engine_math
-{
-	// Vector4
-	template<typename T>
-	inline T Vector4<T>::GetLength(){
-		return (T)sqrt(x_*x_ + y_*y_ + z_*z_);
+
+namespace engine_math {
+	inline void Vector::Set(float _x, float _y, float _z, float _w/* =1.0f */)
+	{
+		x = _x;
+		y = _y;
+		z = _z;
+		w = _w;
 	}
 
-	template<typename T>
-	inline Vector4<T>& Vector4<T>::operator +(const Vector4<T>& vec){
-		this->x_ += vec.x_;
-		this->y_ += vec.y_;
-		this->z_ += vec.z_;
+	inline float Vector::GetLength()const
+	{
+		float f = 0;
 
-		return *this;
+		if (!gIsUseASM)
+		{
+			f = (float)sqrt(x*x + y * y + z * z);
+		}
+		//使用汇编
+		else
+		{
+
+		}
+
+		return f;
 	}
 
-	template<typename T>
-	inline Vector4<T>& Vector4<T>::operator -(const Vector4<T>& vec){
-		this->x_ -= vec.x_;
-		this->y_ -= vec.y_;
-		this->z_ -= vec.z_;
-
-		return *this;
+	inline float Vector::GetSqrLength()const
+	{
+		return (x*x + y * y + z * z);
 	}
 
-	// Vector3
-	template<typename T>
-	inline T Vector3<T>::GetLength(){
-		return (T)sqrt(x_*x_ + y_*y_ + z_*z_);
+	inline void Vector::Negate()
+	{
+		x = -x;  y = -y;  z = -z;
 	}
 
-	template<typename T>
-	inline Vector3<T>& Vector3<T>::operator +(const Vector3<T>& vec){
-		this->x_ += vec.x_;
-		this->y_ += vec.y_;
-		this->z_ += vec.z_;
+	inline void Vector::Normalize()
+	{
+		if (!gIsUseASM)
+		{
+			float f = (float)sqrt(x*x + y * y + z * z);
 
-		return *this;
+			if (f != 0.0f)
+			{
+				x /= f; y /= f; z /= f;
+			}
+		}
+		//使用汇编
+		else
+		{
+		}
 	}
 
-	template<typename T>
-	inline Vector3<T>& Vector3<T>::operator -(const Vector3<T>& vec){
-		this->x_ -= vec.x_;
-		this->y_ -= vec.y_;
-		this->z_ -= vec.z_;
-
-		return *this;
+	inline FLOAT Vector::AngleWith(const Vector& v)const
+	{
+		return (float)acos(((*this) * v) / (this->GetLength()*v.GetLength()));
 	}
 
-	// Vector2
-	template<typename T>
-	inline T Vector2<T>::GetLength(){
-		return (T)sqrt(x_*x_ + y_*y_);
+	inline void Vector::RotateWith(const Matrix& m)
+	{
+		float _x = x * m._11 + y * m._21 + z * m._31;
+		float _y = x * m._12 + y * m._22 + z * m._32;
+		float _z = x * m._13 + y * m._23 + z * m._33;
 	}
 
-	template<typename T>
-	inline Vector2<T>& Vector2<T>::operator +(const Vector2<T>& vec){
-		this->x_ += vec.x_;
-		this->y_ += vec.y_;
-
-		return *this;
+	inline void Vector::InvRotateWith(const Matrix& m)
+	{
+		float _x = x * m._11 + y * m._12 + z * m._13;
+		float _y = x * m._21 + y * m._22 + z * m._23;
+		float _z = x * m._31 + y * m._32 + z * m._33;
+		x = _x;   y = _y;   z = _z;
 	}
 
-	template<typename T>
-	inline Vector2<T>& Vector2<T>::operator -(const Vector2<T>& vec){
-		this->x_ -= vec.x_;
-		this->y_ -= vec.y_;
-
-		return *this;
+	inline void Vector::Difference(const Vector &v1, const Vector &v2)
+	{
+		x = v2.x - v1.x;
+		y = v2.y - v1.y;
+		z = v2.z - v1.z;
+		w = 1.0f;
 	}
+
 }
 
-
-
-#endif // ENGINE_MATH_VECTOR_INL

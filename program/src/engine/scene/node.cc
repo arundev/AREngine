@@ -2,7 +2,7 @@
 
 namespace engine_scene {
 	Node::Node() : parent_(0) {
-
+		scale_ = Vector(1.0f, 1.0f, 1.0f);
 	}
 
 	Node::~Node() {

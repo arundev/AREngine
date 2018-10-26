@@ -2,9 +2,6 @@
 #define ENGINE_CAMERA_CAMERA_H
 
 #include "../engine_pch.h"
-#include "RTMath.h"
-
-using namespace RTMath;
 
 class BaseCamera
 {
@@ -22,15 +19,15 @@ public:
 	void GetPos(Vector *vPos);
 
 protected:
-	RTMath::Matrix m_ViewMat;
+	Matrix m_ViewMat;
 
 	float m_fRotX; // 在局部坐标系下的Euler角(旋转角)
 	float m_fRotY;
 	float m_fRotZ;
-	Vector m_vPos;		
-	Vector m_vDir;	
+	Vector m_vPos;
+	Vector m_vDir;
 	Vector m_vUp;
-	Vector m_vRight;	
+	Vector m_vRight;
 };
 
 class FreeCamera : public BaseCamera

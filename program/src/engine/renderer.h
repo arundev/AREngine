@@ -2,9 +2,6 @@
 #define ENGINE_RENDERER_H
 
 #include "engine_pch.h"
-#include "RTMath.h"
-
-using namespace RTMath;
 
 class Renderer{
 public:
@@ -34,7 +31,7 @@ public:
 
 	virtual bool Init(const Renderer::Window& param);
 	virtual void Update() = 0;
-	virtual void PreRender(const Vector& clear_color) = 0;
+	virtual void PreRender(const engine_math::Vector& clear_color) = 0;
 	virtual void Render() = 0;
 	virtual void PostRender() = 0;
 	virtual void Free() = 0;
@@ -44,12 +41,12 @@ public:
 	virtual void BeginEvent(const char* name) { ; }
 	virtual void EndEvent() { ; }
 
-	const RTMath::Matrix& world_mat()const{ return world_mat_; }
-	void set_world_mat(RTMath::Matrix& mat) { world_mat_ = mat; }
-	const RTMath::Matrix& view_mat()const{ return view_mat_; }
-	void set_view_mat(RTMath::Matrix& mat) { view_mat_ = mat; }
-	const RTMath::Matrix& projection_mat()const{ return projection_mat_; }
-	void set_projection_mat(RTMath::Matrix& mat) { projection_mat_ = mat; }
+	const engine_math::Matrix& world_mat()const{ return world_mat_; }
+	void set_world_mat(Matrix& mat) { world_mat_ = mat; }
+	const engine_math::Matrix& view_mat()const{ return view_mat_; }
+	void set_view_mat(Matrix& mat) { view_mat_ = mat; }
+	const engine_math::Matrix& projection_mat()const{ return projection_mat_; }
+	void set_projection_mat(engine_math::Matrix& mat) { projection_mat_ = mat; }
 
 protected:
 	virtual bool DoInit() = 0;
@@ -64,9 +61,9 @@ protected:
 	float screen_depth_;
 	float screen_near_;	
 
-	RTMath::Matrix world_mat_;
-	RTMath::Matrix view_mat_;
-	RTMath::Matrix projection_mat_;
+	engine_math::Matrix world_mat_;
+	engine_math::Matrix view_mat_;
+	engine_math::Matrix projection_mat_;
 
 };
 

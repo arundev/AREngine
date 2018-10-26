@@ -11,10 +11,11 @@ namespace engine_scene {
 		Node();
 		~Node();
 
+		virtual bool Init() { return true; }
+		virtual void Free() { ; }
 		virtual void Update(float elapse);
 		virtual void Render();
 
-		
 		std::string name()const { return name_; }
 		void set_name(const char* str) { name_ = str; }
 
@@ -28,25 +29,20 @@ namespace engine_scene {
 		Node* GetChild(const char* name)const;
 		Node* GetChild(int index)const;
 
-		RTMath::Vector& translate() { return translate_; }
-		void set_translate(RTMath::Vector& pos) { translate_ = pos; }
-		RTMath::Matrix& rotate() { return rotate_; }
-		void set_rotate(RTMath::Matrix& mat) { rotate_ = rotate_; }
-		RTMath::Vector& scale() { return scale_; }
-		void set_scale(RTMath::Vector& v) { scale_ = v; }
-
-		std::vector<Mesh*>& meshes() { return meshes_; }
-		void AddMesh(Mesh* mesh) { meshes_.push_back(mesh); }
+		Vector& translate() { return translate_; }
+		void set_translate(Vector& pos) { translate_ = pos; }
+		Matrix& rotate() { return rotate_; }
+		void set_rotate(Matrix& mat) { rotate_ = rotate_; }
+		Vector& scale() { return scale_; }
+		void set_scale(Vector& v) { scale_ = v; }
 
 	protected:
 		std::string name_;
 		Node* parent_;
 		std::vector<Node*> children_;
-		RTMath::Vector translate_;
-		RTMath::Matrix rotate_;
-		RTMath::Vector scale_;
-
-		std::vector<Mesh*> meshes_;
+		Vector translate_;
+		Matrix rotate_;
+		Vector scale_;
 	};
 }
 

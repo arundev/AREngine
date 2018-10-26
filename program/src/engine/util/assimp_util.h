@@ -14,7 +14,7 @@ public:
 	~AssimpUtil(){ ; }
 
 	static bool LoadFile(const char* file_name, std::vector<Mesh*>& meshes);
-	static Mesh* CreateMesh(aiMesh* src_mesh, aiMaterial* src_material);
+	static Mesh* CreateMesh(const std::string& filePath, aiMesh* src_mesh, aiMaterial* src_material);
 
 private:
 

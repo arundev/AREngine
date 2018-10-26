@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="DebugLib|Win32">
       <Configuration>DebugLib</Configuration>
@@ -22,31 +22,32 @@
     <ProjectGuid>{6C89037C-8E73-4847-B6FB-D6F67578DFCC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>engine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLib|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLib|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -176,6 +177,18 @@
     <ClCompile Include="dx11\texture_dx11.cc" />
     <ClCompile Include="dx11\util_dx11.cc" />
     <ClCompile Include="engine.cc" />
+    <ClCompile Include="math\aabb.cc" />
+    <ClCompile Include="math\bsp_tree.cc" />
+    <ClCompile Include="math\math.cc" />
+    <ClCompile Include="math\matrix.cc" />
+    <ClCompile Include="math\obb.cc" />
+    <ClCompile Include="math\octree.cc" />
+    <ClCompile Include="math\plane.cc" />
+    <ClCompile Include="math\polygon.cc" />
+    <ClCompile Include="math\polygon_list.cc" />
+    <ClCompile Include="math\quaternion.cc" />
+    <ClCompile Include="math\ray.cc" />
+    <ClCompile Include="math\vector.cpp" />
     <ClCompile Include="mesh\geometry.cc" />
     <ClCompile Include="mesh\material.cc" />
     <ClCompile Include="mesh\mesh.cc" />
@@ -183,6 +196,7 @@
     <ClCompile Include="scene\camera.cc" />
     <ClCompile Include="scene\light.cc" />
     <ClCompile Include="scene\node.cc" />
+    <ClCompile Include="scene\scene.cc" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="util\assimp\AnimEvaluator.cpp" />
     <ClCompile Include="util\assimp\SceneAnimator.cpp" />
@@ -192,7 +206,6 @@
     <ClCompile Include="util\image_util.cc" />
     <ClCompile Include="plateform.cc" />
     <ClCompile Include="renderer.cc" />
-    <ClCompile Include="util.cc" />
     <ClCompile Include="dx11\renderer_dx11.cc" />
     <ClCompile Include="es2\renderer_es2.cc" />
     <ClCompile Include="util\file_util.cc" />
@@ -209,8 +222,6 @@
     <ClInclude Include="engine.h" />
     <ClInclude Include="engine_include.h" />
     <ClInclude Include="math\math.h" />
-    <ClInclude Include="math\matrix.h" />
-    <ClInclude Include="math\vector.h" />
     <ClInclude Include="mesh\geometry.h" />
     <ClInclude Include="mesh\material.h" />
     <ClInclude Include="mesh\mesh.h" />
@@ -218,6 +229,7 @@
     <ClInclude Include="scene\camera.h" />
     <ClInclude Include="scene\light.h" />
     <ClInclude Include="scene\node.h" />
+    <ClInclude Include="scene\scene.h" />
     <ClInclude Include="util\assimp\AnimEvaluator.h" />
     <ClInclude Include="util\assimp\SceneAnimator.h" />
     <ClInclude Include="util\assimp_util.h" />
@@ -227,7 +239,6 @@
     <ClInclude Include="plateform.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="util\log.h" />
-    <ClInclude Include="util.h" />
     <ClInclude Include="dx11\renderer_dx11.h" />
     <ClInclude Include="engine_pch.h" />
     <ClInclude Include="es2\renderer_es2.h" />
@@ -238,6 +249,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="math\matrix.inl" />
+    <None Include="math\obb.inl" />
+    <None Include="math\plane.inl" />
+    <None Include="math\ray.inl" />
     <None Include="math\vector.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

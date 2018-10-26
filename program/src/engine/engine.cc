@@ -4,15 +4,18 @@
 #include "mesh/mesh.h"
 #include "camera/camera.h"
 #include "util/file_util.h"
+#include "scene/scene.h"
 
 #include <assimp/Importer.hpp>
 #include <BaseImporter.h>
 
-Log* g_log = 0;
-Engine* g_engine = 0;
-Renderer* g_renderer = 0;
-FreeCamera* g_camera = 0;
-FileUtil* g_file_util = 0;
+using namespace engine_scene;
+
+Log* g_log = nullptr;
+Engine* g_engine = nullptr;
+Renderer* g_renderer = nullptr;
+FreeCamera* g_camera = nullptr;
+FileUtil* g_file_util = nullptr;
 
 Engine::Engine(){
 	Assimp::Importer* pImp = new Assimp::Importer();
@@ -54,16 +57,29 @@ bool Engine::Init(const Renderer::Window& param){
 
 void Engine::Update(){
 	g_camera->Update();
+	if (current_scene_){
+		current_scene_->Update(0.0f);
+	}
 	g_renderer->Update();
 }
 
 void Engine::Render(){
 	Vector clear_color(0, 0, 0);
 	g_renderer->PreRender(clear_color);
-
-	std::vector<Mesh*>::const_iterator iter = Mesh::s_mesh_list.begin();
-	for (; iter != Mesh::s_mesh_list.end(); iter++){
-		(*iter)->Render();
+	
+	std::vector<Mesh*> meshes;
+	if (current_scene_){
+		current_scene_->getVisibleMeshes(g_camera, meshes);
+	}
+	for (auto& mesh : meshes){
+		if (mesh){
+			mesh->Render();
+		}
+	}
+	for (auto&mesh : other_meshes_){
+		if (mesh) {
+			mesh->Render();
+		}
 	}
 
 	g_renderer->PostRender();
@@ -72,12 +88,27 @@ void Engine::Render(){
 
 
 void Engine::Free(){
-
-	std::vector<Mesh*>::iterator iter = Mesh::s_mesh_list.begin();
-	for(; iter != Mesh::s_mesh_list.end(); iter++){
-		(*iter)->Free();
+	for (auto mesh : other_meshes_) {
+		SAFE_FREE(mesh);
 	}
+	other_meshes_.clear();
 
+	SAFE_FREE(current_scene_);
 	SAFE_FREE(g_camera);
 	SAFE_FREE(g_renderer);
+}
+
+void Engine::addOtherMesh(Mesh* mesh) {
+	bool exist = false;
+	for (auto item : other_meshes_) {
+		if (item == mesh){
+			exist = true;
+			break;
+		}
+	}
+
+	if (!exist)
+	{
+		other_meshes_.push_back(mesh);
+	}
 }

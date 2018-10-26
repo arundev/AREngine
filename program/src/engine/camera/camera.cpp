@@ -4,6 +4,7 @@
 #include <directxmath.h>
 
 using namespace DirectX;
+using namespace engine_math;
 
 /*----------------------------------------------------------------*/
 BaseCamera::BaseCamera()
@@ -30,12 +31,12 @@ BaseCamera::~BaseCamera()
 
 }
 /*----------------------------------------------------------------*/
-void BaseCamera::GetViewMatrix(RTMath::Matrix *ViewMat)
+void BaseCamera::GetViewMatrix(Matrix *ViewMat)
 {
 	if (!ViewMat)
 		return;
 
-	memcpy(ViewMat, &m_ViewMat, sizeof(RTMath::Matrix));
+	memcpy(ViewMat, &m_ViewMat, sizeof(Matrix));
 
 }
 /*----------------------------------------------------------------*/
@@ -114,14 +115,20 @@ void FreeCamera::SetRotAngleDelta(float fRotXDelta, float fRotYDelta, float fRot
 	m_fRotY += fRotYDelta;
 	m_fRotZ += fRotZDelta;
 
-	if (m_fRotX > RT2PI) m_fRotX -= RT2PI;
-	else if (m_fRotX < -RT2PI) m_fRotX += RT2PI;
+	if (m_fRotX > RT2PI)
+		m_fRotX -= RT2PI;
+	else if(m_fRotX < -RT2PI) 
+		m_fRotX += RT2PI;
 
-	if (m_fRotY > RT2PI) m_fRotY -= RT2PI;
-	else if (m_fRotY < -RT2PI) m_fRotY += RT2PI;
+	if (m_fRotY > RT2PI)
+		m_fRotY -= RT2PI;
+	else if
+		(m_fRotY < -RT2PI) m_fRotY += RT2PI;
 
-	if (m_fRotZ > RT2PI) m_fRotZ -= RT2PI;
-	else if (m_fRotZ < -RT2PI) m_fRotZ += RT2PI;
+	if (m_fRotZ > RT2PI)
+		m_fRotZ -= RT2PI;
+	else if (m_fRotZ < -RT2PI) 
+		m_fRotZ += RT2PI;
 }
 /*----------------------------------------------------------------*/
 void FreeCamera::SetMoveDelta(float vMoveDelta)

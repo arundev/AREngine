@@ -33,6 +33,10 @@ public:
 	static bool FileExists(const std::string& file);
 	bool FileIsNewer(const std::string& file1, const std::string& file2);
 
+	static std::string getDirectory(const std::string& path);
+	static std::string getFileName(const std::string& path);
+	static std::string getFileNameWithoutExtension(const std::string& path);
+
 private:
 	std::string data_folder_;
 	std::string models_sub_folder_;

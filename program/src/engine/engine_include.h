@@ -13,6 +13,7 @@
 #include "camera/camera.h"
 #include "math/math.h"
 #include "mesh/mesh.h"
+#include "scene/scene.h"
 
 
 #endif // ENGINE_INCLUDE_H

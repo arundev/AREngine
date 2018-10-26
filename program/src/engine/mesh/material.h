@@ -12,9 +12,9 @@ public:
 
 	struct MatrixBuffer
 	{
-		RTMath::Matrix world_;
-		RTMath::Matrix view_;
-		RTMath::Matrix projection_;
+		Matrix world_;
+		Matrix view_;
+		Matrix projection_;
 	};
 
 	static Material* Create();

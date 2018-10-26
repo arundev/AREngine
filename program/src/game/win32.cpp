@@ -18,7 +18,7 @@ extern Engine* g_engine;
 extern Renderer* g_renderer;
 extern FreeCamera* g_camera;
 
-bool CreateWnd(int width, int height, const char* title){
+bool CreateWnd(int width, int height, const char* title) {
 	WNDCLASSEX wndclass = { 0 };
 	DWORD    wStyle = 0;
 	RECT     windowRect;
@@ -33,7 +33,7 @@ bool CreateWnd(int width, int height, const char* title){
 	wndclass.lpszClassName = "opengles2.0";
 	wndclass.cbSize = sizeof(WNDCLASSEX);
 
-	if (!RegisterClassEx(&wndclass)){
+	if (!RegisterClassEx(&wndclass)) {
 		return FALSE;
 	}
 
@@ -61,7 +61,7 @@ bool CreateWnd(int width, int height, const char* title){
 		NULL);
 
 
-	if (g_wnd == NULL){
+	if (g_wnd == NULL) {
 		return false;
 	}
 
@@ -74,7 +74,7 @@ bool CreateWnd(int width, int height, const char* title){
 	return true;
 }
 
-void MsgLoop(){
+void MsgLoop() {
 	MSG msg = { 0 };
 	int done = 0;
 	DWORD lastTime = GetTickCount();
@@ -108,138 +108,135 @@ void MsgLoop(){
 	}
 }
 
-LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
+LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	LRESULT  lRet = 1;
-	int wmId, wmEvent;
-	PAINTSTRUCT ps;
-	HDC hdc;
 
-	switch (uMsg){
-		case WM_CREATE:
-			break;
-		case WM_PAINT:
-			ValidateRect(g_wnd, NULL);
-			break;
-		case WM_DESTROY:
-			PostQuitMessage(0);
-			break;
-		case WM_CHAR:
-			break;
-		case WM_LBUTTONDOWN:
+	switch (uMsg) {
+	case WM_CREATE:
+		break;
+	case WM_PAINT:
+		ValidateRect(g_wnd, NULL);
+		break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
+	case WM_CHAR:
+		break;
+	case WM_LBUTTONDOWN:
+	{
+		POINT ptMouse;
+		GetCursorPos(&ptMouse);
+		ScreenToClient(g_wnd, &ptMouse);
+		g_ptLastPoint = ptMouse;
+	}
+	break;
+	case WM_RBUTTONDOWN:
+	{
+		GetCursorPos(&g_ptLastPoint);
+		ScreenToClient(g_wnd, &g_ptLastPoint);
+		break;
+	}
+	case WM_MOUSEMOVE:
+	{
+		switch (wParam)
 		{
-			POINT ptMouse;
-			GetCursorPos(&ptMouse);
-			ScreenToClient(g_wnd, &ptMouse);
-			g_ptLastPoint = ptMouse;
+		case MK_LBUTTON:
+		{
+
 		}
 		break;
-		case WM_RBUTTONDOWN:
+		case MK_RBUTTON:
 		{
-			GetCursorPos(&g_ptLastPoint);
-			ScreenToClient(g_wnd, &g_ptLastPoint);
-		break;
-		}
-		case WM_MOUSEMOVE:
-		{
-			switch (wParam)
-			{
-			case MK_LBUTTON:
-			{
-
-			}
-			break;
-			case MK_RBUTTON:
-			{
 			POINT pt;
 			pt.x = LOWORD(lParam);
 			pt.y = HIWORD(lParam);
 			g_camera->SetRotAngleDelta((pt.y - g_ptLastPoint.y) / 150.0f, (pt.x - g_ptLastPoint.x) / 150.0f, 0.0f);
 			g_ptLastPoint = pt;
-			}
-			default:
+		}
+		default:
 			break;
-			}
-			break;
-			}
-			case WM_KEYDOWN:
-			{
-			Vector *vcDirc = new Vector();
-			Vector *vcUp = new Vector();
-			Vector *vcRight = new Vector();
-			g_camera->GetDirection(vcDirc, vcUp, vcRight);
-			switch (wParam)
-			{
-			case VK_A:
-			{
+		}
+		break;
+	}
+	case WM_KEYDOWN:
+	{
+		Vector *vcDirc = new Vector();
+		Vector *vcUp = new Vector();
+		Vector *vcRight = new Vector();
+		g_camera->GetDirection(vcDirc, vcUp, vcRight);
+		switch (wParam)
+		{
+		case VK_A:
+		{
 			g_camera->SetMoveDirection(*vcRight);
 			g_camera->SetMoveDelta(-20.0f);
 
 			g_camera->Update();
-			Matrix matView;
+			engine_math::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
 			break;
-			}
-			case VK_D:
-			{
+		}
+		case VK_D:
+		{
 			Vector vcPosCamera;
 			g_camera->SetMoveDirection(*vcRight);
 			g_camera->SetMoveDelta(20.0f);
 			g_camera->Update();
-			Matrix matView;
+			engine_math::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
 			break;
-			}
-			case VK_W:
-			{
+		}
+		case VK_W:
+		{
 			g_camera->SetMoveDirection(*vcDirc);
 			g_camera->SetMoveDelta(20.0f);
 
 			g_camera->Update();
-			Matrix matView;
+			engine_math::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
 			break;
-			}
-			case VK_S:
-			{
+		}
+		case VK_S:
+		{
 			g_camera->SetMoveDirection(*vcDirc);
 			g_camera->SetMoveDelta(-20.0f);
 
 			g_camera->Update();
-			Matrix matView;
+			engine_math::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
 			break;
-			}
-			case VK_Q:
-			{
+		}
+		case VK_Q:
+		{
 			g_camera->SetMoveDirection(*vcUp);
 			g_camera->SetMoveDelta(20.0f);
 			g_camera->Update();
-			Matrix matView;
+			engine_math::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
 			break;
-			}
-			case VK_E:
-			{
+		}
+		case VK_E:
+		{
 			g_camera->SetMoveDirection(*vcUp);
 			g_camera->SetMoveDelta(-20.0f);
 			g_camera->Update();
-			Matrix matView;
+			engine_math::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
 			break;
-			}
+		}
 
-			default:
+		default:
 			break;
 		}
 		g_camera->Update();
-		Matrix viewMat;
+		engine_math::Matrix viewMat;
 		viewMat.Identity();
 		g_camera->GetViewMatrix(&viewMat);
-		}
+	}
+	break;
+	default:
+		lRet = DefWindowProc(hWnd, uMsg, wParam, lParam);
 		break;
-		default:
-			lRet = DefWindowProc(hWnd, uMsg, wParam, lParam);
-			break;
 	}
 
 	return lRet;

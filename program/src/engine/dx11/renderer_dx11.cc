@@ -2,6 +2,8 @@
 #include "util_dx11.h"
 #include "../util/log.h"
 
+using namespace engine_math;
+
 RendererDx11::RendererDx11() : 
 swap_chain_(NULL),
 device_(NULL),
