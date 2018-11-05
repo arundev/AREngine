@@ -4,7 +4,7 @@
 #include "node.h"
 #include "../camera/camera.h"
 
-namespace engine_scene {
+namespace engine {
 	class Camera : public Node {
 	public:
 		Camera();
@@ -16,7 +16,7 @@ namespace engine_scene {
 		BaseCamera* camera_data()const { return camera_data_; }
 		void set_camera_data(BaseCamera* camera);
 
-		void get_view_matrix(Matrix* mat) { return camera_data_->GetViewMatrix(mat); }
+		void get_view_matrix(engine::Matrix* mat) { return camera_data_->GetViewMatrix(mat); }
 
 	private:
 		BaseCamera* camera_data_;

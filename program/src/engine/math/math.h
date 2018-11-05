@@ -6,7 +6,7 @@
 #include <iostream>
 #include <math.h>
 
-namespace engine_math {
+namespace engine {
 
 	class Vector;
 	class Matrix;
@@ -28,7 +28,7 @@ namespace engine_math {
 #define CULLED   4                  // лчЁЩ
 #define VISIBLE  5                  // ©и╪Ш
 
-namespace engine_math {
+namespace engine {
 
 HRESULT InitCPU(void);            
 float _fabs(float f);              

@@ -8,12 +8,12 @@ ModelTable::~ModelTable() {
 	Free();
 }
 
-engine_math::Vector Deserialization(std::string str) { // {x,y,z}
-	engine_math::Vector ret;
+engine::Vector Deserialization(std::string str) { // {x,y,z}
+	engine::Vector ret;
 
 	std::string sub = str.substr(1, str.length() - 2);
 	std::vector<std::string> vc;
-	engine_util::StringSplit(sub, vc, ";");
+	engine::StringSplit(sub, vc, ";");
 
 	if (vc.size() >= 3) {
 		ret.x = atof(vc[0].c_str());

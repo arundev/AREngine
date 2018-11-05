@@ -1,7 +1,7 @@
 
 #include "math.h"
 
-namespace engine_math {
+namespace engine {
 
 
 bool Obb::Intersects(const Ray &Ray, float *t)

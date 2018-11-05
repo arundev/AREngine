@@ -3,6 +3,9 @@
 
 #include "../engine_pch.h"
 
+namespace engine {
+
+
 class Geometry
 {
 public:
@@ -14,13 +17,13 @@ public:
 		VertexFull(){
 		}
 
-		engine_math::Vector position;
-		engine_math::Color color;
-		engine_math::Vector texture1;
-		engine_math::Vector texture2;
-		engine_math::Vector normal;
-		engine_math::Vector tangent;
-		engine_math::Vector bitangent;
+		engine::Vector position;
+		engine::Color color;
+		engine::Vector texture1;
+		engine::Vector texture2;
+		engine::Vector normal;
+		engine::Vector tangent;
+		engine::Vector bitangent;
 		unsigned char bone_indices[4];
 		unsigned char bone_weights[4];
 	};
@@ -67,5 +70,7 @@ bool Geometry::Init(t* vertex_data, int vertex_num, unsigned int* index_data, in
 	return DoInit();
 }
 
+
+}
 
 #endif // ENGINE_MODEL_GEOMETRY_H

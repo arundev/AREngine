@@ -10,13 +10,15 @@ HINSTANCE g_instance = NULL;
 HWND g_wnd = NULL;
 POINT g_ptLastPoint;
 
-class Engine;
-class Renderer;
-class FreeCamera;
+namespace engine {
+	class Engine;
+	class Renderer;
+	class FreeCamera;
+}
 
-extern Engine* g_engine;
-extern Renderer* g_renderer;
-extern FreeCamera* g_camera;
+extern engine::Engine* g_engine;
+extern engine::Renderer* g_renderer;
+extern engine::FreeCamera* g_camera;
 
 bool CreateWnd(int width, int height, const char* title) {
 	WNDCLASSEX wndclass = { 0 };
@@ -172,7 +174,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 			g_camera->SetMoveDelta(-20.0f);
 
 			g_camera->Update();
-			engine_math::Matrix matView;
+			engine::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
 			break;
 		}
@@ -182,7 +184,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 			g_camera->SetMoveDirection(*vcRight);
 			g_camera->SetMoveDelta(20.0f);
 			g_camera->Update();
-			engine_math::Matrix matView;
+			engine::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
 			break;
 		}
@@ -192,7 +194,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 			g_camera->SetMoveDelta(20.0f);
 
 			g_camera->Update();
-			engine_math::Matrix matView;
+			engine::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
 			break;
 		}
@@ -202,7 +204,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 			g_camera->SetMoveDelta(-20.0f);
 
 			g_camera->Update();
-			engine_math::Matrix matView;
+			engine::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
 			break;
 		}
@@ -211,7 +213,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 			g_camera->SetMoveDirection(*vcUp);
 			g_camera->SetMoveDelta(20.0f);
 			g_camera->Update();
-			engine_math::Matrix matView;
+			engine::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
 			break;
 		}
@@ -220,8 +222,18 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 			g_camera->SetMoveDirection(*vcUp);
 			g_camera->SetMoveDelta(-20.0f);
 			g_camera->Update();
-			engine_math::Matrix matView;
+			engine::Matrix matView;
 			g_camera->GetViewMatrix(&matView);
+			break;
+		}
+		case VK_P: 
+		{
+			g_renderer->SetWireframe(true);
+			break;
+		}
+		case VK_L:
+		{
+			g_renderer->SetWireframe(false);
 			break;
 		}
 
@@ -229,7 +241,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 			break;
 		}
 		g_camera->Update();
-		engine_math::Matrix viewMat;
+		engine::Matrix viewMat;
 		viewMat.Identity();
 		g_camera->GetViewMatrix(&viewMat);
 	}

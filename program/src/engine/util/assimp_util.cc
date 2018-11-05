@@ -14,6 +14,9 @@
 
 using namespace Assimp;
 
+namespace engine {
+
+
 unsigned int ppsteps = aiProcess_CalcTangentSpace | // calculate tangents and bitangents if possible
 aiProcess_JoinIdenticalVertices | // join identical vertices/ optimize indexing
 aiProcess_ValidateDataStructure | // perform a full validation of the loader's output
@@ -30,8 +33,9 @@ aiProcess_SplitByBoneCount | // split meshes with too many bones. Necessary for 
 0;
 
 
-bool AssimpUtil::LoadFile(const char* file_name, std::vector<Mesh*>& meshes){
-	if (file_name == NULL){
+bool AssimpUtil::LoadFile(const std::string& file_name, std::vector<engine::Mesh*>& meshes)
+{
+	if (file_name.empty()){
 		return false;
 	}
 
@@ -64,9 +68,9 @@ bool AssimpUtil::LoadFile(const char* file_name, std::vector<Mesh*>& meshes){
 		return false;
 	}
 
-	for (int i = 0; i < root->mNumMeshes; i++){
+	for (unsigned int i = 0; i < root->mNumMeshes; i++){
 		int mat_index = root->mMeshes[i]->mMaterialIndex;
-		Mesh* mesh = CreateMesh(full_path, root->mMeshes[i], root->mMaterials[mat_index]);
+		engine::Mesh* mesh = CreateMesh(full_path, root->mMeshes[i], root->mMaterials[mat_index]);
 		if (mesh != NULL)
 		{
 			meshes.push_back(mesh);
@@ -79,7 +83,7 @@ bool AssimpUtil::LoadFile(const char* file_name, std::vector<Mesh*>& meshes){
 }
 
 
-Mesh* AssimpUtil::CreateMesh(const std::string& filePath, aiMesh* src_mesh, aiMaterial* src_material){
+engine::Mesh* AssimpUtil::CreateMesh(const std::string& filePath, aiMesh* src_mesh, aiMaterial* src_material){
 
 	if (src_mesh == NULL){
 		return NULL;
@@ -91,43 +95,43 @@ Mesh* AssimpUtil::CreateMesh(const std::string& filePath, aiMesh* src_mesh, aiMa
 	if (vertex_list == NULL){
 		return NULL;
 	}
-	for (int i = 0; i < src_mesh->mNumVertices; i++){
+	for (unsigned int i = 0; i < src_mesh->mNumVertices; i++){
 		// position
-		vertex_list[i].position = engine_math::Vector(src_mesh->mVertices[i].x, 
+		vertex_list[i].position = engine::Vector(src_mesh->mVertices[i].x, 
 			src_mesh->mVertices[i].y, 
 			src_mesh->mVertices[i].z);
 		// normal
 		if (src_mesh->mNormals){
-			vertex_list[i].normal = engine_math::Vector(src_mesh->mNormals[i].x,
+			vertex_list[i].normal = engine::Vector(src_mesh->mNormals[i].x,
 				src_mesh->mNormals[i].y,
 				src_mesh->mNormals[i].z);
 		}
 		// color
 		if (src_mesh->HasVertexColors(0)){
-			vertex_list[i].color = engine_math::Color(src_mesh->mColors[i][0].r,
+			vertex_list[i].color = engine::Color(src_mesh->mColors[i][0].r,
 				src_mesh->mColors[i][0].g,
 				src_mesh->mColors[i][0].b,
 				src_mesh->mColors[i][0].a);
 		}
 		// tangent
 		if (src_mesh->mTangents){
-			vertex_list[i].tangent = engine_math::Vector(src_mesh->mTangents[i].x,
+			vertex_list[i].tangent = engine::Vector(src_mesh->mTangents[i].x,
 				src_mesh->mTangents[i].y,
 				src_mesh->mTangents[i].z);
 		}
 		// bitangent
 		if (src_mesh->mBitangents){
-			vertex_list[i].bitangent = engine_math::Vector(src_mesh->mBitangents[i].x,
+			vertex_list[i].bitangent = engine::Vector(src_mesh->mBitangents[i].x,
 				src_mesh->mBitangents[i].y,
 				src_mesh->mBitangents[i].z);
 		}
 		// tex coordinate
 		if (src_mesh->HasTextureCoords(0)){
-			vertex_list[i].texture1 = engine_math::Vector(src_mesh->mTextureCoords[0][i].x,
+			vertex_list[i].texture1 = engine::Vector(src_mesh->mTextureCoords[0][i].x,
 				src_mesh->mTextureCoords[0][i].y, 0.0f);
 		}
 		if (src_mesh->HasTextureCoords(1)){
-			vertex_list[i].texture2 = engine_math::Vector(src_mesh->mTextureCoords[1][i].x,
+			vertex_list[i].texture2 = engine::Vector(src_mesh->mTextureCoords[1][i].x,
 				src_mesh->mTextureCoords[1][i].y, 0.0f);
 		}
 		// bone indices and weights
@@ -157,7 +161,7 @@ Mesh* AssimpUtil::CreateMesh(const std::string& filePath, aiMesh* src_mesh, aiMa
 		return NULL;
 	}
 	unsigned int* address = index_list;
-	for (int i = 0; i < src_mesh->mNumFaces; i++){
+	for (unsigned int i = 0; i < src_mesh->mNumFaces; i++){
 		for (int j = 0; j < nidx; j++){
 			*address++ = src_mesh->mFaces[i].mIndices[j];
 		}
@@ -222,3 +226,5 @@ Mesh* AssimpUtil::CreateMesh(const std::string& filePath, aiMesh* src_mesh, aiMa
 	return dst_mesh;
 }
 
+
+}

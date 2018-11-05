@@ -1,7 +1,7 @@
 #include "math.h"
 
 
-namespace engine_math {
+namespace engine {
 	inline void Vector::Set(float _x, float _y, float _z, float _w/* =1.0f */)
 	{
 		x = _x;

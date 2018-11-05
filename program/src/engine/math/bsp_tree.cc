@@ -1,6 +1,6 @@
 #include "math.h"
 
-namespace engine_math {
+namespace engine {
 
 BspTree::BspTree()
 {

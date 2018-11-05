@@ -2,7 +2,8 @@
 #include "util_dx11.h"
 #include "../util/log.h"
 
-using namespace engine_math;
+namespace engine {
+
 
 RendererDx11::RendererDx11() : 
 swap_chain_(NULL),
@@ -326,4 +327,6 @@ void RendererDx11::BeginEvent(const char* event) {
 
 void RendererDx11::EndEvent() {
 	defined_annotation_->EndEvent();
+}
+
 }

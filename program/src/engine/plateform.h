@@ -1,6 +1,9 @@
 #ifndef ENGINE_PLATFORM_H
 #define ENGINE_PLATFORM_H
 
+namespace engine {
+
+
 class Plateform
 {
 public:
@@ -32,4 +35,6 @@ private:
 	static Plateform::GraphicAPI graphic_api_;
 };
 
+
+}
 #endif // ENGINE_PLATFORM_H

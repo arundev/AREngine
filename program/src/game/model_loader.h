@@ -10,7 +10,7 @@ public:
 	~ModelLoader() { ; }
 	ModelLoader() { ; }
 	
-	bool Loader(int model_id, std::vector<Mesh*>& result);
+	bool Loader(int model_id, std::vector<engine::Mesh*>& result);
 	
 protected:
 private:

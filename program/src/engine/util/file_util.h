@@ -4,6 +4,9 @@
 #include "../engine_pch.h"
 #include <string>
 
+namespace engine {
+
+
 class FileUtil
 {
 public:
@@ -46,4 +49,6 @@ private:
 	std::string config_sub_folder_;
 };
 
+
+}
 #endif // FILE_SYSTEM_H

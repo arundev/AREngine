@@ -1,6 +1,6 @@
 #include "camera.h"
 
-namespace engine_scene {
+namespace engine {
 	Camera::Camera() : camera_data_(0){
 		camera_data_ = new FreeCamera();
 		camera_data_->SetPos(Vector(0.0f, 0.0f, -5.0f));

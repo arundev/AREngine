@@ -44,7 +44,7 @@ using namespace std;
 #include "math/math.h"
 
 
-using namespace engine_math;
+using namespace engine;
 
 /*-------------------------------------------------------*/
 // util macro
@@ -68,19 +68,22 @@ using namespace engine_math;
 #ifndef TRUE
 #define TRUE 1
 #endif
- 
-/*-------------------------------------------------------*/
-class Engine;
-class Renderer;
-class FreeCamera;
-class CameraClass;
-class Log;
-class FileUtil;
 
-extern Log* g_log;
-extern Engine* g_engine;
-extern Renderer* g_renderer;
-extern FreeCamera* g_camera;
-extern FileUtil* g_file_util;
+namespace engine {
+
+	class Engine;
+	class Renderer;
+	class FreeCamera;
+	class CameraClass;
+	class Log;
+	class FileUtil;
+}
+
+extern engine::Log* g_log;
+extern engine::Engine* g_engine;
+extern engine::Renderer* g_renderer;
+extern engine::FreeCamera* g_camera;
+extern engine::FileUtil* g_file_util;
+
 
 #endif // ENGINE_ENGINE_PCH_H

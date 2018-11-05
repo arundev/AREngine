@@ -1,6 +1,6 @@
 #include "light.h"
 
-namespace engine_scene {
+namespace engine {
 	Light::Light() {
 
 	}

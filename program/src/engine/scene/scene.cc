@@ -2,7 +2,7 @@
 
 #include "../util/assimp_util.h"
 
-namespace engine_scene {
+namespace engine {
 
 	Scene::Scene(){
 

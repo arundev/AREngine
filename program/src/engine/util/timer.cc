@@ -1,6 +1,6 @@
 #include "timer.h"
 
-namespace engine_util {
+namespace engine {
 	double Timer::GetCurrentForMilliseconds(){
 		LARGE_INTEGER largeInteger;
 		QueryPerformanceCounter(&largeInteger);

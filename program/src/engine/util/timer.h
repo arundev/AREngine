@@ -8,7 +8,7 @@
 #include "../engine_pch.h"
 #include "singleton.h"
 
-namespace engine_util {
+namespace engine {
 	class Timer : public Singleton<Timer> {
 	public:
 		static double GetCurrentForSecondes();

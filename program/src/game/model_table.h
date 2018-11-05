@@ -20,9 +20,9 @@ public:
 
 		int id_;
 		std::string model;
-		engine_math::Vector postion;
-		engine_math::Vector scale;
-		engine_math::Vector rotate;
+		engine::Vector postion;
+		engine::Vector scale;
+		engine::Vector rotate;
 		std::string base_map;
 		std::string normal_map;
 		std::string specular_map;

@@ -13,6 +13,8 @@
 #define ES_WINDOW_STENCIL       4
 #define ES_WINDOW_MULTISAMPLE   8
 
+namespace engine {
+
 
 class RendererEs2 : public Renderer{
 public:
@@ -62,5 +64,8 @@ private:
 	UserData user_data_;
 	ESContext es_context_;
 };
+
+
+}
 
 #endif // ENGINE_ES2_RENDERER_ES2_H

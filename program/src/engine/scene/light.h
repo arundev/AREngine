@@ -3,7 +3,7 @@
 
 #include "node.h"
 
-namespace engine_scene {
+namespace engine {
 	class Light : public Node
 	{
 	public:

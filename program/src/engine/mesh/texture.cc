@@ -6,6 +6,8 @@
 #include "../dx11/texture_dx11.h"
 #endif
 
+namespace engine {
+
 
 Texture::Texture():
 tex_data_(NULL){
@@ -48,4 +50,7 @@ bool Texture::Init(const char* file_name){
 void Texture::Free(){
 	DoFree();
 	SAFE_DELETE(tex_data_);
+}
+
+
 }

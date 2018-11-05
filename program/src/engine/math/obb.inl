@@ -1,7 +1,7 @@
 #include "math.h"
 
 
-namespace engine_math {
+namespace engine {
 
 	inline void Obb::DeTransform(const Obb &obb, const Matrix &m)
 	{

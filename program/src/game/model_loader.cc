@@ -1,7 +1,7 @@
 #include "model_table.h"
 #include "model_loader.h"
 
-bool ModelLoader::Loader(int model_id, std::vector<Mesh*>& result) {
+bool ModelLoader::Loader(int model_id, std::vector<engine::Mesh*>& result) {
 	
 	ModelTable::Item* item = ModelTable::Instance().GetItem(model_id);
 	if (!item){
@@ -12,7 +12,7 @@ bool ModelLoader::Loader(int model_id, std::vector<Mesh*>& result) {
 		return false;
 	}
 
-	std::vector<Mesh*>::iterator itr = result.begin();
+	std::vector<engine::Mesh*>::iterator itr = result.begin();
 	for (; itr != result.end(); itr++){
 		if (!item->base_map.empty()) {
 			(*itr)->material()->SetBaseMap(item->base_map.c_str());

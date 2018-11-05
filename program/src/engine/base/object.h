@@ -1,7 +1,7 @@
 #ifndef ENGINE_BASE_OBJECT_H
 #define ENGINE_BASE_OBJECT_H
 
-namespace engine_base {
+namespace engine {
 	class Object
 	{
 	public:

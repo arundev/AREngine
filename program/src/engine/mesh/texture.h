@@ -3,6 +3,9 @@
 
 #include "../engine_pch.h"
 
+namespace engine {
+
+
 class Texture
 {
 public:
@@ -41,5 +44,8 @@ protected:
 	float width_;
 	float height_;
 };
+
+
+}
 
 #endif // ENGINE_MESH_TEXTURE_H

@@ -4,11 +4,13 @@
 #include "../engine_pch.h"
 #include "node.h"
 
-class Mesh;
-class BaseCamera;
 
-namespace engine_scene {
-	class Scene : public engine_scene::Node
+namespace engine {
+
+	class Mesh;
+	class BaseCamera;
+
+	class Scene : public engine::Node
 	{
 	public:
 		Scene();

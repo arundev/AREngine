@@ -5,6 +5,9 @@
 #include "../mesh/material.h"
 #include <D3DX11async.h>
 
+namespace engine {
+
+
 class MaterialDx11 : public Material
 {
 public:
@@ -25,5 +28,7 @@ private:
 	ID3D11Buffer* matrix_buffer_;
 };
 
+
+}
 
 #endif //ENGINE_DX11_MATERIAL_H

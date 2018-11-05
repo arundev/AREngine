@@ -1,6 +1,9 @@
 #ifndef ENGINE_UTIL_SINGLETON
 #define ENGINE_UTIL_SINGLETON
 
+namespace engine {
+
+
 template<typename T>
 class Singleton {
 public:
@@ -15,5 +18,8 @@ public:
 private:
 
 };
+
+
+}
 
 #endif // ENGINE_UTIL_SINGLETON

@@ -4,6 +4,9 @@
 #include "../engine.h"
 #include "texture_dx11.h"
 
+namespace engine {
+
+
 MaterialDx11::MaterialDx11():
 vertex_shader_(NULL),
 geometry_shader_(NULL),
@@ -173,3 +176,5 @@ bool MaterialDx11::CreateShader(){
 	return true;
 }
 
+
+}

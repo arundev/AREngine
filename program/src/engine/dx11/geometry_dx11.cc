@@ -1,6 +1,9 @@
 #include "geometry_dx11.h"
 #include "renderer_dx11.h"
 
+namespace engine {
+
+
 GeometryDx11::GeometryDx11() : 
 vertex_buffer_(NULL),
 index_buffer_(NULL){
@@ -79,4 +82,7 @@ void GeometryDx11::DoFlush(){
 	ID3D11DeviceContext *device_contex = renderer_dx11->device_context();
 
 	device_contex->DrawIndexed(index_num_, 0, 0);
+}
+
+
 }

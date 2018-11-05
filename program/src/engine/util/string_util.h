@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-namespace engine_util {
+namespace engine {
 	inline std::string StringTrim(const std::string& str) {
 		std::string::size_type pos = str.find_first_not_of(' ');
 		if (pos == std::string::npos) {

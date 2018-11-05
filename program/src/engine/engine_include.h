@@ -15,5 +15,7 @@
 #include "mesh/mesh.h"
 #include "scene/scene.h"
 
+using namespace engine;
+
 
 #endif // ENGINE_INCLUDE_H

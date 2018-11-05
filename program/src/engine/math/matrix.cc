@@ -2,7 +2,7 @@
 #pragma once
 #include "math.h"
 
-namespace engine_math{
+namespace engine{
 
 
 void Matrix::InverseOf(const Matrix &m)

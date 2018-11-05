@@ -3,6 +3,9 @@
 
 #include "../engine_pch.h"
 
+namespace engine {
+
+
 class ImageUtil
 {
 public:
@@ -43,5 +46,8 @@ private:
 	static bool LoadJPG(const char* file_name, ImageUtil::Data& result);
 
 };
+
+
+}
 
 #endif // ENGINE_PICTURE_UTIL_H

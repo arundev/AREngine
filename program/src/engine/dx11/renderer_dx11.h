@@ -11,6 +11,9 @@
 #pragma comment(lib, "D3DCompiler.lib")
 #pragma comment(lib, "dxguid.lib")
 
+namespace engine {
+
+
 class RendererDx11 : public Renderer{
 public:
 	RendererDx11();
@@ -19,7 +22,7 @@ public:
 	static RendererDx11* Instance();
 
 	virtual void Update();
-	virtual void PreRender(const engine_math::Vector& clear_color);
+	virtual void PreRender(const engine::Vector& clear_color);
 	virtual void Render();
 	virtual void PostRender();
 	virtual void Free();
@@ -58,5 +61,7 @@ private:
 	ID3DUserDefinedAnnotation* defined_annotation_;
 };
 
+
+}
 
 #endif // ENGINE_DX11_RENDERER_DX11_H

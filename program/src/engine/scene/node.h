@@ -4,8 +4,8 @@
 #include "../engine_pch.h"
 #include "../mesh/mesh.h"
 
-namespace engine_scene {
-	class Node : public engine_base::Object
+namespace engine {
+	class Node : public engine::Object
 	{
 	public:
 		Node();

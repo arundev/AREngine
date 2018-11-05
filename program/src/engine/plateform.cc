@@ -1,5 +1,8 @@
 #include "plateform.h"
 
+namespace engine {
+
+
 Plateform::OS Plateform::os_ = Plateform::WINDOWS;
 Plateform::GraphicAPI Plateform::graphic_api_ = Plateform::D3D_11;
 
@@ -14,4 +17,6 @@ void Plateform::Init(){
 	type_ = IOS;
 	graphic_api_ = GLES_2;
 #endif
+}
+
 }

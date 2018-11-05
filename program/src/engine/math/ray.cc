@@ -1,7 +1,7 @@
 
 #include "math.h"
 
-namespace engine_math {
+namespace engine {
 
 
 bool Ray::Intersects( const Vector &vc0, const Vector &vc1, const Vector &vc2, bool bCull, float *t)

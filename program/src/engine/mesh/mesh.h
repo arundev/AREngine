@@ -6,6 +6,9 @@
 #include "geometry.h"
 #include <vector>
 
+namespace engine {
+
+
 class Mesh
 {
 public:
@@ -45,5 +48,7 @@ protected:
 	Vector rotate_;
 };
 
+
+}
 
 #endif // ENGINE_MODEL_MODEL_H

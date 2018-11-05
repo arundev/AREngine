@@ -12,7 +12,7 @@
 #define LW_SE  6     // lower south east child
 #define LW_SW  7     // lower south west child
 
-namespace engine_math {
+namespace engine {
 
 Octree::Octree()
 {

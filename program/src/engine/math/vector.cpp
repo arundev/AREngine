@@ -1,7 +1,7 @@
 
 #include "math.h"
 
-namespace engine_math {
+namespace engine {
 
 void Vector::operator+=( const Vector& v )
 {

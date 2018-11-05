@@ -3,6 +3,9 @@
 
 #include "../engine_pch.h"
 
+namespace engine {
+
+
 class Log
 {
 public:
@@ -22,5 +25,8 @@ public:
 protected:
 	std::wofstream	AppLog;
 };
+
+
+}
 
 #endif // ENGINE_LOG_H

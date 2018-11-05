@@ -5,6 +5,8 @@
 #include "../mesh/geometry.h"
 #include <D3DX11async.h>
 
+namespace engine {
+
 class GeometryDx11 : public Geometry
 {
 public:
@@ -18,9 +20,11 @@ protected:
 	virtual void DoFlush();
 
 private:
-	ID3D11Buffer* vertex_buffer_;
+	ID3D11Buffer * vertex_buffer_;
 	ID3D11Buffer* index_buffer_;
 };
 
+
+}
 
 #endif // ENGINE_DX11_GEOMETRY_H

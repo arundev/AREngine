@@ -3,9 +3,14 @@
 
 #include "../engine_pch.h"
 
-class Mesh;
-class aiMesh;
-class aiMaterial;
+namespace engine {
+	class Mesh;
+}
+
+struct aiMesh;
+struct aiMaterial;
+
+namespace engine{
 
 class AssimpUtil
 {
@@ -13,11 +18,13 @@ public:
 	AssimpUtil(){ ; }
 	~AssimpUtil(){ ; }
 
-	static bool LoadFile(const char* file_name, std::vector<Mesh*>& meshes);
-	static Mesh* CreateMesh(const std::string& filePath, aiMesh* src_mesh, aiMaterial* src_material);
-
+	static bool LoadFile(const std::string& file_name, std::vector<engine::Mesh*>& meshes);
+	static engine::Mesh* CreateMesh(const std::string& filePath, aiMesh* src_mesh, aiMaterial* src_material);
 private:
 
 };
+
+}
+
 
 #endif // ENGINE_UTIL_ASSIMP

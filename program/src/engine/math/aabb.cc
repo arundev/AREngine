@@ -1,7 +1,7 @@
 
 #include "math.h"
 
-namespace engine_math {
+namespace engine {
 	Aabb::Aabb(Vector vcMin, Vector vcMax)
 	{
 		m_vcMin = vcMin;

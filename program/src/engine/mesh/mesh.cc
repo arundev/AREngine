@@ -1,5 +1,9 @@
 #include "mesh.h"
 
+
+namespace engine {
+
+
 Mesh::Mesh() :
 geometry_(NULL),
 material_(NULL){
@@ -20,15 +24,15 @@ Mesh* Mesh::CreateTriangle(){
 	Mesh* mesh = new Mesh();
 
 	Geometry::VertexFull* vertices = new Geometry::VertexFull[3];
-	vertices[0].position = engine_math::Vector(-1.0f, -1.0f, 0.0f);  // Bottom left.
-	vertices[0].color = engine_math::Color(0.0f, 1.0f, 0.0f, 1.0f);
-	vertices[0].texture1 = engine_math::Vector(0.0f, 1.0f, 0.0f);
-	vertices[1].position = engine_math::Vector(0.0f, 1.0f, 0.0f);  // Top middle.
-	vertices[1].color = engine_math::Color(0.0f, 1.0f, 0.0f, 1.0f);
-	vertices[1].texture1 = engine_math::Vector(0.5f, 0.0f, 0.0f);
-	vertices[2].position = engine_math::Vector(1.0f, -1.0f, 0.0f);  // Bottom right.
-	vertices[2].color = engine_math::Color(0.0f, 1.0f, 0.0f, 1.0f);
-	vertices[2].texture1 = engine_math::Vector(1.0f, 1.0f, 0.0f);
+	vertices[0].position = engine::Vector(-1.0f, -1.0f, 0.0f);  // Bottom left.
+	vertices[0].color = engine::Color(0.0f, 1.0f, 0.0f, 1.0f);
+	vertices[0].texture1 = engine::Vector(0.0f, 1.0f, 0.0f);
+	vertices[1].position = engine::Vector(0.0f, 1.0f, 0.0f);  // Top middle.
+	vertices[1].color = engine::Color(0.0f, 1.0f, 0.0f, 1.0f);
+	vertices[1].texture1 = engine::Vector(0.5f, 0.0f, 0.0f);
+	vertices[2].position = engine::Vector(1.0f, -1.0f, 0.0f);  // Bottom right.
+	vertices[2].color = engine::Color(0.0f, 1.0f, 0.0f, 1.0f);
+	vertices[2].texture1 = engine::Vector(1.0f, 1.0f, 0.0f);
 
 	unsigned int* indices = new unsigned int[3];
 	indices[0] = 0;  // Bottom left.
@@ -133,3 +137,5 @@ void Mesh::Free(){
 	SAFE_DELETE(material_);
 }
 
+
+}

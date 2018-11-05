@@ -1,6 +1,6 @@
 #include "math.h"
 
-namespace engine_math {
+namespace engine {
 	inline void Matrix::Identity()
 	{
 		float *f = (float*)&this->_11;

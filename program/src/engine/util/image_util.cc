@@ -1,5 +1,8 @@
 #include "image_util.h"
 
+namespace engine {
+
+
 bool ImageUtil::Load(const char* file_name, ImageUtil::Data& result){
 
 	string full_path = g_file_util->GetTextureFolder() + file_name;
@@ -111,4 +114,7 @@ ImageUtil::Type ImageUtil::GetType(const char* file_name){
 	}
 	 
 	return ImageUtil::INVALID;
+}
+
+
 }

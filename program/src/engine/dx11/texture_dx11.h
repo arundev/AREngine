@@ -4,6 +4,9 @@
 #include "../engine_pch.h"
 #include "../mesh/texture.h"
 
+
+namespace engine {
+
 class TextureDx11 : public Texture
 {
 public:
@@ -22,5 +25,8 @@ private:
 	ID3D11ShaderResourceView* d3d_texture_view_;
 	ID3D11SamplerState* texture_samper_state_;
 };
+
+
+}
 
 #endif // !ENGINE_DX11_TEXTURE_H

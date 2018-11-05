@@ -4,6 +4,7 @@
 #include <d3dx10math.h> 
 #include "../engine_pch.h"
 
+namespace engine {
 
 void MatrixToDx11(const Matrix* src, D3DXMATRIX* dst)
 {
@@ -49,4 +50,6 @@ void MatrixFromDx11(const D3DXMATRIX* src, Matrix* dst)
 	dst->_42 = src->_42;
 	dst->_43 = src->_43;
 	dst->_44 = src->_44;
+}
+
 }

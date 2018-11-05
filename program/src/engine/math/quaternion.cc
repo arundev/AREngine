@@ -1,7 +1,7 @@
 
 #include "math.h"
 
-namespace engine_math {
+namespace engine {
 
 
 float Quaternion::GetMagnitude(void) {

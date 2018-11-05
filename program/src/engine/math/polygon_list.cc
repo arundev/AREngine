@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "math.h"
 
-namespace engine_math {
+namespace engine {
 
 
 PolygonList::PolygonList(void)

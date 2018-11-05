@@ -4,9 +4,9 @@
 #include <directxmath.h>
 
 using namespace DirectX;
-using namespace engine_math;
 
-/*----------------------------------------------------------------*/
+namespace engine {
+
 BaseCamera::BaseCamera()
 {
 	m_ViewMat.Identity();
@@ -25,43 +25,43 @@ BaseCamera::BaseCamera()
 
 
 }
-/*----------------------------------------------------------------*/
+
 BaseCamera::~BaseCamera()
 {
 
 }
-/*----------------------------------------------------------------*/
-void BaseCamera::GetViewMatrix(Matrix *ViewMat)
+
+void BaseCamera::GetViewMatrix(engine::Matrix *ViewMat)
 {
 	if (!ViewMat)
 		return;
 
-	memcpy(ViewMat, &m_ViewMat, sizeof(Matrix));
+	memcpy(ViewMat, &m_ViewMat, sizeof(engine::Matrix));
 
 }
-/*----------------------------------------------------------------*/
-void BaseCamera::SetPos(Vector &vPos)
+
+void BaseCamera::SetPos(engine::Vector &vPos)
 {
-	memcpy(&m_vPos, &vPos, sizeof(Vector));
+	memcpy(&m_vPos, &vPos, sizeof(engine::Vector));
 }
-/*----------------------------------------------------------------*/
-void BaseCamera::GetPos(Vector *vPos)
+
+void BaseCamera::GetPos(engine::Vector *vPos)
 {
 	if (!vPos)
 		return;
-	memcpy(vPos, &m_vPos, sizeof(Vector));
+	memcpy(vPos, &m_vPos, sizeof(engine::Vector));
 }
-/*----------------------------------------------------------------*/
-void BaseCamera::GetDirection(Vector *vDir, Vector *vUp, Vector *vRight)
+
+void BaseCamera::GetDirection(engine::Vector *vDir, engine::Vector *vUp, engine::Vector *vRight)
 {
 	if (vDir)
-		memcpy(vDir, &m_vDir, sizeof(Vector));
+		memcpy(vDir, &m_vDir, sizeof(engine::Vector));
 
 	if (vUp)
-		memcpy(vUp, &m_vUp, sizeof(Vector));
+		memcpy(vUp, &m_vUp, sizeof(engine::Vector));
 
 	if (vRight)
-		memcpy(vRight, &m_vRight, sizeof(Vector));
+		memcpy(vRight, &m_vRight, sizeof(engine::Vector));
 }
 
 
@@ -73,24 +73,24 @@ FreeCamera::FreeCamera()
 	m_vMoveDirection.Set(0.0f, 0.0f, 1.0f);
 
 }
-/*----------------------------------------------------------------*/
+
 FreeCamera::~FreeCamera()
 {
 }
-/*----------------------------------------------------------------*/
-void FreeCamera::SetMoveDirection(Vector &vMoveDirection)
+
+void FreeCamera::SetMoveDirection(engine::Vector &vMoveDirection)
 {
-	memcpy(&m_vMoveDirection, &vMoveDirection, sizeof(Vector));
+	memcpy(&m_vMoveDirection, &vMoveDirection, sizeof(engine::Vector));
 
 }
-/*----------------------------------------------------------------*/
-void FreeCamera::GetMoveDirection(Vector *vMoveDirection)
+
+void FreeCamera::GetMoveDirection(engine::Vector *vMoveDirection)
 {
 	if (vMoveDirection)
-		memcpy(vMoveDirection, &m_vMoveDirection, sizeof(Vector));
+		memcpy(vMoveDirection, &m_vMoveDirection, sizeof(engine::Vector));
 
 }
-/*----------------------------------------------------------------*/
+
 void FreeCamera::GetRotAngle(float *fRotX, float *fRotY, float *fRotZ)
 {
 	if (fRotX)
@@ -100,14 +100,14 @@ void FreeCamera::GetRotAngle(float *fRotX, float *fRotY, float *fRotZ)
 	if (fRotZ)
 		*fRotZ = m_fRotZ;
 }
-/*----------------------------------------------------------------*/
+
 void FreeCamera::SetRotAngle(float fRotX, float fRotY, float fRotZ)
 {
 	m_fRotX = fRotX;
 	m_fRotY = fRotY;
 	m_fRotZ = fRotZ;
 }
-/*----------------------------------------------------------------*/
+
 void FreeCamera::SetRotAngleDelta(float fRotXDelta, float fRotYDelta, float fRotZDelta)
 {
 
@@ -130,12 +130,12 @@ void FreeCamera::SetRotAngleDelta(float fRotXDelta, float fRotYDelta, float fRot
 	else if (m_fRotZ < -RT2PI) 
 		m_fRotZ += RT2PI;
 }
-/*----------------------------------------------------------------*/
+
 void FreeCamera::SetMoveDelta(float vMoveDelta)
 {
 	m_vPos += m_vMoveDirection * vMoveDelta;
 }
-/*----------------------------------------------------------------*/
+
 
 void FreeCamera::Update()
 {
@@ -161,4 +161,7 @@ void FreeCamera::Update()
 	m_ViewMat._42 = -(m_vUp * m_vPos);
 	m_ViewMat._43 = -(m_vDir * m_vPos);
 	m_ViewMat._44 = 1.0f;
+}
+
+
 }

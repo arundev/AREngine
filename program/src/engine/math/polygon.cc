@@ -2,7 +2,7 @@
 #include "math.h"
 
 
-namespace engine_math {
+namespace engine {
 
 
 Polygon::Polygon(void) 

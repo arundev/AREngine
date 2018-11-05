@@ -2,6 +2,9 @@
 #include "log.h"
 #include "file_util.h"
 
+namespace engine {
+
+
 bool Log::Init(){
 	FileUtil fs;
 	std::string filename = fs.GetLogFolder() + "\\Log.txt";
@@ -46,4 +49,6 @@ bool Log::Write( std::string& TextString )
 bool Log::WriteSeparater( ){
 	Write("------------------------------------------------------------");
 	return( true );
+}
+
 }

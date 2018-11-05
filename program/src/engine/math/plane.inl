@@ -1,7 +1,7 @@
 #include "math.h"
 
 
-namespace engine_math {
+namespace engine {
 
 	inline void Plane::Set(const Vector &vN, const Vector &vP)
 	{

@@ -2,7 +2,7 @@
 #pragma once
 #include "math.h"
 
-namespace engine_math
+namespace engine
 {
 	BOOL gIsUseASM = FALSE;             //  «∑Ò π”√ASM
 

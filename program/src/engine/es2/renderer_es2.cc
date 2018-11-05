@@ -1,5 +1,8 @@
 #include "renderer_es2.h"
 
+namespace engine {
+
+
 RendererEs2::RendererEs2(){
 
 }
@@ -192,4 +195,7 @@ GLint RendererEs2::LoadShader(GLenum type, const char *shaderSrc){
 	}
 
 	return shader;
+}
+
+
 }

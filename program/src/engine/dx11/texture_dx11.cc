@@ -4,6 +4,9 @@
 #include <WICTextureLoader.h>
 #include <D3DX11tex.h>
 
+namespace engine {
+
+
 TextureDx11::TextureDx11():
 d3d_texture_(NULL),
 d3d_texture_view_(NULL),
@@ -134,4 +137,7 @@ void TextureDx11::DoFree(){
 	SAFE_RELEASE(texture_samper_state_);
 	SAFE_RELEASE(d3d_texture_);
 	SAFE_RELEASE(d3d_texture_view_);
+}
+
+
 }

@@ -3,6 +3,9 @@
 #include "../camera/camera.h"
 #include "../dx11/material_dx11.h"
 
+namespace engine {
+
+
 Material::Material() :
 base_map_(NULL),
 normal_map_(NULL),
@@ -73,4 +76,7 @@ void Material::Free(){
 
 void Material::Apply(){
 	DoApply();
+}
+
+
 }

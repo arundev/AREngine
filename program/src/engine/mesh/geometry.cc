@@ -1,6 +1,9 @@
 #include "geometry.h"
 #include "../dx11/geometry_dx11.h"
 
+namespace engine {
+
+
 Geometry::Geometry() :
 vertex_data_(NULL),
 index_data_(NULL)
@@ -36,4 +39,7 @@ void Geometry::SetDataSteam(){
 
 void Geometry::Flush(){
 	DoFlush();
+}
+
+
 }

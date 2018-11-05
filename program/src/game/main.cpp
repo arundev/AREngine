@@ -6,6 +6,8 @@
 #include "model_table.h"
 #include "model_loader.h"
 
+using namespace engine;
+
 int main(int argc, char *argv[]){
 	CreateWnd(800, 600, "hello arun");
 	AppInit();
@@ -13,7 +15,7 @@ int main(int argc, char *argv[]){
 }
 
 void AppInit(){
-	g_engine = new Engine();
+	g_engine = new engine::Engine();
 	Renderer::Window param;
 	param.width_ = 800;
 	param.height_ = 600;
@@ -31,7 +33,7 @@ void AppInit(){
 	/*
 		test polygon
 	*/
-	auto mesh = Mesh::CreateTriangle();
+	auto mesh = engine::Mesh::CreateTriangle();
 	g_engine->addOtherMesh(mesh);
 
 	/*
@@ -40,7 +42,7 @@ void AppInit(){
 	//ModelTable model_table;
 	std::string path = g_file_util->GetConfigFolder() + "model.csv";
 	ModelTable::Instance().Init(path.c_str());
-	std::vector<Mesh*> meshes;
+	std::vector<engine::Mesh*> meshes;
 	//AssimpUtil::LoadFile("models-nonbsd/FBX/2013_ASCII/pyramob.fbx", meshes);
 	//AssimpUtil::LoadFile("models-nonbsd/X/dwarf.x", meshes);
 	//AssimpUtil::LoadFile("Walker.ms3d", meshes);
@@ -49,7 +51,9 @@ void AppInit(){
 	/*
 		test scene
 	*/
-	auto scene = engine_scene::Scene::create("models-nonbsd/X/dwarf.x");
+	auto scene = engine::Scene::create("models-nonbsd/X/dwarf.x");
+	//auto scene = engine_scene::Scene::create("Male101.FBX");
+	//auto scene = engine_scene::Scene::create("crytek-sponza/crytek-sponza/sponza.obj");
 	g_engine->setCurrentScene(scene);
 }
 

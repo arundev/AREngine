@@ -4,6 +4,9 @@
 #include "../engine_pch.h"
 #include "texture.h"
 
+namespace engine {
+
+
 class Material
 {
 public:
@@ -52,5 +55,7 @@ protected:
 	Texture* specular_map_;
 };
 
+
+}
 
 #endif // !ENGINE_MODEL_MATERIAL_H

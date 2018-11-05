@@ -1,5 +1,8 @@
 #include "renderer.h"
 
+
+namespace engine {
+
 Renderer::Renderer()
 {
 
@@ -25,3 +28,4 @@ bool Renderer::Init(const Window& param)
 	return DoInit();
 }
 
+}

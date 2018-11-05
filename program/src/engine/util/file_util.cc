@@ -2,6 +2,9 @@
 #include "file_util.h"
 #include <shlobj.h>
 
+namespace engine {
+
+
 FileUtil::FileUtil()
 {
 }
@@ -217,7 +220,7 @@ std::string FileUtil::getFileName(const std::string& path) {
 		return "";
 	}
 
-	std::string path2 = engine_util::StringReplace(path, "\\", "/");
+	std::string path2 = engine::StringReplace(path, "\\", "/");
 	auto pos = path2.find_last_of("/");
 	if (pos != std::string::npos) {
 		return path2.substr(pos+1);
@@ -231,7 +234,7 @@ std::string FileUtil::getFileNameWithoutExtension(const std::string& path) {
 		return "";
 	}
 
-	std::string path2 = engine_util::StringReplace(path, "\\", "/");
+	std::string path2 = engine::StringReplace(path, "\\", "/");
 	auto pos = path2.find_first_of('/');
 	auto pos2 = path2.find_first_of('.');
 	if (pos != std::string::npos) {
@@ -239,4 +242,7 @@ std::string FileUtil::getFileNameWithoutExtension(const std::string& path) {
 	}
 
 	return "";
+}
+
+
 }

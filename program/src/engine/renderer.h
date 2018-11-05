@@ -3,13 +3,22 @@
 
 #include "engine_pch.h"
 
+namespace engine{
+
 class Renderer{
 public:
 	Renderer();
 	~Renderer();
 
-	enum EType{
+	enum FillMode {
+		kFillModeWireframe,
+		kFillModeSolide,
+	};
 
+	enum CullMode{
+		kCullModeNone,
+		kCullModeFront,
+		kCullModeBack
 	};
 
 	struct Window{
@@ -31,7 +40,7 @@ public:
 
 	virtual bool Init(const Renderer::Window& param);
 	virtual void Update() = 0;
-	virtual void PreRender(const engine_math::Vector& clear_color) = 0;
+	virtual void PreRender(const engine::Vector& clear_color) = 0;
 	virtual void Render() = 0;
 	virtual void PostRender() = 0;
 	virtual void Free() = 0;
@@ -41,12 +50,17 @@ public:
 	virtual void BeginEvent(const char* name) { ; }
 	virtual void EndEvent() { ; }
 
-	const engine_math::Matrix& world_mat()const{ return world_mat_; }
+	const engine::Matrix& world_mat()const{ return world_mat_; }
 	void set_world_mat(Matrix& mat) { world_mat_ = mat; }
-	const engine_math::Matrix& view_mat()const{ return view_mat_; }
+	const engine::Matrix& view_mat()const{ return view_mat_; }
 	void set_view_mat(Matrix& mat) { view_mat_ = mat; }
-	const engine_math::Matrix& projection_mat()const{ return projection_mat_; }
-	void set_projection_mat(engine_math::Matrix& mat) { projection_mat_ = mat; }
+	const engine::Matrix& projection_mat()const{ return projection_mat_; }
+	void set_projection_mat(engine::Matrix& mat) { projection_mat_ = mat; }
+
+	const Renderer::FillMode get_fill_mode()const { return fill_mode_; }
+	void set_fill_mode(Renderer::FillMode mode_) { fill_mode_ = mode_; }
+	const Renderer::CullMode get_cull_mode()const { return cull_mode_; }
+	void set_cull_mode(Renderer::CullMode mode_) { cull_mode_ = mode_; }
 
 protected:
 	virtual bool DoInit() = 0;
@@ -61,10 +75,15 @@ protected:
 	float screen_depth_;
 	float screen_near_;	
 
-	engine_math::Matrix world_mat_;
-	engine_math::Matrix view_mat_;
-	engine_math::Matrix projection_mat_;
+	Renderer::FillMode fill_mode_;
+	Renderer::CullMode cull_mode_;
+
+	engine::Matrix world_mat_;
+	engine::Matrix view_mat_;
+	engine::Matrix projection_mat_;
 
 };
+
+}
 
 #endif // !ENGINE_RENDERER_H

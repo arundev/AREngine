@@ -1,6 +1,6 @@
 #include "math.h"
 
-namespace engine_math {
+namespace engine {
 
 	inline void Ray::Set(Vector vcOrig, Vector vcDir)
 	{

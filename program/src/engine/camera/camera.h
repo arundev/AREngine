@@ -3,6 +3,8 @@
 
 #include "../engine_pch.h"
 
+namespace engine {
+
 class BaseCamera
 {
 public:
@@ -13,21 +15,21 @@ public:
 	virtual void Update() = 0;
 	virtual void Free() { ; }
 
-	void GetViewMatrix(Matrix *ViewMat);
-	void GetDirection(Vector *vDir, Vector *vUp, Vector *vRight);
-	void SetPos(Vector &vPos);
-	void GetPos(Vector *vPos);
+	void GetViewMatrix(engine::Matrix *ViewMat);
+	void GetDirection(engine::Vector *vDir, engine::Vector *vUp, engine::Vector *vRight);
+	void SetPos(engine::Vector &vPos);
+	void GetPos(engine::Vector *vPos);
 
 protected:
-	Matrix m_ViewMat;
+	engine::Matrix m_ViewMat;
 
 	float m_fRotX; // 在局部坐标系下的Euler角(旋转角)
 	float m_fRotY;
 	float m_fRotZ;
-	Vector m_vPos;
-	Vector m_vDir;
-	Vector m_vUp;
-	Vector m_vRight;
+	engine::Vector m_vPos;
+	engine::Vector m_vDir;
+	engine::Vector m_vUp;
+	engine::Vector m_vRight;
 };
 
 class FreeCamera : public BaseCamera
@@ -38,15 +40,17 @@ public:
 
 	virtual void Update();
 
-	void SetMoveDirection(Vector &vMoveDirection);
-	void GetMoveDirection(Vector *vMoveDirection);
+	void SetMoveDirection(engine::Vector &vMoveDirection);
+	void GetMoveDirection(engine::Vector *vMoveDirection);
 	void GetRotAngle(float *fRotX, float *fRotY, float *fRotZ);
 	void SetRotAngle(float fRotX, float fRotY, float fRotZ);
 	void SetRotAngleDelta(float fRotXDelta, float fRotYDelta, float fRotZDelta);
 	void SetMoveDelta(float fMoveDelta);
 
 private:
-	Vector m_vMoveDirection;
+	engine::Vector m_vMoveDirection;
 };
+
+}
 
 #endif
