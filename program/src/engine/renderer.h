@@ -64,6 +64,7 @@ public:
 
 protected:
 	virtual bool DoInit() = 0;
+	virtual void ApplyRenderState() { ; }
 
 protected:
 	bool full_screen_;

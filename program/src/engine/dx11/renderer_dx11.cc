@@ -64,7 +64,7 @@ bool RendererDx11::DoInit(){
 	if (FAILED(hr)){
 		return false;
 	}
-	for (int i = 0; i < num_mode; i++){
+	for (unsigned int i = 0; i < num_mode; i++){
 		if (display_mode_list[i].Width == (unsigned int)screen_width_){
 			numerator = display_mode_list[i].RefreshRate.Numerator;
 			denominator = display_mode_list[i].RefreshRate.Denominator;
@@ -234,12 +234,46 @@ bool RendererDx11::DoInit(){
 	return true;
 }
 
+void RendererDx11::ApplyRenderState()
+{
+	switch (fill_mode_)
+	{
+	case FillMode::kFillModeSolide:
+		raster_state_desc_.FillMode = D3D11_FILL_MODE::D3D11_FILL_SOLID;
+		break;
+	case FillMode::kFillModeWireframe:
+		raster_state_desc_.FillMode = D3D11_FILL_MODE::D3D11_FILL_WIREFRAME;
+		break;
+	default:
+		raster_state_desc_.FillMode = D3D11_FILL_MODE::D3D11_FILL_SOLID;
+		break;
+	}
+
+	switch (cull_mode_){
+	case CullMode::kCullModeNone:
+		raster_state_desc_.CullMode = D3D11_CULL_MODE::D3D11_CULL_NONE;
+		break;
+	case CullMode::kCullModeBack:
+		raster_state_desc_.CullMode = D3D11_CULL_MODE::D3D11_CULL_BACK;
+		break;
+	case CullMode::kCullModeFront:
+		raster_state_desc_.CullMode = D3D11_CULL_MODE::D3D11_CULL_FRONT;
+		break;
+	default:
+		raster_state_desc_.CullMode = D3D11_CULL_MODE::D3D11_CULL_BACK;
+		break;
+	}
+
+	device_->CreateRasterizerState(&raster_state_desc_, &raster_state_);
+	device_context_->RSSetState(raster_state_);
+}
 
 void RendererDx11::Update(){
 	
 }
 
 void RendererDx11::PreRender(const Vector& clear_color){
+	ApplyRenderState();
 	BeginScene(clear_color.x, clear_color.y, clear_color.z, 1);
 }
 

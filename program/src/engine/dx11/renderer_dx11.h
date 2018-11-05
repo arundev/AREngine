@@ -38,6 +38,7 @@ public:
 
 protected:
 	virtual bool DoInit();
+	void ApplyRenderState();
 
 private:
 	void BeginScene(float red, float green, float blue, float alpha);

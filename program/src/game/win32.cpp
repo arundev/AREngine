@@ -178,6 +178,24 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 			g_camera->GetViewMatrix(&matView);
 			break;
 		}
+		case VK_C:
+		{
+			int cull_state = (int)g_renderer->get_cull_mode();
+			cull_state += 1;
+			cull_state = cull_state <= 2 ? cull_state : 0;
+			g_renderer->set_cull_mode((Renderer::CullMode)cull_state);
+		}
+		break;
+		case VK_F:
+		{
+			if (g_renderer->get_fill_mode() == Renderer::FillMode::kFillModeSolide) {
+				g_renderer->set_fill_mode(Renderer::FillMode::kFillModeWireframe);
+			}
+			else {
+				g_renderer->set_fill_mode(Renderer::FillMode::kFillModeSolide);
+			}
+		}
+		break;
 		case VK_D:
 		{
 			Vector vcPosCamera;

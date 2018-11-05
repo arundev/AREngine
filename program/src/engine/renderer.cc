@@ -25,6 +25,10 @@ bool Renderer::Init(const Window& param)
 	screen_depth_ = 10000.0f;
 	screen_near_ = 0.1f;
 
+
+	fill_mode_ = Renderer::FillMode::kFillModeSolide;
+	cull_mode_ = Renderer::CullMode::kCullModeBack;
+
 	return DoInit();
 }
 
