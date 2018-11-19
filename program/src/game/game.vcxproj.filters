@@ -43,11 +43,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\bin\res\shader\color.ps">
+    <FxCompile Include="..\..\bin\res\shader\color.ps">
       <Filter>res\shader</Filter>
-    </None>
-    <None Include="..\..\bin\res\shader\color.vs">
+    </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\color.vs">
       <Filter>res\shader</Filter>
-    </None>
+    </FxCompile>
   </ItemGroup>
 </Project>

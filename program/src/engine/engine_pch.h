@@ -73,6 +73,7 @@ namespace engine {
 
 	class Engine;
 	class Renderer;
+	class BaseCamera;
 	class FreeCamera;
 	class CameraClass;
 	class Log;

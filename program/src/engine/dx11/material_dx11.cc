@@ -92,7 +92,7 @@ bool MaterialDx11::CreateShader(){
 	ID3D10Blob* pixel_buffer = NULL;
 
 	std::string full_path = g_file_util->GetShaderFolder() + vs_file_name_;
-	result = D3DX11CompileFromFile(full_path.c_str(), 0, 0, "Main", "vs_5_0", 0, 0, 0, &vertex_buffer, &error_msg, 0);
+	result = D3DX11CompileFromFile(full_path.c_str(), 0, 0, "Main", "vs_5_0", 1 << 0, 0, 0, &vertex_buffer, &error_msg, 0);
 	if (FAILED(result))
 	{
 		const char* error = (char*)error_msg->GetBufferPointer();
@@ -100,7 +100,7 @@ bool MaterialDx11::CreateShader(){
 	}
 
 	full_path = g_file_util->GetShaderFolder() + ps_file_name_;
-	result = D3DX11CompileFromFile(full_path.c_str(), 0, 0, "Main", "ps_5_0", 0, 0, 0, &pixel_buffer, &error_msg, 0);
+	result = D3DX11CompileFromFile(full_path.c_str(), 0, 0, "Main", "ps_5_0", 1 << 0, 0, 0, &pixel_buffer, &error_msg, 0);
 	if (FAILED(result))
 	{
 		const char* error = (char*)(error_msg->GetBufferPointer());
@@ -126,7 +126,7 @@ bool MaterialDx11::CreateShader(){
 
 	poloygon_layout[0].SemanticName = "POSITION";
 	poloygon_layout[0].SemanticIndex = 0;
-	poloygon_layout[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
+	poloygon_layout[0].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
 	poloygon_layout[0].InputSlot = 0;
 	poloygon_layout[0].AlignedByteOffset = 0;
 	poloygon_layout[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
@@ -142,7 +142,7 @@ bool MaterialDx11::CreateShader(){
 
 	poloygon_layout[2].SemanticName = "TEXCOORD";
 	poloygon_layout[2].SemanticIndex = 0;
-	poloygon_layout[2].Format = DXGI_FORMAT_R32G32_FLOAT;
+	poloygon_layout[2].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
 	poloygon_layout[2].InputSlot = 0;
 	poloygon_layout[2].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
 	poloygon_layout[2].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;

@@ -98,12 +98,7 @@ bool TextureDx11::DoInit() {
 	//if (FAILED(hr)) {
 	//	return false;
 	//}
-	HRESULT hr = D3DX11CreateShaderResourceViewFromFile(device,
-		full_path.c_str(),
-		0,
-		0,
-		&d3d_texture_view_,
-		0);
+	HRESULT hr = D3DX11CreateShaderResourceViewFromFile(device, full_path.c_str(), 0, 0, &d3d_texture_view_, 0);
 	if (FAILED(hr)) {
 		hr = GetLastError();
 		return false;
@@ -117,11 +112,11 @@ bool TextureDx11::DoInit() {
 	desc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
 	desc.MipLODBias = 0.0f;
 	desc.MaxAnisotropy = 1;
-	desc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
-	desc.BorderColor[0] = 0;
-	desc.BorderColor[1] = 0;
-	desc.BorderColor[2] = 0;
-	desc.BorderColor[3] = 0;
+	//desc.ComparisonFunc = D3D11_COMPARISON_NEVER;
+	//desc.BorderColor[0] = 0;
+	//desc.BorderColor[1] = 0;
+	//desc.BorderColor[2] = 0;
+	//desc.BorderColor[3] = 0;
 	desc.MinLOD = 0;
 	desc.MaxLOD = D3D11_FLOAT32_MAX;
 	hr = device->CreateSamplerState(&desc, &texture_samper_state_);

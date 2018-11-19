@@ -10,7 +10,7 @@ struct VertexInputType
 {
     float4 position : POSITION;
 	float4 color : COLOR;
-	float2 tex: TEXCOORD0;
+	float4 tex: TEXCOORD0;
 };
 
 struct PixelInputType
@@ -36,7 +36,7 @@ PixelInputType Main(VertexInputType input)
     
 	// Store the input color for the pixel shader to use.
     output.color = input.color;
-	output.tex = input.tex;
+	output.tex = float2(input.tex.x, input.tex.y);
     
     return output;
 }

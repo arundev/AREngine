@@ -116,19 +116,19 @@ void FreeCamera::SetRotAngleDelta(float fRotXDelta, float fRotYDelta, float fRot
 	m_fRotZ += fRotZDelta;
 
 	if (m_fRotX > RT2PI)
-		m_fRotX -= RT2PI;
+		m_fRotX -= (float)RT2PI;
 	else if(m_fRotX < -RT2PI) 
-		m_fRotX += RT2PI;
+		m_fRotX += (float)RT2PI;
 
 	if (m_fRotY > RT2PI)
-		m_fRotY -= RT2PI;
+		m_fRotY -= (float)RT2PI;
 	else if
-		(m_fRotY < -RT2PI) m_fRotY += RT2PI;
+		(m_fRotY < -RT2PI) m_fRotY += (float)RT2PI;
 
 	if (m_fRotZ > RT2PI)
-		m_fRotZ -= RT2PI;
+		m_fRotZ -= (float)RT2PI;
 	else if (m_fRotZ < -RT2PI) 
-		m_fRotZ += RT2PI;
+		m_fRotZ += (float)RT2PI;
 }
 
 void FreeCamera::SetMoveDelta(float vMoveDelta)

@@ -33,8 +33,8 @@ void AppInit(){
 	/*
 		test polygon
 	*/
-	auto mesh = engine::Mesh::CreateTriangle();
-	g_engine->addOtherMesh(mesh);
+	//auto mesh = engine::Mesh::CreateTriangle();
+	//g_engine->addOtherMesh(mesh);
 
 	/*
 		test model
@@ -51,9 +51,9 @@ void AppInit(){
 	/*
 		test scene
 	*/
-	auto scene = engine::Scene::create("models-nonbsd/X/dwarf.x");
-	//auto scene = engine_scene::Scene::create("Male101.FBX");
-	//auto scene = engine_scene::Scene::create("crytek-sponza/crytek-sponza/sponza.obj");
+	//auto scene = engine::Scene::create("models-nonbsd/X/dwarf.x");
+	auto scene = engine::Scene::create("models-nonbsd/FBX/2013_ASCII/jeep1.fbx");
+	//auto scene = engine::Scene::create("crytek-sponza/crytek-sponza/sponza.obj");
 	g_engine->setCurrentScene(scene);
 }
 

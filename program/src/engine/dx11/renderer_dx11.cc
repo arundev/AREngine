@@ -159,11 +159,12 @@ bool RendererDx11::DoInit(){
 	depth_buffer_desc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
 	depth_buffer_desc.CPUAccessFlags = 0;
 	depth_buffer_desc.MiscFlags = 0;
-	D3D11_DEPTH_STENCIL_DESC depth_stencil_desc;
 	hr = device_->CreateTexture2D(&depth_buffer_desc, NULL, &depth_stencil_buffer_);
 	if (FAILED(hr)){
 		return false;
 	}
+
+	D3D11_DEPTH_STENCIL_DESC depth_stencil_desc;
 	ZeroMemory(&depth_stencil_desc, sizeof(depth_stencil_desc));  
 	depth_stencil_desc.DepthEnable = true;
 	depth_stencil_desc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
@@ -196,7 +197,6 @@ bool RendererDx11::DoInit(){
 	}
 
 	// create and set rasterize state
-	D3D11_VIEWPORT viewport;
 	float field_of_view, screen_aspect;
 	device_context_->OMSetRenderTargets(1, &render_target_view_, depth_stencil_view_);
 	raster_state_desc_.AntialiasedLineEnable = false;
@@ -215,7 +215,7 @@ bool RendererDx11::DoInit(){
 	}
 	device_context_->RSSetState(raster_state_);
 
-	// create view port and projection matrix
+	D3D11_VIEWPORT viewport;
 	viewport.Width = (float)screen_width_;
 	viewport.Height = (float)screen_width_;
 	viewport.MinDepth = 0.0f;
@@ -326,12 +326,14 @@ void RendererDx11::Free(){
 	SAFE_RELEASE(depth_stencil_buffer_);
 	SAFE_RELEASE(depth_stencil_state_);
 	SAFE_RELEASE(depth_stencil_view_);
-	SAFE_RELEASE(device_);
+
 	
 	SAFE_RELEASE(defined_annotation_);
 	if (debug_ != NULL){
 		debug_->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL);
 	}
+
+	SAFE_RELEASE(device_);
 	SAFE_RELEASE(debug_);
 }
 

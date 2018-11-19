@@ -89,8 +89,8 @@ Mesh* Mesh::CreatMesh(const std::string& path,
 
 	std::string directory = FileUtil::getDirectory(path);
 	auto baseTexPath = directory + "/" + baseTex;
-	auto normalTexPath = directory + "/" + baseTex;
-	auto specularTexPath = directory + "/" + baseTex;
+	auto normalTexPath = directory + "/" + normalTex;
+	auto specularTexPath = directory + "/" + specularTex;
 	mesh->material()->SetBaseMap(baseTexPath.c_str());
 	mesh->material()->SetNormalMap(normalTexPath.c_str());
 	mesh->material()->SetSpecularMap(specularTexPath.c_str());
