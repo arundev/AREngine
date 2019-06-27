@@ -15,10 +15,10 @@ public:
 	virtual void Update() = 0;
 	virtual void Free() { ; }
 
-	void GetViewMatrix(engine::Matrix *ViewMat);
-	void GetDirection(engine::Vector *vDir, engine::Vector *vUp, engine::Vector *vRight);
-	void SetPos(engine::Vector &vPos);
-	void GetPos(engine::Vector *vPos);
+	virtual void GetViewMatrix(engine::Matrix *ViewMat);
+	virtual void GetDirection(engine::Vector *vDir, engine::Vector *vUp, engine::Vector *vRight);
+	virtual void SetPos(engine::Vector &vPos);
+	virtual void GetPos(engine::Vector *vPos);
 
 protected:
 	engine::Matrix m_ViewMat;

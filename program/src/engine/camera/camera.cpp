@@ -21,9 +21,6 @@ BaseCamera::BaseCamera()
 	m_vDir.Set(0.0f, 0.0f, 1.0f);
 	m_vUp.Set(0.0f, 1.0f, 0.0f);
 	m_vRight.Set(1.0f, 0.0f, 0.0f);
-
-
-
 }
 
 BaseCamera::~BaseCamera()
