@@ -52,8 +52,10 @@ void AppInit(){
 		test scene
 	*/
 	//auto scene = engine::Scene::create("models-nonbsd/X/dwarf.x");
+	//auto scene = engine::Scene::create("models-nonbsd/FBX/2013_ASCII/jeep1.fbx");
 	auto scene = engine::Scene::create("models-nonbsd/FBX/2013_ASCII/jeep1.fbx");
 	//auto scene = engine::Scene::create("crytek-sponza/crytek-sponza/sponza.obj");
+
 	g_engine->setCurrentScene(scene);
 }
 

@@ -1,6 +1,9 @@
 
 #include "file_util.h"
 #include <shlobj.h>
+#include <direct.h>
+#include <iostream>
+#include <filesystem>
 
 namespace engine {
 
@@ -198,6 +201,15 @@ bool FileUtil::FileIsNewer(const std::string& file1, const std::string& file2)
 	}
 
 	return( false );
+}
+
+std::string FileUtil::getAbsolutePath(const std::string& path) {
+	char buff[256];
+	_getcwd(buff, 256);
+
+	auto str = getDirectory(path);
+
+	return str;
 }
 
 std::string FileUtil::getDirectory(const std::string& path){

@@ -101,6 +101,8 @@
       <TreatWarningAsError>false</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>WIN32;_DEBUG;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_BOOST_WORKAROUND;ASSIMP_BUILD_NO_C4D_IMPORTER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>
+      </LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -123,6 +125,8 @@
       <TreatWarningAsError>false</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>
+      </LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -145,6 +149,8 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\engine;$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\math;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;%(AdditionalIncludeDirectories);..\extern\DirectXTK\Inc</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>
+      </LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -163,6 +169,8 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\engine;$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\dxsdk\include;$(SolutionDir)..\lib\math;..\extern\assimp\build;..\extern\assimp\include;..\extern\assimp\code\BoostWorkaround;..\extern\assimp\contrib\zlib;..\extern\assimp\build\contrib\zlib;..\extern\assimp\code;%(AdditionalIncludeDirectories);..\extern\DirectXTK\Inc</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>
+      </LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

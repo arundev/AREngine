@@ -351,6 +351,8 @@ void RendererDx11::SetWireframe(bool b) {
 		raster_state_desc_.FillMode = D3D11_FILL_SOLID;
 	}
 
+	raster_state_desc_.FillMode = D3D11_FILL_WIREFRAME;
+
 	device_->CreateRasterizerState(&raster_state_desc_, &raster_state_);
 	device_context_->RSSetState(raster_state_);
 }

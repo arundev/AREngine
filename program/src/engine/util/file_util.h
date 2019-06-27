@@ -36,6 +36,7 @@ public:
 	static bool FileExists(const std::string& file);
 	bool FileIsNewer(const std::string& file1, const std::string& file2);
 
+	static std::string getAbsolutePath(const std::string& path);
 	static std::string getDirectory(const std::string& path);
 	static std::string getFileName(const std::string& path);
 	static std::string getFileNameWithoutExtension(const std::string& path);

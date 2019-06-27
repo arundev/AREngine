@@ -101,12 +101,12 @@ engine::Mesh* AssimpUtil::CreateMesh(const std::string& filePath, aiMesh* src_me
 		vertex_list[i].position = engine::Vector(src_mesh->mVertices[i].x, 
 			src_mesh->mVertices[i].y, 
 			src_mesh->mVertices[i].z);
-		//// normal
-		//if (src_mesh->mNormals){
-		//	vertex_list[i].normal = engine::Vector(src_mesh->mNormals[i].x,
-		//		src_mesh->mNormals[i].y,
-		//		src_mesh->mNormals[i].z);
-		//}
+		// normal
+		if (src_mesh->mNormals){
+			vertex_list[i].normal = engine::Vector(src_mesh->mNormals[i].x,
+				src_mesh->mNormals[i].y,
+				src_mesh->mNormals[i].z);
+		}
 		// color
 		if (src_mesh->HasVertexColors(0)){
 			vertex_list[i].color = engine::Color(src_mesh->mColors[i][0].r,
@@ -114,30 +114,31 @@ engine::Mesh* AssimpUtil::CreateMesh(const std::string& filePath, aiMesh* src_me
 				src_mesh->mColors[i][0].b,
 				src_mesh->mColors[i][0].a);
 		}
-		//// tangent
-		//if (src_mesh->mTangents){
-		//	vertex_list[i].tangent = engine::Vector(src_mesh->mTangents[i].x,
-		//		src_mesh->mTangents[i].y,
-		//		src_mesh->mTangents[i].z);
-		//}
-		//// bitangent
-		//if (src_mesh->mBitangents){
-		//	vertex_list[i].bitangent = engine::Vector(src_mesh->mBitangents[i].x,
-		//		src_mesh->mBitangents[i].y,
-		//		src_mesh->mBitangents[i].z);
-		//}
+		// tangent
+		if (src_mesh->mTangents){
+			vertex_list[i].tangent = engine::Vector(src_mesh->mTangents[i].x,
+				src_mesh->mTangents[i].y,
+				src_mesh->mTangents[i].z);
+		}
+		// bitangent
+		if (src_mesh->mBitangents){
+			vertex_list[i].bitangent = engine::Vector(src_mesh->mBitangents[i].x,
+				src_mesh->mBitangents[i].y,
+				src_mesh->mBitangents[i].z);
+		}
+		 
 		// tex coordinate
 		if (src_mesh->HasTextureCoords(0)){
 			vertex_list[i].texture1 = engine::Vector(src_mesh->mTextureCoords[0][i].x, src_mesh->mTextureCoords[0][i].y, 0.0f);
 		}
-		//if (src_mesh->HasTextureCoords(1)){
-		//	vertex_list[i].texture2 = engine::Vector(src_mesh->mTextureCoords[1][i].x,
-		//		src_mesh->mTextureCoords[1][i].y, 0.0f);
-		//}
-		//// bone indices and weights
-		//if (src_mesh->HasBones()){
-		//	
-		//}
+		if (src_mesh->HasTextureCoords(1)){
+			vertex_list[i].texture2 = engine::Vector(src_mesh->mTextureCoords[1][i].x,
+				src_mesh->mTextureCoords[1][i].y, 0.0f);
+		}
+		// bone indices and weights
+		if (src_mesh->HasBones()){
+			
+		}
 	}
 
 	// index data

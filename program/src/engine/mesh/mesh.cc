@@ -91,6 +91,11 @@ Mesh* Mesh::CreatMesh(const std::string& path,
 	auto baseTexPath = directory + "/" + baseTex;
 	auto normalTexPath = directory + "/" + normalTex;
 	auto specularTexPath = directory + "/" + specularTex;
+
+	std::replace(baseTexPath.begin(), baseTexPath.end(), '\\', '/');
+	std::replace(normalTexPath.begin(), normalTexPath.end(), '\\', '/');
+	std::replace(specularTexPath.begin(), specularTexPath.end(), '\\', '/');
+
 	mesh->material()->SetBaseMap(baseTexPath.c_str());
 	mesh->material()->SetNormalMap(normalTexPath.c_str());
 	mesh->material()->SetSpecularMap(specularTexPath.c_str());
