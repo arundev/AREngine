@@ -88,6 +88,7 @@
       <Filter>render\camera</Filter>
     </ClCompile>
     <ClCompile Include="scene\camera_node.cc" />
+    <ClCompile Include="util\string_util.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="renderer.h">

@@ -98,10 +98,22 @@ bool TextureDx11::DoInit() {
 	//if (FAILED(hr)) {
 	//	return false;
 	//}
+
+	//full_path = "../../bin/res/model/models-nonbsd/FBX/2013_ASCII/jeep1.jpg";
+	//full_path = "../../bin/res/model/crytek-sponza/crytek-sponza/textures/sponza_thorn_diff.tga";
+	//full_path = "../../bin/res/model/crytek-sponza/crytek-sponza/textures/sponza_thorn_diff.png";
 	HRESULT hr = D3DX11CreateShaderResourceViewFromFile(device, full_path.c_str(), 0, 0, &d3d_texture_view_, 0);
 	if (FAILED(hr)) {
-		hr = GetLastError();
-		return false;
+
+		string log = string("error: failed to D3DX11CreateShaderResourceViewFromFile, path = ") + full_path;
+		g_log->Write(log);
+
+		full_path = "../../bin/res/default_texture.png";
+		hr = D3DX11CreateShaderResourceViewFromFile(device, full_path.c_str(), 0, 0, &d3d_texture_view_, 0);
+		if (FAILED(hr)) {
+			hr = GetLastError();
+			return false;
+		}
 	}
 
 	// create texture sampler

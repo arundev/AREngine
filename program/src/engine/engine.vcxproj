@@ -218,6 +218,7 @@
     <ClCompile Include="es2\renderer_es2.cc" />
     <ClCompile Include="util\file_util.cc" />
     <ClCompile Include="util\log.cc" />
+    <ClCompile Include="util\string_util.cc" />
     <ClCompile Include="util\timer.cc" />
   </ItemGroup>
   <ItemGroup>

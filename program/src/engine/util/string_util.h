@@ -45,23 +45,8 @@ namespace engine {
 		return 0;
 	}
 
-	inline std::string StringReplace(const std::string& str, const std::string& src, const std::string& dest) {
-		std::string ret;
-
-		std::string::size_type pos_begin = 0;
-		std::string::size_type pos = str.find(src);
-		while (pos != std::string::npos) {
-			std::cout << "replacexxx:" << pos_begin << " " << pos << "\n";
-			ret.append(str.data() + pos_begin, pos - pos_begin);
-			ret += dest;
-			pos_begin = pos + 1;
-			pos = str.find(src, pos_begin);
-		}
-		if (pos_begin < str.length()) {
-			ret.append(str.begin() + pos_begin, str.end());
-		}
-		return ret;
-	}
+	std::string StringReplace(const std::string& input, const std::string& find, const std::string& replaceWith);
+	std::string FormatFilePath(const std::string& input);
 }
 
 

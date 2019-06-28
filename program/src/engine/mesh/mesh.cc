@@ -88,17 +88,30 @@ Mesh* Mesh::CreatMesh(const std::string& path,
 	}
 
 	std::string directory = FileUtil::getDirectory(path);
-	auto baseTexPath = directory + "/" + baseTex;
-	auto normalTexPath = directory + "/" + normalTex;
-	auto specularTexPath = directory + "/" + specularTex;
 
-	std::replace(baseTexPath.begin(), baseTexPath.end(), '\\', '/');
-	std::replace(normalTexPath.begin(), normalTexPath.end(), '\\', '/');
-	std::replace(specularTexPath.begin(), specularTexPath.end(), '\\', '/');
+	if (!baseTex.empty())
+	{
+		auto baseTexPath = directory + "/" + baseTex;
+		baseTexPath = engine::FormatFilePath(baseTexPath);
+		baseTexPath = engine::StringReplace(baseTexPath, ".tga", ".png");
+		mesh->material()->SetBaseMap(baseTexPath.c_str());
+	}
 
-	mesh->material()->SetBaseMap(baseTexPath.c_str());
-	mesh->material()->SetNormalMap(normalTexPath.c_str());
-	mesh->material()->SetSpecularMap(specularTexPath.c_str());
+	if (!normalTex.empty())
+	{
+		auto normalTexPath = directory + "/" + normalTex;
+		normalTexPath = engine::FormatFilePath(normalTexPath);
+		normalTexPath = engine::StringReplace(normalTexPath, ".tga", ".png");
+		mesh->material()->SetNormalMap(normalTexPath.c_str());
+	}
+
+	if (!specularTex.empty())
+	{
+		auto specularTexPath = directory + "/" + specularTex;
+		specularTexPath = engine::FormatFilePath(specularTexPath);
+		specularTexPath = engine::StringReplace(specularTexPath, ".tga", ".png");
+		mesh->material()->SetSpecularMap(specularTexPath.c_str());
+	}
 
 	return mesh;
 }

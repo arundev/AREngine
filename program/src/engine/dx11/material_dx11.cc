@@ -42,6 +42,8 @@ void MaterialDx11::DoApply(){
 	MatrixBuffer* dataPtr;
 	unsigned int bufferNumber;
 
+	//renderer_dx11->SetWireframe(false);
+
 	result = device_context->Map(matrix_buffer_, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
 	if (FAILED(result))
 	{
