@@ -9,13 +9,14 @@ namespace engine {
 Material::Material() :
 base_map_(NULL),
 normal_map_(NULL),
-specular_map_(NULL){
+specular_map_(NULL),
+transform_(NULL){
 
 }
 
 
 Material::~Material(){
-
+	
 }
 
 Material* Material::Create(){
@@ -29,12 +30,21 @@ Material* Material::Create(){
 
 bool Material::Init(){
 	SetShader();
+	InitTransform();
 	return true;
 }
 
 bool Material::Init(const char* vs, const char* ps){
 	SetShader(vs, ps);
+	InitTransform();
 	return true;
+}
+
+
+void Material::InitTransform(){
+	SAFE_DELETE(transform_);
+	transform_ = new Matrix();
+	transform_->Identity();
 }
 
 bool Material::SetShader(const char* vs /* = NULL */, const char* ps /* = NULL */, const char* gs /* = NULL */){
@@ -72,6 +82,7 @@ void Material::Free(){
 	SAFE_FREE(base_map_);
 	SAFE_FREE(normal_map_);
 	SAFE_FREE(specular_map_);
+	SAFE_DELETE(transform_);
 }
 
 void Material::Apply(){

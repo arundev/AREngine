@@ -49,9 +49,6 @@
     <ClCompile Include="dx11\util_dx11.cc">
       <Filter>render\dx11</Filter>
     </ClCompile>
-    <ClCompile Include="camera\camera.cpp">
-      <Filter>render\camera</Filter>
-    </ClCompile>
     <ClCompile Include="mesh\texture.cc" />
     <ClCompile Include="dx11\geometry_dx11.cc" />
     <ClCompile Include="dx11\material_dx11.cc" />
@@ -67,7 +64,6 @@
     <ClCompile Include="util\assimp\AnimEvaluator.cpp" />
     <ClCompile Include="util\assimp\SceneAnimator.cpp" />
     <ClCompile Include="base\object.cpp" />
-    <ClCompile Include="scene\camera.cc" />
     <ClCompile Include="scene\light.cc" />
     <ClCompile Include="scene\node.cc" />
     <ClCompile Include="util\assimp_util.cc" />
@@ -88,6 +84,10 @@
     <ClCompile Include="math\vector.cpp" />
     <ClCompile Include="math\bsp_tree.cc" />
     <ClCompile Include="math\polygon_list.cc" />
+    <ClCompile Include="camera\camera.cc">
+      <Filter>render\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\camera_node.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="renderer.h">
@@ -137,12 +137,12 @@
     <ClInclude Include="util\timer.h" />
     <ClInclude Include="scene\node.h" />
     <ClInclude Include="base\object.h" />
-    <ClInclude Include="scene\camera.h" />
     <ClInclude Include="scene\light.h" />
     <ClInclude Include="util\csv_parser.h" />
     <ClInclude Include="util\fbx\fbx_importer.h" />
     <ClInclude Include="scene\scene.h" />
     <ClInclude Include="math\math.h" />
+    <ClInclude Include="scene\camera_node.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

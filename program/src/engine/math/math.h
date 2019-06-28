@@ -115,6 +115,7 @@ public:
 
 	Matrix operator * (const Matrix &m)const;
 	Vector operator * (const Vector &vc)const;
+	Matrix& operator = (const Matrix& m);
 
 public:
 	float _11, _12, _13, _14;

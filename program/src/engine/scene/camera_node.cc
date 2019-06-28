@@ -1,4 +1,4 @@
-#include "camera.h"
+#include "camera_node.h"
 
 namespace engine {
 	Camera::Camera() : camera_data_(0){

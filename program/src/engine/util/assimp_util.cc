@@ -73,6 +73,7 @@ bool AssimpUtil::LoadFile(const std::string& file_name, std::vector<engine::Mesh
 		engine::Mesh* mesh = CreateMesh(full_path, root->mMeshes[i], root->mMaterials[mat_index]);
 		if (mesh != NULL)
 		{
+			mesh->SetName(root->mMeshes[i]->mName.C_Str());
 			meshes.push_back(mesh);
 		}
 	}

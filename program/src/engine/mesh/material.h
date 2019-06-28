@@ -22,15 +22,18 @@ public:
 
 	static Material* Create();
 
-	bool Init();
-	bool Init(const char* vs, const char* ps);
-	void Free();
-	void Apply();
+	virtual bool Init();
+	virtual bool Init(const char* vs, const char* ps);
+	virtual void Free();
+	virtual void Apply();
 
 	virtual bool SetShader(const char* vs = NULL, const char* ps = NULL, const char* gs = NULL);
 	virtual bool SetBaseMap(const char* file_name);
 	virtual bool SetNormalMap(const char* file_name);
 	virtual bool SetSpecularMap(const char* file_name);
+
+	void SetWorldTransform(const Matrix& ts) { *transform_ = ts; }
+	Matrix* world_transform()const { return transform_; }
 
 	const string& vs_file_name()const{ return vs_file_name_; }
 	const string& ps_file_name()const{ return ps_file_name_; }
@@ -46,6 +49,8 @@ protected:
 	virtual void DoApply() = 0;
 	virtual bool CreateShader() = 0;
 
+	virtual void InitTransform();
+
 protected:
 	string vs_file_name_;
 	string ps_file_name_;
@@ -53,6 +58,8 @@ protected:
 	Texture* base_map_;
 	Texture* normal_map_;
 	Texture* specular_map_;
+
+	Matrix* transform_;
 };
 
 

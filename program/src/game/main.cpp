@@ -45,16 +45,33 @@ void AppInit(){
 	std::vector<engine::Mesh*> meshes;
 	//AssimpUtil::LoadFile("models-nonbsd/FBX/2013_ASCII/pyramob.fbx", meshes);
 	//AssimpUtil::LoadFile("models-nonbsd/X/dwarf.x", meshes);
+	//AssimpUtil::LoadFile("models-nonbsd/FBX/2013_ASCII/jeep1.fbx", meshes);
 	//AssimpUtil::LoadFile("Walker.ms3d", meshes);
 	//ModelLoader::Instance().Loader(1003, meshes);
+
+
 
 	/*
 		test scene
 	*/
 	//auto scene = engine::Scene::create("models-nonbsd/X/dwarf.x");
 	//auto scene = engine::Scene::create("models-nonbsd/FBX/2013_ASCII/jeep1.fbx");
-	auto scene = engine::Scene::create("models-nonbsd/FBX/2013_ASCII/jeep1.fbx");
-	//auto scene = engine::Scene::create("crytek-sponza/crytek-sponza/sponza.obj");
+	auto scene = engine::Scene::create("crytek-sponza/crytek-sponza/sponza.obj");
+
+	for (auto& m : meshes)
+	{
+		Matrix mat;
+		mat.Identity();
+		float scale = 10.5f;
+		//mat.Scaling(scale, scale, scale);
+		mat.Translate(20, 0.0f, 40.0f);
+		//mat.RotaX(90.0f);
+		//mat.RotaY(90.0f);
+		mat.RotaZ(90.0f);
+		m->SetTransform(mat);
+
+		scene->AddMesh(m);
+	}
 
 	g_engine->setCurrentScene(scene);
 }

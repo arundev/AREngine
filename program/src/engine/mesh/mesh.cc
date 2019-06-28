@@ -116,11 +116,13 @@ bool Mesh::Init(){
 	geometry_ = Geometry::Create();
 	material_ = Material::Create();
 
+	transform_.Identity();
+
 	return true;
 }
 
 void Mesh::Update(float elapse){
-
+	material_->SetWorldTransform(transform_);
 }
 
 void Mesh::Render(){

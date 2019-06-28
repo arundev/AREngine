@@ -29,8 +29,11 @@ public:
 
 	Geometry* geometry(){ return geometry_; }
 	Material* material(){ return material_; }
-
+	const Matrix& transform()const { return transform_; }
+	void SetTransform(const Matrix& ts) { transform_ = ts; }
 	const std::string& getFileDirectory() { return fileDirectory_; }
+	void SetName(const std::string& _name) { name_ = _name; }
+	const std::string& name()const { return name_; }
 
 protected:
 	bool Init();
@@ -42,10 +45,7 @@ protected:
 
 	Geometry* geometry_;
 	Material* material_;
-
-	Vector translate_;
-	Vector scale_;
-	Vector rotate_;
+	Matrix transform_;
 };
 
 

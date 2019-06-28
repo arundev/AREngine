@@ -10,11 +10,11 @@ HINSTANCE g_instance = NULL;
 HWND g_wnd = NULL;
 POINT g_ptLastPoint;
 
-namespace engine {
-	class Engine;
-	class Renderer;
-	class FreeCamera;
-}
+//namespace engine {
+//	class Engine;
+//	class Renderer;
+//	class FreeCamera;
+//}
 
 extern engine::Engine* g_engine;
 extern engine::Renderer* g_renderer;
@@ -162,9 +162,9 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	}
 	case WM_KEYDOWN:
 	{
-		Vector *vcDirc = new Vector();
-		Vector *vcUp = new Vector();
-		Vector *vcRight = new Vector();
+		engine::Vector *vcDirc = new engine::Vector();
+		engine::Vector *vcUp = new engine::Vector();
+		engine::Vector *vcRight = new engine::Vector();
 		g_camera->GetDirection(vcDirc, vcUp, vcRight);
 		switch (wParam)
 		{
@@ -198,7 +198,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 		break;
 		case VK_D:
 		{
-			Vector vcPosCamera;
+			engine::Vector vcPosCamera;
 			g_camera->SetMoveDirection(*vcRight);
 			g_camera->SetMoveDelta(20.0f);
 			g_camera->Update();

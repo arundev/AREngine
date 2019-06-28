@@ -52,7 +52,8 @@ void MaterialDx11::DoApply(){
 	g_camera->GetViewMatrix(&viewMat);
 
 	Matrix world, view, proj;
-	world.TransposeOf(renderer_dx11->world_mat());
+	//world.TransposeOf(renderer_dx11->world_mat());
+	world.TransposeOf(*transform_);
 	view.TransposeOf(viewMat);
 	proj.TransposeOf(renderer_dx11->projection_mat());
 

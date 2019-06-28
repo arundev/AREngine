@@ -113,6 +113,31 @@ void Matrix::InverseOf(const Matrix &m)
 	}
 }
 
+Matrix& Matrix::operator = (const Matrix& m)
+{
+	this->_11 = m._11;
+	this->_12 = m._12;
+	this->_13 = m._13;
+	this->_14 = m._14;
+
+	this->_21 = m._21;
+	this->_22 = m._22;
+	this->_23 = m._23;
+	this->_24 = m._24;
+
+	this->_31 = m._31;
+	this->_32 = m._32;
+	this->_33 = m._33;
+	this->_34 = m._34;
+
+	this->_41 = m._41;
+	this->_42 = m._42;
+	this->_43 = m._43;
+	this->_44 = m._44;
+
+	return *this;
+}
+
 Matrix Matrix::operator * (const Matrix &m)const
 {
 	Matrix mResult;

@@ -179,7 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\object.cpp" />
-    <ClCompile Include="camera\camera.cpp" />
+    <ClCompile Include="camera\camera.cc" />
     <ClCompile Include="dx11\geometry_dx11.cc" />
     <ClCompile Include="dx11\material_dx11.cc" />
     <ClCompile Include="dx11\texture_dx11.cc" />
@@ -201,7 +201,7 @@
     <ClCompile Include="mesh\material.cc" />
     <ClCompile Include="mesh\mesh.cc" />
     <ClCompile Include="mesh\texture.cc" />
-    <ClCompile Include="scene\camera.cc" />
+    <ClCompile Include="scene\camera_node.cc" />
     <ClCompile Include="scene\light.cc" />
     <ClCompile Include="scene\node.cc" />
     <ClCompile Include="scene\scene.cc" />
@@ -234,7 +234,7 @@
     <ClInclude Include="mesh\material.h" />
     <ClInclude Include="mesh\mesh.h" />
     <ClInclude Include="mesh\texture.h" />
-    <ClInclude Include="scene\camera.h" />
+    <ClInclude Include="scene\camera_node.h" />
     <ClInclude Include="scene\light.h" />
     <ClInclude Include="scene\node.h" />
     <ClInclude Include="scene\scene.h" />

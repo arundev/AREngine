@@ -50,7 +50,11 @@ namespace engine {
 	}
 
 	void Scene::Update(float elapse){
-
+		for (auto& mesh : meshes_) {
+			if (mesh) {
+				mesh->Update(elapse);
+			}
+		}
 	}
 
 	void Scene::Render(){
