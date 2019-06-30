@@ -56,8 +56,13 @@ void AppInit(){
 	*/
 	//auto scene = engine::Scene::create("models-nonbsd/X/dwarf.x");
 	//auto scene = engine::Scene::create("models-nonbsd/FBX/2013_ASCII/jeep1.fbx");
-	auto scene = engine::Scene::create("crytek-sponza/crytek-sponza/sponza.obj");
 
+	std::string filePath = "crytek-sponza/crytek-sponza/sponza.obj";
+	auto root = new engine::Node();
+	if (!root->LoadFormeFile(filePath))
+	{
+		return;
+	}
 	for (auto& m : meshes)
 	{
 		Matrix mat;
@@ -70,9 +75,11 @@ void AppInit(){
 		mat.RotaZ(90.0f);
 		m->SetTransform(mat);
 
-		scene->AddMesh(m);
+		root->AddMesh(m);
 	}
 
+	auto scene = new engine::Scene();
+	scene->AddChild(root);
 	g_engine->setCurrentScene(scene);
 }
 

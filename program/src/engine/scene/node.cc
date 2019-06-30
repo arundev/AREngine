@@ -12,8 +12,12 @@ namespace engine {
 	}
 
 	void Node::Update(float elapse) {
+
+		UpdateTransform();
+
 		for (auto& mesh : meshes_) {
 			if (mesh) {
+				mesh->SetTransform(transform_world_);
 				mesh->Update(elapse);
 			}
 		}
@@ -47,7 +51,10 @@ namespace engine {
 			return true;
 		}
 
-		scale_ = Vector(1.0f, 1.0f, 1.0f);
+		transform_.Identity();
+		transform_world_.Identity();
+
+		return true;
 	}
 
 	void Node::Render() {
@@ -78,7 +85,7 @@ namespace engine {
 	}
 
 	void Node::DelChild(int index) {
-		if (index >= children_.size() ||
+		if (index >= (int)children_.size() ||
 			index < 0){
 			return;
 		}
@@ -102,7 +109,7 @@ namespace engine {
 	}
 
 	Node* Node::GetChild(int index) const{
-		if (index >= children_.size() ||
+		if (index >= (int)children_.size() ||
 			index < 0){
 			return 0;
 		}
@@ -139,4 +146,16 @@ namespace engine {
 		}
 	}
 
+	void Node::UpdateTransform() 
+	{
+		transform_world_.Identity();
+		if (parent_)
+		{
+			transform_world_ = parent_->transform_world() * transform_;
+		}
+		else
+		{
+			transform_world_ = transform_;
+		}
+	}
 }

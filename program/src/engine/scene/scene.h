@@ -16,10 +16,11 @@ namespace engine {
 		Scene();
 		~Scene();
 
-		static Scene* create(const std::string& path);
+		virtual bool Init();
+		virtual void Free();
+		virtual void Update(float elapse);
+		virtual void Render();
 
-	protected:
-		bool Init(const std::string& path);
 	protected:
 	};
 }

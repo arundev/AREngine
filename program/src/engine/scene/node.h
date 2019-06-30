@@ -31,25 +31,30 @@ namespace engine {
 		Node* GetChild(const char* name)const;
 		Node* GetChild(int index)const;
 
-		Vector& translate() { return translate_; }
-		void set_translate(Vector& pos) { translate_ = pos; }
-		Matrix& rotate() { return rotate_; }
-		void set_rotate(Matrix& mat) { rotate_ = rotate_; }
-		Vector& scale() { return scale_; }
-		void set_scale(Vector& v) { scale_ = v; }
+		const Matrix& transform()const { return transform_; }
+		void set_transform(const Matrix& ts) { transform_ = ts; }
+		const Matrix& transform_world()const { return transform_world_; }
+	
+		Vector translate() { return transform_.GetTranslation(); }
+		void set_translate(const Vector& move) { transform_.SetTranslation(move); }
+		void set_rotate(const Vector& rot) { transform_.Rota(rot); }
+		void set_scale(const Vector& scale) { transform_.Scaling(scale.x, scale.y, scale.z); }
 
 		void getVisibleMeshes(const BaseCamera* camera, std::vector<Mesh*>& meshes);
 		std::vector<Mesh*>& meshes() { return meshes_; }
 		void AddMesh(Mesh* mesh) { meshes_.push_back(mesh); }
 
 	protected:
+		void UpdateTransform();
+
+	protected:
 		std::string name_;
 		bool inited = false;
 		Node* parent_;
 		std::vector<Node*> children_;
-		Vector translate_;
-		Matrix rotate_;
-		Vector scale_;
+
+		Matrix transform_; // local transform
+		Matrix transform_world_; // world transform
 
 		std::vector<Mesh*> meshes_;
 	};

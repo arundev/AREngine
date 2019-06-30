@@ -12,13 +12,26 @@ namespace engine {
 		
 	}
 
-	Scene* Scene::create(const std::string& path){
-		Scene* scene = new Scene();
-		if (!scene->LoadFormeFile(path))
+	bool Scene::Init() {
+		if (!Node::Init())
 		{
-			SAFE_FREE(scene);
-			return nullptr;
+			return false;
 		}
-		return scene;
+
+		return true;
+	}
+
+	void Scene::Free()
+	{
+		Node::Free();
+	}
+
+	void Scene::Update(float elapse)
+	{
+		Node::Update(elapse);
+	}
+
+	void Scene::Render() {
+
 	}
 }
