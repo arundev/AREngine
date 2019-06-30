@@ -1,8 +1,9 @@
 #include "node.h"
+#include "../util/assimp_util.h"
 
 namespace engine {
 	Node::Node() : parent_(0) {
-		scale_ = Vector(1.0f, 1.0f, 1.0f);
+		
 	}
 
 	Node::~Node() {
@@ -11,11 +12,65 @@ namespace engine {
 	}
 
 	void Node::Update(float elapse) {
+		for (auto& mesh : meshes_) {
+			if (mesh) {
+				mesh->Update(elapse);
+			}
+		}
 
+		for (auto& child : children_) {
+			if (child)
+			{
+				child->Update(elapse);
+			}
+		}
+	}
+
+	bool Node::LoadFormeFile(const std::string& file) {
+
+		if (!AssimpUtil::LoadFile(file.c_str(), meshes_)) 
+		{
+			return false;
+		}
+
+		if (!Init())
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	bool Node::Init() {
+		if (!inited)
+		{
+			return true;
+		}
+
+		scale_ = Vector(1.0f, 1.0f, 1.0f);
 	}
 
 	void Node::Render() {
 
+	}
+
+	void Node::Free(){
+
+		for (auto& child : children_) {
+			if (child)
+			{
+				child->Free();
+			}
+		}
+		children_.clear();
+
+		for (auto& mesh : meshes_) {
+			if (mesh) {
+				mesh->Free();
+				SAFE_DELETE(mesh);
+			}
+		}
+		meshes_.clear();
 	}
 
 	void Node::DelAllChildren() {
@@ -75,6 +130,13 @@ namespace engine {
 		}
 
 		return 0;
+	}
+
+
+	void Node::getVisibleMeshes(const BaseCamera* camera, std::vector<Mesh*>& meshes) {
+		for (auto& item : meshes_) {
+			meshes.push_back(item);
+		}
 	}
 
 }

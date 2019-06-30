@@ -11,8 +11,10 @@ namespace engine {
 		Node();
 		~Node();
 
-		virtual bool Init() { return true; }
-		virtual void Free() { ; }
+		virtual bool LoadFormeFile(const std::string& path);
+
+		virtual bool Init();
+		virtual void Free();
 		virtual void Update(float elapse);
 		virtual void Render();
 
@@ -36,13 +38,20 @@ namespace engine {
 		Vector& scale() { return scale_; }
 		void set_scale(Vector& v) { scale_ = v; }
 
+		void getVisibleMeshes(const BaseCamera* camera, std::vector<Mesh*>& meshes);
+		std::vector<Mesh*>& meshes() { return meshes_; }
+		void AddMesh(Mesh* mesh) { meshes_.push_back(mesh); }
+
 	protected:
 		std::string name_;
+		bool inited = false;
 		Node* parent_;
 		std::vector<Node*> children_;
 		Vector translate_;
 		Matrix rotate_;
 		Vector scale_;
+
+		std::vector<Mesh*> meshes_;
 	};
 }
 
