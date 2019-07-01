@@ -3,7 +3,7 @@
 namespace engine {
 	Camera::Camera() : camera_data_(0){
 		camera_data_ = new FreeCamera();
-		camera_data_->SetPos(Vector(0.0f, 0.0f, -5.0f));
+		camera_data_->SetPosition(Vector(0.0f, 0.0f, -5.0f));
 	}
 
 	Camera::~Camera() {

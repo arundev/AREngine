@@ -10,7 +10,7 @@
 
 #include "plateform.h"
 #include "engine.h"
-#include "camera/camera.h"
+#include "graphic/camera_data.h"
 #include "math/math.h"
 #include "mesh/mesh.h"
 #include "scene/scene.h"

@@ -179,12 +179,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\object.cpp" />
-    <ClCompile Include="camera\camera.cc" />
     <ClCompile Include="dx11\geometry_dx11.cc" />
     <ClCompile Include="dx11\material_dx11.cc" />
     <ClCompile Include="dx11\texture_dx11.cc" />
     <ClCompile Include="dx11\util_dx11.cc" />
     <ClCompile Include="engine.cc" />
+    <ClCompile Include="graphic\camera_data.cc" />
+    <ClCompile Include="graphic\light_data.cc" />
     <ClCompile Include="math\aabb.cc" />
     <ClCompile Include="math\bsp_tree.cc" />
     <ClCompile Include="math\math.cc" />
@@ -223,13 +224,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base\object.h" />
-    <ClInclude Include="camera\camera.h" />
     <ClInclude Include="dx11\geometry_dx11.h" />
     <ClInclude Include="dx11\material_dx11.h" />
     <ClInclude Include="dx11\texture_dx11.h" />
     <ClInclude Include="dx11\util_dx11.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="engine_include.h" />
+    <ClInclude Include="graphic\camera_data.h" />
+    <ClInclude Include="graphic\light_data.h" />
     <ClInclude Include="math\math.h" />
     <ClInclude Include="mesh\geometry.h" />
     <ClInclude Include="mesh\material.h" />

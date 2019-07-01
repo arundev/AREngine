@@ -50,7 +50,7 @@ namespace engine {
 		}
 
 		g_camera = new FreeCamera();
-		g_camera->SetPos(Vector(0.0f, 0.0f, -5.0f));
+		g_camera->SetPosition(Vector(0.0f, 0.0f, -5.0f));
 
 		return true;
 	}

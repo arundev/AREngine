@@ -32,6 +32,6 @@ namespace engine {
 	}
 
 	void Scene::Render() {
-
+		Node::Render();
 	}
 }

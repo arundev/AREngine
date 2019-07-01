@@ -42,11 +42,13 @@ namespace engine {
 			return false;
 		}
 
+		name_ = engine::GetFileBaseNameWithoutExtension(file);
+
 		return true;
 	}
 
 	bool Node::Init() {
-		if (!inited)
+		if (inited)
 		{
 			return true;
 		}
@@ -141,6 +143,15 @@ namespace engine {
 
 
 	void Node::getVisibleMeshes(const BaseCamera* camera, std::vector<Mesh*>& meshes) {
+		
+		for (auto& child : children_)
+		{
+			if (child)
+			{
+				child->getVisibleMeshes(camera, meshes);
+			}
+		}
+
 		for (auto& item : meshes_) {
 			meshes.push_back(item);
 		}

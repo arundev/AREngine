@@ -57,6 +57,8 @@ void AppInit(){
 	//auto scene = engine::Scene::create("models-nonbsd/X/dwarf.x");
 	//auto scene = engine::Scene::create("models-nonbsd/FBX/2013_ASCII/jeep1.fbx");
 
+	//std::string filePath = "models-nonbsd/X/dwarf.x";
+	//std::string filePath = "models-nonbsd/FBX/2013_ASCII/jeep1.fbx";
 	std::string filePath = "crytek-sponza/crytek-sponza/sponza.obj";
 	auto root = new engine::Node();
 	if (!root->LoadFormeFile(filePath))
@@ -79,6 +81,7 @@ void AppInit(){
 	}
 
 	auto scene = new engine::Scene();
+	scene->Init();
 	scene->AddChild(root);
 	g_engine->setCurrentScene(scene);
 }

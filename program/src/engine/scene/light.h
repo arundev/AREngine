@@ -9,6 +9,10 @@ namespace engine {
 	public:
 		Light();
 		~Light();
+		
+		enum LightType {
+			
+		};
 	protected:
 	private:
 	};

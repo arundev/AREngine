@@ -25,7 +25,6 @@ namespace engine {
 		void set_parent(Node* node) { parent_ = node; }
 		std::vector<Node*>& children() { return children_; }
 		void DelAllChildren();
-		void DelChild(const char* name);
 		void DelChild(int index);
 		void AddChild(Node* node);
 		Node* GetChild(const char* name)const;
@@ -34,7 +33,6 @@ namespace engine {
 		const Matrix& transform()const { return transform_; }
 		void set_transform(const Matrix& ts) { transform_ = ts; }
 		const Matrix& transform_world()const { return transform_world_; }
-	
 		Vector translate() { return transform_.GetTranslation(); }
 		void set_translate(const Vector& move) { transform_.SetTranslation(move); }
 		void set_rotate(const Vector& rot) { transform_.Rota(rot); }

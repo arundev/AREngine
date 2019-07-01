@@ -1,5 +1,5 @@
-#ifndef ENGINE_CAMERA_CAMERA_H
-#define ENGINE_CAMERA_CAMERA_H
+#ifndef ENGINE_GRAPHIC_CAMERA_H
+#define ENGINE_GRAPHIC_CAMERA_H
 
 #include "../engine_pch.h"
 
@@ -17,19 +17,19 @@ public:
 
 	virtual void GetViewMatrix(engine::Matrix *ViewMat);
 	virtual void GetDirection(engine::Vector *vDir, engine::Vector *vUp, engine::Vector *vRight);
-	virtual void SetPos(engine::Vector &vPos);
-	virtual void GetPos(engine::Vector *vPos);
+	virtual void SetPosition(engine::Vector &vPos);
+	virtual void GetPosition(engine::Vector *vPos);
 
 protected:
-	engine::Matrix m_ViewMat;
+	engine::Matrix view_mat_;
 
-	float m_fRotX; // 在局部坐标系下的Euler角(旋转角)
-	float m_fRotY;
-	float m_fRotZ;
-	engine::Vector m_vPos;
-	engine::Vector m_vDir;
-	engine::Vector m_vUp;
-	engine::Vector m_vRight;
+	float rot_x_; // 在局部坐标系下的Euler角(旋转角)
+	float rot_y_;
+	float rot_z_;
+	engine::Vector position_;
+	engine::Vector forward_;
+	engine::Vector up_;
+	engine::Vector right_;
 };
 
 class FreeCamera : public BaseCamera
@@ -48,7 +48,7 @@ public:
 	void SetMoveDelta(float fMoveDelta);
 
 private:
-	engine::Vector m_vMoveDirection;
+	engine::Vector move_direction_;
 };
 
 }

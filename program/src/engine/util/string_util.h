@@ -47,6 +47,9 @@ namespace engine {
 
 	std::string StringReplace(const std::string& input, const std::string& find, const std::string& replaceWith);
 	std::string FormatFilePath(const std::string& input);
+	std::string GetFileNameWithoutExtension(const std::string& filePath);
+	std::string GetFileBaseName(const std::string& filePath);
+	std::string GetFileBaseNameWithoutExtension(const std::string& filePath);
 }
 
 
