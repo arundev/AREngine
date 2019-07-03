@@ -2,7 +2,7 @@
 #define ENGINE_SCENE_CAMERA_H
 
 #include "node.h"
-#include "../camera/camera.h"
+#include "../graphic/camera_data.h"
 
 namespace engine {
 	class Camera : public Node {

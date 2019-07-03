@@ -2,7 +2,7 @@
 #include "dx11/renderer_dx11.h"
 #include "es2/renderer_es2.h"
 #include "mesh/mesh.h"
-#include "camera/camera.h"
+#include "graphic/camera_data.h"
 #include "util/file_util.h"
 #include "scene/scene.h"
 

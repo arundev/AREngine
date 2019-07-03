@@ -24,10 +24,12 @@ public:
 
 	virtual bool Init();
 	virtual bool Init(const char* vs, const char* ps);
+	virtual bool Init(const std::string& shader);
 	virtual void Free();
 	virtual void Apply();
 
 	virtual bool SetShader(const char* vs = NULL, const char* ps = NULL, const char* gs = NULL);
+	virtual bool SetShader(const std::string& file_name);
 	virtual bool SetBaseMap(const char* file_name);
 	virtual bool SetNormalMap(const char* file_name);
 	virtual bool SetSpecularMap(const char* file_name);
@@ -48,13 +50,16 @@ protected:
 	virtual void DoFree() = 0;
 	virtual void DoApply() = 0;
 	virtual bool CreateShader() = 0;
+	virtual bool CreateShader(const std::string& shader) = 0;
 
 	virtual void InitTransform();
 
 protected:
-	string vs_file_name_;
-	string ps_file_name_;
-	string gs_file_name_;
+	std::string vs_file_name_;
+	std::string ps_file_name_;
+	std::string gs_file_name_;
+	std::string shader_file_name_;
+
 	Texture* base_map_;
 	Texture* normal_map_;
 	Texture* specular_map_;

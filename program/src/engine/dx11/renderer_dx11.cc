@@ -132,8 +132,17 @@ bool RendererDx11::DoInit(){
 	if (FAILED(hr)){
 		return false;
 	}
-	device_->QueryInterface(__uuidof(ID3D11Debug), reinterpret_cast<void**>(&debug_));
-	device_context_->QueryInterface(IID_PPV_ARGS(&defined_annotation_));
+	hr = device_->QueryInterface(__uuidof(ID3D11Debug), reinterpret_cast<void**>(&debug_));
+	if (FAILED(hr))
+	{
+		return false;
+	}
+
+	hr = device_context_->QueryInterface(__uuidof(defined_annotation_), reinterpret_cast<void**>(&defined_annotation_));
+	if (FAILED(hr))
+	{
+		return false;
+	}
 
 	ID3D11Texture2D* back_buffer_ptr;
 	hr = swap_chain_->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&back_buffer_ptr);
@@ -224,10 +233,9 @@ bool RendererDx11::DoInit(){
 	viewport.TopLeftY = 0.0f;
 	device_context_->RSSetViewports(1, &viewport);
 
-	field_of_view = (float)D3DX_PI / 4.0f;
+	field_of_view = (float)MATH_PI / 4.0f;
 	screen_aspect = (float)screen_width_ / (float)screen_height_;
-	D3DXMATRIX projection;
-	D3DXMatrixPerspectiveFovLH(&projection, field_of_view, screen_aspect, screen_near_, screen_depth_);
+	DirectX::XMMATRIX projection = DirectX::XMMatrixPerspectiveFovLH(field_of_view, screen_aspect, screen_near_, screen_far_);
 	MatrixFromDx11(&projection, &projection_mat_);
 	world_mat_.Identity();
 

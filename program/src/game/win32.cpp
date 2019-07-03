@@ -4,7 +4,7 @@
 #include <tchar.h>
 #include <stdio.h>
 #include <iostream>
-#include "camera/camera.h"
+#include "graphic/camera_data.h"
 
 HINSTANCE g_instance = NULL;
 HWND g_wnd = NULL;

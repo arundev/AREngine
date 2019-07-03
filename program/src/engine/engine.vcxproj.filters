@@ -84,11 +84,10 @@
     <ClCompile Include="math\vector.cpp" />
     <ClCompile Include="math\bsp_tree.cc" />
     <ClCompile Include="math\polygon_list.cc" />
-    <ClCompile Include="camera\camera.cc">
-      <Filter>render\camera</Filter>
-    </ClCompile>
     <ClCompile Include="scene\camera_node.cc" />
     <ClCompile Include="util\string_util.cc" />
+    <ClCompile Include="graphic\camera_data.cc" />
+    <ClCompile Include="graphic\light_data.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="renderer.h">
@@ -113,9 +112,6 @@
     </ClInclude>
     <ClInclude Include="dx11\util_dx11.h">
       <Filter>render\dx11</Filter>
-    </ClInclude>
-    <ClInclude Include="camera\camera.h">
-      <Filter>render\camera</Filter>
     </ClInclude>
     <ClInclude Include="mesh\texture.h" />
     <ClInclude Include="dx11\geometry_dx11.h" />
@@ -144,6 +140,9 @@
     <ClInclude Include="scene\scene.h" />
     <ClInclude Include="math\math.h" />
     <ClInclude Include="scene\camera_node.h" />
+    <ClInclude Include="graphic\camera_data.h" />
+    <ClInclude Include="graphic\light_data.h" />
+    <ClInclude Include="dx11\dx11_include.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

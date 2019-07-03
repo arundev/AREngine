@@ -1,9 +1,5 @@
 #include "camera_data.h"
 #include "../dx11/util_dx11.h"
-#include <D3DX10.h>
-#include <directxmath.h>
-
-using namespace DirectX;
 
 namespace engine {
 
@@ -111,20 +107,20 @@ void FreeCamera::SetRotAngleDelta(float fRotXDelta, float fRotYDelta, float fRot
 	rot_y_ += fRotYDelta;
 	rot_z_ += fRotZDelta;
 
-	if (rot_x_ > RT2PI)
-		rot_x_ -= (float)RT2PI;
-	else if(rot_x_ < -RT2PI)
-		rot_x_ += (float)RT2PI;
+	if (rot_x_ > MATH_2PI)
+		rot_x_ -= (float)MATH_2PI;
+	else if(rot_x_ < -MATH_2PI)
+		rot_x_ += (float)MATH_2PI;
 
-	if (rot_y_ > RT2PI)
-		rot_y_ -= (float)RT2PI;
-	else if(rot_y_ < -RT2PI) 
-		rot_y_ += (float)RT2PI;
+	if (rot_y_ > MATH_2PI)
+		rot_y_ -= (float)MATH_2PI;
+	else if(rot_y_ < -MATH_2PI) 
+		rot_y_ += (float)MATH_2PI;
 
-	if (rot_z_ > RT2PI)
-		rot_z_ -= (float)RT2PI;
-	else if (rot_z_ < -RT2PI)
-		rot_z_ += (float)RT2PI;
+	if (rot_z_ > MATH_2PI)
+		rot_z_ -= (float)MATH_2PI;
+	else if (rot_z_ < -MATH_2PI)
+		rot_z_ += (float)MATH_2PI;
 }
 
 void FreeCamera::SetMoveDelta(float vMoveDelta)

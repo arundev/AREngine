@@ -1,6 +1,6 @@
 #include "material.h"
 #include <tchar.h>
-#include "../camera/camera.h"
+#include "../graphic/camera_data.h"
 #include "../dx11/material_dx11.h"
 
 namespace engine {
@@ -40,6 +40,13 @@ bool Material::Init(const char* vs, const char* ps){
 	return true;
 }
 
+bool Material::Init(const std::string& shader)
+{
+	SetShader(shader);
+	InitTransform();
+	return true;
+}
+
 
 void Material::InitTransform(){
 	SAFE_DELETE(transform_);
@@ -61,6 +68,12 @@ bool Material::SetShader(const char* vs /* = NULL */, const char* ps /* = NULL *
 	}
 
 	return CreateShader();
+}
+
+bool Material::SetShader(const std::string& file_name)
+{
+	shader_file_name_ = file_name;
+	return CreateShader(file_name);
 }
 
 bool Material::SetBaseMap(const char* file_name) {

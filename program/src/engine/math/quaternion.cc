@@ -131,7 +131,7 @@ void Quaternion::GetEulers(float *fPitch, float *fYaw, float *fRoll) {
 		r13 = 2 * (x*z + w*y);
 
 		*fPitch = 0.0f;
-		*fYaw   = (float)-(( RTPI/2) * r31/tmp);
+		*fYaw   = (float)-(( MATH_PI/2) * r31/tmp);
 		*fRoll  = (float)atan2(-r12, -r31*r13);
 	}
 	else {

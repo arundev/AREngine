@@ -34,11 +34,11 @@ HRESULT InitCPU(void);
 float _fabs(float f);              
 
 extern BOOL gIsUseASM;           
-const double RTPI = 3.14159265;
-const double RTPI2 = 1.5707963;
-const double RT2PI = 6.2831853;
-const float  RTG = -32.174f; // ft/s^2
-const float  RTEPSILON = 0.00001f;
+extern const double MATH_PI;
+extern const double MATH_PI2;
+extern const double MATH_2PI;
+extern const float  MATH_G; // ft/s^2
+extern const float  MATH_EPSILON;
 	
 /*--------------------------------------------------------------------------------------------------*/
 class Vector

@@ -73,7 +73,7 @@ protected:
 	int instance_;
 	int screen_width_;
 	int screen_height_;
-	float screen_depth_;
+	float screen_far_;
 	float screen_near_;	
 
 	Renderer::FillMode fill_mode_;

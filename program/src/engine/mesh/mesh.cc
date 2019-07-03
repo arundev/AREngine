@@ -40,7 +40,8 @@ Mesh* Mesh::CreateTriangle(){
 	indices[2] = 2;  // Bottom right.
 
 	mesh->geometry()->Init<Geometry::VertexFull>(vertices, 3, indices, 3);
-	mesh->material()->Init("color.vs", "color.ps");
+	//mesh->material()->Init("color.vs", "color.ps");
+	mesh->material()->Init("demo_dx11.fx");
 	mesh->material()->SetBaseMap("../../bin/res/jeep1.jpg");
 
 	SAFE_DELETE_ARRAY(vertices);
@@ -80,7 +81,10 @@ Mesh* Mesh::CreatMesh(const std::string& path,
 		SAFE_DELETE(mesh);
 		return nullptr;
 	}
-	if (!mesh->material()->Init("color.vs", "color.ps")) {
+
+	//if (!mesh->material()->Init("color.vs", "color.ps")) 
+	if (!mesh->material()->Init("demo_dx11.fx"))
+	{
 		SAFE_DELETE(vertex_list);
 		SAFE_DELETE(index_data);
 		SAFE_DELETE(mesh);

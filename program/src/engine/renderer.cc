@@ -22,7 +22,7 @@ bool Renderer::Init(const Window& param)
 
 	full_screen_ = false;
 	vsync_enabled_ = true;
-	screen_depth_ = 10000.0f;
+	screen_far_ = 10000.0f;
 	screen_near_ = 0.1f;
 
 

@@ -3,7 +3,7 @@
 
 #include "../engine_pch.h"
 #include "../mesh/material.h"
-#include <D3DX11async.h>
+#include "dx11_include.h"
 
 namespace engine {
 
@@ -19,13 +19,27 @@ protected:
 	virtual void DoFree();
 	virtual void DoApply();
 	virtual bool CreateShader();
+	virtual bool CreateShader(const std::string& shader);
+
+private:
+	void ApplyShader();
+	void ApplyEffect();
 
 private:
 	ID3D11VertexShader* vertex_shader_;
 	ID3D11GeometryShader* geometry_shader_;
 	ID3D11PixelShader* pixel_shader_;
-	ID3D11InputLayout* input_layout_;
+	ID3D11InputLayout* shader_input_layout_;
 	ID3D11Buffer* matrix_buffer_;
+
+	ID3DX11Effect* effect_;
+	ID3DX11EffectTechnique* technique_;
+	ID3DX11EffectMatrixVariable* world_view_projection_mat_;
+	ID3DX11EffectMatrixVariable* world_mat_;
+	ID3DX11EffectMatrixVariable* view_mat_;
+	ID3DX11EffectMatrixVariable* proj_mat_;
+	ID3DX11EffectShaderResourceVariable* base_texture_srv_;
+	ID3D11InputLayout* effect_input_layout_;
 };
 
 

@@ -49,5 +49,8 @@
     <FxCompile Include="..\..\bin\res\shader\color.vs">
       <Filter>res\shader</Filter>
     </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\demo_dx11.fx">
+      <Filter>res\shader</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

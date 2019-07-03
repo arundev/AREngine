@@ -3,13 +3,15 @@
 
 #include "../renderer.h"
 #include "../engine_pch.h"
+#include "dx11_include.h"
 
-#pragma comment(lib, "dxgi.lib")  
-#pragma comment(lib, "d3d11.lib")  
-#pragma comment(lib, "d3dx11.lib")  
-#pragma comment(lib, "d3dx10.lib")  
-#pragma comment(lib, "D3DCompiler.lib")
-#pragma comment(lib, "dxguid.lib")
+//
+//#pragma comment(lib, "dxgi.lib")  
+//#pragma comment(lib, "d3d11.lib")  
+//#pragma comment(lib, "d3dx11.lib")  
+//#pragma comment(lib, "d3dx10.lib")  
+//#pragma comment(lib, "D3DCompiler.lib")
+//#pragma comment(lib, "dxguid.lib")
 
 namespace engine {
 
@@ -48,6 +50,7 @@ private:
 	IDXGISwapChain* swap_chain_;
 	ID3D11DeviceContext* device_context_;
 	ID3D11Device* device_;
+
 	ID3D11RenderTargetView* render_target_view_;
 	ID3D11Texture2D* depth_stencil_buffer_;
 	ID3D11DepthStencilState* depth_stencil_state_;
