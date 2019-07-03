@@ -2,6 +2,7 @@
 #define ENGINE_RENDERER_H
 
 #include "engine_pch.h"
+#include "graphic/light_data.h"
 
 namespace engine{
 
@@ -62,6 +63,9 @@ public:
 	const Renderer::CullMode get_cull_mode()const { return cull_mode_; }
 	void set_cull_mode(Renderer::CullMode mode_) { cull_mode_ = mode_; }
 
+	const std::vector<LightData*>& light_list()const { return light_list_; }
+	void set_light_list(const std::vector<LightData*>& light) { light_list_ = light; }
+
 protected:
 	virtual bool DoInit() = 0;
 	virtual void ApplyRenderState() { ; }
@@ -83,6 +87,8 @@ protected:
 	engine::Matrix view_mat_;
 	engine::Matrix projection_mat_;
 
+	std::vector<LightData*> light_list_;
+	LightData* default_direction_light_;
 };
 
 }

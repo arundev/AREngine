@@ -40,6 +40,8 @@ private:
 	ID3DX11EffectMatrixVariable* proj_mat_;
 	ID3DX11EffectShaderResourceVariable* base_texture_srv_;
 	ID3D11InputLayout* effect_input_layout_;
+	ID3DX11EffectVectorVariable* direction_light_color_;
+	ID3DX11EffectVectorVariable* direction_light_direction_;
 };
 
 

@@ -3,7 +3,7 @@
 
 #include "engine_pch.h"
 #include "node.h"
-
+#include "light.h"
 
 namespace engine {
 
@@ -22,6 +22,8 @@ namespace engine {
 		virtual void Render();
 
 	protected:
+		Color* ambient_light_;
+		Light* direction_light_;
 	};
 }
 

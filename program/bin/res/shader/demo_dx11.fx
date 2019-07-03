@@ -4,7 +4,10 @@ float4x4 g_worldViewProjectionMat;
 float4x4 g_worldMat;
 float4x4 g_viewMat;
 float4x4 g_projMat;
-Texture2D g_baseTexture;          
+Texture2D g_baseTexture;
+
+float4 g_directionLightDirection;
+float4 g_directionLightColor;
 
 // render state
 DepthStencilState EnableDepth
@@ -67,7 +70,8 @@ PixelInputType VSMain(VertexInputType input)
 float4 PSMain(PixelInputType input) : SV_Target
 {
 	float4 texColor;
-	texColor = g_baseTexture.Sample(BaseTextureSampler, input.tex) * input.color;
+	texColor = g_baseTexture.Sample(BaseTextureSampler, input.tex) * input.color * g_directionLightColor;
+	//texColor = g_baseTexture.Sample(BaseTextureSampler, input.tex) * input.color;
 	return texColor;
 }
 

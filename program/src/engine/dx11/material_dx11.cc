@@ -126,17 +126,25 @@ void MaterialDx11::ApplyEffect()
 	Matrix viewMat;
 	g_camera->GetViewMatrix(&viewMat);
 	Matrix world, view, proj;
-	//world.TransposeOf(renderer_dx11->world_mat());
-	//world.TransposeOf(*transform_);
-	//view.TransposeOf(viewMat);
-	//proj.TransposeOf(renderer_dx11->projection_mat());
-
 	world = *transform_;
 	view = viewMat;
 	proj = renderer_dx11->projection_mat();
 
 	Matrix worldViewProj = world * view * proj;;
 	world_view_projection_mat_->SetMatrix(reinterpret_cast<float*>(&worldViewProj._11));
+	world_mat_->SetMatrix(reinterpret_cast<float*>(&world._11));
+	view_mat_->SetMatrix(reinterpret_cast<float*>(&view._11));
+	proj_mat_->SetMatrix(reinterpret_cast<float*>(&proj._11));
+
+	auto light_list = g_renderer->light_list();
+	for (auto light : light_list)
+	{
+		if (light && light->light_type == LightType::DirectionalLight)
+		{
+			direction_light_color_->SetFloatVector(reinterpret_cast<float*>(&light->color.r));
+			direction_light_direction_->SetFloatVector(reinterpret_cast<float*>(&light->direction.x));
+		}
+	}
 
 	// input layout
 	device_context->IASetInputLayout(effect_input_layout_);
@@ -281,8 +289,9 @@ bool MaterialDx11::CreateShader(const std::string& fx_file)
 	world_mat_ = effect_->GetVariableByName("g_worldMat")->AsMatrix();
 	view_mat_ = effect_->GetVariableByName("g_viewMat")->AsMatrix();
 	proj_mat_ = effect_->GetVariableByName("g_projMat")->AsMatrix();
-
 	base_texture_srv_ = effect_->GetVariableByName("g_baseTexture")->AsShaderResource();
+	direction_light_color_ = effect_->GetVariableByName("g_directionLightColor")->AsVector();
+	direction_light_direction_ = effect_->GetVariableByName("g_directionLightDirection")->AsVector();
 
 	unsigned int num_element = sizeof(g_poloygon_layout) / sizeof(g_poloygon_layout[0]);
 	D3DX11_PASS_DESC pass_desc;
