@@ -1,7 +1,7 @@
 #ifndef ENGINE_MESH_MESH_H
 #define ENGINE_MESH_MESH_H
 
-#include "../engine_pch.h"
+#include "engine_pch.h"
 #include "material.h"
 #include "geometry.h"
 #include <vector>

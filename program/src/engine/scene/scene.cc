@@ -1,6 +1,6 @@
 #include "scene.h"
 
-#include "../util/assimp_util.h"
+#include "util/assimp_util.h"
 
 namespace engine {
 

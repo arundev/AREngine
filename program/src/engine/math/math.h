@@ -39,6 +39,11 @@ extern const double MATH_PI2;
 extern const double MATH_2PI;
 extern const float  MATH_G; // ft/s^2
 extern const float  MATH_EPSILON;
+
+extern const float MATH_1DIVPI;
+extern const float MATH_1DIV2PI;
+extern const float MATH_PIDIV2;
+extern const float MATH_PIDIV4;
 	
 /*--------------------------------------------------------------------------------------------------*/
 class Vector
@@ -49,6 +54,11 @@ public:
 	Vector(float _x, float _y, float _z)
 	{
 		x = _x; y = _y; z = _z; w = 1.0f;
+	}
+
+	Vector(float _x, float _y, float _z, float _w)
+	{
+		x = _x; y = _y; z = _z; w = _w;
 	}
 
 	~Vector() {}

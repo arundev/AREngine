@@ -1,7 +1,7 @@
 #ifndef ENGINE_UTIL_ASSIMP
 #define ENGINE_UTIL_ASSIMP
 
-#include "../engine_pch.h"
+#include "engine_pch.h"
 
 namespace engine {
 	class Mesh;

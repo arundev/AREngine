@@ -1,12 +1,23 @@
 #include "material_dx11.h"
-#include "../graphic/camera_data.h"
-#include "../dx11/renderer_dx11.h"
-#include "../engine.h"
-#include "../math/math.h"
+#include "graphic/camera_data.h"
+#include "dx11/renderer_dx11.h"
+#include "engine.h"
+#include "math/math.h"
 #include "texture_dx11.h"
 
 namespace engine {
 
+
+const D3D11_INPUT_ELEMENT_DESC g_poloygon_layout[] =
+{
+	{ "POSITION",  0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
+	{ "COLOR",     0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
+	{ "TEXCOORD",  0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
+	{ "TEXCOORD",  1, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
+	{ "NORMAL",	   0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
+	{ "TANGENT",   0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
+	{ "BITANGENT", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
+};
 
 MaterialDx11::MaterialDx11():
 vertex_shader_(NULL),
@@ -76,7 +87,6 @@ void MaterialDx11::ApplyShader()
 	g_camera->GetViewMatrix(&viewMat);
 
 	Matrix world, view, proj;
-	//world.TransposeOf(renderer_dx11->world_mat());
 	world.TransposeOf(*transform_);
 	view.TransposeOf(viewMat);
 	proj.TransposeOf(renderer_dx11->projection_mat());
@@ -211,38 +221,8 @@ bool MaterialDx11::CreateShader(){
 		return false;
 	}
 
-	D3D11_INPUT_ELEMENT_DESC poloygon_layout[3];
-	unsigned int num_element;
-
-	poloygon_layout[0].SemanticName = "POSITION";
-	poloygon_layout[0].SemanticIndex = 0;
-	poloygon_layout[0].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
-	poloygon_layout[0].InputSlot = 0;
-	poloygon_layout[0].AlignedByteOffset = 0;
-	poloygon_layout[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
-	poloygon_layout[0].InstanceDataStepRate = 0;
-
-	poloygon_layout[1].SemanticName = "COLOR";
-	poloygon_layout[1].SemanticIndex = 0;
-	poloygon_layout[1].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
-	poloygon_layout[1].InputSlot = 0;
-	poloygon_layout[1].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
-	poloygon_layout[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
-	poloygon_layout[1].InstanceDataStepRate = 0;
-
-	poloygon_layout[2].SemanticName = "TEXCOORD";
-	poloygon_layout[2].SemanticIndex = 0;
-	poloygon_layout[2].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
-	poloygon_layout[2].InputSlot = 0;
-	poloygon_layout[2].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
-	poloygon_layout[2].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
-	poloygon_layout[2].InstanceDataStepRate = 0;
-
-
-	num_element = sizeof(poloygon_layout) / sizeof(poloygon_layout[0]);
-	result = device->CreateInputLayout(poloygon_layout, num_element, 
-		vertex_shader_buffer->GetBufferPointer(),
-		vertex_shader_buffer->GetBufferSize(), &shader_input_layout_);
+	unsigned int num_element = sizeof(g_poloygon_layout) / sizeof(g_poloygon_layout[0]);
+	result = device->CreateInputLayout(g_poloygon_layout, num_element, vertex_shader_buffer->GetBufferPointer(), vertex_shader_buffer->GetBufferSize(), &shader_input_layout_);
 	if (FAILED(result))	
 	{
 		return false;
@@ -303,18 +283,11 @@ bool MaterialDx11::CreateShader(const std::string& fx_file)
 	proj_mat_ = effect_->GetVariableByName("g_projMat")->AsMatrix();
 
 	base_texture_srv_ = effect_->GetVariableByName("g_baseTexture")->AsShaderResource();
-	const D3D11_INPUT_ELEMENT_DESC poloygon_layout[] =
-	{
-		{ "POSITION",  0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
-		{ "COLOR",     0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
-		{ "TEXCOORD",  0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
-	};
 
-	unsigned int num_element = sizeof(poloygon_layout) / sizeof(poloygon_layout[0]);
-
+	unsigned int num_element = sizeof(g_poloygon_layout) / sizeof(g_poloygon_layout[0]);
 	D3DX11_PASS_DESC pass_desc;
 	technique_->GetPassByIndex(0)->GetDesc(&pass_desc);
-	result = d3d_device->CreateInputLayout(poloygon_layout, num_element, 
+	result = d3d_device->CreateInputLayout(g_poloygon_layout, num_element,
 		pass_desc.pIAInputSignature, pass_desc.IAInputSignatureSize,
 		&effect_input_layout_);
 	if (FAILED(result))

@@ -1,7 +1,7 @@
 #ifndef ENGINE_UTIL_FBX_IMPORTER_H
 #define ENGINE_UTIL_FBX_IMPORTER_H
 
-#include "../../engine_pch.h"
+#include "engine_pch.h"
 #include "fbxsdk.h"
 
 class FBXImporter

@@ -80,6 +80,8 @@ void AppInit(){
 		root->AddMesh(m);
 	}
 
+	root->set_translate(engine::Vector(10.0f, 0.0f, 0.0f));
+
 	auto scene = new engine::Scene();
 	scene->Init();
 	scene->AddChild(root);

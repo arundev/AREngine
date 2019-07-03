@@ -1,8 +1,8 @@
 #ifndef ENGINE_ES2_RENDERER_ES2_H
 #define ENGINE_ES2_RENDERER_ES2_H
 
-#include "..\engine_pch.h"
-#include "..\renderer.h"
+#include "engine_pch.h"
+#include "renderer.h"
 #include <GLES2/gl2.h>
 #include <EGL/egl.h>
 #include <EGL/egl.h>

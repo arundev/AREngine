@@ -1,5 +1,5 @@
 #include "geometry.h"
-#include "../dx11/geometry_dx11.h"
+#include "dx11/geometry_dx11.h"
 
 namespace engine {
 

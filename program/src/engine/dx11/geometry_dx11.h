@@ -1,8 +1,8 @@
 #ifndef ENGINE_DX11_GEOMETRY_H
 #define ENGINE_DX11_GEOMETRY_H
 
-#include "../engine_pch.h"
-#include "../mesh/geometry.h"
+#include "engine_pch.h"
+#include "mesh/geometry.h"
 #include "dx11_include.h"
 
 namespace engine {

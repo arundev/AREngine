@@ -1,7 +1,7 @@
 #ifndef ENGINE_MESH_TEXTURE_H
 #define ENGINE_MESH_TEXTURE_H
 
-#include "../engine_pch.h"
+#include "engine_pch.h"
 
 namespace engine {
 

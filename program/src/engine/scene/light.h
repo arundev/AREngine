@@ -2,6 +2,7 @@
 #define ENGINE_SCENE_LIGHT_H
 
 #include "node.h"
+#include "graphic/light_data.h"
 
 namespace engine {
 	class Light : public Node
@@ -10,11 +11,12 @@ namespace engine {
 		Light();
 		~Light();
 		
-		enum LightType {
-			
-		};
+		const LightData& light_data()const { return light_data_; }
+		void set_light_data(const LightData& data) { light_data_ = data; }
+
 	protected:
 	private:
+		LightData light_data_;
 	};
 }
 

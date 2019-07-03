@@ -1,7 +1,7 @@
 #ifndef ENGINE_LOG_H
 #define ENGINE_LOG_H
 
-#include "../engine_pch.h"
+#include "engine_pch.h"
 
 namespace engine {
 

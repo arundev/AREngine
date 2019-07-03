@@ -38,6 +38,10 @@ struct VertexInputType
 	float4 position : POSITION;
 	float4 color : COLOR;
 	float4 tex: TEXCOORD0;
+	float4 tex2: TEXCOORD1;
+	float4 nomal : NORMAL;
+	float4 tangent : TANGENT;
+	float4 bitangent : BITANGENT;
 };
 
 struct PixelInputType
@@ -63,10 +67,7 @@ PixelInputType VSMain(VertexInputType input)
 float4 PSMain(PixelInputType input) : SV_Target
 {
 	float4 texColor;
-	//texColor = shaderTexture.Sample(samplerType, input.tex) * input.color;
-	//texColor = g_baseTexture.Sample(BaseTextureSampler, input.tex) * input.color;
-	texColor = g_baseTexture.Sample(BaseTextureSampler, input.tex);
-	//texColor = float4(1.0, 100, 0, 0);
+	texColor = g_baseTexture.Sample(BaseTextureSampler, input.tex) * input.color;
 	return texColor;
 }
 
@@ -79,7 +80,7 @@ technique11 DemoTechnique
 		SetGeometryShader(NULL);
 		SetPixelShader(CompileShader(ps_5_0, PSMain()));
 
-		//SetDepthStencilState(EnableDepth, 0);
+		SetDepthStencilState(EnableDepth, 0);
 		SetRasterizerState(EnableWireframe);
 	}
 }

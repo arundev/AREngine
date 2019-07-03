@@ -1,8 +1,8 @@
 #ifndef ENGINE_SCENE_NODE_H
 #define ENGINE_SCENE_NODE_H
 
-#include "../engine_pch.h"
-#include "../mesh/mesh.h"
+#include "engine_pch.h"
+#include "mesh/mesh.h"
 
 namespace engine {
 	class Node : public engine::Object

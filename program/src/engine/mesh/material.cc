@@ -1,7 +1,7 @@
 #include "material.h"
 #include <tchar.h>
-#include "../graphic/camera_data.h"
-#include "../dx11/material_dx11.h"
+#include "graphic/camera_data.h"
+#include "dx11/material_dx11.h"
 
 namespace engine {
 

@@ -84,6 +84,8 @@ bool RendererEs2::CreateContext(){
 	es_context_.eglDisplay = display;
 	es_context_.eglSurface = surface;
 	es_context_.eglContext = context;
+
+	return true;
 }
 
 int RendererEs2::InitGLES(){
@@ -133,6 +135,8 @@ int RendererEs2::InitGLES(){
 	}
 	userData->programObject = programObject;
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
+	return 1;
 }
 
 void RendererEs2::Update(){

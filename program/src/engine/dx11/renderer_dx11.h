@@ -1,8 +1,8 @@
 #ifndef ENGINE_DX11_RENDERER_DX11_H
 #define ENGINE_DX11_RENDERER_DX11_H
 
-#include "../renderer.h"
-#include "../engine_pch.h"
+#include "renderer.h"
+#include "engine_pch.h"
 #include "dx11_include.h"
 
 //

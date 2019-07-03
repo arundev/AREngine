@@ -122,7 +122,7 @@ bool Octree::GetFloor( const Vector& vcOrg, float* fL, Plane* pPlane )
 {
 	bool bHit = false;
 	Ray ray;
-	float* fDistense;
+	float* fDistense = nullptr;
 	Aabb polygonAabb;
 	// ¸ù½Úµã
 	if ( this == m_pRoot )

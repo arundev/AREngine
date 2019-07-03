@@ -1,5 +1,5 @@
 #include "node.h"
-#include "../util/assimp_util.h"
+#include "util/assimp_util.h"
 
 namespace engine {
 	Node::Node() : parent_(0) {

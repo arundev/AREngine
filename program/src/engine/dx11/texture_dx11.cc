@@ -1,6 +1,6 @@
 #include "texture_dx11.h"
 #include "renderer_dx11.h"
-#include "../util/image_util.h"
+#include "util/image_util.h"
 #include "WICTextureLoader.h"
 
 namespace engine {

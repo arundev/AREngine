@@ -102,7 +102,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_BOOST_WORKAROUND;ASSIMP_BUILD_NO_C4D_IMPORTER;FBXSDK_DLLIMPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\fbxsdk\include;..\graphic;..\mesh;..\dx11;..\es2;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\effects11\inc;..\extern\effects11\Binary;..\extern\DirectXTK\Inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\fbxsdk\include;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\effects11\inc;..\extern\effects11\Binary;..\extern\DirectXTK\Inc;$(ProjectDir)/</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>
@@ -141,7 +141,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\fbxsdk\include;$(SolutionDir)..\lib\math;..\camera;..\mesh;..\dx11;..\es2;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\effects11\inc;..\extern\effects11\Binary;..\extern\DirectXTK\Inc;..\lib\fbxsdk</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\fbxsdk\include;$(SolutionDir)..\lib\math;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\effects11\inc;..\extern\effects11\Binary;..\extern\DirectXTK\Inc;..\lib\fbxsdk;$(ProjectDir)/</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>
       </LanguageStandard>

@@ -1,7 +1,7 @@
 #ifndef ENGINE_FILE_SYSTEM_H
 #define ENGINE_FILE_SYSTEM_H
 
-#include "../engine_pch.h"
+#include "engine_pch.h"
 #include <string>
 
 namespace engine {

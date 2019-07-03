@@ -1,7 +1,7 @@
 #ifndef ENGINE_GRAPHIC_CAMERA_H
 #define ENGINE_GRAPHIC_CAMERA_H
 
-#include "../engine_pch.h"
+#include "engine_pch.h"
 
 namespace engine {
 

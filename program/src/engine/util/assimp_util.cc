@@ -1,6 +1,6 @@
 #include "assimp_util.h"
 #include "file_util.h"
-#include "../mesh/mesh.h"
+#include "mesh/mesh.h"
 
 #include <assimp/cimport.h>
 #include <assimp/LogStream.hpp>
@@ -99,45 +99,59 @@ engine::Mesh* AssimpUtil::CreateMesh(const std::string& filePath, aiMesh* src_me
 
 	for (unsigned int i = 0; i < src_mesh->mNumVertices; i++){
 		// position
-		vertex_list[i].position = engine::Vector(src_mesh->mVertices[i].x, 
-			src_mesh->mVertices[i].y, 
-			src_mesh->mVertices[i].z);
+		vertex_list[i].position = engine::Vector(src_mesh->mVertices[i].x, src_mesh->mVertices[i].y, src_mesh->mVertices[i].z);
+
 		// normal
-		if (src_mesh->mNormals){
+		if (src_mesh->mNormals)
+		{
 			vertex_list[i].normal = engine::Vector(src_mesh->mNormals[i].x,
 				src_mesh->mNormals[i].y,
 				src_mesh->mNormals[i].z);
 		}
+
 		// color
-		if (src_mesh->HasVertexColors(0)){
+		if (src_mesh->HasVertexColors(0))
+		{
 			vertex_list[i].color = engine::Color(src_mesh->mColors[i][0].r,
 				src_mesh->mColors[i][0].g,
 				src_mesh->mColors[i][0].b,
 				src_mesh->mColors[i][0].a);
 		}
+		else
+		{
+			vertex_list[i].color = engine::Color(1.0f, 1.0f, 1.0f, 1.0f);
+		}
+
 		// tangent
-		if (src_mesh->mTangents){
+		if (src_mesh->mTangents)
+		{
 			vertex_list[i].tangent = engine::Vector(src_mesh->mTangents[i].x,
 				src_mesh->mTangents[i].y,
 				src_mesh->mTangents[i].z);
 		}
 		// bitangent
-		if (src_mesh->mBitangents){
+		if (src_mesh->mBitangents)
+		{
 			vertex_list[i].bitangent = engine::Vector(src_mesh->mBitangents[i].x,
 				src_mesh->mBitangents[i].y,
 				src_mesh->mBitangents[i].z);
 		}
 		 
 		// tex coordinate
-		if (src_mesh->HasTextureCoords(0)){
+		if (src_mesh->HasTextureCoords(0))
+		{
 			vertex_list[i].texture1 = engine::Vector(src_mesh->mTextureCoords[0][i].x, src_mesh->mTextureCoords[0][i].y, 0.0f);
 		}
-		if (src_mesh->HasTextureCoords(1)){
+
+		if (src_mesh->HasTextureCoords(1))
+		{
 			vertex_list[i].texture2 = engine::Vector(src_mesh->mTextureCoords[1][i].x,
 				src_mesh->mTextureCoords[1][i].y, 0.0f);
 		}
+
 		// bone indices and weights
-		if (src_mesh->HasBones()){
+		if (src_mesh->HasBones())
+		{
 			
 		}
 	}
@@ -167,6 +181,12 @@ engine::Mesh* AssimpUtil::CreateMesh(const std::string& filePath, aiMesh* src_me
 		for (int j = 0; j < nidx; j++){
 			*address++ = src_mesh->mFaces[i].mIndices[j];
 		}
+	}
+
+	// material cololr
+	if (src_material)
+	{
+
 	}
 
 	// texture
