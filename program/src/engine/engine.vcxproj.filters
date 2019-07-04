@@ -88,6 +88,7 @@
     <ClCompile Include="util\string_util.cc" />
     <ClCompile Include="graphic\camera_data.cc" />
     <ClCompile Include="graphic\light_data.cc" />
+    <ClCompile Include="mesh\mesh_light.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="renderer.h">
@@ -143,6 +144,7 @@
     <ClInclude Include="graphic\camera_data.h" />
     <ClInclude Include="graphic\light_data.h" />
     <ClInclude Include="dx11\dx11_include.h" />
+    <ClInclude Include="mesh\mesh_light.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rend_me.txt" />

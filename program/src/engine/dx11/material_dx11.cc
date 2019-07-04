@@ -123,19 +123,29 @@ void MaterialDx11::ApplyEffect()
 	ID3D11DeviceContext* device_context = renderer_dx11->device_context();
 
 	// transform
-	Matrix viewMat;
-	g_camera->GetViewMatrix(&viewMat);
-	Matrix world, view, proj;
+	Matrix world, view, proj, worldViewProj;
+	g_camera->GetViewMatrix(&view);
 	world = *transform_;
-	view = viewMat;
 	proj = renderer_dx11->projection_mat();
-
-	Matrix worldViewProj = world * view * proj;;
-	world_view_projection_mat_->SetMatrix(reinterpret_cast<float*>(&worldViewProj._11));
-	world_mat_->SetMatrix(reinterpret_cast<float*>(&world._11));
-	view_mat_->SetMatrix(reinterpret_cast<float*>(&view._11));
-	proj_mat_->SetMatrix(reinterpret_cast<float*>(&proj._11));
-
+	worldViewProj = world * view * proj;;
+	if (world_mat_)
+	{
+		world_mat_->SetMatrix(reinterpret_cast<float*>(&world._11));
+	}
+	if (view_mat_)
+	{
+		view_mat_->SetMatrix(reinterpret_cast<float*>(&view._11));
+	}
+	if (proj_mat_)
+	{
+		proj_mat_->SetMatrix(reinterpret_cast<float*>(&proj._11));
+	}
+	if (world_view_projection_mat_)
+	{
+		world_view_projection_mat_->SetMatrix(reinterpret_cast<float*>(&worldViewProj._11));
+	}
+	
+	// light
 	auto light_list = g_renderer->light_list();
 	for (auto light : light_list)
 	{
@@ -149,7 +159,7 @@ void MaterialDx11::ApplyEffect()
 	// input layout
 	device_context->IASetInputLayout(effect_input_layout_);
 
-	// render
+	// texture
 	D3DX11_TECHNIQUE_DESC tech_desc;
 	HRESULT hr = technique_->GetDesc(&tech_desc);
 	if (FAILED(hr))
@@ -284,7 +294,7 @@ bool MaterialDx11::CreateShader(const std::string& fx_file)
 		return false;
 	}
 
-	technique_ = effect_->GetTechniqueByName("DemoTechnique");
+	technique_ = effect_->GetTechniqueByName("MainTechnique");
 	world_view_projection_mat_ = effect_->GetVariableByName("g_worldViewProjectionMat")->AsMatrix();
 	world_mat_ = effect_->GetVariableByName("g_worldMat")->AsMatrix();
 	view_mat_ = effect_->GetVariableByName("g_viewMat")->AsMatrix();

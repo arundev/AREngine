@@ -43,8 +43,7 @@ using namespace std;
 #include "util/string_util.h"
 #include "math/math.h"
 
-
-using namespace engine;
+//using namespace engine;
 
 /*-------------------------------------------------------*/
 // util macro

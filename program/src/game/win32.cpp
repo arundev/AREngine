@@ -20,6 +20,8 @@ extern engine::Engine* g_engine;
 extern engine::Renderer* g_renderer;
 extern engine::FreeCamera* g_camera;
 
+using namespace engine;
+
 bool CreateWnd(int width, int height, const char* title) {
 	WNDCLASSEX wndclass = { 0 };
 	DWORD    wStyle = 0;

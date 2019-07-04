@@ -3,12 +3,14 @@
 
 #include "node.h"
 #include "graphic/light_data.h"
+#include "mesh/mesh_light.h"
 
 namespace engine {
 	class Light : public Node
 	{
 	public:
 		Light();
+		Light(LightType type);
 		~Light();
 		
 		const LightData& light_data()const { return light_data_; }
@@ -24,8 +26,11 @@ namespace engine {
 		void set_enable(int v) { light_data_.light_type = v; }
 
 	protected:
+		bool Init(LightType type_);
+
 	private:
 		LightData light_data_;
+		LightMesh* light_mesh_;
 	};
 }
 

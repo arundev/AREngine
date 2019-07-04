@@ -76,7 +76,7 @@ float4 PSMain(PixelInputType input) : SV_Target
 }
 
 // technique
-technique11 DemoTechnique
+technique11 MainTechnique
 {
 	pass P0
 	{

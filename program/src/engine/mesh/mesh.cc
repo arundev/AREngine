@@ -83,7 +83,7 @@ Mesh* Mesh::CreatMesh(const std::string& path,
 	}
 
 	//if (!mesh->material()->Init("color.vs", "color.ps")) 
-	if (!mesh->material()->Init("demo_dx11.fx"))
+	if (!mesh->material()->Init("model.fx"))
 	{
 		SAFE_DELETE(vertex_list);
 		SAFE_DELETE(index_data);

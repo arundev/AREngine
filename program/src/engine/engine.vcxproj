@@ -201,6 +201,7 @@
     <ClCompile Include="mesh\geometry.cc" />
     <ClCompile Include="mesh\material.cc" />
     <ClCompile Include="mesh\mesh.cc" />
+    <ClCompile Include="mesh\mesh_light.cc" />
     <ClCompile Include="mesh\texture.cc" />
     <ClCompile Include="scene\camera_node.cc" />
     <ClCompile Include="scene\light.cc" />
@@ -237,6 +238,7 @@
     <ClInclude Include="mesh\geometry.h" />
     <ClInclude Include="mesh\material.h" />
     <ClInclude Include="mesh\mesh.h" />
+    <ClInclude Include="mesh\mesh_light.h" />
     <ClInclude Include="mesh\texture.h" />
     <ClInclude Include="scene\camera_node.h" />
     <ClInclude Include="scene\light.h" />

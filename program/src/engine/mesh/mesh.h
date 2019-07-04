@@ -23,9 +23,11 @@ public:
 		const std::string& baseTex = "", const std::string& normalTex = "", const std::string& specularTex = "",
 		const std::string& vs = "color.vs", const std::string& ps= "color.ps");
 
-	void Update(float elapse);
-	void Render();
-	void Free();
+	virtual bool Init();
+	virtual bool Init(const std::string& path);
+	virtual void Update(float elapse);
+	virtual void Render();
+	virtual void Free();
 
 	Geometry* geometry(){ return geometry_; }
 	Material* material(){ return material_; }
@@ -34,10 +36,6 @@ public:
 	const std::string& getFileDirectory() { return fileDirectory_; }
 	void SetName(const std::string& _name) { name_ = _name; }
 	const std::string& name()const { return name_; }
-
-protected:
-	bool Init();
-	bool Init(const std::string& path);
 
 protected:
 	std::string fileDirectory_;

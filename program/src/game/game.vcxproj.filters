@@ -49,7 +49,10 @@
     <FxCompile Include="..\..\bin\res\shader\color.vs">
       <Filter>res\shader</Filter>
     </FxCompile>
-    <FxCompile Include="..\..\bin\res\shader\demo_dx11.fx">
+    <FxCompile Include="..\..\bin\res\shader\model.fx">
+      <Filter>res\shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\light_mesh.fx">
       <Filter>res\shader</Filter>
     </FxCompile>
   </ItemGroup>

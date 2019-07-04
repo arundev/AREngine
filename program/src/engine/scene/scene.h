@@ -21,9 +21,12 @@ namespace engine {
 		virtual void Update(float elapse);
 		virtual void Render();
 
+		const std::vector<Light*>& light_list()const { return light_list_; }
+
 	protected:
 		Color* ambient_light_;
 		Light* direction_light_;
+		std::vector<Light*> light_list_;
 	};
 }
 
