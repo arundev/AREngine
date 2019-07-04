@@ -19,8 +19,8 @@ namespace engine {
 	std::string FormatFilePath(const std::string& input)
 	{
 		std::string temp(input);
-		temp = engine::StringReplace(input, "\\", "/");
-		temp = engine::StringReplace(input, "//", "/");
+		temp = engine::StringReplace(temp, "\\", "/");
+		temp = engine::StringReplace(temp, "//", "/");
 
 		return temp;
 	}

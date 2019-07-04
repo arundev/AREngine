@@ -93,6 +93,8 @@ Mesh* Mesh::CreatMesh(const std::string& path,
 
 	std::string directory = FileUtil::getDirectory(path);
 
+
+	// CreateWICTextureFromFile不支持tag格式，转为png处理
 	if (!baseTex.empty())
 	{
 		auto baseTexPath = directory + "/" + baseTex;
