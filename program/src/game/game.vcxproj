@@ -218,6 +218,14 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugLib|Win32'">true</ExcludedFromBuild>
     </FxCompile>
   </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\..\bin\res\shader\lighting_demo.ps">
+      <FileType>Document</FileType>
+    </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\lighting_demo.vs">
+      <FileType>Document</FileType>
+    </FxCompile>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

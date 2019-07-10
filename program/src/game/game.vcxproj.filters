@@ -55,5 +55,11 @@
     <FxCompile Include="..\..\bin\res\shader\light_mesh.fx">
       <Filter>res\shader</Filter>
     </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\lighting_demo.ps">
+      <Filter>res\shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\lighting_demo.vs">
+      <Filter>res\shader</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

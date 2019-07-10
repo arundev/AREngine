@@ -1,13 +1,6 @@
 
 // global variables
 float4x4 g_worldViewProjectionMat;
-float4x4 g_worldMat;
-float4x4 g_viewMat;
-float4x4 g_projMat;
-Texture2D g_baseTexture;
-
-float4 g_directionLightDirection;
-float4 g_directionLightColor;
 
 // render state
 DepthStencilState EnableDepth
@@ -21,13 +14,6 @@ RasterizerState EnableWireframe
 {
 	FillMode = Solid;
 	CullMode = None;
-};
-
-SamplerState BaseTextureSampler
-{
-	Filter = MIN_MAG_MIP_LINEAR;
-	AddressU = Wrap;
-	AddressV = Wrap;
 };
 
 // vertex shader

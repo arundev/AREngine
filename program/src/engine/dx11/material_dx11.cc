@@ -85,22 +85,19 @@ void MaterialDx11::ApplyShader()
 
 	Matrix viewMat;
 	g_camera->GetViewMatrix(&viewMat);
-
 	Matrix world, view, proj;
+	// 由于默认情况下shader编译会把row-major优化为colum-major，因此需要transpose
 	world.TransposeOf(*transform_);
 	view.TransposeOf(viewMat);
 	proj.TransposeOf(renderer_dx11->projection_mat());
-
 	dataPtr = (MatrixBuffer*)mappedResource.pData;
 	dataPtr->world_ = world;
 	dataPtr->view_ = view;
 	dataPtr->projection_ = proj;
-
-
 	device_context->Unmap(matrix_buffer_, 0);
+
 	bufferNumber = 0;
 	device_context->VSSetConstantBuffers(bufferNumber, 1, &matrix_buffer_);
-
 	device_context->IASetInputLayout(shader_input_layout_);
 	device_context->VSSetShader(vertex_shader_, NULL, 0);
 	device_context->PSSetShader(pixel_shader_, NULL, 0);
