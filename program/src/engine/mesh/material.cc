@@ -6,11 +6,8 @@
 namespace engine {
 
 
-Material::Material() :
-base_map_(NULL),
-normal_map_(NULL),
-specular_map_(NULL),
-transform_(NULL){
+Material::Material()
+{
 
 }
 
@@ -49,9 +46,10 @@ bool Material::Init(const std::string& shader)
 
 
 void Material::InitTransform(){
-	SAFE_DELETE(transform_);
-	transform_ = new Matrix();
-	transform_->Identity();
+	world_mat_.Identity();
+	view_mat_.Identity();
+	proj_mat_.Identity();
+	world_view_proj_mat_.Identity();
 }
 
 bool Material::SetShader(const char* vs /* = NULL */, const char* ps /* = NULL */, const char* gs /* = NULL */){
@@ -95,7 +93,6 @@ void Material::Free(){
 	SAFE_FREE(base_map_);
 	SAFE_FREE(normal_map_);
 	SAFE_FREE(specular_map_);
-	SAFE_DELETE(transform_);
 }
 
 void Material::Apply(){

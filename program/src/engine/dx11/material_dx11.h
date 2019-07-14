@@ -34,14 +34,14 @@ private:
 
 	ID3DX11Effect* effect_ = nullptr;
 	ID3DX11EffectTechnique* technique_ = nullptr;
-	ID3DX11EffectMatrixVariable* world_view_projection_mat_ = nullptr;
-	ID3DX11EffectMatrixVariable* world_mat_ = nullptr;
-	ID3DX11EffectMatrixVariable* view_mat_ = nullptr;
-	ID3DX11EffectMatrixVariable* proj_mat_ = nullptr;
-	ID3DX11EffectShaderResourceVariable* base_texture_srv_ = nullptr;
 	ID3D11InputLayout* effect_input_layout_ = nullptr;
-	ID3DX11EffectVectorVariable* direction_light_color_ = nullptr;
-	ID3DX11EffectVectorVariable* direction_light_direction_ = nullptr;
+	ID3DX11EffectMatrixVariable* effect_value_world_view_projection_mat_ = nullptr;
+	ID3DX11EffectMatrixVariable* effect_value_world_mat_ = nullptr;
+	ID3DX11EffectMatrixVariable* effect_value_view_mat_ = nullptr;
+	ID3DX11EffectMatrixVariable* effect_value_proj_mat_ = nullptr;
+	ID3DX11EffectShaderResourceVariable* effect_value_base_texture_ = nullptr;
+	ID3DX11EffectVectorVariable* effect_value_direction_light_color_ = nullptr;
+	ID3DX11EffectVectorVariable* effect_value_direction_light_direction_ = nullptr;
 };
 
 

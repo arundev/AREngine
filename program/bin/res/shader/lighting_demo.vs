@@ -1,46 +1,39 @@
-cbuffer MatrixBuffer
+
+cbuffer MatrixBuffer : register(b0)
 {
-	matrix worldMatrix;
-	matrix viewMatrix;
-	matrix projectionMatrix;
+	matrix g_world_mat;
+	matrix g_inverse_transpose_world_mat;
+	matrix g_world_view_proj_mat;
 };
 
-
-
-///////////////////////////////////////////////////////////
-struct VertexInputType
+struct VertexInput
 {
     float4 position : POSITION;
 	float4 normal : NORMAL;
 	float4 color : COLOR;
-	float4 tex: TEXCOORD0;
+	float4 tex_coord: TEXCOORD0;
 };
 
-struct PixelInputType
+struct VertexOuput
 {
-    float4 position : SV_POSITION;
-    float4 color : COLOR;
-	float2 tex : TEXCOORD0;
+    float4 position_ws : TEXCOORD1;
+	float3 normal_ws : TEXCOORD2;
+	float2 tex_coord : TEXCOORD0;
+    float4 position : SV_Position;
+	float4 color : COLOR;
 };
 
 
-
-PixelInputType Main(VertexInputType input)
+VertexOuput Main(VertexInput input)
 {
-    PixelInputType output;
-    
-
-	// Change the position vector to be 4 units for proper matrix calculations.
-    input.position.w = 1.0f;
-
-	// Calculate the position of the vertex against the world, view, and projection matrices.
-    output.position = mul(input.position, worldMatrix);
-    output.position = mul(output.position, viewMatrix);
-    output.position = mul(output.position, projectionMatrix);
-    
-	// Store the input color for the pixel shader to use.
-    output.color = input.color;
-	output.tex = float2(input.tex.x, input.tex.y);
+    VertexOuput output;
+   
+	input.position.w = 1.0f;
+	output.position = mul(g_world_view_proj_mat, input.position);
+	output.position_ws = mul(g_world_mat, input.position);
+	output.normal_ws = mul(g_inverse_transpose_world_mat, input.normal);
+	output.tex_coord = input.tex_coord;
+	output.color = input.color;
     
     return output;
 }

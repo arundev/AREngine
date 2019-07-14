@@ -141,7 +141,7 @@ bool Mesh::Init(){
 }
 
 void Mesh::Update(float elapse){
-	material_->SetWorldTransform(transform_);
+	material_->set_world_transform(transform_);
 }
 
 void Mesh::Render(){

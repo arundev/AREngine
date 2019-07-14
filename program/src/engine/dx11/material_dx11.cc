@@ -19,17 +19,8 @@ const D3D11_INPUT_ELEMENT_DESC g_poloygon_layout[] =
 	{ "BITANGENT", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,  D3D11_INPUT_PER_VERTEX_DATA, 0 },
 };
 
-MaterialDx11::MaterialDx11():
-vertex_shader_(NULL),
-geometry_shader_(NULL),
-pixel_shader_(NULL),
-matrix_buffer_(NULL),
-shader_input_layout_(NULL),
-effect_(nullptr),
-technique_(nullptr),
-world_view_projection_mat_(nullptr),
-world_mat_(nullptr),
-effect_input_layout_(nullptr){
+MaterialDx11::MaterialDx11()
+{
 
 }
 
@@ -54,6 +45,14 @@ void MaterialDx11::DoFree(){
 
 void MaterialDx11::DoApply()
 {
+	RendererDx11* renderer_dx11 = dynamic_cast<RendererDx11*>(g_renderer);
+	ID3D11Device* device = renderer_dx11->device();
+	ID3D11DeviceContext* device_context = renderer_dx11->device_context();
+
+	g_camera->GetViewMatrix(&view_mat_);
+	proj_mat_ = renderer_dx11->projection_mat();
+	world_view_proj_mat_ = world_mat_ * view_mat_ * proj_mat_;;
+
 	if (effect_)
 	{
 		ApplyEffect();
@@ -83,13 +82,11 @@ void MaterialDx11::ApplyShader()
 		return;
 	}
 
-	Matrix viewMat;
-	g_camera->GetViewMatrix(&viewMat);
 	Matrix world, view, proj;
 	// 由于默认情况下shader编译会把row-major优化为colum-major，因此需要transpose
-	world.TransposeOf(*transform_);
-	view.TransposeOf(viewMat);
-	proj.TransposeOf(renderer_dx11->projection_mat());
+	world.TransposeOf(world_mat_);
+	view.TransposeOf(view_mat_);
+	proj.TransposeOf(proj_mat_);
 	dataPtr = (MatrixBuffer*)mappedResource.pData;
 	dataPtr->world_ = world;
 	dataPtr->view_ = view;
@@ -120,26 +117,21 @@ void MaterialDx11::ApplyEffect()
 	ID3D11DeviceContext* device_context = renderer_dx11->device_context();
 
 	// transform
-	Matrix world, view, proj, worldViewProj;
-	g_camera->GetViewMatrix(&view);
-	world = *transform_;
-	proj = renderer_dx11->projection_mat();
-	worldViewProj = world * view * proj;;
-	if (world_mat_)
+	if (effect_value_world_mat_)
 	{
-		world_mat_->SetMatrix(reinterpret_cast<float*>(&world._11));
+		effect_value_world_mat_->SetMatrix(reinterpret_cast<float*>(&world_mat_._11));
 	}
-	if (view_mat_)
+	if (effect_value_view_mat_)
 	{
-		view_mat_->SetMatrix(reinterpret_cast<float*>(&view._11));
+		effect_value_view_mat_->SetMatrix(reinterpret_cast<float*>(&view_mat_._11));
 	}
-	if (proj_mat_)
+	if (effect_value_proj_mat_)
 	{
-		proj_mat_->SetMatrix(reinterpret_cast<float*>(&proj._11));
+		effect_value_proj_mat_->SetMatrix(reinterpret_cast<float*>(&proj_mat_._11));
 	}
-	if (world_view_projection_mat_)
+	if (effect_value_world_view_projection_mat_)
 	{
-		world_view_projection_mat_->SetMatrix(reinterpret_cast<float*>(&worldViewProj._11));
+		effect_value_world_view_projection_mat_->SetMatrix(reinterpret_cast<float*>(&world_view_proj_mat_._11));
 	}
 	
 	// light
@@ -148,8 +140,8 @@ void MaterialDx11::ApplyEffect()
 	{
 		if (light && light->light_type == LightType::DirectionalLight)
 		{
-			direction_light_color_->SetFloatVector(reinterpret_cast<float*>(&light->color.r));
-			direction_light_direction_->SetFloatVector(reinterpret_cast<float*>(&light->direction.x));
+			effect_value_direction_light_color_->SetFloatVector(reinterpret_cast<float*>(&light->color.r));
+			effect_value_direction_light_direction_->SetFloatVector(reinterpret_cast<float*>(&light->direction.x));
 		}
 	}
 
@@ -171,7 +163,7 @@ void MaterialDx11::ApplyEffect()
 			ID3D11ShaderResourceView* tex_view = const_cast<ID3D11ShaderResourceView*>(d3d_texture->texture_view());
 			ID3D11SamplerState* sampler_state = const_cast<ID3D11SamplerState*>(d3d_texture->sampler_state());
 
-			hr = base_texture_srv_->SetResource(tex_view);
+			hr = effect_value_base_texture_->SetResource(tex_view);
 			if (FAILED(hr))
 			{
 				return;
@@ -292,13 +284,13 @@ bool MaterialDx11::CreateShader(const std::string& fx_file)
 	}
 
 	technique_ = effect_->GetTechniqueByName("MainTechnique");
-	world_view_projection_mat_ = effect_->GetVariableByName("g_worldViewProjectionMat")->AsMatrix();
-	world_mat_ = effect_->GetVariableByName("g_worldMat")->AsMatrix();
-	view_mat_ = effect_->GetVariableByName("g_viewMat")->AsMatrix();
-	proj_mat_ = effect_->GetVariableByName("g_projMat")->AsMatrix();
-	base_texture_srv_ = effect_->GetVariableByName("g_baseTexture")->AsShaderResource();
-	direction_light_color_ = effect_->GetVariableByName("g_directionLightColor")->AsVector();
-	direction_light_direction_ = effect_->GetVariableByName("g_directionLightDirection")->AsVector();
+	effect_value_world_view_projection_mat_ = effect_->GetVariableByName("g_worldViewProjectionMat")->AsMatrix();
+	effect_value_world_mat_ = effect_->GetVariableByName("g_worldMat")->AsMatrix();
+	effect_value_view_mat_ = effect_->GetVariableByName("g_viewMat")->AsMatrix();
+	effect_value_proj_mat_ = effect_->GetVariableByName("g_projMat")->AsMatrix();
+	effect_value_base_texture_= effect_->GetVariableByName("g_baseTexture")->AsShaderResource();
+	effect_value_direction_light_color_ = effect_->GetVariableByName("g_directionLightColor")->AsVector();
+	effect_value_direction_light_direction_ = effect_->GetVariableByName("g_directionLightDirection")->AsVector();
 
 	unsigned int num_element = sizeof(g_poloygon_layout) / sizeof(g_poloygon_layout[0]);
 	D3DX11_PASS_DESC pass_desc;
