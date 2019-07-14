@@ -14,32 +14,18 @@ namespace engine {
 
 	struct LightData
 	{
+		Color color = { 1.0f, 1.0f, 1.0f, 1.0f };
+		Vector position = { 0.0f, 0.0f, 0.0f, 1.0f };
+		Vector direction = { 0.0f, 0.0f, 1.0f, 0.0f };
 
-		LightData() : color(1.0f, 1.0f, 1.0f, 1.0f)
-			, position(0.0f, 0.0f, 0.0f, 1.0f)
-			, direction(0.0f, 0.0f, 1.0f, 0.0f)
-			, spot_angle(MATH_PIDIV2)
-			, constant_attenuation(1.0f)
-			, linear_attenuation(0.0f)
-			, quadratic_attenuation(0.0f)
-			, light_type(DirectionalLight)
-			, enabled(0)
+		float spot_angle = MATH_PIDIV2;
+		float constant_attenuation = 1.0f;
+		float linear_attenuation = 0.0f;
+		float quadratic_attenuation = 0.0f;
 
-		{
-
-		}
-
-		Color color;
-		Vector position;
-		Vector direction;
-
-		float spot_angle;
-		float constant_attenuation;
-		float linear_attenuation;
-		float quadratic_attenuation;
-
-		int light_type;
-		int enabled;
+		int light_type = DirectionalLight;
+		int enabled = 0;
+		int padding[2];
 	};
 
 }

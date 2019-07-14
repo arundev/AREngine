@@ -7,6 +7,7 @@
 
 namespace engine {
 
+class ShaderDx11;
 
 class MaterialDx11 : public Material
 {
@@ -20,12 +21,16 @@ protected:
 	virtual void DoApply();
 	virtual bool CreateShader();
 	virtual bool CreateShader(const std::string& shader);
+	virtual bool CreateShader(const std::string& vs, const std::string& ps);
 
 private:
 	void ApplyShader();
 	void ApplyEffect();
 
 private:
+
+	ShaderDx11* shader_dx11_ = nullptr;
+
 	ID3D11VertexShader* vertex_shader_ = nullptr;
 	ID3D11GeometryShader* geometry_shader_ = nullptr;
 	ID3D11PixelShader* pixel_shader_ = nullptr;

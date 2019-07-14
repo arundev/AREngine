@@ -3,14 +3,14 @@
 
 namespace engine {
 
-Renderer::Renderer() : default_direction_light_(nullptr)
+Renderer::Renderer()
 {
 
 }
 
 Renderer::~Renderer()
 {
-	SAFE_DELETE(default_direction_light_);
+	
 }
 
 bool Renderer::Init(const Window& param)
@@ -28,11 +28,6 @@ bool Renderer::Init(const Window& param)
 
 	fill_mode_ = Renderer::FillMode::kFillModeSolide;
 	cull_mode_ = Renderer::CullMode::kCullModeBack;
-
-	default_direction_light_ = new LightData();
-	default_direction_light_->light_type = LightType::DirectionalLight;
-	default_direction_light_->color = Color(1.0f, 0.0f, 0.0f);
-	light_list_.push_back(default_direction_light_);
 
 	return DoInit();
 }

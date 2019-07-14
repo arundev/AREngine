@@ -121,7 +121,7 @@ public:
 	inline void Billboard(Vector vcPos, Vector vcDir, Vector vcWorldUp = Vector(0, 1, 0));
 	inline void LookAt(Vector vcPos, Vector vcLookAt, Vector vcWorldUp = Vector(0, 1, 0));
 	inline void TransposeOf(const Matrix &m);
-	inline void InverseOf(const Matrix &m);
+	void InverseOf(const Matrix &m);
 
 	Matrix operator * (const Matrix &m)const;
 	Vector operator * (const Vector &vc)const;

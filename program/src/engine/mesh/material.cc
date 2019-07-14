@@ -65,7 +65,8 @@ bool Material::SetShader(const char* vs /* = NULL */, const char* ps /* = NULL *
 		gs_file_name_ = gs;
 	}
 
-	return CreateShader();
+	//return CreateShader();
+	return CreateShader(vs, ps);
 }
 
 bool Material::SetShader(const std::string& file_name)

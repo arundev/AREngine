@@ -65,6 +65,8 @@ public:
 
 	const std::vector<LightData*>& light_list()const { return light_list_; }
 	void set_light_list(const std::vector<LightData*>& light) { light_list_ = light; }
+	const Color& ambient_light() { return ambient_light_; }
+	void set_ambient_light(const Color& color) { ambient_light_ = color; }
 
 protected:
 	virtual bool DoInit() = 0;
@@ -88,7 +90,7 @@ protected:
 	engine::Matrix projection_mat_;
 
 	std::vector<LightData*> light_list_;
-	LightData* default_direction_light_;
+	Color ambient_light_;
 };
 
 }

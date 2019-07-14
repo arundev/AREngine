@@ -160,11 +160,11 @@ LightingResult ComputeLighting(float4 P, float3 N)
 				result = DoSpotLight(g_lights[i], V, P, N);
 			}
 			break;
-
-			total_result.diffuse += result.diffuse;
-			total_result.specular += result.specular;
 		}
-	}
+
+        total_result.diffuse += result.diffuse;
+        total_result.specular += result.specular;
+    }
 
 	total_result.diffuse = saturate(total_result.diffuse);
 	total_result.specular = saturate(total_result.specular);
@@ -175,9 +175,11 @@ LightingResult ComputeLighting(float4 P, float3 N)
 /////////////////////////////////////////
 struct PixelInput
 {
-    float4 position_ws : TEXCOORD1;
-    float3 normal_ws : TEXCOORD2;
+	float4 position_ws : TEXCOORD1;
+	float3 normal_ws : TEXCOORD2;
 	float2 tex_coord : TEXCOORD0;
+    float4 position : SV_POSITION;
+	float4 color : COLOR;
 };
 
 float4 Main(PixelInput input) : SV_TARGET
@@ -196,5 +198,6 @@ float4 Main(PixelInput input) : SV_TARGET
 	}
 
 	float4 final_color = (emissive + ambient + diffuse + specular) * tex_color;
+	//float4 final_color = {1.0f, 0.0f, 0.0f, 1.0f};
 	return final_color;
 }

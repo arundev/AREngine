@@ -179,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\object.cpp" />
+    <ClCompile Include="dx11\shader_dx11.cpp" />
     <ClCompile Include="dx11\geometry_dx11.cc" />
     <ClCompile Include="dx11\material_dx11.cc" />
     <ClCompile Include="dx11\texture_dx11.cc" />
@@ -186,6 +187,7 @@
     <ClCompile Include="engine.cc" />
     <ClCompile Include="graphic\camera_data.cc" />
     <ClCompile Include="graphic\light_data.cc" />
+    <ClCompile Include="graphic\material_data.cpp" />
     <ClCompile Include="math\aabb.cc" />
     <ClCompile Include="math\bsp_tree.cc" />
     <ClCompile Include="math\math.cc" />
@@ -202,6 +204,7 @@
     <ClCompile Include="mesh\material.cc" />
     <ClCompile Include="mesh\mesh.cc" />
     <ClCompile Include="mesh\mesh_light.cc" />
+    <ClCompile Include="graphic\shader.cpp" />
     <ClCompile Include="mesh\texture.cc" />
     <ClCompile Include="scene\camera_node.cc" />
     <ClCompile Include="scene\light.cc" />
@@ -225,6 +228,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base\object.h" />
+    <ClInclude Include="dx11\shader_dx11.h" />
     <ClInclude Include="dx11\dx11_include.h" />
     <ClInclude Include="dx11\geometry_dx11.h" />
     <ClInclude Include="dx11\material_dx11.h" />
@@ -234,11 +238,13 @@
     <ClInclude Include="engine_include.h" />
     <ClInclude Include="graphic\camera_data.h" />
     <ClInclude Include="graphic\light_data.h" />
+    <ClInclude Include="graphic\material_data.h" />
     <ClInclude Include="math\math.h" />
     <ClInclude Include="mesh\geometry.h" />
     <ClInclude Include="mesh\material.h" />
     <ClInclude Include="mesh\mesh.h" />
     <ClInclude Include="mesh\mesh_light.h" />
+    <ClInclude Include="graphic\shader.h" />
     <ClInclude Include="mesh\texture.h" />
     <ClInclude Include="scene\camera_node.h" />
     <ClInclude Include="scene\light.h" />

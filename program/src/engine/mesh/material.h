@@ -3,6 +3,7 @@
 
 #include "engine_pch.h"
 #include "texture.h"
+#include "graphic/shader.h"
 
 namespace engine {
 
@@ -56,10 +57,13 @@ protected:
 	virtual void DoApply() = 0;
 	virtual bool CreateShader() = 0;
 	virtual bool CreateShader(const std::string& shader) = 0;
+	virtual bool CreateShader(const std::string& vs, const std::string& ps) = 0;
 
 	virtual void InitTransform();
 
 protected:
+	Shader* shader_ = nullptr;
+
 	std::string vs_file_name_;
 	std::string ps_file_name_;
 	std::string gs_file_name_;

@@ -68,7 +68,7 @@ namespace engine {
 		for (auto& child : children_) {
 			if (child)
 			{
-				child->Free();
+				SAFE_DELETE(child);
 			}
 		}
 		children_.clear();

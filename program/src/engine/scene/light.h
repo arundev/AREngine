@@ -14,6 +14,7 @@ namespace engine {
 		~Light();
 		
 		const LightData& light_data()const { return light_data_; }
+		LightData* light_data_ptr() { return &light_data_; }
 		void set_light_data(const LightData& data) { light_data_ = data; }
 
 		void set_color(const Color& color) { light_data_.color = color; }
@@ -23,7 +24,7 @@ namespace engine {
 		void set_linear_attenuation(float f) { light_data_.linear_attenuation = f; }
 		void set_quadratic_attenuation(float f) { light_data_.quadratic_attenuation = f; }
 		void set_light_type(LightType type) { light_data_.light_type = type; }
-		void set_enable(int v) { light_data_.light_type = v; }
+		void set_enable(bool v) { light_data_.enabled = v ? 1 : 0; }
 
 	protected:
 		bool Init(LightType type_);

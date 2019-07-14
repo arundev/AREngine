@@ -4,6 +4,7 @@
 #include "engine.h"
 #include "math/math.h"
 #include "texture_dx11.h"
+#include "shader_dx11.h"
 
 namespace engine {
 
@@ -49,11 +50,32 @@ void MaterialDx11::DoApply()
 	ID3D11Device* device = renderer_dx11->device();
 	ID3D11DeviceContext* device_context = renderer_dx11->device_context();
 
+	//renderer_dx11->SetWireframe(false);
+
+	Vector camera_pos;
+	g_camera->GetPosition(&camera_pos);
 	g_camera->GetViewMatrix(&view_mat_);
 	proj_mat_ = renderer_dx11->projection_mat();
 	world_view_proj_mat_ = world_mat_ * view_mat_ * proj_mat_;;
 
-	if (effect_)
+	if (shader_dx11_)
+	{
+		shader_dx11_->UpdateMatrixPropterty(world_mat_, view_mat_, proj_mat_);
+		shader_dx11_->UpdateLightProperty(g_renderer->light_list(), g_renderer->ambient_light(), camera_pos);
+		shader_dx11_->UpdateMaterialProperty();
+		shader_dx11_->set_material_use_texture(false);
+		if (base_map_)
+		{
+			TextureDx11* d3d_texture = dynamic_cast<TextureDx11*>(base_map_);
+			ID3D11ShaderResourceView* tex_view = const_cast<ID3D11ShaderResourceView*>(d3d_texture->texture_view());
+			ID3D11SamplerState* sampler_state = const_cast<ID3D11SamplerState*>(d3d_texture->sampler_state());
+			shader_dx11_->set_base_map_sampler(tex_view, sampler_state);
+			shader_dx11_->set_material_use_texture(true);
+		}
+		
+		shader_dx11_->Render();
+	}
+	else if (effect_)
 	{
 		ApplyEffect();
 	}
@@ -95,9 +117,6 @@ void MaterialDx11::ApplyShader()
 
 	bufferNumber = 0;
 	device_context->VSSetConstantBuffers(bufferNumber, 1, &matrix_buffer_);
-	device_context->IASetInputLayout(shader_input_layout_);
-	device_context->VSSetShader(vertex_shader_, NULL, 0);
-	device_context->PSSetShader(pixel_shader_, NULL, 0);
 
 	// base map
 	if (base_map_)
@@ -108,6 +127,10 @@ void MaterialDx11::ApplyShader()
 		device_context->PSSetShaderResources(0, 1, &tex_view);
 		device_context->PSSetSamplers(0, 1, &sampler_state);
 	}
+
+	device_context->IASetInputLayout(shader_input_layout_);
+	device_context->VSSetShader(vertex_shader_, NULL, 0);
+	device_context->PSSetShader(pixel_shader_, NULL, 0);
 }
 
 void MaterialDx11::ApplyEffect()
@@ -307,5 +330,17 @@ bool MaterialDx11::CreateShader(const std::string& fx_file)
 	return true;
 }
 
+bool MaterialDx11::CreateShader(const std::string& vs, const std::string& ps)
+{
+	shader_dx11_ = new ShaderDx11();
+	if (!shader_dx11_->Init(vs, ps))
+	{
+		return false;
+	}
+
+	shader_ = shader_dx11_;
+
+	return true;
+}
 
 }

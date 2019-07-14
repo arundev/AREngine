@@ -32,6 +32,8 @@ namespace engine {
 			break;
 		}
 
+		set_enable(true);
+
 		return true;
 	}
 }
