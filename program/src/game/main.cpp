@@ -8,6 +8,10 @@
 
 using namespace engine;
 
+unsigned int g_wnd_width = 800;
+unsigned int g_wnd_height = 600;
+TwBar* g_tweak_bar = nullptr;
+
 int main(int argc, char *argv[]){
 	CreateWnd(800, 600, "hello arun");
 	AppInit();
@@ -89,6 +93,17 @@ void AppInit(){
 	scene->Init();
 	scene->AddChild(root);
 	g_engine->setCurrentScene(scene);
+
+	InitGUI();
+}
+
+void InitGUI()
+{
+	g_tweak_bar = TwNewBar("Rendering Technique");
+	TwDefine("'Rendering Technique' refresh=0.5");
+
+	TwAddVarRO(g_tweak_bar, "Window Width", TW_TYPE_UINT32, &g_wnd_width, "label='Window Width' help='Window width in pixels.'");
+	TwAddVarRO(g_tweak_bar, "Window Height", TW_TYPE_UINT32, &g_wnd_height, "label='Window Height' help='Window height in pixels.'");
 }
 
 void AppUpdate(){

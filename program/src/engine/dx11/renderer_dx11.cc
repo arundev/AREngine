@@ -239,6 +239,9 @@ bool RendererDx11::DoInit(){
 	MatrixFromDx11(&projection, &projection_mat_);
 	world_mat_.Identity();
 
+	TwInit(ETwGraphAPI::TW_DIRECT3D11, device_);
+	TwWindowSize(screen_width_, screen_width_);
+
 	return true;
 }
 
@@ -311,6 +314,9 @@ void RendererDx11::BeginScene(float red, float green, float blue, float alpha){
 }
 
 void RendererDx11::EndScene(){
+
+	TwDraw();
+
 	if (vsync_enabled_){
 		swap_chain_->Present(1, 0);
 	}
@@ -324,6 +330,9 @@ void RendererDx11::EndScene(){
 }
 
 void RendererDx11::Free(){
+
+	TwTerminate();
+
 	device_context_->ClearState();
 	device_context_->Flush();
 

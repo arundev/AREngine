@@ -97,7 +97,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\engine;$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\math;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\DirectXTK\Inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\engine;$(SolutionDir)..\lib\opengles\include;$(SolutionDir)..\lib\anttweakbar\include;$(SolutionDir)..\lib\math;..\extern\zlib;..\extern\assimp\src\include;..\extern\assimp\src\code\BoostWorkaround;..\extern\assimp\src\code;..\extern\DirectXTK\Inc</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>WIN32;_DEBUG;OPENDDL_NO_USE_CPP11;ASSIMP_BUILD_BOOST_WORKAROUND;ASSIMP_BUILD_NO_C4D_IMPORTER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -106,8 +106,8 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\bin\win32;$(SolutionDir)..\lib\opengles\lib;$(SolutionDir)..\lib\dxsdk\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;dxguid.lib;winmm.lib;DXGI.lib;libGLESv2.lib;libEGL.lib;AssimpLib.lib;DirectXTK.lib;Effects11d.lib;engine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\bin\win32;$(SolutionDir)..\lib\opengles\lib;$(SolutionDir)..\lib\dxsdk\lib;$(SolutionDir)..\lib\anttweakbar\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;dxguid.lib;winmm.lib;DXGI.lib;libGLESv2.lib;libEGL.lib;AssimpLib.lib;DirectXTK.lib;Effects11d.lib;engine_d.lib;AntTweakBar.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>NotSet</SubSystem>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -207,9 +207,15 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugLib|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </FxCompile>
-    <FxCompile Include="..\..\bin\res\shader\common.hlsl" />
-    <FxCompile Include="..\..\bin\res\shader\deferred_rendering.hlsl" />
-    <FxCompile Include="..\..\bin\res\shader\foward_rendering.hlsl" />
+    <FxCompile Include="..\..\bin\res\shader\common.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\deferred_rendering.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\foward_rendering.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </FxCompile>
     <FxCompile Include="..\..\bin\res\shader\lighting_ps.hlsl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </FxCompile>

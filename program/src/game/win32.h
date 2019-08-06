@@ -15,6 +15,7 @@ extern void AppInit();
 extern void AppUpdate();
 extern void AppRender();
 extern void AppFree();
+extern void InitGUI();
 
 
 #define VK_A 0x41
