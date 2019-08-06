@@ -207,6 +207,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugLib|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\common.hlsl" />
+    <FxCompile Include="..\..\bin\res\shader\deferred_rendering.hlsl" />
+    <FxCompile Include="..\..\bin\res\shader\foward_rendering.hlsl" />
     <FxCompile Include="..\..\bin\res\shader\lighting_ps.hlsl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </FxCompile>

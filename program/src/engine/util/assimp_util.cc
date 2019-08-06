@@ -1,6 +1,7 @@
 #include "assimp_util.h"
 #include "file_util.h"
 #include "mesh/mesh.h"
+#include "scene/scene.h"
 
 #include <assimp/cimport.h>
 #include <assimp/LogStream.hpp>
@@ -32,6 +33,25 @@ aiProcess_OptimizeMeshes | // join small meshes, if possible;
 aiProcess_SplitByBoneCount | // split meshes with too many bones. Necessary for our (limited) hardware skinning shader
 0;
 
+inline void CopyData(const aiMatrix4x4& src, Matrix& dst)
+{
+	memcpy(&dst, &src, sizeof(aiMatrix4x4));
+}
+
+inline void CopyData(const aiVector3D& src, Vector& dst)
+{
+	dst.x = src.x;
+	dst.y = src.y;
+	dst.z = src.z;
+}
+
+inline void CopyData(const aiColor4D& src, Color& dst)
+{
+	dst.r = src.r;
+	dst.g = src.g;
+	dst.b = src.b;
+	dst.a = src.a;
+}
 
 bool AssimpUtil::LoadFile(const std::string& file_name, std::vector<engine::Mesh*>& meshes)
 {
@@ -248,5 +268,146 @@ engine::Mesh* AssimpUtil::CreateMesh(const std::string& filePath, aiMesh* src_me
 	return dst_mesh;
 }
 
+Scene* AssimpUtil::CreateScene(const std::string& file_name)
+{
+	if (file_name.empty()) 
+	{
+		return nullptr;
+	}
+
+	std::string full_path = g_file_util->GetModelsFolder() + file_name;
+	if (!FileUtil::FileExists(full_path)) {
+
+		std::string log = full_path + std::string(" is not exsit!");
+		g_log->Write(log);
+		return nullptr;
+	}
+
+	aiPropertyStore* props = aiCreatePropertyStore();
+	aiSetImportPropertyInteger(props, AI_CONFIG_IMPORT_TER_MAKE_UVS, 1);
+	aiSetImportPropertyFloat(props, AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE, 80.0f);
+
+	aiScene* ai_scene = (aiScene*)aiImportFileExWithProperties(full_path.c_str(),
+		ppsteps |
+		aiProcess_GenSmoothNormals |
+		aiProcess_SplitLargeMeshes |
+		aiProcess_Triangulate |
+		aiProcess_ConvertToLeftHanded |
+		aiProcess_SortByPType |
+		0,
+		NULL,
+		props);
+
+	if (!ai_scene)
+	{
+		string log = string("error: failed to load file: ") + file_name;
+		g_log->Write(log);
+		return nullptr;
+	}
+
+	Scene* scene = new Scene();
+	if (!scene->Init())
+	{
+		SAFE_DELETE(scene);
+		return nullptr;
+	}
+
+	std::vector<Mesh*> mesh_list;
+	for (unsigned int i=0; i<ai_scene->mNumMeshes; i++)
+	{
+		auto mesh = CreateMesh(ai_scene->mMeshes[i]);
+		mesh_list.push_back(mesh);
+	}
+
+	CreateNode(ai_scene->mRootNode, scene, mesh_list);
+
+	
+	aiReleasePropertyStore(props);
+
+	return scene;
+}
+
+Node* AssimpUtil::CreateNode(aiNode* src_node, Node* parent, const std::vector<Mesh*>& mesh_list)
+{
+	Node* node = new Node();
+	if (!node->Init())
+	{
+		return nullptr;
+	}
+
+	Matrix local_transform;
+	CopyData(src_node->mTransformation, local_transform);
+	node->set_transform(local_transform);
+
+	for (unsigned int  i=0; i<src_node->mNumMeshes; i++)
+	{
+		if (i < (unsigned int)mesh_list.size())
+		{
+			node->AddMesh(mesh_list[i]);
+		}
+	}
+
+	for (unsigned int  i=0; i<src_node->mNumChildren; i++)
+	{
+		CreateNode(src_node->mChildren[i], node, mesh_list);
+	}
+
+	return node;
+}
+
+Mesh* AssimpUtil::CreateMesh(aiMesh* src_mesh)
+{
+	return nullptr;
+}
+
+Material* AssimpUtil::CreatMaterial(aiMaterial* src_material)
+{
+	if (!src_material)
+	{
+		return nullptr;
+	}
+
+	Material* mat = Material::Create();
+	if (mat && !mat->Init())
+	{
+		SAFE_FREE(mat);
+		return nullptr;
+	}
+
+	aiColor4D emissive_color;
+	aiColor4D diffuse_color;
+	aiColor4D ambient_color;
+	aiColor4D specular_color;
+
+	if (src_material->Get(AI_MATKEY_COLOR_EMISSIVE, emissive_color) == aiReturn_SUCCESS)
+	{
+		Color color;
+		CopyData(emissive_color, color);
+		mat->set_emissive_color(color);
+	}
+
+	if (src_material->Get(AI_MATKEY_COLOR_AMBIENT, ambient_color) == aiReturn_SUCCESS)
+	{
+		Color color;
+		CopyData(ambient_color, color);
+		mat->set_ambient_color(color);
+	}
+
+	if (src_material->Get(AI_MATKEY_COLOR_DIFFUSE, diffuse_color) == aiReturn_SUCCESS)
+	{
+		Color color;
+		CopyData(diffuse_color, color);
+		mat->set_diffuse_color(color);
+	}
+
+	if (src_material->Get(AI_MATKEY_COLOR_SPECULAR, specular_color) == aiReturn_SUCCESS)
+	{
+		Color color;
+		CopyData(specular_color, color);
+		mat->set_specular_color(color);
+	}
+
+	return mat;
+}
 
 }

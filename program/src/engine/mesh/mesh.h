@@ -30,7 +30,9 @@ public:
 	virtual void Free();
 
 	Geometry* geometry(){ return geometry_; }
+	void set_geometry(const Geometry* data);
 	Material* material(){ return material_; }
+	void set_material(const Material* data);
 	const Matrix& transform()const { return transform_; }
 	void SetTransform(const Matrix& ts) { transform_ = ts; }
 	const std::string& getFileDirectory() { return fileDirectory_; }

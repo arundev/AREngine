@@ -51,6 +51,13 @@ public:
 	const Texture* normal_map()const { return normal_map_; }
 	const Texture* specular_map()const { return specular_map_; }
 
+	const MaterialData& material_data()const { return material_data_; }
+	void set_material_data(const MaterialData& data) { material_data_ = data; }
+	void set_emissive_color(const Color& color) { material_data_.emissive = color; }
+	void set_ambient_color(const Color& color) { material_data_.ambient = color; }
+	void set_diffuse_color(const Color& color) { material_data_.diffuse = color; }
+	void set_specular_color(const Color& color) { material_data_.specular = color; }
+
 protected:
 	virtual bool DoInit() = 0;
 	virtual void DoFree() = 0;
@@ -63,6 +70,7 @@ protected:
 
 protected:
 	Shader* shader_ = nullptr;
+	MaterialData material_data_;
 
 	std::string vs_file_name_;
 	std::string ps_file_name_;

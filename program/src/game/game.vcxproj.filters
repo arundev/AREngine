@@ -61,5 +61,14 @@
     <FxCompile Include="..\..\bin\res\shader\lighting_ps.hlsl">
       <Filter>res\shader</Filter>
     </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\deferred_rendering.hlsl">
+      <Filter>res\shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\common.hlsl">
+      <Filter>res\shader</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\bin\res\shader\foward_rendering.hlsl">
+      <Filter>res\shader</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

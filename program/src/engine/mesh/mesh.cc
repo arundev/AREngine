@@ -164,5 +164,26 @@ void Mesh::Free(){
 	SAFE_DELETE(material_);
 }
 
+void Mesh::set_geometry(const Geometry* data)
+{
+	if (data == geometry_)
+	{
+		return;
+	}
+
+	SAFE_FREE(geometry_);
+	geometry_ = const_cast<Geometry*>(data);
+}
+
+void Mesh::set_material(const Material* data)
+{
+	if (data == material_)
+	{
+		return;
+	}
+
+	SAFE_FREE(material_);
+	material_ = const_cast<Material*>(data);
+}
 
 }
