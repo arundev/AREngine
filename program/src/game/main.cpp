@@ -13,18 +13,19 @@ unsigned int g_wnd_height = 600;
 TwBar* g_tweak_bar = nullptr;
 
 int main(int argc, char *argv[]){
-	CreateWnd(800, 600, "hello arun");
+	CreateWnd(g_wnd_width, g_wnd_height, "hello arun");
 	AppInit();
 	MsgLoop();
 }
 
-void AppInit(){
+void AppInit(HWND hwnd, HINSTANCE inst)
+{
 	g_engine = new engine::Engine();
 	Renderer::Window param;
-	param.width_ = 800;
-	param.height_ = 600;
-	param.wnd_ = (int)g_wnd;
-	param.instance_ = (int)g_instance;
+	param.width_ = g_wnd_width;
+	param.height_ = g_wnd_height;
+	param.wnd_ = (int)hwnd;
+	param.instance_ = (int)inst;
 	g_engine->Init(param);
 
 	g_file_util->SetDataFolder("../../bin/res/");

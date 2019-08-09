@@ -184,7 +184,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="model_loader.cc" />
     <ClCompile Include="model_table.cc" />
-    <ClCompile Include="test.cpp" />
     <ClCompile Include="win32.cpp" />
   </ItemGroup>
   <ItemGroup>

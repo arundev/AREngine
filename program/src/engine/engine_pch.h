@@ -43,6 +43,11 @@ using namespace std;
 #include "util/string_util.h"
 #include "math/math.h"
 
+#include <AntTweakBar.h>
+//#if defined(_WIN64)
+//#pragma comm
+//#endif
+
 //using namespace engine;
 
 /*-------------------------------------------------------*/
