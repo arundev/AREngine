@@ -1,11 +1,8 @@
 
 
-program/obj/
-program/src/editor/bin
-program/src/editor/obj
-program/src/.vs/
-program/src/UpgradeLog.htm
-.resona/
+
+/bin/Debug
+
 
 # Compiled source #
 ###################
