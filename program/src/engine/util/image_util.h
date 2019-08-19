@@ -1,8 +1,6 @@
 #ifndef	ENGINE_PICTURE_UTIL_H
 #define ENGINE_PICTURE_UTIL_H
 
-#include "engine_pch.h"
-
 namespace engine {
 
 

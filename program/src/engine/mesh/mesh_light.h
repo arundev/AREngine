@@ -1,7 +1,6 @@
 #ifndef ENGINE_MESH_MESH_LIGHT_H
 #define ENGINE_MESH_MESH_LIGHT_H
 
-#include "engine_pch.h"
 #include "mesh.h"
 
 namespace engine {

@@ -1,7 +1,6 @@
 #ifndef ENGINE_DX11_TEXTURE_H
 #define ENGINE_DX11_TEXTURE_H
 
-#include "engine_pch.h"
 #include "mesh/texture.h"
 #include "dx11_include.h"
 

@@ -1,3 +1,4 @@
+#include "../engine_pch.h"
 #include "mesh_light.h"
 
 namespace engine

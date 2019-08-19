@@ -18,14 +18,14 @@ int main(int argc, char *argv[]){
 	MsgLoop();
 }
 
-void AppInit(HWND hwnd, HINSTANCE inst)
+void AppInit()
 {
 	g_engine = new engine::Engine();
 	Renderer::Window param;
 	param.width_ = g_wnd_width;
 	param.height_ = g_wnd_height;
-	param.wnd_ = (int)hwnd;
-	param.instance_ = (int)inst;
+	param.wnd_ = (int)g_wnd;
+	param.instance_ = (int)g_instance;
 	g_engine->Init(param);
 
 	g_file_util->SetDataFolder("../../bin/res/");

@@ -1,3 +1,4 @@
+#include "../engine_pch.h"
 #include "node.h"
 #include "util/assimp_util.h"
 

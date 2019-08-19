@@ -1,7 +1,7 @@
 #ifndef ENGINE_RENDERER_H
 #define ENGINE_RENDERER_H
 
-#include "engine_pch.h"
+#include <vector>
 #include "graphic/light_data.h"
 
 namespace engine{

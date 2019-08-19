@@ -1,10 +1,10 @@
 #ifndef ENGINE_MESH_TEXTURE_H
 #define ENGINE_MESH_TEXTURE_H
 
-#include "engine_pch.h"
+#include <string>
 
-namespace engine {
-
+namespace engine 
+{
 
 class Texture
 {
@@ -29,8 +29,8 @@ public:
 	
 	void SetType(Texture::Type type) { type_ = type; }
 
-	const string& file_name()const{ return file_name_; }
-	const Texture::Type type()const { return type_; }
+	const std::string& file_name()const{ return file_name_; }
+	Texture::Type type()const { return type_; }
 	const unsigned char* tex_data()const{ return tex_data_; }
 
 protected:
@@ -38,7 +38,7 @@ protected:
 	virtual void DoFree() = 0;
 
 protected:
-	string file_name_;
+	std::string file_name_;
 	Texture::Type type_;
 	unsigned char* tex_data_;
 	float width_;

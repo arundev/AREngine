@@ -1,7 +1,7 @@
 #ifndef ENGINE_INCLUDE_H
 #define ENGINE_INCLUDE_H
 
-
+#include "engine_define.h"
 #include "util/singleton.h"
 #include "util/file_util.h"
 #include "util/log.h"
@@ -14,6 +14,7 @@
 #include "math/math.h"
 #include "mesh/mesh.h"
 #include "scene/scene.h"
+#include "AntTweakBar.h"
 
 using namespace engine;
 

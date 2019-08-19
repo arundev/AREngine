@@ -1,3 +1,4 @@
+#include "../engine_pch.h"
 #include "camera_data.h"
 #include "dx11/util_dx11.h"
 

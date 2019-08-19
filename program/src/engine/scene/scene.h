@@ -1,7 +1,6 @@
 #ifndef ENGINE_SCENE_SCENE_H
 #define ENGINE_SCENE_SCENE_H
 
-#include "engine_pch.h"
 #include "node.h"
 #include "light.h"
 

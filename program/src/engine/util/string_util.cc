@@ -1,3 +1,4 @@
+#include "../engine_pch.h"
 #include "image_util.h"
 
 namespace engine {

@@ -1,3 +1,4 @@
+#include "../engine_pch.h"
 #include "fbx_importer.h"
 
 #ifdef IOS_REF

@@ -1,3 +1,4 @@
+#include "../engine_pch.h"
 #include "timer.h"
 
 namespace engine {

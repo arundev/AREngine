@@ -1,5 +1,5 @@
+#include "../engine_pch.h"
 #include "scene.h"
-
 #include "util/assimp_util.h"
 #include "renderer.h"
 

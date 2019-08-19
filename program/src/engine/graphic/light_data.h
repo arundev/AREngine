@@ -1,6 +1,7 @@
 #ifndef ENGINE_GRAPHIC_LIGHT_DATA_H
 #define ENGINE_GRAPHIC_LIGHT_DATA_H
-#include "engine_pch.h"
+
+#include "math/math.h"
 
 namespace engine {
 

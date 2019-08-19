@@ -1,7 +1,8 @@
 #ifndef ENGINE_GRAPHIC_SHADER_H
 #define ENGINE_GRAPHIC_SHADER_H
-#include "engine_pch.h"
 
+#include <vector>
+#include "math/math.h"
 #include "material_data.h"
 #include "light_data.h"
 
@@ -18,7 +19,7 @@ namespace engine
 		struct MatrixProperty
 		{
 			Matrix world_mat;
-			Matrix world_mat_inverse_transpose; // Äæ¾ØÕóµÄ×°ÖÃ
+			Matrix world_mat_inverse_transpose; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×°ï¿½ï¿½
 			Matrix world_view_proj_mat;
 		};
 

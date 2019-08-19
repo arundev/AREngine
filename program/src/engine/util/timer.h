@@ -5,7 +5,6 @@
 #include "time.h"
 #endif
 
-#include "engine_pch.h"
 #include "singleton.h"
 
 namespace engine {

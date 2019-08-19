@@ -1,3 +1,4 @@
+#include "../engine_pch.h"
 #include "material.h"
 #include <tchar.h>
 #include "graphic/camera_data.h"

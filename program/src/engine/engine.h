@@ -1,7 +1,6 @@
 #ifndef ENGINE_ENGINE_H
 #define ENGINE_ENGINE_H
 
-#include "engine_pch.h"
 #include "renderer.h"
 
 namespace engine {

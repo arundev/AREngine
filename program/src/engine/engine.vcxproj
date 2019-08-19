@@ -178,16 +178,21 @@
     <Text Include="rend_me.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="base\object.cpp" />
-    <ClCompile Include="dx11\shader_dx11.cpp" />
+    <ClCompile Include="base\object.cc" />
+    <ClCompile Include="dx11\shader_dx11.cc" />
     <ClCompile Include="dx11\geometry_dx11.cc" />
     <ClCompile Include="dx11\material_dx11.cc" />
     <ClCompile Include="dx11\texture_dx11.cc" />
     <ClCompile Include="dx11\util_dx11.cc" />
     <ClCompile Include="engine.cc" />
+    <ClCompile Include="engine_pch.cc">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">engine_pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="graphic\camera_data.cc" />
     <ClCompile Include="graphic\light_data.cc" />
-    <ClCompile Include="graphic\material_data.cpp" />
+    <ClCompile Include="graphic\material_data.cc" />
+    <ClCompile Include="graphic\shader.cc" />
     <ClCompile Include="math\aabb.cc" />
     <ClCompile Include="math\bsp_tree.cc" />
     <ClCompile Include="math\math.cc" />
@@ -199,23 +204,27 @@
     <ClCompile Include="math\polygon_list.cc" />
     <ClCompile Include="math\quaternion.cc" />
     <ClCompile Include="math\ray.cc" />
-    <ClCompile Include="math\vector.cpp" />
+    <ClCompile Include="math\vector.cc" />
     <ClCompile Include="mesh\geometry.cc" />
     <ClCompile Include="mesh\material.cc" />
     <ClCompile Include="mesh\mesh.cc" />
     <ClCompile Include="mesh\mesh_light.cc" />
-    <ClCompile Include="graphic\shader.cpp" />
     <ClCompile Include="mesh\texture.cc" />
+    <ClCompile Include="render\depth_stencil_state.cc" />
+    <ClCompile Include="render\rasterize_state.cc" />
+    <ClCompile Include="render\render_device.cc" />
+    <ClCompile Include="render\render_target.cc" />
+    <ClCompile Include="render\sampler_state.cc" />
     <ClCompile Include="scene\camera_node.cc" />
     <ClCompile Include="scene\light.cc" />
     <ClCompile Include="scene\node.cc" />
     <ClCompile Include="scene\scene.cc" />
     <ClCompile Include="test.cpp" />
-    <ClCompile Include="util\assimp\AnimEvaluator.cpp" />
-    <ClCompile Include="util\assimp\SceneAnimator.cpp" />
+    <ClCompile Include="util\assimp\AnimEvaluator.cc" />
+    <ClCompile Include="util\assimp\SceneAnimator.cc" />
     <ClCompile Include="util\assimp_util.cc" />
     <ClCompile Include="util\csv_parser.cc" />
-    <ClCompile Include="util\fbx\fbx_importer.cpp" />
+    <ClCompile Include="util\fbx_importer.cpp" />
     <ClCompile Include="util\image_util.cc" />
     <ClCompile Include="plateform.cc" />
     <ClCompile Include="renderer.cc" />
@@ -228,6 +237,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base\object.h" />
+    <ClInclude Include="base\rect.h" />
     <ClInclude Include="dx11\shader_dx11.h" />
     <ClInclude Include="dx11\dx11_include.h" />
     <ClInclude Include="dx11\geometry_dx11.h" />
@@ -235,10 +245,12 @@
     <ClInclude Include="dx11\texture_dx11.h" />
     <ClInclude Include="dx11\util_dx11.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="engine_define.h" />
     <ClInclude Include="engine_include.h" />
     <ClInclude Include="graphic\camera_data.h" />
     <ClInclude Include="graphic\light_data.h" />
     <ClInclude Include="graphic\material_data.h" />
+    <ClInclude Include="graphic\Viewport.h" />
     <ClInclude Include="math\math.h" />
     <ClInclude Include="mesh\geometry.h" />
     <ClInclude Include="mesh\material.h" />
@@ -246,6 +258,15 @@
     <ClInclude Include="mesh\mesh_light.h" />
     <ClInclude Include="graphic\shader.h" />
     <ClInclude Include="mesh\texture.h" />
+    <ClInclude Include="render\blend_state.h" />
+    <ClInclude Include="render\buffer.h" />
+    <ClInclude Include="render\depth_stencil_state.h" />
+    <ClInclude Include="render\rasterize_state.h" />
+    <ClInclude Include="render\render_device.h" />
+    <ClInclude Include="render\render_target.h" />
+    <ClInclude Include="render\sampler_state.h" />
+    <ClInclude Include="render\shader.h" />
+    <ClInclude Include="render\shader_parameter.h" />
     <ClInclude Include="scene\camera_node.h" />
     <ClInclude Include="scene\light.h" />
     <ClInclude Include="scene\node.h" />
@@ -254,7 +275,7 @@
     <ClInclude Include="util\assimp\SceneAnimator.h" />
     <ClInclude Include="util\assimp_util.h" />
     <ClInclude Include="util\csv_parser.h" />
-    <ClInclude Include="util\fbx\fbx_importer.h" />
+    <ClInclude Include="util\fbx_importer.h" />
     <ClInclude Include="util\image_util.h" />
     <ClInclude Include="plateform.h" />
     <ClInclude Include="renderer.h" />
@@ -273,6 +294,7 @@
     <None Include="math\plane.inl" />
     <None Include="math\ray.inl" />
     <None Include="math\vector.inl" />
+    <None Include="render\shader_parameter.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

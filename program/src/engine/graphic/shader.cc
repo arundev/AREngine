@@ -1,3 +1,4 @@
+#include "../engine_pch.h"
 #include "shader.h"
 
 namespace engine
@@ -18,7 +19,7 @@ void Shader::UpdateMatrixPropterty(const Matrix& world, const Matrix& view, cons
 
 void Shader::UpdateLightProperty(const std::vector<LightData*>& light_list, const Color& ambient_light, const Vector& eye_pos)
 {
-	int index = 0;
+	size_t index = 0;
 	for (; index <light_list.size() && index < MAX_LIGHTS_NUM; index++)
 	{
 		lights_.light[index] = *light_list[index];

@@ -1,8 +1,6 @@
 #ifndef ENGINE_GRAPHIC_CAMERA_H
 #define ENGINE_GRAPHIC_CAMERA_H
 
-#include "engine_pch.h"
-
 namespace engine {
 
 class BaseCamera
@@ -23,7 +21,7 @@ public:
 protected:
 	engine::Matrix view_mat_;
 
-	float rot_x_; // ÔÚ¾Ö²¿×ø±êÏµÏÂµÄEuler½Ç(Ðý×ª½Ç)
+	float rot_x_; // ï¿½Ú¾Ö²ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Âµï¿½Eulerï¿½ï¿½(ï¿½ï¿½×ªï¿½ï¿½)
 	float rot_y_;
 	float rot_z_;
 	engine::Vector position_;

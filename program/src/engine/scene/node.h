@@ -1,11 +1,13 @@
 #ifndef ENGINE_SCENE_NODE_H
 #define ENGINE_SCENE_NODE_H
 
-#include "engine_pch.h"
+#include "base/object.h"
 #include "mesh/mesh.h"
 
+class BaseCamera;
+
 namespace engine {
-	class Node : public engine::Object
+	class Node : public engine_base::Object
 	{
 	public:
 		Node();

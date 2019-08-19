@@ -1,5 +1,5 @@
+#include "../engine_pch.h"
 #include "mesh.h"
-
 
 namespace engine {
 
@@ -95,7 +95,7 @@ Mesh* Mesh::CreatMesh(const std::string& path,
 	std::string directory = FileUtil::getDirectory(path);
 
 
-	// CreateWICTextureFromFile不支持tag格式，转为png处理
+	// CreateWICTextureFromFile锟斤拷支锟斤拷tag锟斤拷式锟斤拷转为png锟斤拷锟斤拷
 	if (!baseTex.empty())
 	{
 		auto baseTexPath = directory + "/" + baseTex;

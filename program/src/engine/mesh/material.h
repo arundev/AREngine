@@ -1,7 +1,7 @@
 #ifndef ENGINE_MODEL_MATERIAL_H
 #define ENGINE_MODEL_MATERIAL_H
 
-#include "engine_pch.h"
+#include <string>
 #include "texture.h"
 #include "graphic/shader.h"
 
@@ -43,9 +43,9 @@ public:
 	const Matrix& proj_transform()const { return proj_mat_; }
 
 
-	const string& vs_file_name()const{ return vs_file_name_; }
-	const string& ps_file_name()const{ return ps_file_name_; }
-	const string& gs_file_name()const{ return gs_file_name_; }
+	const std::string& vs_file_name()const{ return vs_file_name_; }
+	const std::string& ps_file_name()const{ return ps_file_name_; }
+	const std::string& gs_file_name()const{ return gs_file_name_; }
 
 	const Texture* base_map()const { return base_map_; }
 	const Texture* normal_map()const { return normal_map_; }

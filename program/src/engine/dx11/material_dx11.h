@@ -1,7 +1,6 @@
 #ifndef ENGINE_DX11_MATERIAL_H
 #define ENGINE_DX11_MATERIAL_H
 
-#include "engine_pch.h"
 #include "mesh/material.h"
 #include "dx11_include.h"
 

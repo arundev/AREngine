@@ -1,3 +1,4 @@
+#include "../engine_pch.h"
 #include "camera_node.h"
 
 namespace engine {
