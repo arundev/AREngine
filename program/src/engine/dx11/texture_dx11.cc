@@ -1,4 +1,4 @@
-#include "../engine_pch.h"
+#include "engine_pch.h"
 #include "texture_dx11.h"
 #include "renderer_dx11.h"
 #include "util/image_util.h"

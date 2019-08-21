@@ -1,4 +1,4 @@
-#include "../engine_pch.h"
+#include "engine_pch.h"
 #include "assimp_util.h"
 #include "file_util.h"
 #include "mesh/mesh.h"

@@ -1,4 +1,4 @@
-#include "../engine_pch.h"
+#include "engine_pch.h"
 #include "renderer_dx11.h"
 #include "util_dx11.h"
 #include "util/log.h"

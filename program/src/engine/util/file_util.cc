@@ -1,4 +1,4 @@
-#include "../engine_pch.h"
+#include "engine_pch.h"
 #include "file_util.h"
 #include <shlobj.h>
 #include <direct.h>
